@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-13T08:35:07.696477+00:00",
+  "data_source": "simulated",
+  "granularity": "weekly",
+  "geography_level": "block",
+  "is_valid": true,
+  "unit_count": 6,
+  "date_range": {
+    "start": "2018-01-01",
+    "end": "2023-12-18"
+  },
+  "total_records": 1872,
+  "errors": [],
+  "warnings": [
+    "Extreme outlier in unit 'BLK_D' on 2018-08-27: 107 cases (mean=12.2, std=16.7).",
+    "Extreme outlier in unit 'BLK_E' on 2023-08-14: 206 cases (mean=19.6, std=31.1).",
+    "312 period(s) marked with reporting_flag == 0 (reporting disruption)."
+  ],
+  "weather_interpolated_count": 0,
+  "missing_cases_count": 0
+}

@@ -1,0 +1,517 @@
+{
+  "selected_model": {
+    "model_key": "hist_gradient_boosting",
+    "model_name": "HistGradientBoosting Classifier",
+    "model_version": "hist_gradient_boosting_v1.0",
+    "best_hyperparameters": {
+      "clf__l2_regularization": 1.0,
+      "clf__learning_rate": 0.08,
+      "clf__max_leaf_nodes": 31
+    },
+    "selection_rationale": "HistGradientBoosting Classifier achieved the highest validation Macro-F1 (0.9907), highest 5-fold CV Macro-F1 (0.9697 +/- 0.0050), and strong per-class recall across all 11 disease classes on the deduplicated validation split.",
+    "trained_at": "2026-10-12T10:39:35.350079+00:00"
+  },
+  "data_split_summary": {
+    "raw_rows": 5200,
+    "deduplicated_unique_rows": 4981,
+    "exact_duplicates_removed_before_split": 219,
+    "train_rows": 3486,
+    "val_rows": 747,
+    "test_rows": 748,
+    "split_ratios": {
+      "train": 0.6999,
+      "validation": 0.15,
+      "test": 0.1502
+    },
+    "cross_split_feature_overlap": {
+      "train_val_overlap": 0,
+      "train_test_overlap": 0,
+      "val_test_overlap": 0
+    },
+    "random_seed": 42
+  },
+  "model_comparison": [
+    {
+      "model_key": "hist_gradient_boosting",
+      "model_name": "HistGradientBoosting Classifier",
+      "best_params": {
+        "clf__l2_regularization": 1.0,
+        "clf__learning_rate": 0.08,
+        "clf__max_leaf_nodes": 31
+      },
+      "cv_5fold_macro_f1_mean": 0.9697,
+      "cv_5fold_macro_f1_std": 0.005,
+      "validation_metrics": {
+        "accuracy": 0.9893,
+        "balanced_accuracy": 0.9897,
+        "macro_precision": 0.9919,
+        "macro_recall": 0.9897,
+        "macro_f1": 0.9907,
+        "weighted_precision": 0.9894,
+        "weighted_recall": 0.9893,
+        "weighted_f1": 0.9893,
+        "log_loss": 0.0401
+      },
+      "training_search_time_sec": 41.681,
+      "validation_inference_time_sec": 0.1937
+    },
+    {
+      "model_key": "extra_trees",
+      "model_name": "Extra Trees Classifier",
+      "best_params": {
+        "clf__class_weight": null,
+        "clf__max_depth": null,
+        "clf__n_estimators": 250
+      },
+      "cv_5fold_macro_f1_mean": 0.9789,
+      "cv_5fold_macro_f1_std": 0.0023,
+      "validation_metrics": {
+        "accuracy": 0.9853,
+        "balanced_accuracy": 0.9851,
+        "macro_precision": 0.9872,
+        "macro_recall": 0.9851,
+        "macro_f1": 0.9861,
+        "weighted_precision": 0.9854,
+        "weighted_recall": 0.9853,
+        "weighted_f1": 0.9853,
+        "log_loss": 0.0674
+      },
+      "training_search_time_sec": 8.218,
+      "validation_inference_time_sec": 0.0472
+    },
+    {
+      "model_key": "random_forest",
+      "model_name": "Random Forest Classifier",
+      "best_params": {
+        "clf__class_weight": null,
+        "clf__max_depth": null,
+        "clf__n_estimators": 250
+      },
+      "cv_5fold_macro_f1_mean": 0.9779,
+      "cv_5fold_macro_f1_std": 0.0022,
+      "validation_metrics": {
+        "accuracy": 0.9853,
+        "balanced_accuracy": 0.9838,
+        "macro_precision": 0.9861,
+        "macro_recall": 0.9838,
+        "macro_f1": 0.9849,
+        "weighted_precision": 0.9853,
+        "weighted_recall": 0.9853,
+        "weighted_f1": 0.9853,
+        "log_loss": 0.0928
+      },
+      "training_search_time_sec": 12.253,
+      "validation_inference_time_sec": 0.0419
+    },
+    {
+      "model_key": "logistic_regression",
+      "model_name": "Logistic Regression (Baseline)",
+      "best_params": {
+        "clf__C": 3.0,
+        "clf__class_weight": null
+      },
+      "cv_5fold_macro_f1_mean": 0.9705,
+      "cv_5fold_macro_f1_std": 0.008,
+      "validation_metrics": {
+        "accuracy": 0.9759,
+        "balanced_accuracy": 0.9738,
+        "macro_precision": 0.9785,
+        "macro_recall": 0.9738,
+        "macro_f1": 0.976,
+        "weighted_precision": 0.9764,
+        "weighted_recall": 0.9759,
+        "weighted_f1": 0.976,
+        "log_loss": 0.078
+      },
+      "training_search_time_sec": 1.488,
+      "validation_inference_time_sec": 0.0078
+    }
+  ],
+  "test_set_evaluation": {
+    "test_rows": 748,
+    "metrics": {
+      "accuracy": 0.9853,
+      "balanced_accuracy": 0.9829,
+      "macro_precision": 0.9848,
+      "macro_recall": 0.9829,
+      "macro_f1": 0.9837,
+      "weighted_precision": 0.9855,
+      "weighted_recall": 0.9853,
+      "weighted_f1": 0.9853,
+      "log_loss": 0.0407
+    },
+    "batch_inference_time_sec": 0.1065,
+    "single_sample_inference_latency_ms": 30.784,
+    "classes": [
+      "Arthritis",
+      "Common Cold",
+      "Dengue",
+      "Eczema",
+      "Heart Attack",
+      "Heat Stroke",
+      "Influenza",
+      "Malaria",
+      "Migraine",
+      "Sinusitis",
+      "Stroke"
+    ],
+    "confusion_matrix": [
+      [
+        45,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        45,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        46,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        46,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        146,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        45,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        91,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        47,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        135,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        45,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        46
+      ]
+    ],
+    "per_class_report": {
+      "Arthritis": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 45
+      },
+      "Common Cold": {
+        "precision": 0.9184,
+        "recall": 0.9783,
+        "f1_score": 0.9474,
+        "support": 46
+      },
+      "Dengue": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 46
+      },
+      "Eczema": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 46
+      },
+      "Heart Attack": {
+        "precision": 0.9932,
+        "recall": 1.0,
+        "f1_score": 0.9966,
+        "support": 146
+      },
+      "Heat Stroke": {
+        "precision": 0.9783,
+        "recall": 0.9184,
+        "f1_score": 0.9474,
+        "support": 49
+      },
+      "Influenza": {
+        "precision": 0.9785,
+        "recall": 0.9579,
+        "f1_score": 0.9681,
+        "support": 95
+      },
+      "Malaria": {
+        "precision": 1.0,
+        "recall": 0.9792,
+        "f1_score": 0.9895,
+        "support": 48
+      },
+      "Migraine": {
+        "precision": 0.9854,
+        "recall": 1.0,
+        "f1_score": 0.9926,
+        "support": 135
+      },
+      "Sinusitis": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 45
+      },
+      "Stroke": {
+        "precision": 0.9787,
+        "recall": 0.9787,
+        "f1_score": 0.9787,
+        "support": 47
+      }
+    },
+    "top_confusion_pairs": [
+      {
+        "true_disease": "Influenza",
+        "predicted_disease": "Common Cold",
+        "count": 4
+      },
+      {
+        "true_disease": "Heat Stroke",
+        "predicted_disease": "Migraine",
+        "count": 2
+      },
+      {
+        "true_disease": "Common Cold",
+        "predicted_disease": "Influenza",
+        "count": 1
+      },
+      {
+        "true_disease": "Heat Stroke",
+        "predicted_disease": "Heart Attack",
+        "count": 1
+      },
+      {
+        "true_disease": "Heat Stroke",
+        "predicted_disease": "Stroke",
+        "count": 1
+      },
+      {
+        "true_disease": "Stroke",
+        "predicted_disease": "Heat Stroke",
+        "count": 1
+      },
+      {
+        "true_disease": "Malaria",
+        "predicted_disease": "Influenza",
+        "count": 1
+      }
+    ]
+  },
+  "top_feature_importances": [
+    {
+      "feature": "chest_pain",
+      "importance": 0.156141
+    },
+    {
+      "feature": "headache",
+      "importance": 0.099007
+    },
+    {
+      "feature": "rashes",
+      "importance": 0.039305
+    },
+    {
+      "feature": "diarrhea",
+      "importance": 0.038342
+    },
+    {
+      "feature": "high_fever",
+      "importance": 0.030244
+    },
+    {
+      "feature": "joint_pain",
+      "importance": 0.029249
+    },
+    {
+      "feature": "sneezing",
+      "importance": 0.028008
+    },
+    {
+      "feature": "vomiting",
+      "importance": 0.026223
+    },
+    {
+      "feature": "skin_irritation",
+      "importance": 0.026131
+    },
+    {
+      "feature": "rapid_heart_rate",
+      "importance": 0.024171
+    },
+    {
+      "feature": "itchiness",
+      "importance": 0.022618
+    },
+    {
+      "feature": "pain_behind_the_eyes",
+      "importance": 0.022472
+    },
+    {
+      "feature": "throbbing_headache",
+      "importance": 0.018133
+    },
+    {
+      "feature": "dizziness",
+      "importance": 0.016662
+    },
+    {
+      "feature": "nausea",
+      "importance": 0.015608
+    },
+    {
+      "feature": "chills",
+      "importance": 0.014508
+    },
+    {
+      "feature": "severe_headache",
+      "importance": 0.014491
+    },
+    {
+      "feature": "trouble_seeing",
+      "importance": 0.014196
+    },
+    {
+      "feature": "abdominal_pain",
+      "importance": 0.013052
+    },
+    {
+      "feature": "fatigue",
+      "importance": 0.011816
+    },
+    {
+      "feature": "weakness",
+      "importance": 0.011355
+    },
+    {
+      "feature": "confusion",
+      "importance": 0.010912
+    },
+    {
+      "feature": "sore_throat",
+      "importance": 0.010008
+    },
+    {
+      "feature": "back_pain",
+      "importance": 0.009961
+    },
+    {
+      "feature": "knee_ache",
+      "importance": 0.008735
+    }
+  ],
+  "limitations_and_medical_safety": [
+    "Trained on a static tabular dataset (`docs/Weather-related disease prediction.csv`, 5,200 rows; 4,981 unique records after removing 219 exact duplicates).",
+    "166 records in the source dataset have zero active binary symptom/history flags (mostly labeled Influenza or Migraine), which explains residual confusion among records lacking specific symptom combinations.",
+    "Stratified random splitting on deduplicated records evaluates in-distribution generalization only; it does NOT prove generalization to new geographic regions, future temporal outbreaks, or real clinical populations.",
+    "Experimental decision-support prototype only \u2014 predictions and probability scores are NOT confirmed medical diagnoses."
+  ]
+}

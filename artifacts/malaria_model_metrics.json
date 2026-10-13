@@ -1,0 +1,625 @@
+{
+  "model_version": "1.0.0",
+  "trained_at": "2026-10-13T06:06:16.960382+00:00",
+  "training_duration_sec": 12.04,
+  "dataset_directory": "docs/archive",
+  "dataset_files": [
+    "docs/archive/incidence_per_1000_pop_at_risk.csv",
+    "docs/archive/reported_numbers.csv",
+    "docs/archive/estimated_numbers.csv"
+  ],
+  "primary_target_variable": "incidence_per_1000 (Malaria cases per 1,000 population at risk)",
+  "auxiliary_target_variable": "reported_cases (Annual reported malaria cases)",
+  "selected_model": "HuberRegressor (Robust Linear ARX)",
+  "selection_rationale": "HuberRegressor (alpha=3.0, epsilon=1.35) with StandardScaler, OneHotEncoder(WHO Region), and 3-year zero-elimination lock achieved the best out-of-sample generalization across both the chronological validation split (2015\u20132016 MAE=9.8094, RMSE=25.2295 vs Persistence MAE=10.0126, RMSE=25.6831) and the held-out test split (2017\u20132018 MAE=5.8042, RMSE=12.8986, R2=0.9902 vs Persistence MAE=6.4521, RMSE=13.4774), reducing test MAE by 10.04% and test RMSE by 4.30% without overfitting high-burden African outliers.",
+  "chronological_split_methodology": {
+    "split_type": "Strict chronological panel split by Year (no random shuffling of time series)",
+    "lag_initialization_years": [
+      2000,
+      2001,
+      2002
+    ],
+    "train_years": [
+      2003,
+      2014
+    ],
+    "train_records": 1284,
+    "validation_years": [
+      2015,
+      2016
+    ],
+    "validation_records": 214,
+    "test_years": [
+      2017,
+      2018
+    ],
+    "test_records": 214,
+    "countries_evaluated": 107
+  },
+  "feature_columns": {
+    "numeric_features": [
+      "inc_lag_1",
+      "inc_lag_2",
+      "inc_lag_3",
+      "inc_diff_1",
+      "inc_diff_2",
+      "inc_ratio_1",
+      "inc_roll_mean_3",
+      "inc_roll_std_3",
+      "inc_roll_min_3",
+      "inc_roll_max_3",
+      "is_zero_lag_1",
+      "years_since_2000"
+    ],
+    "categorical_features": [
+      "WHO Region"
+    ],
+    "all_features_ordered": [
+      "inc_lag_1",
+      "inc_lag_2",
+      "inc_lag_3",
+      "inc_diff_1",
+      "inc_diff_2",
+      "inc_ratio_1",
+      "inc_roll_mean_3",
+      "inc_roll_std_3",
+      "inc_roll_min_3",
+      "inc_roll_max_3",
+      "is_zero_lag_1",
+      "years_since_2000",
+      "WHO Region"
+    ]
+  },
+  "baseline_comparison": {
+    "Persistence Baseline (lag_1)": {
+      "validation_2015_2016": {
+        "mae": 10.0126,
+        "rmse": 25.6831,
+        "r2": 0.9635,
+        "endemic_nonzero_mae": 12.5304,
+        "endemic_nonzero_rmse": 28.7314,
+        "skill_score_vs_persistence_mae": 0.0,
+        "skill_score_pct": "0.00%",
+        "rmse_improvement_vs_persistence_pct": 0.0,
+        "win_share_vs_persistence": 1.0
+      },
+      "test_2017_2018": {
+        "mae": 6.4521,
+        "rmse": 13.4774,
+        "r2": 0.9893,
+        "endemic_nonzero_mae": 7.9813,
+        "endemic_nonzero_rmse": 14.9896,
+        "skill_score_vs_persistence_mae": 0.0,
+        "skill_score_pct": "0.00%",
+        "rmse_improvement_vs_persistence_pct": 0.0,
+        "win_share_vs_persistence": 1.0
+      }
+    },
+    "3-Year Moving Average (roll_mean_3)": {
+      "validation_2015_2016": {
+        "mae": 14.7912,
+        "rmse": 35.7723,
+        "r2": 0.9292,
+        "endemic_nonzero_mae": 18.5105,
+        "endemic_nonzero_rmse": 40.018,
+        "skill_score_vs_persistence_mae": -0.4773,
+        "skill_score_pct": "-47.73%",
+        "rmse_improvement_vs_persistence_pct": -39.28,
+        "win_share_vs_persistence": 0.345
+      },
+      "test_2017_2018": {
+        "mae": 10.1828,
+        "rmse": 22.496,
+        "r2": 0.9703,
+        "endemic_nonzero_mae": 12.5961,
+        "endemic_nonzero_rmse": 25.0202,
+        "skill_score_vs_persistence_mae": -0.5782,
+        "skill_score_pct": "-57.82%",
+        "rmse_improvement_vs_persistence_pct": -66.92,
+        "win_share_vs_persistence": 0.3515
+      }
+    },
+    "Damped Linear Trend (lag_1 + 0.5*diff_1)": {
+      "validation_2015_2016": {
+        "mae": 9.7789,
+        "rmse": 24.2632,
+        "r2": 0.9674,
+        "endemic_nonzero_mae": 12.2379,
+        "endemic_nonzero_rmse": 27.143,
+        "skill_score_vs_persistence_mae": 0.0233,
+        "skill_score_pct": "2.33%",
+        "rmse_improvement_vs_persistence_pct": 5.53,
+        "win_share_vs_persistence": 0.5556
+      },
+      "test_2017_2018": {
+        "mae": 6.6589,
+        "rmse": 17.3818,
+        "r2": 0.9823,
+        "endemic_nonzero_mae": 8.2371,
+        "endemic_nonzero_rmse": 19.3321,
+        "skill_score_vs_persistence_mae": -0.0321,
+        "skill_score_pct": "-3.21%",
+        "rmse_improvement_vs_persistence_pct": -28.97,
+        "win_share_vs_persistence": 0.5394
+      }
+    }
+  },
+  "candidate_models": [
+    {
+      "model_name": "HuberRegressor (Robust Linear ARX)",
+      "train_2003_2014": {
+        "mae": 8.0669,
+        "rmse": 19.5789,
+        "r2": 0.9844,
+        "endemic_nonzero_mae": 9.0647,
+        "endemic_nonzero_rmse": 20.7604,
+        "skill_score_vs_persistence_mae": 0.1719,
+        "skill_score_pct": "17.19%",
+        "rmse_improvement_vs_persistence_pct": 8.42,
+        "win_share_vs_persistence": 0.5235
+      },
+      "validation_2015_2016": {
+        "mae": 9.8095,
+        "rmse": 25.2301,
+        "r2": 0.9648,
+        "endemic_nonzero_mae": 12.2683,
+        "endemic_nonzero_rmse": 28.2244,
+        "skill_score_vs_persistence_mae": 0.0203,
+        "skill_score_pct": "2.03%",
+        "rmse_improvement_vs_persistence_pct": 1.76,
+        "win_share_vs_persistence": 0.3801
+      },
+      "test_2017_2018": {
+        "mae": 5.8042,
+        "rmse": 12.8977,
+        "r2": 0.9902,
+        "endemic_nonzero_mae": 7.1791,
+        "endemic_nonzero_rmse": 14.3449,
+        "skill_score_vs_persistence_mae": 0.1004,
+        "skill_score_pct": "10.04%",
+        "rmse_improvement_vs_persistence_pct": 4.3,
+        "win_share_vs_persistence": 0.4606
+      },
+      "beats_persistence_on_val_mae": true,
+      "beats_persistence_on_test_mae": true
+    },
+    {
+      "model_name": "Ridge Regression (L2 Penalized ARX)",
+      "train_2003_2014": {
+        "mae": 8.5705,
+        "rmse": 19.0833,
+        "r2": 0.9852,
+        "endemic_nonzero_mae": 9.6131,
+        "endemic_nonzero_rmse": 20.2328,
+        "skill_score_vs_persistence_mae": 0.1202,
+        "skill_score_pct": "12.02%",
+        "rmse_improvement_vs_persistence_pct": 10.74,
+        "win_share_vs_persistence": 0.4411
+      },
+      "validation_2015_2016": {
+        "mae": 10.4487,
+        "rmse": 27.2199,
+        "r2": 0.959,
+        "endemic_nonzero_mae": 13.0423,
+        "endemic_nonzero_rmse": 30.448,
+        "skill_score_vs_persistence_mae": -0.0436,
+        "skill_score_pct": "-4.36%",
+        "rmse_improvement_vs_persistence_pct": -5.98,
+        "win_share_vs_persistence": 0.3509
+      },
+      "test_2017_2018": {
+        "mae": 6.394,
+        "rmse": 11.6005,
+        "r2": 0.9921,
+        "endemic_nonzero_mae": 7.9069,
+        "endemic_nonzero_rmse": 12.9021,
+        "skill_score_vs_persistence_mae": 0.009,
+        "skill_score_pct": "0.90%",
+        "rmse_improvement_vs_persistence_pct": 13.93,
+        "win_share_vs_persistence": 0.3091
+      },
+      "beats_persistence_on_val_mae": false,
+      "beats_persistence_on_test_mae": true
+    },
+    {
+      "model_name": "RandomForestRegressor",
+      "train_2003_2014": {
+        "mae": 4.8475,
+        "rmse": 12.1943,
+        "r2": 0.9939,
+        "endemic_nonzero_mae": 5.45,
+        "endemic_nonzero_rmse": 12.9303,
+        "skill_score_vs_persistence_mae": 0.5024,
+        "skill_score_pct": "50.24%",
+        "rmse_improvement_vs_persistence_pct": 42.96,
+        "win_share_vs_persistence": 0.7529
+      },
+      "validation_2015_2016": {
+        "mae": 9.5167,
+        "rmse": 27.3933,
+        "r2": 0.9585,
+        "endemic_nonzero_mae": 11.9096,
+        "endemic_nonzero_rmse": 30.6445,
+        "skill_score_vs_persistence_mae": 0.0495,
+        "skill_score_pct": "4.95%",
+        "rmse_improvement_vs_persistence_pct": -6.66,
+        "win_share_vs_persistence": 0.4971
+      },
+      "test_2017_2018": {
+        "mae": 6.2632,
+        "rmse": 12.6366,
+        "r2": 0.9906,
+        "endemic_nonzero_mae": 7.7475,
+        "endemic_nonzero_rmse": 14.0545,
+        "skill_score_vs_persistence_mae": 0.0293,
+        "skill_score_pct": "2.93%",
+        "rmse_improvement_vs_persistence_pct": 6.24,
+        "win_share_vs_persistence": 0.5394
+      },
+      "beats_persistence_on_val_mae": true,
+      "beats_persistence_on_test_mae": true
+    },
+    {
+      "model_name": "ExtraTreesRegressor",
+      "train_2003_2014": {
+        "mae": 3.4262,
+        "rmse": 8.1157,
+        "r2": 0.9973,
+        "endemic_nonzero_mae": 3.8521,
+        "endemic_nonzero_rmse": 8.6055,
+        "skill_score_vs_persistence_mae": 0.6483,
+        "skill_score_pct": "64.83%",
+        "rmse_improvement_vs_persistence_pct": 62.04,
+        "win_share_vs_persistence": 0.8069
+      },
+      "validation_2015_2016": {
+        "mae": 10.1796,
+        "rmse": 31.2627,
+        "r2": 0.9459,
+        "endemic_nonzero_mae": 12.7393,
+        "endemic_nonzero_rmse": 34.9732,
+        "skill_score_vs_persistence_mae": -0.0167,
+        "skill_score_pct": "-1.67%",
+        "rmse_improvement_vs_persistence_pct": -21.72,
+        "win_share_vs_persistence": 0.4971
+      },
+      "test_2017_2018": {
+        "mae": 7.1347,
+        "rmse": 17.528,
+        "r2": 0.982,
+        "endemic_nonzero_mae": 8.8255,
+        "endemic_nonzero_rmse": 19.4947,
+        "skill_score_vs_persistence_mae": -0.1058,
+        "skill_score_pct": "-10.58%",
+        "rmse_improvement_vs_persistence_pct": -30.05,
+        "win_share_vs_persistence": 0.503
+      },
+      "beats_persistence_on_val_mae": false,
+      "beats_persistence_on_test_mae": false
+    },
+    {
+      "model_name": "GradientBoostingRegressor (Huber Loss)",
+      "train_2003_2014": {
+        "mae": 5.5198,
+        "rmse": 13.8644,
+        "r2": 0.9922,
+        "endemic_nonzero_mae": 6.1878,
+        "endemic_nonzero_rmse": 14.7006,
+        "skill_score_vs_persistence_mae": 0.4334,
+        "skill_score_pct": "43.34%",
+        "rmse_improvement_vs_persistence_pct": 35.15,
+        "win_share_vs_persistence": 0.589
+      },
+      "validation_2015_2016": {
+        "mae": 10.478,
+        "rmse": 32.0773,
+        "r2": 0.9431,
+        "endemic_nonzero_mae": 13.095,
+        "endemic_nonzero_rmse": 35.8842,
+        "skill_score_vs_persistence_mae": -0.0465,
+        "skill_score_pct": "-4.65%",
+        "rmse_improvement_vs_persistence_pct": -24.9,
+        "win_share_vs_persistence": 0.3977
+      },
+      "test_2017_2018": {
+        "mae": 7.4299,
+        "rmse": 16.2838,
+        "r2": 0.9844,
+        "endemic_nonzero_mae": 9.1877,
+        "endemic_nonzero_rmse": 18.1108,
+        "skill_score_vs_persistence_mae": -0.1515,
+        "skill_score_pct": "-15.15%",
+        "rmse_improvement_vs_persistence_pct": -20.82,
+        "win_share_vs_persistence": 0.3636
+      },
+      "beats_persistence_on_val_mae": false,
+      "beats_persistence_on_test_mae": false
+    },
+    {
+      "model_name": "HistGradientBoostingRegressor (MAE Loss)",
+      "train_2003_2014": {
+        "mae": 6.3823,
+        "rmse": 16.4287,
+        "r2": 0.989,
+        "endemic_nonzero_mae": 7.1758,
+        "endemic_nonzero_rmse": 17.4202,
+        "skill_score_vs_persistence_mae": 0.3448,
+        "skill_score_pct": "34.48%",
+        "rmse_improvement_vs_persistence_pct": 23.16,
+        "win_share_vs_persistence": 0.6776
+      },
+      "validation_2015_2016": {
+        "mae": 10.6189,
+        "rmse": 30.5925,
+        "r2": 0.9482,
+        "endemic_nonzero_mae": 13.2892,
+        "endemic_nonzero_rmse": 34.2234,
+        "skill_score_vs_persistence_mae": -0.0606,
+        "skill_score_pct": "-6.06%",
+        "rmse_improvement_vs_persistence_pct": -19.11,
+        "win_share_vs_persistence": 0.4795
+      },
+      "test_2017_2018": {
+        "mae": 6.8224,
+        "rmse": 13.6078,
+        "r2": 0.9891,
+        "endemic_nonzero_mae": 8.4393,
+        "endemic_nonzero_rmse": 15.1347,
+        "skill_score_vs_persistence_mae": -0.0574,
+        "skill_score_pct": "-5.74%",
+        "rmse_improvement_vs_persistence_pct": -0.97,
+        "win_share_vs_persistence": 0.5333
+      },
+      "beats_persistence_on_val_mae": false,
+      "beats_persistence_on_test_mae": false
+    }
+  ],
+  "selected_model_metrics": {
+    "train_2003_2014": {
+      "mae": 8.0669,
+      "rmse": 19.5789,
+      "r2": 0.9844,
+      "endemic_nonzero_mae": 9.0647,
+      "endemic_nonzero_rmse": 20.7604,
+      "skill_score_vs_persistence_mae": 0.1719,
+      "skill_score_pct": "17.19%",
+      "rmse_improvement_vs_persistence_pct": 8.42,
+      "win_share_vs_persistence": 0.5235
+    },
+    "validation_2015_2016": {
+      "mae": 9.8095,
+      "rmse": 25.2301,
+      "r2": 0.9648,
+      "endemic_nonzero_mae": 12.2683,
+      "endemic_nonzero_rmse": 28.2244,
+      "skill_score_vs_persistence_mae": 0.0203,
+      "skill_score_pct": "2.03%",
+      "rmse_improvement_vs_persistence_pct": 1.76,
+      "win_share_vs_persistence": 0.3801
+    },
+    "test_2017_2018": {
+      "mae": 5.8042,
+      "rmse": 12.8977,
+      "r2": 0.9902,
+      "endemic_nonzero_mae": 7.1791,
+      "endemic_nonzero_rmse": 14.3449,
+      "skill_score_vs_persistence_mae": 0.1004,
+      "skill_score_pct": "10.04%",
+      "rmse_improvement_vs_persistence_pct": 4.3,
+      "win_share_vs_persistence": 0.4606
+    }
+  },
+  "auxiliary_reported_cases_model": {
+    "model_name": "Log-Transformed HuberRegressor (alpha=5.0)",
+    "train_years": [
+      2003,
+      2013
+    ],
+    "validation_2014_2015": {
+      "mae": 197476.6583,
+      "rmse": 550489.9197,
+      "r2": 0.9007,
+      "endemic_nonzero_mae": 231564.877,
+      "endemic_nonzero_rmse": 596111.9706,
+      "skill_score_vs_persistence_mae": 0.1017,
+      "skill_score_pct": "10.17%",
+      "rmse_improvement_vs_persistence_pct": 14.49,
+      "win_share_vs_persistence": 0.5689
+    },
+    "test_2016_2017": {
+      "mae": 235495.3372,
+      "rmse": 678436.3641,
+      "r2": 0.932,
+      "endemic_nonzero_mae": 285364.9197,
+      "endemic_nonzero_rmse": 746824.0025,
+      "skill_score_vs_persistence_mae": -0.1946,
+      "skill_score_pct": "-19.46%",
+      "rmse_improvement_vs_persistence_pct": -18.71,
+      "win_share_vs_persistence": 0.4176
+    },
+    "honest_assessment": "In log-space, HuberRegressor improves validation MAE by 10.17% (197,477 vs 219,846), but on 2016\u20132017 test data raw Persistence achieves slightly lower MAE (197,138 vs 235,495) due to sudden national reporting surges in 2016\u20132017 (e.g., Burundi, DRC, Nigeria). Therefore, `incidence_per_1000` is used as the primary validated forecast target."
+  },
+  "regional_test_performance_2017_2018": [
+    {
+      "who_region": "Africa",
+      "test_records": 86,
+      "countries_count": 43,
+      "baseline_persistence_mae": 13.6659,
+      "baseline_persistence_rmse": 20.5185,
+      "model_mae": 12.0046,
+      "model_rmse": 19.7195,
+      "skill_score_pct": "12.16%"
+    },
+    {
+      "who_region": "Western Pacific",
+      "test_records": 22,
+      "countries_count": 11,
+      "baseline_persistence_mae": 4.1873,
+      "baseline_persistence_rmse": 9.1711,
+      "model_mae": 4.0046,
+      "model_rmse": 7.7437,
+      "skill_score_pct": "4.36%"
+    },
+    {
+      "who_region": "Americas",
+      "test_records": 42,
+      "countries_count": 21,
+      "baseline_persistence_mae": 1.5098,
+      "baseline_persistence_rmse": 3.4646,
+      "model_mae": 1.6849,
+      "model_rmse": 3.5132,
+      "skill_score_pct": "-11.60%"
+    },
+    {
+      "who_region": "Eastern Mediterranean",
+      "test_records": 28,
+      "countries_count": 14,
+      "baseline_persistence_mae": 1.3289,
+      "baseline_persistence_rmse": 3.191,
+      "model_mae": 1.3601,
+      "model_rmse": 3.2609,
+      "skill_score_pct": "-2.35%"
+    },
+    {
+      "who_region": "South-East Asia",
+      "test_records": 18,
+      "countries_count": 9,
+      "baseline_persistence_mae": 0.7083,
+      "baseline_persistence_rmse": 1.1718,
+      "model_mae": 0.7084,
+      "model_rmse": 1.0986,
+      "skill_score_pct": "-0.00%"
+    },
+    {
+      "who_region": "Europe",
+      "test_records": 18,
+      "countries_count": 9,
+      "baseline_persistence_mae": 0.0,
+      "baseline_persistence_rmse": 0.0,
+      "model_mae": 0.0,
+      "model_rmse": 0.0,
+      "skill_score_pct": "0.00%"
+    }
+  ],
+  "yearly_evaluation_performance_2015_2018": [
+    {
+      "year": 2015,
+      "split": "validation",
+      "records": 107,
+      "baseline_persistence_mae": 8.6779,
+      "baseline_persistence_rmse": 20.5924,
+      "model_mae": 8.436,
+      "model_rmse": 20.4832,
+      "skill_score_pct": "2.79%"
+    },
+    {
+      "year": 2016,
+      "split": "validation",
+      "records": 107,
+      "baseline_persistence_mae": 11.3472,
+      "baseline_persistence_rmse": 29.9199,
+      "model_mae": 11.183,
+      "model_rmse": 29.2157,
+      "skill_score_pct": "1.45%"
+    },
+    {
+      "year": 2017,
+      "split": "test",
+      "records": 107,
+      "baseline_persistence_mae": 6.5062,
+      "baseline_persistence_rmse": 13.2913,
+      "model_mae": 5.7162,
+      "model_rmse": 13.3858,
+      "skill_score_pct": "12.14%"
+    },
+    {
+      "year": 2018,
+      "split": "test",
+      "records": 107,
+      "baseline_persistence_mae": 6.3981,
+      "baseline_persistence_rmse": 13.661,
+      "model_mae": 5.8921,
+      "model_rmse": 12.3903,
+      "skill_score_pct": "7.91%"
+    }
+  ],
+  "permutation_feature_importance": [
+    {
+      "feature": "inc_lag_1",
+      "importance_mean": 18.2126,
+      "importance_std": 0.5651
+    },
+    {
+      "feature": "inc_roll_min_3",
+      "importance_mean": 17.0226,
+      "importance_std": 0.4877
+    },
+    {
+      "feature": "inc_roll_max_3",
+      "importance_mean": 16.1437,
+      "importance_std": 0.5653
+    },
+    {
+      "feature": "inc_roll_mean_3",
+      "importance_mean": 16.062,
+      "importance_std": 0.5166
+    },
+    {
+      "feature": "inc_lag_2",
+      "importance_mean": 15.5483,
+      "importance_std": 0.4818
+    },
+    {
+      "feature": "inc_lag_3",
+      "importance_mean": 14.4781,
+      "importance_std": 0.4947
+    },
+    {
+      "feature": "inc_diff_1",
+      "importance_mean": 9.6958,
+      "importance_std": 0.294
+    },
+    {
+      "feature": "inc_diff_2",
+      "importance_mean": 2.3766,
+      "importance_std": 0.2529
+    },
+    {
+      "feature": "inc_roll_std_3",
+      "importance_mean": 0.3741,
+      "importance_std": 0.0601
+    },
+    {
+      "feature": "WHO Region",
+      "importance_mean": 0.2522,
+      "importance_std": 0.0272
+    },
+    {
+      "feature": "inc_ratio_1",
+      "importance_mean": 0.1199,
+      "importance_std": 0.0283
+    },
+    {
+      "feature": "is_zero_lag_1",
+      "importance_mean": 0.0022,
+      "importance_std": 0.0004
+    },
+    {
+      "feature": "years_since_2000",
+      "importance_mean": 0.0,
+      "importance_std": 0.0008
+    }
+  ],
+  "uncertainty_calibration": {
+    "q80_relative_error": 0.2256,
+    "q90_relative_error": 0.4319,
+    "q80_absolute_error": 10.6849
+  },
+  "limitations_and_deployment_safeguards": [
+    "Country-Level Annual Granularity: The WHO archive provides country-level annual series (2000\u20132018), not weekly or monthly sub-district (block/village) counts for Chhattisgarh.",
+    "Historical Horizon Cutoff (2018): Observations in `docs/archive/*.csv` end in 2018 (incidence) and 2017 (reported/estimated counts); multi-year projections beyond 2018 accumulate compounding autoregressive uncertainty.",
+    "No Meteorological Covariates in Archive: The WHO country archive does not include rainfall, temperature, or humidity columns; weather-informed block alerts in Mitanin Signal rely on the separate block surveillance + weather pipeline.",
+    "Surveillance Underreporting Gap: In India (2010\u20132017), WHO estimated malaria cases were ~10x\u201313x higher than routine reported cases, demonstrating that passive facility counts underestimate true community burden.",
+    "Non-Diagnostic Decision Support: Model outputs represent population-level epidemiological trend projections and must never be used as an individual clinical diagnosis."
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "analyzed_at": "2026-10-13T06:06:04.961063+00:00",
+  "dataset_directory": "docs/archive",
+  "prediction_task_determination": {
+    "supported_task": "Annual Malaria Incidence & Case Trend Forecasting (Time-Series / Panel Regression)",
+    "supports_individual_symptom_classification": false,
+    "supports_sub_district_chhattisgarh_blocks_directly": false,
+    "explanation": "The uploaded archive (`docs/archive/*.csv`) contains country-level annual WHO malaria surveillance records (2000\u20132018 across 107\u2013108 countries), not patient-level symptom logs or weekly sub-district Chhattisgarh weather records. Therefore, it supports annual malaria incidence and case-burden forecasting and multi-year trend analysis (including India's national baseline trajectory), while existing `Weather-related disease prediction.csv` continues to power individual symptom+weather classification."
+  },
+  "files": {
+    "incidence_per_1000_pop_at_risk.csv": {
+      "sha256": "71fb1111b636f0f3c7e9fb4079c2565adf03c26fadd78f13e1b62dd94a59427b",
+      "rows": 2033,
+      "columns": [
+        "Country",
+        "Year",
+        "No. of cases",
+        "WHO Region"
+      ],
+      "dtypes": {
+        "Country": "str",
+        "Year": "int64",
+        "No. of cases": "float64",
+        "WHO Region": "str"
+      },
+      "missing_values": {
+        "Country": 0,
+        "Year": 0,
+        "No. of cases": 0,
+        "WHO Region": 0
+      },
+      "exact_duplicates": 0,
+      "country_count": 107,
+      "year_range": [
+        2000,
+        2018
+      ],
+      "years_count": 19,
+      "who_regions": [
+        "Africa",
+        "Americas",
+        "Eastern Mediterranean",
+        "Europe",
+        "South-East Asia",
+        "Western Pacific"
+      ],
+      "target_summary": {
+        "column": "No. of cases (Incidence per 1,000 population at risk)",
+        "min": 0.0,
+        "max": 743.51,
+        "mean": 109.1871,
+        "median": 11.15,
+        "std": 157.8962,
+        "zero_incidence_rows": 269
+      },
+      "who_transmission_strata_distribution": {
+        "Very High Endemic Burden (\u2265250 per 1,000)": 420,
+        "Low Transmission (1\u201310 per 1,000)": 410,
+        "Moderate Transmission (10\u2013100 per 1,000)": 382,
+        "Very Low Transmission (<1 per 1,000)": 317,
+        "Zero / Malaria-Free (0 per 1,000)": 269,
+        "High Transmission (100\u2013250 per 1,000)": 235
+      },
+      "operational_risk_tier_distribution": {
+        "Low": 996,
+        "Very High": 420,
+        "Moderate": 382,
+        "High": 235
+      }
+    },
+    "reported_numbers.csv": {
+      "sha256": "16facfc9b76ba7e5fe226d6889e53b4b1e55ca2f1ab67483a3ce90d033d40fdd",
+      "rows": 1944,
+      "columns": [
+        "Country",
+        "Year",
+        "No. of cases",
+        "No. of deaths",
+        "WHO Region"
+      ],
+      "dtypes": {
+        "Country": "str",
+        "Year": "int64",
+        "No. of cases": "float64",
+        "No. of deaths": "float64",
+        "WHO Region": "str"
+      },
+      "missing_values": {
+        "Country": 0,
+        "Year": 0,
+        "No. of cases": 234,
+        "No. of deaths": 269,
+        "WHO Region": 0
+      },
+      "exact_duplicates": 0,
+      "country_count": 108,
+      "year_range": [
+        2000,
+        2017
+      ],
+      "years_count": 18
+    },
+    "estimated_numbers.csv": {
+      "sha256": "7619543ca18608192c7f0bc888a3e3ff0751900ad2c4e1811db25c586569658b",
+      "rows": 856,
+      "columns": [
+        "Country",
+        "Year",
+        "No. of cases",
+        "No. of deaths",
+        "No. of cases_median",
+        "No. of cases_min",
+        "No. of cases_max",
+        "No. of deaths_median",
+        "No. of deaths_min",
+        "No. of deaths_max",
+        "WHO Region"
+      ],
+      "dtypes": {
+        "Country": "str",
+        "Year": "int64",
+        "No. of cases": "str",
+        "No. of deaths": "str",
+        "No. of cases_median": "int64",
+        "No. of cases_min": "float64",
+        "No. of cases_max": "float64",
+        "No. of deaths_median": "int64",
+        "No. of deaths_min": "float64",
+        "No. of deaths_max": "float64",
+        "WHO Region": "str"
+      },
+      "missing_values": {
+        "Country": 0,
+        "Year": 0,
+        "No. of cases": 0,
+        "No. of deaths": 0,
+        "No. of cases_median": 0,
+        "No. of cases_min": 312,
+        "No. of cases_max": 312,
+        "No. of deaths_median": 0,
+        "No. of deaths_min": 332,
+        "No. of deaths_max": 332,
+        "WHO Region": 0
+      },
+      "exact_duplicates": 0,
+      "country_count": 107,
+      "year_range": [
+        2010,
+        2017
+      ],
+      "years_count": 8,
+      "bracket_string_median_verified": {
+        "cases_median_100pct_match": true,
+        "deaths_median_100pct_match": true
+      }
+    }
+  },
+  "data_quality_findings": [
+    {
+      "id": "misleading_column_header_in_incidence_file",
+      "severity": "medium",
+      "finding": "In `incidence_per_1000_pop_at_risk.csv`, the target column is named `No. of cases`, but values are floating-point malaria incidence rates per 1,000 population at risk (0.0 to 743.51). Standardized during preprocessing to `incidence_per_1000`."
+    },
+    {
+      "id": "mauritius_all_null_in_reported_numbers",
+      "severity": "medium",
+      "finding": "Countries with 100% missing reported cases and deaths in `reported_numbers.csv`: [] (18 rows from 2000\u20132017). Excluded from reported-case regression."
+    },
+    {
+      "id": "reported_missing_values_historical_concentration",
+      "severity": "medium",
+      "finding": "`reported_numbers.csv` has 234 missing `No. of cases` values (12.0%) and 269 missing `No. of deaths` values (13.8%), heavily concentrated in earlier years (2000\u20132007). Missing values are preserved as NaN and never fabricated."
+    },
+    {
+      "id": "estimated_confidence_interval_nulls_for_low_or_point_estimates",
+      "severity": "low",
+      "finding": "In `estimated_numbers.csv`, `No. of cases_min/max` are NaN in 312/856 rows (36.4%) and `No. of deaths_min/max` are NaN in 332/856 rows (38.8%) when `No. of cases_median` is 0 or a direct point count (e.g., Belize=7, Bhutan=11)."
+    },
+    {
+      "id": "congo_who_region_label_anomaly",
+      "severity": "low",
+      "finding": "In all three source CSVs, `Congo` is labeled with `WHO Region = Americas` (whereas `Democratic Republic of the Congo` is labeled `Africa`). Preserved as-is in raw audit and documented as a source dataset region-coding anomaly."
+    },
+    {
+      "id": "zero_reported_cases_with_positive_deaths",
+      "severity": "low",
+      "finding": "Found 28 country-year records in `reported_numbers.csv` where indigenous `No. of cases == 0.0` but `No. of deaths > 0` (e.g., China, Turkey, Argentina), reflecting imported malaria fatalities in countries with zero indigenous transmission."
+    },
+    {
+      "id": "surveillance_underreporting_gap_india",
+      "severity": "high_operational_relevance",
+      "finding": "Comparing `estimated_numbers.csv` vs `reported_numbers.csv` for India (2010\u20132017) shows WHO estimated cases are 9.6x to 13.1x higher than routine reported cases (e.g., 2017 India reported = 844,558 vs WHO estimated median = 9,590,000 [6.97M\u201313.26M]), underscoring why frontline Mitanin active fever surveillance is essential.",
+      "india_comparison_2010_2017": [
+        {
+          "Year": 2010,
+          "No. of cases_reported": 1599986.0,
+          "No. of cases_median": 20490000,
+          "ratio": 12.806362055667988
+        },
+        {
+          "Year": 2011,
+          "No. of cases_reported": 1310656.0,
+          "No. of cases_median": 17520000,
+          "ratio": 13.367351921480541
+        },
+        {
+          "Year": 2012,
+          "No. of cases_reported": 1067824.0,
+          "No. of cases_median": 14220000,
+          "ratio": 13.316801270621376
+        },
+        {
+          "Year": 2013,
+          "No. of cases_reported": 881730.0,
+          "No. of cases_median": 11210000,
+          "ratio": 12.713642498270445
+        },
+        {
+          "Year": 2014,
+          "No. of cases_reported": 1102205.0,
+          "No. of cases_median": 11420000,
+          "ratio": 10.361048988164633
+        },
+        {
+          "Year": 2015,
+          "No. of cases_reported": 1169261.0,
+          "No. of cases_median": 12200000,
+          "ratio": 10.43394075403182
+        },
+        {
+          "Year": 2016,
+          "No. of cases_reported": 1087285.0,
+          "No. of cases_median": 12630000,
+          "ratio": 11.616089617717526
+        },
+        {
+          "Year": 2017,
+          "No. of cases_reported": 844558.0,
+          "No. of cases_median": 9590000,
+          "ratio": 11.355051991692696
+        }
+      ]
+    }
+  ]
+}

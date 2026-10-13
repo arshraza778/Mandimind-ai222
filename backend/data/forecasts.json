@@ -1,0 +1,1138 @@
+{
+  "run_id": "run_20240115_090000_be7973",
+  "generated_at": "2026-10-13T08:28:29.980826+00:00",
+  "granularity": "weekly",
+  "unit_label": "weeks",
+  "geography_level": "block",
+  "horizon_steps": [
+    2,
+    4
+  ],
+  "lead_time": "2-4 weeks (target)",
+  "units": {
+    "BLK_A": {
+      "unit_id": "BLK_A",
+      "unit_name": "Sample Block A",
+      "method_used": "weather_model",
+      "risk": "Low",
+      "confidence": 0.63,
+      "confidence_label": "Low",
+      "confidence_bars": 1,
+      "lead_time": "2-4 weeks (target)",
+      "alert_level": 83.3,
+      "point_forecasts": [
+        3.4,
+        3.1,
+        3.4,
+        3.7
+      ],
+      "lower_80": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper_80": [
+        10.0,
+        9.0,
+        10.0,
+        11.0
+      ],
+      "sparkline": [
+        3,
+        2,
+        3,
+        6,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "forecast_chart": [
+        {
+          "period": "Oct 30",
+          "date": "2023-10-30",
+          "actual": 4,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 06",
+          "date": "2023-11-06",
+          "actual": 1,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 13",
+          "date": "2023-11-13",
+          "actual": 3,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 20",
+          "date": "2023-11-20",
+          "actual": 2,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 27",
+          "date": "2023-11-27",
+          "actual": 3,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 04",
+          "date": "2023-12-04",
+          "actual": 6,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 11",
+          "date": "2023-12-11",
+          "actual": 4,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 18",
+          "date": "2023-12-18",
+          "actual": 3,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 3,
+          "ci_upper": 3
+        },
+        {
+          "period": "Dec 25",
+          "date": "2023-12-25",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 0,
+          "ci_upper": 10
+        },
+        {
+          "period": "Jan 01",
+          "date": "2024-01-01",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 0,
+          "ci_upper": 9
+        },
+        {
+          "period": "Jan 08",
+          "date": "2024-01-08",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 0,
+          "ci_upper": 10
+        },
+        {
+          "period": "Jan 15",
+          "date": "2024-01-15",
+          "actual": null,
+          "baseline": 4,
+          "weather_model": 4,
+          "ci_lower": 0,
+          "ci_upper": 11
+        }
+      ],
+      "why_this_alert": [
+        {
+          "name": "Rainfall, 3 weeks earlier",
+          "level": "strong",
+          "score": 85
+        },
+        {
+          "name": "Temperature, 2 weeks earlier",
+          "level": "moderate",
+          "score": 62
+        },
+        {
+          "name": "Seasonal pattern",
+          "level": "moderate",
+          "score": 58
+        }
+      ],
+      "method_card": {
+        "name": "Weather model",
+        "chip_type": "weather",
+        "evidence_text": "beat baseline with 64.7% win share in rolling evaluations",
+        "reactive_comparison": "Compared with a reactive rule (mean + 2 SD = 83.3), this model alert triggers about 2 weeks earlier (simulated)."
+      },
+      "similar_past_surges": [
+        {
+          "period": "Aug, 2021",
+          "peak": "164 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2019",
+          "peak": "143 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Sep, 2019",
+          "peak": "141 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        }
+      ],
+      "details": "Forecast generated using Weather model. Predicted 3.7 cases across 2-4 weeks (target)."
+    },
+    "BLK_B": {
+      "unit_id": "BLK_B",
+      "unit_name": "Sample Block B",
+      "method_used": "seasonal_baseline",
+      "risk": "Low",
+      "confidence": 0.62,
+      "confidence_label": "Low",
+      "confidence_bars": 1,
+      "lead_time": "2-4 weeks (target)",
+      "alert_level": 73.5,
+      "point_forecasts": [
+        2.1,
+        2.2,
+        2.4,
+        2.7
+      ],
+      "lower_80": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper_80": [
+        6.0,
+        7.0,
+        7.0,
+        8.0
+      ],
+      "sparkline": [
+        2,
+        5,
+        2,
+        0,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "forecast_chart": [
+        {
+          "period": "Oct 30",
+          "date": "2023-10-30",
+          "actual": 9,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 06",
+          "date": "2023-11-06",
+          "actual": 5,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 13",
+          "date": "2023-11-13",
+          "actual": 2,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 20",
+          "date": "2023-11-20",
+          "actual": 5,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 27",
+          "date": "2023-11-27",
+          "actual": 2,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 04",
+          "date": "2023-12-04",
+          "actual": 0,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 11",
+          "date": "2023-12-11",
+          "actual": 1,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 18",
+          "date": "2023-12-18",
+          "actual": 1,
+          "baseline": 1,
+          "weather_model": null,
+          "ci_lower": 1,
+          "ci_upper": 1
+        },
+        {
+          "period": "Dec 25",
+          "date": "2023-12-25",
+          "actual": null,
+          "baseline": 2,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 6
+        },
+        {
+          "period": "Jan 01",
+          "date": "2024-01-01",
+          "actual": null,
+          "baseline": 2,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 7
+        },
+        {
+          "period": "Jan 08",
+          "date": "2024-01-08",
+          "actual": null,
+          "baseline": 2,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 7
+        },
+        {
+          "period": "Jan 15",
+          "date": "2024-01-15",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 8
+        }
+      ],
+      "why_this_alert": null,
+      "method_card": {
+        "name": "Seasonal baseline",
+        "chip_type": "baseline",
+        "evidence_text": "weather model failed skill gate (54.9% win share)",
+        "reactive_comparison": "Compared with a reactive rule (mean + 2 SD = 73.5), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "similar_past_surges": [
+        {
+          "period": "Jul, 2019",
+          "peak": "146 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2018",
+          "peak": "132 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2022",
+          "peak": "128 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        }
+      ],
+      "details": "Forecast generated using Seasonal baseline. Predicted 2.7 cases across 2-4 weeks (target)."
+    },
+    "BLK_C": {
+      "unit_id": "BLK_C",
+      "unit_name": "Sample Block C",
+      "method_used": "seasonal_baseline",
+      "risk": "Low",
+      "confidence": 0.69,
+      "confidence_label": "Low",
+      "confidence_bars": 1,
+      "lead_time": "2-4 weeks (target)",
+      "alert_level": 44.8,
+      "point_forecasts": [
+        6.3,
+        6.3,
+        6.5,
+        6.7
+      ],
+      "lower_80": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper_80": [
+        15.0,
+        15.0,
+        15.0,
+        15.0
+      ],
+      "sparkline": [
+        8,
+        5,
+        22,
+        10,
+        2,
+        9,
+        6,
+        6,
+        6,
+        7
+      ],
+      "forecast_chart": [
+        {
+          "period": "Oct 30",
+          "date": "2023-10-30",
+          "actual": 15,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 06",
+          "date": "2023-11-06",
+          "actual": 1,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 13",
+          "date": "2023-11-13",
+          "actual": 8,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 20",
+          "date": "2023-11-20",
+          "actual": 5,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 27",
+          "date": "2023-11-27",
+          "actual": 22,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 04",
+          "date": "2023-12-04",
+          "actual": 10,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 11",
+          "date": "2023-12-11",
+          "actual": 2,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 18",
+          "date": "2023-12-18",
+          "actual": 9,
+          "baseline": 9,
+          "weather_model": null,
+          "ci_lower": 9,
+          "ci_upper": 9
+        },
+        {
+          "period": "Dec 25",
+          "date": "2023-12-25",
+          "actual": null,
+          "baseline": 6,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 15
+        },
+        {
+          "period": "Jan 01",
+          "date": "2024-01-01",
+          "actual": null,
+          "baseline": 6,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 15
+        },
+        {
+          "period": "Jan 08",
+          "date": "2024-01-08",
+          "actual": null,
+          "baseline": 6,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 15
+        },
+        {
+          "period": "Jan 15",
+          "date": "2024-01-15",
+          "actual": null,
+          "baseline": 7,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 15
+        }
+      ],
+      "why_this_alert": null,
+      "method_card": {
+        "name": "Seasonal baseline",
+        "chip_type": "baseline",
+        "evidence_text": "weather model failed skill gate (41.2% win share)",
+        "reactive_comparison": "Compared with a reactive rule (mean + 2 SD = 44.8), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "similar_past_surges": [
+        {
+          "period": "Sep, 2019",
+          "peak": "74 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2022",
+          "peak": "73 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2023",
+          "peak": "70 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        }
+      ],
+      "details": "Forecast generated using Seasonal baseline. Predicted 6.7 cases across 2-4 weeks (target)."
+    },
+    "BLK_D": {
+      "unit_id": "BLK_D",
+      "unit_name": "Sample Block D",
+      "method_used": "seasonal_baseline",
+      "risk": "Low",
+      "confidence": 0.64,
+      "confidence_label": "Low",
+      "confidence_bars": 1,
+      "lead_time": "2-4 weeks (target)",
+      "alert_level": 43.5,
+      "point_forecasts": [
+        2.6,
+        2.7,
+        2.9,
+        3.2
+      ],
+      "lower_80": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper_80": [
+        7.0,
+        8.0,
+        8.0,
+        9.0
+      ],
+      "sparkline": [
+        1,
+        7,
+        4,
+        4,
+        5,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "forecast_chart": [
+        {
+          "period": "Oct 30",
+          "date": "2023-10-30",
+          "actual": 7,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 06",
+          "date": "2023-11-06",
+          "actual": 1,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 13",
+          "date": "2023-11-13",
+          "actual": 1,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 20",
+          "date": "2023-11-20",
+          "actual": 7,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 27",
+          "date": "2023-11-27",
+          "actual": 4,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 04",
+          "date": "2023-12-04",
+          "actual": 4,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 11",
+          "date": "2023-12-11",
+          "actual": 5,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 18",
+          "date": "2023-12-18",
+          "actual": 2,
+          "baseline": 2,
+          "weather_model": null,
+          "ci_lower": 2,
+          "ci_upper": 2
+        },
+        {
+          "period": "Dec 25",
+          "date": "2023-12-25",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 7
+        },
+        {
+          "period": "Jan 01",
+          "date": "2024-01-01",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 8
+        },
+        {
+          "period": "Jan 08",
+          "date": "2024-01-08",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 8
+        },
+        {
+          "period": "Jan 15",
+          "date": "2024-01-15",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 9
+        }
+      ],
+      "why_this_alert": null,
+      "method_card": {
+        "name": "Seasonal baseline",
+        "chip_type": "baseline",
+        "evidence_text": "weather model failed skill gate (47.1% win share)",
+        "reactive_comparison": "Compared with a reactive rule (mean + 2 SD = 43.5), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "similar_past_surges": [
+        {
+          "period": "Aug, 2018",
+          "peak": "107 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2022",
+          "peak": "83 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Sep, 2019",
+          "peak": "81 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        }
+      ],
+      "details": "Forecast generated using Seasonal baseline. Predicted 3.2 cases across 2-4 weeks (target)."
+    },
+    "BLK_E": {
+      "unit_id": "BLK_E",
+      "unit_name": "Sample Block E",
+      "method_used": "weather_model",
+      "risk": "Low",
+      "confidence": 0.64,
+      "confidence_label": "Low",
+      "confidence_bars": 1,
+      "lead_time": "2-4 weeks (target)",
+      "alert_level": 83.9,
+      "point_forecasts": [
+        3.1,
+        3.2,
+        3.1,
+        3.5
+      ],
+      "lower_80": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper_80": [
+        9.0,
+        9.0,
+        9.0,
+        10.0
+      ],
+      "sparkline": [
+        3,
+        3,
+        5,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3
+      ],
+      "forecast_chart": [
+        {
+          "period": "Oct 30",
+          "date": "2023-10-30",
+          "actual": 4,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 06",
+          "date": "2023-11-06",
+          "actual": 7,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 13",
+          "date": "2023-11-13",
+          "actual": 3,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 20",
+          "date": "2023-11-20",
+          "actual": 3,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 27",
+          "date": "2023-11-27",
+          "actual": 5,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 04",
+          "date": "2023-12-04",
+          "actual": 1,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 11",
+          "date": "2023-12-11",
+          "actual": 1,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 18",
+          "date": "2023-12-18",
+          "actual": 1,
+          "baseline": 1,
+          "weather_model": 1,
+          "ci_lower": 1,
+          "ci_upper": 1
+        },
+        {
+          "period": "Dec 25",
+          "date": "2023-12-25",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 0,
+          "ci_upper": 9
+        },
+        {
+          "period": "Jan 01",
+          "date": "2024-01-01",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 0,
+          "ci_upper": 9
+        },
+        {
+          "period": "Jan 08",
+          "date": "2024-01-08",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 0,
+          "ci_upper": 9
+        },
+        {
+          "period": "Jan 15",
+          "date": "2024-01-15",
+          "actual": null,
+          "baseline": 3,
+          "weather_model": 3,
+          "ci_lower": 0,
+          "ci_upper": 10
+        }
+      ],
+      "why_this_alert": [
+        {
+          "name": "Rainfall, 3 weeks earlier",
+          "level": "strong",
+          "score": 85
+        },
+        {
+          "name": "Temperature, 2 weeks earlier",
+          "level": "moderate",
+          "score": 62
+        },
+        {
+          "name": "Seasonal pattern",
+          "level": "moderate",
+          "score": 58
+        }
+      ],
+      "method_card": {
+        "name": "Weather model",
+        "chip_type": "weather",
+        "evidence_text": "beat baseline with 64.7% win share in rolling evaluations",
+        "reactive_comparison": "Compared with a reactive rule (mean + 2 SD = 83.9), this model alert triggers about 2 weeks earlier (simulated)."
+      },
+      "similar_past_surges": [
+        {
+          "period": "Aug, 2023",
+          "peak": "206 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2019",
+          "peak": "168 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Sep, 2019",
+          "peak": "146 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        }
+      ],
+      "details": "Forecast generated using Weather model. Predicted 3.5 cases across 2-4 weeks (target)."
+    },
+    "BLK_F": {
+      "unit_id": "BLK_F",
+      "unit_name": "Sample Block F",
+      "method_used": "seasonal_baseline",
+      "risk": "Low",
+      "confidence": 0.7,
+      "confidence_label": "Medium",
+      "confidence_bars": 2,
+      "lead_time": "2-4 weeks (target)",
+      "alert_level": 48.8,
+      "point_forecasts": [
+        6.0,
+        6.1,
+        6.3,
+        6.5
+      ],
+      "lower_80": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "upper_80": [
+        14.0,
+        14.0,
+        14.0,
+        15.0
+      ],
+      "sparkline": [
+        8,
+        5,
+        6,
+        10,
+        5,
+        10,
+        6,
+        6,
+        6,
+        7
+      ],
+      "forecast_chart": [
+        {
+          "period": "Oct 30",
+          "date": "2023-10-30",
+          "actual": 13,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 06",
+          "date": "2023-11-06",
+          "actual": 12,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 13",
+          "date": "2023-11-13",
+          "actual": 8,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 20",
+          "date": "2023-11-20",
+          "actual": 5,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Nov 27",
+          "date": "2023-11-27",
+          "actual": 6,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 04",
+          "date": "2023-12-04",
+          "actual": 10,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 11",
+          "date": "2023-12-11",
+          "actual": 5,
+          "baseline": null,
+          "weather_model": null,
+          "ci_lower": null,
+          "ci_upper": null
+        },
+        {
+          "period": "Dec 18",
+          "date": "2023-12-18",
+          "actual": 10,
+          "baseline": 10,
+          "weather_model": null,
+          "ci_lower": 10,
+          "ci_upper": 10
+        },
+        {
+          "period": "Dec 25",
+          "date": "2023-12-25",
+          "actual": null,
+          "baseline": 6,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 14
+        },
+        {
+          "period": "Jan 01",
+          "date": "2024-01-01",
+          "actual": null,
+          "baseline": 6,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 14
+        },
+        {
+          "period": "Jan 08",
+          "date": "2024-01-08",
+          "actual": null,
+          "baseline": 6,
+          "weather_model": null,
+          "ci_lower": 0,
+          "ci_upper": 14
+        },
+        {
+          "period": "Jan 15",
+          "date": "2024-01-15",
+          "actual": null,
+          "baseline": 7,
+          "weather_model": null,
+          "ci_lower": 1,
+          "ci_upper": 15
+        }
+      ],
+      "why_this_alert": null,
+      "method_card": {
+        "name": "Seasonal baseline",
+        "chip_type": "baseline",
+        "evidence_text": "weather model failed skill gate (56.9% win share)",
+        "reactive_comparison": "Compared with a reactive rule (mean + 2 SD = 48.8), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "similar_past_surges": [
+        {
+          "period": "Aug, 2022",
+          "peak": "84 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2021",
+          "peak": "78 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        },
+        {
+          "period": "Aug, 2021",
+          "peak": "75 cases",
+          "model_warning": "2 weeks earlier",
+          "outcome": "Warned early",
+          "outcome_type": "success"
+        }
+      ],
+      "details": "Forecast generated using Seasonal baseline. Predicted 6.5 cases across 2-4 weeks (target)."
+    }
+  }
+}

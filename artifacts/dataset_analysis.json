@@ -1,0 +1,407 @@
+{
+  "dataset_file": "docs/Weather-related disease prediction.csv",
+  "analyzed_at": "2026-10-12T10:38:15.926598+00:00",
+  "shape": {
+    "rows": 5200,
+    "columns": 51,
+    "feature_count": 50
+  },
+  "target_column": "prognosis",
+  "num_classes": 11,
+  "class_distribution": [
+    {
+      "disease": "Heart Attack",
+      "count": 1013,
+      "percentage": 19.48
+    },
+    {
+      "disease": "Migraine",
+      "count": 941,
+      "percentage": 18.1
+    },
+    {
+      "disease": "Influenza",
+      "count": 658,
+      "percentage": 12.65
+    },
+    {
+      "disease": "Heat Stroke",
+      "count": 338,
+      "percentage": 6.5
+    },
+    {
+      "disease": "Malaria",
+      "count": 330,
+      "percentage": 6.35
+    },
+    {
+      "disease": "Stroke",
+      "count": 329,
+      "percentage": 6.33
+    },
+    {
+      "disease": "Eczema",
+      "count": 327,
+      "percentage": 6.29
+    },
+    {
+      "disease": "Dengue",
+      "count": 322,
+      "percentage": 6.19
+    },
+    {
+      "disease": "Common Cold",
+      "count": 321,
+      "percentage": 6.17
+    },
+    {
+      "disease": "Arthritis",
+      "count": 311,
+      "percentage": 5.98
+    },
+    {
+      "disease": "Sinusitis",
+      "count": 310,
+      "percentage": 5.96
+    }
+  ],
+  "feature_groups": {
+    "numeric_continuous": [
+      "Age",
+      "Temperature (C)",
+      "Humidity",
+      "Wind Speed (km/h)"
+    ],
+    "demographic_binary": [
+      "Gender"
+    ],
+    "medical_history_binary": [
+      "asthma_history",
+      "high_cholesterol",
+      "diabetes",
+      "obesity",
+      "hiv_aids",
+      "nasal_polyps",
+      "asthma",
+      "high_blood_pressure"
+    ],
+    "symptom_binary": [
+      "nausea",
+      "joint_pain",
+      "abdominal_pain",
+      "high_fever",
+      "chills",
+      "fatigue",
+      "runny_nose",
+      "pain_behind_the_eyes",
+      "dizziness",
+      "headache",
+      "chest_pain",
+      "vomiting",
+      "cough",
+      "shivering",
+      "severe_headache",
+      "weakness",
+      "trouble_seeing",
+      "fever",
+      "body_aches",
+      "sore_throat",
+      "sneezing",
+      "diarrhea",
+      "rapid_breathing",
+      "rapid_heart_rate",
+      "pain_behind_eyes",
+      "swollen_glands",
+      "rashes",
+      "sinus_headache",
+      "facial_pain",
+      "shortness_of_breath",
+      "reduced_smell_and_taste",
+      "skin_irritation",
+      "itchiness",
+      "throbbing_headache",
+      "confusion",
+      "back_pain",
+      "knee_ache"
+    ],
+    "all_features_ordered": [
+      "Age",
+      "Gender",
+      "Temperature (C)",
+      "Humidity",
+      "Wind Speed (km/h)",
+      "nausea",
+      "joint_pain",
+      "abdominal_pain",
+      "high_fever",
+      "chills",
+      "fatigue",
+      "runny_nose",
+      "pain_behind_the_eyes",
+      "dizziness",
+      "headache",
+      "chest_pain",
+      "vomiting",
+      "cough",
+      "shivering",
+      "asthma_history",
+      "high_cholesterol",
+      "diabetes",
+      "obesity",
+      "hiv_aids",
+      "nasal_polyps",
+      "asthma",
+      "high_blood_pressure",
+      "severe_headache",
+      "weakness",
+      "trouble_seeing",
+      "fever",
+      "body_aches",
+      "sore_throat",
+      "sneezing",
+      "diarrhea",
+      "rapid_breathing",
+      "rapid_heart_rate",
+      "pain_behind_eyes",
+      "swollen_glands",
+      "rashes",
+      "sinus_headache",
+      "facial_pain",
+      "shortness_of_breath",
+      "reduced_smell_and_taste",
+      "skin_irritation",
+      "itchiness",
+      "throbbing_headache",
+      "confusion",
+      "back_pain",
+      "knee_ache"
+    ]
+  },
+  "data_quality": {
+    "total_missing_values": 0,
+    "missing_by_column": {},
+    "exact_duplicate_rows": 219,
+    "feature_only_duplicate_rows": 219,
+    "conflicting_duplicate_feature_groups": 0,
+    "duplicate_rows_involved_by_class": {
+      "Heart Attack": 89,
+      "Migraine": 85,
+      "Influenza": 52,
+      "Stroke": 33,
+      "Eczema": 31,
+      "Heat Stroke": 29,
+      "Dengue": 28,
+      "Common Cold": 23,
+      "Malaria": 21,
+      "Arthritis": 19,
+      "Sinusitis": 18
+    },
+    "non_binary_flag_columns": {},
+    "zero_symptom_and_history_rows": 342,
+    "zero_symptom_rows_by_class": {
+      "Influenza": 342
+    }
+  },
+  "numeric_summary": {
+    "Age": {
+      "dtype": "int64",
+      "min": 1.0,
+      "max": 100.0,
+      "mean": 51.3833,
+      "std": 26.6259,
+      "median": 53.0,
+      "q25": 30.0,
+      "q75": 74.0
+    },
+    "Temperature (C)": {
+      "dtype": "float64",
+      "min": -15.125,
+      "max": 40.996,
+      "mean": 19.9431,
+      "std": 11.4149,
+      "median": 20.0175,
+      "q25": 12.1845,
+      "q75": 28.4653
+    },
+    "Humidity": {
+      "dtype": "float64",
+      "min": 0.3708,
+      "max": 1.0,
+      "mean": 0.7449,
+      "std": 0.1429,
+      "median": 0.75,
+      "q25": 0.6245,
+      "q75": 0.86
+    },
+    "Wind Speed (km/h)": {
+      "dtype": "float64",
+      "min": 0.008,
+      "max": 31.3031,
+      "mean": 10.7088,
+      "std": 5.6863,
+      "median": 10.1525,
+      "q25": 6.4145,
+      "q75": 15.0616
+    }
+  },
+  "gender_distribution": {
+    "1": 2661,
+    "0": 2539
+  },
+  "high_feature_correlations": [
+    {
+      "feature_1": "chest_pain",
+      "feature_2": "high_blood_pressure",
+      "abs_pearson_r": 0.8925
+    },
+    {
+      "feature_1": "asthma",
+      "feature_2": "high_blood_pressure",
+      "abs_pearson_r": 0.6493
+    },
+    {
+      "feature_1": "hiv_aids",
+      "feature_2": "high_blood_pressure",
+      "abs_pearson_r": 0.6383
+    },
+    {
+      "feature_1": "back_pain",
+      "feature_2": "knee_ache",
+      "abs_pearson_r": 0.5946
+    },
+    {
+      "feature_1": "weakness",
+      "feature_2": "trouble_seeing",
+      "abs_pearson_r": 0.5799
+    },
+    {
+      "feature_1": "chest_pain",
+      "feature_2": "asthma",
+      "abs_pearson_r": 0.5796
+    },
+    {
+      "feature_1": "facial_pain",
+      "feature_2": "reduced_smell_and_taste",
+      "abs_pearson_r": 0.5459
+    },
+    {
+      "feature_1": "chest_pain",
+      "feature_2": "hiv_aids",
+      "abs_pearson_r": 0.5427
+    },
+    {
+      "feature_1": "pain_behind_the_eyes",
+      "feature_2": "vomiting",
+      "abs_pearson_r": 0.4986
+    },
+    {
+      "feature_1": "Temperature (C)",
+      "feature_2": "hiv_aids",
+      "abs_pearson_r": 0.4925
+    },
+    {
+      "feature_1": "sinus_headache",
+      "feature_2": "facial_pain",
+      "abs_pearson_r": 0.4857
+    },
+    {
+      "feature_1": "sinus_headache",
+      "feature_2": "reduced_smell_and_taste",
+      "abs_pearson_r": 0.4807
+    },
+    {
+      "feature_1": "cough",
+      "feature_2": "sore_throat",
+      "abs_pearson_r": 0.4582
+    },
+    {
+      "feature_1": "headache",
+      "feature_2": "vomiting",
+      "abs_pearson_r": 0.4572
+    },
+    {
+      "feature_1": "rapid_heart_rate",
+      "feature_2": "confusion",
+      "abs_pearson_r": 0.455
+    }
+  ],
+  "semantic_column_overlap": [
+    {
+      "col_1": "pain_behind_the_eyes",
+      "col_2": "pain_behind_eyes",
+      "col_1_positive_count": 528,
+      "col_2_positive_count": 30,
+      "both_positive_count": 0,
+      "jaccard_overlap": 0.0,
+      "exact_match_rate": 0.8927
+    },
+    {
+      "col_1": "asthma_history",
+      "col_2": "asthma",
+      "col_1_positive_count": 0,
+      "col_2_positive_count": 333,
+      "both_positive_count": 0,
+      "jaccard_overlap": 0.0,
+      "exact_match_rate": 0.936
+    },
+    {
+      "col_1": "high_fever",
+      "col_2": "fever",
+      "col_1_positive_count": 529,
+      "col_2_positive_count": 164,
+      "both_positive_count": 0,
+      "jaccard_overlap": 0.0,
+      "exact_match_rate": 0.8667
+    },
+    {
+      "col_1": "headache",
+      "col_2": "severe_headache",
+      "col_1_positive_count": 1257,
+      "col_2_positive_count": 493,
+      "both_positive_count": 0,
+      "jaccard_overlap": 0.0,
+      "exact_match_rate": 0.6635
+    },
+    {
+      "col_1": "headache",
+      "col_2": "sinus_headache",
+      "col_1_positive_count": 1257,
+      "col_2_positive_count": 160,
+      "both_positive_count": 0,
+      "jaccard_overlap": 0.0,
+      "exact_match_rate": 0.7275
+    },
+    {
+      "col_1": "headache",
+      "col_2": "throbbing_headache",
+      "col_1_positive_count": 1257,
+      "col_2_positive_count": 193,
+      "both_positive_count": 0,
+      "jaccard_overlap": 0.0,
+      "exact_match_rate": 0.7212
+    }
+  ],
+  "synthetic_and_leakage_investigation": {
+    "high_precision_float_rows_count": 2042,
+    "high_precision_float_rows_by_class": {
+      "Heart Attack": 724,
+      "Migraine": 645,
+      "Influenza": 374,
+      "Stroke": 45,
+      "Heat Stroke": 42,
+      "Eczema": 41,
+      "Arthritis": 40,
+      "Malaria": 39,
+      "Common Cold": 35,
+      "Dengue": 29,
+      "Sinusitis": 28
+    },
+    "findings": [
+      "The dataset contains 5,200 rows and 50 predictor columns across 11 disease classes, with 0 missing values.",
+      "Class sizes are imbalanced: Heart Attack (1,013), Migraine (941), and Influenza (658) have higher representation because of 2,042 rows with high-precision weather decimals (e.g., 24.38287037 C), whereas the other 8 classes have ~310-338 rows each.",
+      "There are 219 exact duplicate rows (and 0 conflicting feature duplicates), leaving 4,981 unique records. Deduplicating before splitting prevents train-to-test duplicate leakage.",
+      "`asthma_history` is constant 0 across all 5,200 rows, while `asthma` has 333 positive rows (strongly correlated with `high_blood_pressure` r=0.649 and `chest_pain` r=0.580). `pain_behind_the_eyes` (528 positives, associated with Migraine) and `pain_behind_eyes` (30 positives, associated with Dengue) are mutually exclusive (0 overlap). All 50 columns are preserved to maintain exact schema compatibility.",
+      "342 rows have all 45 binary symptom/history flags set to 0 (all 342 are labeled Influenza), which is an important synthetic-dataset artifact."
+    ]
+  }
+}

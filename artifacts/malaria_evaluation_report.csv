@@ -1,0 +1,429 @@
+Country,WHO Region,Year,inc_lag_1,inc_roll_mean_3,incidence_per_1000,split,predicted_incidence_per_1000,persistence_baseline,abs_error_model,abs_error_persistence
+Afghanistan,Eastern Mediterranean,2015,12.67,10.9433,14.91,validation,12.9046,12.67,2.0054,2.24
+Afghanistan,Eastern Mediterranean,2016,14.91,12.1967,26.11,validation,14.8775,14.91,11.2325,11.2
+Algeria,Africa,2015,0.0,0.01,0.0,validation,1.3191,0.0,1.3191,0.0
+Algeria,Africa,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Angola,Africa,2015,187.94,181.09,199.99,validation,186.6377,187.94,13.3523,12.05
+Angola,Africa,2016,199.99,189.61,219.99,validation,199.8507,199.99,20.1393,20.0
+Argentina,Americas,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Argentina,Americas,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Armenia,Europe,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Armenia,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Azerbaijan,Europe,2015,0.0,0.0033,0.0,validation,0.0,0.0,0.0,0.0
+Azerbaijan,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Bangladesh,South-East Asia,2015,3.3,2.3467,2.72,validation,2.3859,3.3,0.3341,0.58
+Bangladesh,South-East Asia,2016,2.72,2.52,1.86,validation,2.6587,2.72,0.7987,0.86
+Belize,Americas,2015,0.08,0.1,0.04,validation,0.1335,0.08,0.0935,0.04
+Belize,Americas,2016,0.04,0.0667,0.02,validation,0.1042,0.04,0.0842,0.02
+Benin,Africa,2015,399.24,390.7567,411.82,validation,391.5032,399.24,20.3168,12.58
+Benin,Africa,2016,411.82,402.02,421.58,validation,407.5528,411.82,14.0272,9.76
+Bhutan,South-East Asia,2015,0.04,0.0767,0.06,validation,0.0865,0.04,0.0265,0.02
+Bhutan,South-East Asia,2016,0.06,0.0433,0.03,validation,0.1367,0.06,0.1067,0.03
+Bolivia (Plurinational State of),Americas,2015,2.25,2.28,1.89,validation,2.2576,2.25,0.3676,0.36
+Bolivia (Plurinational State of),Americas,2016,1.89,2.1333,1.5,validation,1.9677,1.89,0.4677,0.39
+Botswana,Africa,2015,1.5,0.75,0.37,validation,0.9284,1.5,0.5584,1.13
+Botswana,Africa,2016,0.37,0.8,0.81,validation,2.2563,0.37,1.4463,0.44
+Brazil,Americas,2015,3.6,4.9333,3.88,validation,3.352,3.6,0.528,0.28
+Brazil,Americas,2016,3.88,4.1,3.22,validation,3.8197,3.88,0.5997,0.66
+Burkina Faso,Africa,2015,436.06,483.7067,400.09,validation,406.4696,436.06,6.3796,35.97
+Burkina Faso,Africa,2016,400.09,441.2233,401.73,validation,377.4383,400.09,24.2917,1.64
+Burundi,Africa,2015,141.51,145.3433,165.5,validation,139.6994,141.51,25.8006,23.99
+Burundi,Africa,2016,165.5,149.2,225.74,validation,170.0062,165.5,55.7338,60.24
+Cabo Verde,Africa,2015,0.19,0.1233,0.05,validation,1.3747,0.19,1.3247,0.14
+Cabo Verde,Africa,2016,0.05,0.1367,0.35,validation,2.213,0.05,1.863,0.3
+Cambodia,Western Pacific,2015,22.26,21.01,19.94,validation,22.4933,22.26,2.5533,2.32
+Cambodia,Western Pacific,2016,19.94,19.3633,11.13,validation,18.7332,19.94,7.6032,8.81
+Cameroon,Africa,2015,244.08,244.0833,254.5,validation,240.3014,244.08,14.1986,10.42
+Cameroon,Africa,2016,254.5,247.2067,264.31,validation,253.2648,254.5,11.0452,9.81
+Central African Republic,Africa,2015,393.04,404.3167,379.91,validation,380.1792,393.04,0.2692,13.13
+Central African Republic,Africa,2016,379.91,393.2567,362.02,validation,367.5346,379.91,5.5146,17.89
+Chad,Africa,2015,170.27,181.6533,167.28,validation,164.0314,170.27,3.2486,2.99
+Chad,Africa,2016,167.28,172.3,169.93,validation,163.6747,167.28,6.2553,2.65
+China,Western Pacific,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+China,Western Pacific,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Colombia,Americas,2015,5.48,6.9167,6.94,validation,5.026,5.48,1.914,1.46
+Colombia,Americas,2016,6.94,6.48,10.83,validation,6.804,6.94,4.026,3.89
+Comoros,Africa,2015,2.9,47.8133,1.67,validation,0.0,2.9,1.67,1.23
+Comoros,Africa,2016,1.67,25.42,1.44,validation,1.5976,1.67,0.1576,0.23
+Congo,Americas,2015,231.85,229.17,226.71,validation,226.4884,231.85,0.2216,5.14
+Congo,Americas,2016,226.71,229.8633,233.38,validation,219.9043,226.71,13.4757,6.67
+Costa Rica,Americas,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Costa Rica,Americas,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Côte d'Ivoire,Africa,2015,315.07,350.0733,320.04,validation,299.0349,315.07,21.0051,4.97
+Côte d'Ivoire,Africa,2016,320.04,324.66,354.66,validation,315.0026,320.04,39.6574,34.62
+Democratic People's Republic of Korea,Western Pacific,2015,1.08,1.6067,0.75,validation,1.3275,1.08,0.5775,0.33
+Democratic People's Republic of Korea,Western Pacific,2016,0.75,1.1033,0.28,validation,1.1057,0.75,0.8257,0.47
+Democratic Republic of the Congo,Africa,2015,308.39,333.0033,308.83,validation,294.7294,308.39,14.1006,0.44
+Democratic Republic of the Congo,Africa,2016,308.83,314.9467,322.77,validation,303.215,308.83,19.555,13.94
+Djibouti,Eastern Mediterranean,2015,14.01,6.62,13.82,validation,12.4732,14.01,1.3468,0.19
+Djibouti,Eastern Mediterranean,2016,13.82,10.1233,19.81,validation,12.5081,13.82,7.3019,5.99
+Dominican Republic,Americas,2015,0.1,0.1567,0.14,validation,0.4693,0.1,0.3293,0.04
+Dominican Republic,Americas,2016,0.14,0.1267,0.16,validation,0.2253,0.14,0.0653,0.02
+Ecuador,Americas,2015,0.52,0.8433,1.31,validation,0.8524,0.52,0.4576,0.79
+Ecuador,Americas,2016,1.31,0.8767,2.48,validation,0.0,1.31,2.48,1.17
+Egypt,Eastern Mediterranean,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Egypt,Eastern Mediterranean,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+El Salvador,Americas,2015,0.0,0.0033,0.0,validation,0.04,0.0,0.04,0.0
+El Salvador,Americas,2016,0.0,0.0,0.01,validation,0.0,0.0,0.01,0.01
+Equatorial Guinea,Africa,2015,360.95,361.4833,339.48,validation,352.8285,360.95,13.3485,21.47
+Equatorial Guinea,Africa,2016,339.48,355.3933,306.97,validation,324.6573,339.48,17.6873,32.51
+Eritrea,Africa,2015,33.12,21.4333,19.2,validation,37.4957,33.12,18.2957,13.92
+Eritrea,Africa,2016,19.2,22.45,25.64,validation,16.2495,19.2,9.3905,6.44
+Eswatini,Africa,2015,2.32,2.4467,0.51,validation,3.6319,2.32,3.1219,1.81
+Eswatini,Africa,2016,0.51,1.9967,1.12,validation,2.0142,0.51,0.8942,0.61
+Ethiopia,Africa,2015,57.1,94.9633,52.77,validation,35.1484,57.1,17.6216,4.33
+Ethiopia,Africa,2016,52.77,73.8233,41.41,validation,50.2598,52.77,8.8498,11.36
+Gabon,Africa,2015,285.74,268.0333,284.44,validation,282.0071,285.74,2.4329,1.3
+Gabon,Africa,2016,284.44,281.0033,270.67,validation,278.113,284.44,7.443,13.77
+Gambia,Africa,2015,142.02,217.9433,195.04,validation,101.21,142.02,93.83,53.02
+Gambia,Africa,2016,195.04,191.35,116.53,validation,200.2788,195.04,83.7488,78.51
+Georgia,Europe,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Georgia,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Ghana,Africa,2015,315.77,346.4467,277.19,validation,296.3244,315.77,19.1344,38.58
+Ghana,Africa,2016,277.19,314.08,236.0,validation,256.4447,277.19,20.4447,41.19
+Guatemala,Americas,2015,0.55,0.57,0.65,validation,0.705,0.55,0.055,0.1
+Guatemala,Americas,2016,0.65,0.6067,0.45,validation,0.5268,0.65,0.0768,0.2
+Guinea,Africa,2015,381.09,405.6567,356.64,validation,362.9411,381.09,6.3011,24.45
+Guinea,Africa,2016,356.64,381.9367,331.47,validation,339.9842,356.64,8.5142,25.17
+Guinea-Bissau,Africa,2015,93.9,112.0133,79.77,validation,85.2136,93.9,5.4436,14.13
+Guinea-Bissau,Africa,2016,79.77,95.6867,71.35,validation,73.5199,79.77,2.1699,8.42
+Guyana,Americas,2015,29.23,54.2033,23.49,validation,12.6113,29.23,10.8787,5.74
+Guyana,Americas,2016,23.49,42.8,24.98,validation,20.0797,23.49,4.9003,1.49
+Haiti,Americas,2015,3.49,5.11,3.44,validation,3.1077,3.49,0.3323,0.05
+Haiti,Americas,2016,3.44,4.08,3.8,validation,3.4071,3.44,0.3929,0.36
+Honduras,Americas,2015,0.56,0.8633,0.59,validation,0.9098,0.56,0.3198,0.03
+Honduras,Americas,2016,0.59,0.69,0.74,validation,0.5954,0.59,0.1446,0.15
+India,South-East Asia,2015,9.2,10.07,9.67,validation,8.9973,9.2,0.6727,0.47
+India,South-East Asia,2016,9.67,9.3433,9.99,validation,9.6084,9.67,0.3816,0.32
+Indonesia,South-East Asia,2015,6.1,7.97,5.38,validation,5.4541,6.1,0.0741,0.72
+Indonesia,South-East Asia,2016,5.38,6.5367,5.54,validation,5.1467,5.38,0.3933,0.16
+Iran (Islamic Republic of),Eastern Mediterranean,2015,0.45,0.68,0.21,validation,0.8355,0.45,0.6255,0.24
+Iran (Islamic Republic of),Eastern Mediterranean,2016,0.21,0.4233,0.1,validation,0.9122,0.21,0.8122,0.11
+Iraq,Eastern Mediterranean,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Iraq,Eastern Mediterranean,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Kazakhstan,Europe,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Kazakhstan,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Kenya,Africa,2015,83.87,79.9033,72.17,validation,82.8666,83.87,10.6966,11.7
+Kenya,Africa,2016,72.17,79.5067,70.38,validation,67.4799,72.17,2.9001,1.79
+Kyrgyzstan,Europe,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Kyrgyzstan,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Lao People's Democratic Republic,Western Pacific,2015,29.9,27.32,22.3,validation,30.3173,29.9,8.0173,7.6
+Lao People's Democratic Republic,Western Pacific,2016,22.3,25.1667,7.77,validation,19.9639,22.3,12.1939,14.53
+Liberia,Africa,2015,337.57,320.9167,346.97,validation,336.6412,337.57,10.3288,9.4
+Liberia,Africa,2016,346.97,333.94,386.3,validation,341.605,346.97,44.695,39.33
+Madagascar,Africa,2015,45.78,60.7833,97.32,validation,38.3943,45.78,58.9257,51.54
+Madagascar,Africa,2016,97.32,69.4367,56.58,validation,108.1525,97.32,51.5725,40.74
+Malawi,Africa,2015,237.0,272.96,217.04,validation,220.0488,237.0,3.0088,19.96
+Malawi,Africa,2016,217.04,240.6333,210.66,validation,205.1902,217.04,5.4698,6.38
+Malaysia,Western Pacific,2015,2.63,2.7533,0.2,validation,2.6514,2.63,2.4514,2.43
+Malaysia,Western Pacific,2016,0.2,1.77,0.22,validation,0.4418,0.2,0.2218,0.02
+Mali,Africa,2015,441.01,443.16,391.83,validation,428.9625,441.01,37.1325,49.18
+Mali,Africa,2016,391.83,428.5533,384.22,validation,364.4233,391.83,19.7967,7.61
+Mauritania,Africa,2015,49.2,36.9467,61.61,validation,53.1648,49.2,8.4452,12.41
+Mauritania,Africa,2016,61.61,48.01,71.5,validation,63.487,61.61,8.013,9.89
+Mexico,Americas,2015,0.26,0.2633,0.2,validation,0.0,0.26,0.2,0.06
+Mexico,Americas,2016,0.2,0.22,0.21,validation,0.5288,0.2,0.3188,0.01
+Morocco,Eastern Mediterranean,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Morocco,Eastern Mediterranean,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Mozambique,Africa,2015,364.83,374.53,355.88,validation,353.2619,364.83,2.6181,8.95
+Mozambique,Africa,2016,355.88,365.8967,344.82,validation,345.7432,355.88,0.9232,11.06
+Myanmar,South-East Asia,2015,12.33,31.34,8.69,validation,8.7297,12.33,0.0397,3.64
+Myanmar,South-East Asia,2016,8.69,13.6167,5.12,validation,7.3145,8.69,2.1945,3.57
+Namibia,Africa,2015,14.49,7.4667,10.88,validation,15.7683,14.49,4.8883,3.61
+Namibia,Africa,2016,10.88,9.9733,22.12,validation,10.6533,10.88,11.4667,11.24
+Nepal,South-East Asia,2015,0.63,1.4267,0.57,validation,0.9756,0.63,0.4056,0.06
+Nepal,South-East Asia,2016,0.57,0.8367,0.43,validation,0.7041,0.57,0.2741,0.14
+Nicaragua,Americas,2015,0.54,0.5667,1.06,validation,0.6176,0.54,0.4424,0.52
+Nicaragua,Americas,2016,1.06,0.72,2.89,validation,0.1467,1.06,2.7433,1.83
+Niger,Africa,2015,400.25,417.0833,369.83,validation,384.55,400.25,14.72,30.42
+Niger,Africa,2016,369.83,396.8567,358.74,validation,350.5448,369.83,8.1952,11.09
+Nigeria,Africa,2015,314.4,330.2633,296.08,validation,302.8881,314.4,6.8081,18.32
+Nigeria,Africa,2016,296.08,313.0433,281.38,validation,283.4122,296.08,2.0322,14.7
+Oman,Eastern Mediterranean,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Oman,Eastern Mediterranean,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Pakistan,Eastern Mediterranean,2015,7.15,7.8933,5.06,validation,7.0305,7.15,1.9705,2.09
+Pakistan,Eastern Mediterranean,2016,5.06,6.5867,6.01,validation,4.6094,5.06,1.4006,0.95
+Panama,Americas,2015,0.27,0.2367,0.15,validation,0.0,0.27,0.15,0.12
+Panama,Americas,2016,0.15,0.2067,0.21,validation,0.7057,0.15,0.4957,0.06
+Papua New Guinea,Western Pacific,2015,243.03,209.44,131.54,validation,241.5363,243.03,109.9963,111.49
+Papua New Guinea,Western Pacific,2016,131.54,196.66,177.61,validation,87.0681,131.54,90.5419,46.07
+Paraguay,Americas,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Paraguay,Americas,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Peru,Americas,2015,7.1,5.3167,7.85,validation,6.9615,7.1,0.8885,0.75
+Peru,Americas,2016,7.85,6.77,6.0,validation,7.6909,7.85,1.6909,1.85
+Philippines,Western Pacific,2015,0.25,0.3,0.47,validation,0.5765,0.25,0.1065,0.22
+Philippines,Western Pacific,2016,0.47,0.3433,0.29,validation,0.0,0.47,0.29,0.18
+Republic of Korea,Western Pacific,2015,0.16,0.1267,0.18,validation,0.0,0.16,0.18,0.02
+Republic of Korea,Western Pacific,2016,0.18,0.15,0.17,validation,0.1883,0.18,0.0183,0.01
+Rwanda,Africa,2015,219.81,137.5733,341.96,validation,239.7789,219.81,102.1811,122.15
+Rwanda,Africa,2016,341.96,227.74,585.54,validation,362.0869,341.96,223.4531,243.58
+Sao Tome and Principe,Africa,2015,8.96,37.96,10.32,validation,0.0,8.96,10.32,1.36
+Sao Tome and Principe,Africa,2016,10.32,22.4667,11.01,validation,10.7637,10.32,0.2463,0.69
+Saudi Arabia,Eastern Mediterranean,2015,0.01,0.02,0.03,validation,0.1702,0.01,0.1402,0.02
+Saudi Arabia,Eastern Mediterranean,2016,0.03,0.0167,0.1,validation,0.2214,0.03,0.1214,0.07
+Senegal,Africa,2015,39.51,54.7767,69.8,validation,30.2353,39.51,39.5647,30.29
+Senegal,Africa,2016,69.8,59.07,45.66,validation,74.0704,69.8,28.4104,24.14
+Sierra Leone,Africa,2015,409.31,429.8267,403.72,validation,392.075,409.31,11.645,5.59
+Sierra Leone,Africa,2016,403.72,415.2433,391.33,validation,393.683,403.72,2.353,12.39
+Solomon Islands,Western Pacific,2015,52.63,80.8033,66.85,validation,34.5933,52.63,32.2567,14.22
+Solomon Islands,Western Pacific,2016,66.85,71.4667,137.71,validation,67.2666,66.85,70.4434,70.86
+Somalia,Eastern Mediterranean,2015,32.1,28.2,37.27,validation,32.2554,32.1,5.0146,5.17
+Somalia,Eastern Mediterranean,2016,37.27,32.4733,37.26,validation,37.6084,37.27,0.3484,0.01
+South Africa,Africa,2015,2.15,1.67,0.21,validation,3.1745,2.15,2.9645,1.94
+South Africa,Africa,2016,0.21,1.3233,0.77,validation,1.8893,0.21,1.1193,0.56
+South Sudan,Africa,2015,236.14,234.4,240.36,validation,232.724,236.14,7.636,4.22
+South Sudan,Africa,2016,240.36,236.96,244.55,validation,237.5857,240.36,6.9643,4.19
+Sri Lanka,South-East Asia,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Sri Lanka,South-East Asia,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Sudan,Eastern Mediterranean,2015,33.38,31.6633,35.88,validation,33.1968,33.38,2.6832,2.5
+Sudan,Eastern Mediterranean,2016,35.88,33.57,41.73,validation,35.7602,35.88,5.9698,5.85
+Suriname,Americas,2015,4.91,6.9533,0.98,validation,3.9723,4.91,2.9923,3.93
+Suriname,Americas,2016,0.98,4.97,0.91,validation,0.3067,0.98,0.6033,0.07
+Syrian Arab Republic,Eastern Mediterranean,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Syrian Arab Republic,Eastern Mediterranean,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Tajikistan,Europe,2015,0.0,0.0033,0.0,validation,0.0,0.0,0.0,0.0
+Tajikistan,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Thailand,South-East Asia,2015,2.92,2.6767,1.34,validation,2.8463,2.92,1.5063,1.58
+Thailand,South-East Asia,2016,1.34,2.28,1.03,validation,1.4074,1.34,0.3774,0.31
+Timor-Leste,South-East Asia,2015,0.51,3.11,0.12,validation,0.7994,0.51,0.6794,0.39
+Timor-Leste,South-East Asia,2016,0.12,0.73,0.11,validation,0.9047,0.12,0.7947,0.01
+Togo,Africa,2015,384.68,373.2567,364.31,validation,373.9055,384.68,9.5955,20.37
+Togo,Africa,2016,364.31,378.1267,324.86,validation,349.4052,364.31,24.5452,39.45
+Turkey,Europe,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Turkey,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Turkmenistan,Europe,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Turkmenistan,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Uganda,Africa,2015,220.62,268.8767,236.11,validation,202.3716,220.62,33.7384,15.49
+Uganda,Africa,2016,236.11,236.99,304.41,validation,234.6962,236.11,69.7138,68.3
+United Arab Emirates,Eastern Mediterranean,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+United Arab Emirates,Eastern Mediterranean,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+United Republic of Tanzania,Africa,2015,118.94,115.6567,121.74,validation,119.1993,118.94,2.5407,2.8
+United Republic of Tanzania,Africa,2016,121.74,117.4867,123.57,validation,120.5696,121.74,3.0004,1.83
+Uzbekistan,Europe,2015,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Uzbekistan,Europe,2016,0.0,0.0,0.0,validation,0.0,0.0,0.0,0.0
+Vanuatu,Western Pacific,2015,9.2,21.1967,2.9,validation,4.8727,9.2,1.9727,6.3
+Vanuatu,Western Pacific,2016,2.9,10.95,15.01,validation,1.0399,2.9,13.9701,12.11
+Venezuela (Bolivarian Republic of),Americas,2015,7.04,5.8067,10.57,validation,6.8462,7.04,3.7238,3.53
+Venezuela (Bolivarian Republic of),Americas,2016,10.57,7.9267,18.79,validation,10.7953,10.57,7.9947,8.22
+Viet Nam,Western Pacific,2015,0.28,0.3167,0.17,validation,0.5052,0.28,0.3352,0.11
+Viet Nam,Western Pacific,2016,0.17,0.2533,0.07,validation,0.7349,0.17,0.6649,0.1
+Yemen,Eastern Mediterranean,2015,29.13,36.66,24.9,validation,26.0297,29.13,1.1297,4.23
+Yemen,Eastern Mediterranean,2016,24.9,29.93,37.75,validation,22.8891,24.9,14.8609,12.85
+Zambia,Africa,2015,222.98,217.2767,202.55,validation,216.7079,222.98,14.1579,20.43
+Zambia,Africa,2016,202.55,217.1,181.39,validation,191.1601,202.55,9.7701,21.16
+Zimbabwe,Africa,2015,101.89,80.3533,97.65,validation,104.274,101.89,6.624,4.24
+Zimbabwe,Africa,2016,97.65,93.83,65.78,validation,94.181,97.65,28.401,31.87
+Afghanistan,Eastern Mediterranean,2017,26.11,17.8967,27.07,test,27.9605,26.11,0.8905,0.96
+Afghanistan,Eastern Mediterranean,2018,27.07,22.6967,29.01,test,25.8231,27.07,3.1869,1.94
+Algeria,Africa,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Algeria,Africa,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Angola,Africa,2017,219.99,202.64,228.91,test,221.278,219.99,7.632,8.92
+Angola,Africa,2018,228.91,216.2967,228.91,test,226.015,228.91,2.895,0.0
+Argentina,Americas,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Argentina,Americas,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Armenia,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Armenia,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Azerbaijan,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Azerbaijan,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Bangladesh,South-East Asia,2017,1.86,2.6267,1.95,test,1.926,1.86,0.024,0.09
+Bangladesh,South-East Asia,2018,1.95,2.1767,0.69,test,1.976,1.95,1.286,1.26
+Belize,Americas,2017,0.02,0.0467,0.03,test,0.1176,0.02,0.0876,0.01
+Belize,Americas,2018,0.03,0.03,0.01,test,0.1629,0.03,0.1529,0.02
+Benin,Africa,2017,421.58,410.88,399.56,test,415.5122,421.58,15.9522,22.02
+Benin,Africa,2018,399.56,410.9867,386.18,test,384.6152,399.56,1.5648,13.38
+Bhutan,South-East Asia,2017,0.03,0.0433,0.02,test,0.1178,0.03,0.0978,0.01
+Bhutan,South-East Asia,2018,0.02,0.0367,0.01,test,0.1384,0.02,0.1284,0.01
+Bolivia (Plurinational State of),Americas,2017,1.5,1.88,1.22,test,1.65,1.5,0.43,0.28
+Bolivia (Plurinational State of),Americas,2018,1.22,1.5367,1.41,test,1.4229,1.22,0.0129,0.19
+Botswana,Africa,2017,0.81,0.8933,2.05,test,0.8594,0.81,1.1906,1.24
+Botswana,Africa,2018,2.05,1.0767,0.59,test,1.9581,2.05,1.3681,1.46
+Brazil,Americas,2017,3.22,3.5667,5.23,test,3.2204,3.22,2.0096,2.01
+Brazil,Americas,2018,5.23,4.11,5.12,test,5.036,5.23,0.084,0.11
+Burkina Faso,Africa,2017,401.73,412.6267,399.94,test,394.0374,401.73,5.9026,1.79
+Burkina Faso,Africa,2018,399.94,400.5867,398.73,test,392.1811,399.94,6.5489,1.21
+Burundi,Africa,2017,225.74,177.5833,250.27,test,237.3271,225.74,12.9429,24.53
+Burundi,Africa,2018,250.27,213.8367,250.27,test,247.5053,250.27,2.7647,0.0
+Cabo Verde,Africa,2017,0.35,0.1967,3.03,test,1.8005,0.35,1.2295,2.68
+Cabo Verde,Africa,2018,3.03,1.1433,0.01,test,0.4738,3.03,0.4638,3.02
+Cambodia,Western Pacific,2017,11.13,17.7767,17.9,test,7.925,11.13,9.975,6.77
+Cambodia,Western Pacific,2018,17.9,16.3233,23.69,test,18.1324,17.9,5.5576,5.79
+Cameroon,Africa,2017,264.31,254.2967,262.23,test,261.8498,264.31,0.3802,2.08
+Cameroon,Africa,2018,262.23,260.3467,246.99,test,256.6237,262.23,9.6337,15.24
+Central African Republic,Africa,2017,362.02,378.3233,347.33,test,348.1299,362.02,0.7999,14.69
+Central African Republic,Africa,2018,347.33,363.0867,347.33,test,335.0186,347.33,12.3114,0.0
+Chad,Africa,2017,169.93,169.16,172.3,test,168.0666,169.93,4.2334,2.37
+Chad,Africa,2018,172.3,169.8367,164.83,test,170.4208,172.3,5.5908,7.47
+China,Western Pacific,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+China,Western Pacific,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Colombia,Americas,2017,10.83,7.75,7.48,test,11.0591,10.83,3.5791,3.35
+Colombia,Americas,2018,7.48,8.4167,8.5,test,6.7952,7.48,1.7048,1.02
+Comoros,Africa,2017,1.44,2.0033,3.97,test,2.8396,1.44,1.1304,2.53
+Comoros,Africa,2018,3.97,2.36,18.76,test,3.963,3.97,14.797,14.79
+Congo,Americas,2017,233.38,230.6467,240.64,test,229.7382,233.38,10.9018,7.26
+Congo,Americas,2018,240.64,233.5767,235.07,test,237.0502,240.64,1.9802,5.57
+Costa Rica,Americas,2017,0.0,0.0,0.01,test,0.0,0.0,0.01,0.01
+Costa Rica,Americas,2018,0.01,0.0033,0.04,test,0.1447,0.01,0.1047,0.03
+Côte d'Ivoire,Africa,2017,354.66,329.9233,362.36,test,357.9388,354.66,4.4212,7.7
+Côte d'Ivoire,Africa,2018,362.36,345.6867,330.6,test,354.7388,362.36,24.1388,31.76
+Democratic People's Republic of Korea,Western Pacific,2017,0.28,0.7033,0.46,test,0.9887,0.28,0.5287,0.18
+Democratic People's Republic of Korea,Western Pacific,2018,0.46,0.4967,0.36,test,0.0,0.46,0.36,0.1
+Democratic Republic of the Congo,Africa,2017,322.77,313.33,329.13,test,321.1576,322.77,7.9724,6.36
+Democratic Republic of the Congo,Africa,2018,329.13,320.2433,319.84,test,323.9291,329.13,4.0891,9.29
+Djibouti,Eastern Mediterranean,2017,19.81,15.88,20.72,test,20.815,19.81,0.095,0.91
+Djibouti,Eastern Mediterranean,2018,20.72,18.1167,35.21,test,20.1211,20.72,15.0889,14.49
+Dominican Republic,Americas,2017,0.16,0.1333,0.06,test,0.0989,0.16,0.0389,0.1
+Dominican Republic,Americas,2018,0.06,0.12,0.12,test,0.88,0.06,0.76,0.06
+Ecuador,Americas,2017,2.48,1.4367,2.61,test,1.7642,2.48,0.8458,0.13
+Ecuador,Americas,2018,2.61,2.1333,3.32,test,2.5444,2.61,0.7756,0.71
+Egypt,Eastern Mediterranean,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Egypt,Eastern Mediterranean,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+El Salvador,Americas,2017,0.01,0.0033,0.0,test,0.1195,0.01,0.1195,0.01
+El Salvador,Americas,2018,0.0,0.0033,0.0,test,0.1128,0.0,0.1128,0.0
+Equatorial Guinea,Africa,2017,306.97,335.8,285.72,test,288.2174,306.97,2.4974,21.25
+Equatorial Guinea,Africa,2018,285.72,310.7233,269.01,test,271.8678,285.72,2.8578,16.71
+Eritrea,Africa,2017,25.64,25.9867,33.97,test,27.0839,25.64,6.8861,8.33
+Eritrea,Africa,2018,33.97,26.27,28.88,test,36.1224,33.97,7.2424,5.09
+Eswatini,Africa,2017,1.12,1.3167,2.3,test,1.1757,1.12,1.1243,1.18
+Eswatini,Africa,2018,2.3,1.31,0.84,test,2.7256,2.3,1.8856,1.46
+Ethiopia,Africa,2017,41.41,50.4267,36.74,test,37.4237,41.41,0.6837,4.67
+Ethiopia,Africa,2018,36.74,43.64,31.81,test,35.3985,36.74,3.5885,4.93
+Gabon,Africa,2017,270.67,280.2833,254.24,test,260.5485,270.67,6.3085,16.43
+Gabon,Africa,2018,254.24,269.7833,248.23,test,243.311,254.24,4.919,6.01
+Gambia,Africa,2017,116.53,151.1967,53.02,test,90.3429,116.53,37.3229,63.51
+Gambia,Africa,2018,53.02,121.53,66.0,test,26.8144,53.02,39.1856,12.98
+Georgia,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Georgia,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Ghana,Africa,2017,236.0,276.32,212.56,test,215.0626,236.0,2.5026,23.44
+Ghana,Africa,2018,212.56,241.9167,224.34,test,199.2873,212.56,25.0527,11.78
+Guatemala,Americas,2017,0.45,0.55,0.34,test,0.8362,0.45,0.4962,0.11
+Guatemala,Americas,2018,0.34,0.48,0.27,test,0.7013,0.34,0.4313,0.07
+Guinea,Africa,2017,331.47,356.4,311.53,test,315.1332,331.47,3.6032,19.94
+Guinea,Africa,2018,311.53,333.2133,283.89,test,297.7618,311.53,13.8718,27.64
+Guinea-Bissau,Africa,2017,71.35,81.6733,78.33,test,67.6627,71.35,10.6673,6.98
+Guinea-Bissau,Africa,2018,78.33,76.4833,123.31,test,79.0935,78.33,44.2165,44.98
+Guyana,Americas,2017,24.98,25.9,32.55,test,24.6606,24.98,7.8894,7.57
+Guyana,Americas,2018,32.55,27.0067,44.37,test,33.7084,32.55,10.6616,11.82
+Haiti,Americas,2017,3.8,3.5767,3.55,test,3.8025,3.8,0.2525,0.25
+Haiti,Americas,2018,3.55,3.5967,1.61,test,3.6,3.55,1.99,1.94
+Honduras,Americas,2017,0.74,0.63,0.22,test,0.576,0.74,0.356,0.52
+Honduras,Americas,2018,0.22,0.5167,0.13,test,0.9712,0.22,0.8412,0.09
+India,South-East Asia,2017,9.99,9.62,7.47,test,9.8833,9.99,2.4133,2.52
+India,South-East Asia,2018,7.47,9.0433,5.33,test,6.7263,7.47,1.3963,2.14
+Indonesia,South-East Asia,2017,5.54,5.6733,6.77,test,5.5021,5.54,1.2679,1.23
+Indonesia,South-East Asia,2018,6.77,5.8967,3.87,test,6.834,6.77,2.964,2.9
+Iran (Islamic Republic of),Eastern Mediterranean,2017,0.1,0.2533,0.07,test,0.8705,0.1,0.8005,0.03
+Iran (Islamic Republic of),Eastern Mediterranean,2018,0.07,0.1267,0.0,test,0.2909,0.07,0.2909,0.07
+Iraq,Eastern Mediterranean,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Iraq,Eastern Mediterranean,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Kazakhstan,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Kazakhstan,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Kenya,Africa,2017,70.38,75.4733,70.1,test,69.3288,70.38,0.7712,0.28
+Kenya,Africa,2018,70.1,70.8833,70.1,test,69.8544,70.1,0.2456,0.0
+Kyrgyzstan,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Kyrgyzstan,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Lao People's Democratic Republic,Western Pacific,2017,7.77,19.99,5.63,test,2.4774,7.77,3.1526,2.14
+Lao People's Democratic Republic,Western Pacific,2018,5.63,11.9,4.2,test,4.8945,5.63,0.6945,1.43
+Liberia,Africa,2017,386.3,356.9467,401.11,test,389.8843,386.3,11.2257,14.81
+Liberia,Africa,2018,401.11,378.1267,361.5,test,394.3297,401.11,32.8297,39.61
+Madagascar,Africa,2017,56.58,66.56,75.67,test,44.5172,56.58,31.1528,19.09
+Madagascar,Africa,2018,75.67,76.5233,82.4,test,78.0322,75.67,4.3678,6.73
+Malawi,Africa,2017,210.66,221.5667,216.26,test,204.5888,210.66,11.6712,5.6
+Malawi,Africa,2018,216.26,214.6533,213.64,test,213.8981,216.26,0.2581,2.62
+Malaysia,Western Pacific,2017,0.22,1.0167,0.07,test,0.2351,0.22,0.1651,0.15
+Malaysia,Western Pacific,2018,0.07,0.1633,0.0,test,1.0103,0.07,1.0103,0.07
+Mali,Africa,2017,384.22,405.6867,386.78,test,373.3176,384.22,13.4624,2.56
+Mali,Africa,2018,386.78,387.61,386.78,test,380.1902,386.78,6.5898,0.0
+Mauritania,Africa,2017,71.5,60.77,55.49,test,72.8926,71.5,17.4026,16.01
+Mauritania,Africa,2018,55.49,62.8667,39.41,test,50.6498,55.49,11.2398,16.08
+Mexico,Americas,2017,0.21,0.2233,0.28,test,0.2549,0.21,0.0251,0.07
+Mexico,Americas,2018,0.28,0.23,0.3,test,0.0373,0.28,0.2627,0.02
+Morocco,Eastern Mediterranean,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Morocco,Eastern Mediterranean,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Mozambique,Africa,2017,344.82,355.1767,326.4,test,334.1394,344.82,7.7394,18.42
+Mozambique,Africa,2018,326.4,342.3667,305.36,test,313.1175,326.4,7.7575,21.04
+Myanmar,South-East Asia,2017,5.12,8.7133,3.8,test,4.074,5.12,0.274,1.32
+Myanmar,South-East Asia,2018,3.8,5.87,3.4,test,3.5439,3.8,0.1439,0.4
+Namibia,Africa,2017,22.12,15.83,46.75,test,24.7089,22.12,22.0411,24.63
+Namibia,Africa,2018,46.75,26.5833,26.71,test,52.0629,46.75,25.3529,20.04
+Nepal,South-East Asia,2017,0.43,0.5433,0.39,test,0.7467,0.43,0.3567,0.04
+Nepal,South-East Asia,2018,0.39,0.4633,0.44,test,0.5946,0.39,0.1546,0.05
+Nicaragua,Americas,2017,2.89,1.4967,4.98,test,1.4132,2.89,3.5668,2.09
+Nicaragua,Americas,2018,4.98,2.9767,7.14,test,4.6066,4.98,2.5334,2.16
+Niger,Africa,2017,358.74,376.2733,356.57,test,347.381,358.74,9.189,2.17
+Niger,Africa,2018,356.57,361.7133,356.57,test,349.1996,356.57,7.3704,0.0
+Nigeria,Africa,2017,281.38,297.2867,283.06,test,270.4681,281.38,12.5919,1.68
+Nigeria,Africa,2018,283.06,286.84,291.94,test,278.3962,283.06,13.5438,8.88
+Oman,Eastern Mediterranean,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Oman,Eastern Mediterranean,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Pakistan,Eastern Mediterranean,2017,6.01,6.0733,4.75,test,6.0201,6.01,1.2701,1.26
+Pakistan,Eastern Mediterranean,2018,4.75,5.2733,3.38,test,4.7298,4.75,1.3498,1.37
+Panama,Americas,2017,0.21,0.21,0.2,test,0.0,0.21,0.2,0.01
+Panama,Americas,2018,0.2,0.1867,0.19,test,0.3753,0.2,0.1853,0.01
+Papua New Guinea,Western Pacific,2017,177.61,184.06,177.84,test,180.5269,177.61,2.6869,0.23
+Papua New Guinea,Western Pacific,2018,177.84,162.33,184.47,test,169.519,177.84,14.951,6.63
+Paraguay,Americas,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Paraguay,Americas,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Peru,Americas,2017,6.0,6.9833,5.87,test,5.5887,6.0,0.2813,0.13
+Peru,Americas,2018,5.87,6.5733,4.65,test,5.8114,5.87,1.1614,1.22
+Philippines,Western Pacific,2017,0.29,0.3367,0.31,test,0.8562,0.29,0.5462,0.02
+Philippines,Western Pacific,2018,0.31,0.3567,0.18,test,0.4305,0.31,0.2505,0.13
+Republic of Korea,Western Pacific,2017,0.17,0.17,0.12,test,0.4092,0.17,0.2892,0.05
+Republic of Korea,Western Pacific,2018,0.12,0.1567,0.14,test,0.6462,0.12,0.5062,0.02
+Rwanda,Africa,2017,585.54,382.4367,538.34,test,633.8366,585.54,95.4966,47.2
+Rwanda,Africa,2018,538.34,488.6133,486.49,test,495.1804,538.34,8.6904,51.85
+Sao Tome and Principe,Africa,2017,11.01,10.0967,10.81,test,12.1525,11.01,1.3425,0.2
+Sao Tome and Principe,Africa,2018,10.81,10.7133,13.92,test,11.9041,10.81,2.0159,3.11
+Saudi Arabia,Eastern Mediterranean,2017,0.1,0.0467,0.07,test,0.3279,0.1,0.2579,0.03
+Saudi Arabia,Eastern Mediterranean,2018,0.07,0.0667,0.02,test,0.2926,0.07,0.2726,0.05
+Senegal,Africa,2017,45.66,51.6567,52.35,test,38.9507,45.66,13.3993,6.69
+Senegal,Africa,2018,52.35,55.9367,55.75,test,53.3316,52.35,2.4184,3.4
+Sierra Leone,Africa,2017,391.33,401.4533,364.13,test,379.1325,391.33,15.0025,27.2
+Sierra Leone,Africa,2018,364.13,386.3933,320.4,test,346.4167,364.13,26.0167,43.73
+Solomon Islands,Western Pacific,2017,137.71,85.73,164.34,test,153.1528,137.71,11.1872,26.63
+Solomon Islands,Western Pacific,2018,164.34,122.9667,133.59,test,161.6907,164.34,28.1007,30.75
+Somalia,Eastern Mediterranean,2017,37.26,35.5433,37.13,test,36.1312,37.26,0.9988,0.13
+Somalia,Eastern Mediterranean,2018,37.13,37.22,34.27,test,36.5144,37.13,2.2444,2.86
+South Africa,Africa,2017,0.77,1.0433,3.95,test,0.0,0.77,3.95,3.18
+South Africa,Africa,2018,3.95,1.6433,1.65,test,1.4979,3.95,0.1521,2.3
+South Sudan,Africa,2017,244.55,240.35,245.8,test,241.47,244.55,4.33,1.25
+South Sudan,Africa,2018,245.8,243.57,235.92,test,241.8498,245.8,5.9298,9.88
+Sri Lanka,South-East Asia,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Sri Lanka,South-East Asia,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Sudan,Eastern Mediterranean,2017,41.73,36.9967,46.75,test,42.3399,41.73,4.4101,5.02
+Sudan,Eastern Mediterranean,2018,46.75,41.4533,46.75,test,46.7626,46.75,0.0126,0.0
+Suriname,Americas,2017,0.91,2.2667,0.47,test,0.9724,0.91,0.5024,0.44
+Suriname,Americas,2018,0.47,0.7867,0.34,test,0.9723,0.47,0.6323,0.13
+Syrian Arab Republic,Eastern Mediterranean,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Syrian Arab Republic,Eastern Mediterranean,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Tajikistan,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Tajikistan,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Thailand,South-East Asia,2017,1.03,1.7633,0.95,test,1.2205,1.03,0.2705,0.08
+Thailand,South-East Asia,2018,0.95,1.1067,0.36,test,1.1054,0.95,0.7454,0.59
+Timor-Leste,South-East Asia,2017,0.11,0.2467,0.03,test,0.291,0.11,0.261,0.08
+Timor-Leste,South-East Asia,2018,0.03,0.0867,0.0,test,0.9666,0.03,0.9666,0.03
+Togo,Africa,2017,324.86,357.95,278.2,test,302.8874,324.86,24.6874,46.66
+Togo,Africa,2018,278.2,322.4567,267.31,test,254.117,278.2,13.193,10.89
+Turkey,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Turkey,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Turkmenistan,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Turkmenistan,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Uganda,Africa,2017,304.41,253.7133,336.76,test,317.4955,304.41,19.2645,32.35
+Uganda,Africa,2018,336.76,292.4267,289.18,test,333.6894,336.76,44.5094,47.58
+United Arab Emirates,Eastern Mediterranean,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+United Arab Emirates,Eastern Mediterranean,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+United Republic of Tanzania,Africa,2017,123.57,121.4167,123.96,test,122.5406,123.57,1.4194,0.39
+United Republic of Tanzania,Africa,2018,123.96,123.09,124.27,test,122.6219,123.96,1.6481,0.31
+Uzbekistan,Europe,2017,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Uzbekistan,Europe,2018,0.0,0.0,0.0,test,0.0,0.0,0.0,0.0
+Vanuatu,Western Pacific,2017,15.01,9.0367,7.94,test,13.0236,15.01,5.0836,7.07
+Vanuatu,Western Pacific,2018,7.94,8.6167,3.99,test,6.0279,7.94,2.0379,3.95
+Venezuela (Bolivarian Republic of),Americas,2017,18.79,12.1333,32.63,test,19.6772,18.79,12.9528,13.84
+Venezuela (Bolivarian Republic of),Americas,2018,32.63,20.6633,32.68,test,34.5119,32.63,1.8319,0.05
+Viet Nam,Western Pacific,2017,0.07,0.1733,0.08,test,0.893,0.07,0.813,0.01
+Viet Nam,Western Pacific,2018,0.08,0.1067,0.08,test,0.2854,0.08,0.2054,0.0
+Yemen,Eastern Mediterranean,2017,37.75,30.5933,41.64,test,39.8294,37.75,1.8106,3.89
+Yemen,Eastern Mediterranean,2018,41.64,34.7633,45.84,test,40.7366,41.64,5.1034,4.2
+Zambia,Africa,2017,181.39,202.3067,160.05,test,170.0328,181.39,9.9828,21.34
+Zambia,Africa,2018,160.05,181.33,156.7,test,149.1104,160.05,7.5896,3.35
+Zimbabwe,Africa,2017,65.78,88.44,108.55,test,52.8949,65.78,55.6551,42.77
+Zimbabwe,Africa,2018,108.55,90.66,51.0,test,115.5265,108.55,64.5265,57.55

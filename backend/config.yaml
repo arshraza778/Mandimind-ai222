@@ -1,0 +1,22 @@
+data_source: simulated
+cases_file: data/sim/cases.csv
+weather_file: data/sim/weather.csv
+unit_map_file: data/sim/unit_map.csv
+granularity: weekly
+geography_level: block
+horizon_steps:
+  - 2
+  - 4
+weather_lags_steps:
+  - 2
+  - 3
+  - 4
+skill_gate:
+  min_win_share: 0.60
+  min_median_improvement: 0.05
+evaluation_years: 2
+reactive_rule:
+  history_years: 5
+  sd_multiplier: 2
+escalation_hours: 48
+interpolate_weather: false

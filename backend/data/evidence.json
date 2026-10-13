@@ -1,0 +1,199 @@
+{
+  "run_id": "run_20240115_090000_be7973",
+  "generated_at": "2026-10-13T08:28:26.965313+00:00",
+  "granularity": "weekly",
+  "unit_label": "weeks",
+  "geography_level": "block",
+  "evaluation_years": 2,
+  "exclude_disruptions": false,
+  "skill_gate_thresholds": {
+    "min_win_share": 0.6,
+    "min_median_improvement": 0.05
+  },
+  "reactive_rule_config": {
+    "history_years": 5,
+    "sd_multiplier": 2.0
+  },
+  "units": {
+    "BLK_A": {
+      "unit_id": "BLK_A",
+      "unit_name": "Sample Block A",
+      "decision": "weather_model",
+      "verdict_chip": "Use weather",
+      "skill_gate_status": "Pass",
+      "reason": "Weather model passed skill gate with 64.7% win share (target >= 60%), 9.0% median MAE improvement (target >= 5%), and positive skill (8.4%).",
+      "win_share": 0.647,
+      "median_improvement": 0.09,
+      "skill_score": 0.0842,
+      "skill_score_pct": "8.4%",
+      "zero_baseline_mae_handled": false,
+      "baseline_metrics": {
+        "mae": 8.84,
+        "rmse": 17.32
+      },
+      "weather_metrics": {
+        "mae": 8.1,
+        "rmse": 15.7
+      },
+      "reactive_rule": {
+        "threshold": 83.3,
+        "history_years": 5,
+        "sd_multiplier": 2.0,
+        "lead_time_advantage_periods": 2,
+        "advantage_description": "Compared with a reactive rule (mean + 2 SD = 83.3), this model alert triggers about 2 weeks earlier (simulated)."
+      },
+      "n_evaluations": 51,
+      "disruption_filtered_metrics": null
+    },
+    "BLK_B": {
+      "unit_id": "BLK_B",
+      "unit_name": "Sample Block B",
+      "decision": "seasonal_baseline",
+      "verdict_chip": "Use baseline",
+      "skill_gate_status": "Fail",
+      "reason": "Weather model failed skill gate (win share 54.9% < 60%, median improvement 1.2% < 5%); defaulted to seasonal baseline.",
+      "win_share": 0.549,
+      "median_improvement": 0.012,
+      "skill_score": 0.1965,
+      "skill_score_pct": "19.6%",
+      "zero_baseline_mae_handled": false,
+      "baseline_metrics": {
+        "mae": 8.89,
+        "rmse": 18.62
+      },
+      "weather_metrics": {
+        "mae": 7.14,
+        "rmse": 14.59
+      },
+      "reactive_rule": {
+        "threshold": 73.5,
+        "history_years": 5,
+        "sd_multiplier": 2.0,
+        "lead_time_advantage_periods": 0,
+        "advantage_description": "Compared with a reactive rule (mean + 2 SD = 73.5), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "n_evaluations": 51,
+      "disruption_filtered_metrics": null
+    },
+    "BLK_C": {
+      "unit_id": "BLK_C",
+      "unit_name": "Sample Block C",
+      "decision": "seasonal_baseline",
+      "verdict_chip": "Use baseline",
+      "skill_gate_status": "Fail",
+      "reason": "Weather model failed skill gate (win share 41.2% < 60%, median improvement -1.5% < 5%, skill -0.4% <= 0%); defaulted to seasonal baseline.",
+      "win_share": 0.412,
+      "median_improvement": -0.015,
+      "skill_score": -0.0036,
+      "skill_score_pct": "-0.4%",
+      "zero_baseline_mae_handled": false,
+      "baseline_metrics": {
+        "mae": 6.43,
+        "rmse": 10.03
+      },
+      "weather_metrics": {
+        "mae": 6.45,
+        "rmse": 10.16
+      },
+      "reactive_rule": {
+        "threshold": 44.8,
+        "history_years": 5,
+        "sd_multiplier": 2.0,
+        "lead_time_advantage_periods": 0,
+        "advantage_description": "Compared with a reactive rule (mean + 2 SD = 44.8), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "n_evaluations": 51,
+      "disruption_filtered_metrics": null
+    },
+    "BLK_D": {
+      "unit_id": "BLK_D",
+      "unit_name": "Sample Block D",
+      "decision": "seasonal_baseline",
+      "verdict_chip": "Use baseline",
+      "skill_gate_status": "Fail",
+      "reason": "Weather model failed skill gate (win share 47.1% < 60%, median improvement -0.6% < 5%, skill -2.2% <= 0%); defaulted to seasonal baseline.",
+      "win_share": 0.471,
+      "median_improvement": -0.006,
+      "skill_score": -0.0216,
+      "skill_score_pct": "-2.2%",
+      "zero_baseline_mae_handled": false,
+      "baseline_metrics": {
+        "mae": 5.18,
+        "rmse": 9.87
+      },
+      "weather_metrics": {
+        "mae": 5.29,
+        "rmse": 9.43
+      },
+      "reactive_rule": {
+        "threshold": 43.5,
+        "history_years": 5,
+        "sd_multiplier": 2.0,
+        "lead_time_advantage_periods": 0,
+        "advantage_description": "Compared with a reactive rule (mean + 2 SD = 43.5), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "n_evaluations": 51,
+      "disruption_filtered_metrics": null
+    },
+    "BLK_E": {
+      "unit_id": "BLK_E",
+      "unit_name": "Sample Block E",
+      "decision": "weather_model",
+      "verdict_chip": "Use weather",
+      "skill_gate_status": "Pass",
+      "reason": "Weather model passed skill gate with 64.7% win share (target >= 60%), 6.8% median MAE improvement (target >= 5%), and positive skill (15.4%).",
+      "win_share": 0.647,
+      "median_improvement": 0.068,
+      "skill_score": 0.1538,
+      "skill_score_pct": "15.4%",
+      "zero_baseline_mae_handled": false,
+      "baseline_metrics": {
+        "mae": 10.65,
+        "rmse": 23.71
+      },
+      "weather_metrics": {
+        "mae": 9.01,
+        "rmse": 19.07
+      },
+      "reactive_rule": {
+        "threshold": 83.9,
+        "history_years": 5,
+        "sd_multiplier": 2.0,
+        "lead_time_advantage_periods": 2,
+        "advantage_description": "Compared with a reactive rule (mean + 2 SD = 83.9), this model alert triggers about 2 weeks earlier (simulated)."
+      },
+      "n_evaluations": 51,
+      "disruption_filtered_metrics": null
+    },
+    "BLK_F": {
+      "unit_id": "BLK_F",
+      "unit_name": "Sample Block F",
+      "decision": "seasonal_baseline",
+      "verdict_chip": "Use baseline",
+      "skill_gate_status": "Fail",
+      "reason": "Weather model failed skill gate (win share 56.9% < 60%, median improvement 0.8% < 5%); defaulted to seasonal baseline.",
+      "win_share": 0.569,
+      "median_improvement": 0.008,
+      "skill_score": 0.0101,
+      "skill_score_pct": "1.0%",
+      "zero_baseline_mae_handled": false,
+      "baseline_metrics": {
+        "mae": 6.53,
+        "rmse": 11.43
+      },
+      "weather_metrics": {
+        "mae": 6.46,
+        "rmse": 11.18
+      },
+      "reactive_rule": {
+        "threshold": 48.8,
+        "history_years": 5,
+        "sd_multiplier": 2.0,
+        "lead_time_advantage_periods": 0,
+        "advantage_description": "Compared with a reactive rule (mean + 2 SD = 48.8), seasonal baseline triggers alongside reactive rule (0 weeks advance)."
+      },
+      "n_evaluations": 51,
+      "disruption_filtered_metrics": null
+    }
+  }
+}

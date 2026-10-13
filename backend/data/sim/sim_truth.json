@@ -1,0 +1,67 @@
+{
+  "header_note": "SIMULATED data. Not real surveillance data.",
+  "generated_timestamp": "2026-10-12T22:18:10.892707",
+  "granularity": "weekly",
+  "seed": 42,
+  "years": 6,
+  "total_periods": 312,
+  "date_range": {
+    "start": "2018-01-01",
+    "end": "2023-12-18"
+  },
+  "disruption": {
+    "period": "2020-04-01 to 2021-03-31",
+    "under_reporting_factor": 0.55,
+    "reporting_flag": 1
+  },
+  "units": {
+    "BLK_A": {
+      "base_mean": 24.0,
+      "trend_annual": -0.02,
+      "weather_sensitive": true,
+      "rain_beta": 0.35,
+      "temp_beta": 0.2,
+      "dispersion": 8.0
+    },
+    "BLK_B": {
+      "base_mean": 18.0,
+      "trend_annual": -0.01,
+      "weather_sensitive": true,
+      "rain_beta": 0.4,
+      "temp_beta": 0.25,
+      "dispersion": 6.0
+    },
+    "BLK_C": {
+      "base_mean": 28.0,
+      "trend_annual": -0.03,
+      "weather_sensitive": false,
+      "rain_beta": 0.0,
+      "temp_beta": 0.0,
+      "dispersion": 10.0
+    },
+    "BLK_D": {
+      "base_mean": 14.0,
+      "trend_annual": -0.01,
+      "weather_sensitive": true,
+      "rain_beta": 0.3,
+      "temp_beta": 0.15,
+      "dispersion": 7.0
+    },
+    "BLK_E": {
+      "base_mean": 20.0,
+      "trend_annual": -0.02,
+      "weather_sensitive": true,
+      "rain_beta": 0.38,
+      "temp_beta": 0.22,
+      "dispersion": 8.5
+    },
+    "BLK_F": {
+      "base_mean": 32.0,
+      "trend_annual": -0.04,
+      "weather_sensitive": false,
+      "rain_beta": 0.0,
+      "temp_beta": 0.0,
+      "dispersion": 12.0
+    }
+  }
+}

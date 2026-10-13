@@ -1,0 +1,8 @@
+unit_id,unit_name,level,parent_id,latitude,longitude
+BLK_A,Block A,block,DIST_SAMPLE,21.3,81.65
+BLK_B,Block B,block,DIST_SAMPLE,21.2,81.55
+BLK_C,Block C,block,DIST_SAMPLE,21.35,81.7
+BLK_D,Block D,block,DIST_SAMPLE,21.15,81.6
+BLK_E,Block E,block,DIST_SAMPLE,21.28,81.5
+BLK_F,Block F,block,DIST_SAMPLE,21.1,81.75
+DIST_SAMPLE,Sample District,district,,21.25,81.63
