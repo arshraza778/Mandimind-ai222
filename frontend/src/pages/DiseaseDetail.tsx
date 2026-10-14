@@ -188,9 +188,9 @@ export function DiseaseDetail({
   const isDiarrhoea = detail.disease_type === "diarrhoea";
 
   return (
-    <div className="p-4 sm:p-6 max-w-[1400px] mx-auto space-y-4 text-ink">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-6 text-ink">
       {/* 1. NAVIGATION & DISEASE MODULE SWITCHER */}
-      <section className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-4">
+      <section className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-5">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div className="flex items-center flex-wrap gap-2.5">
             <button

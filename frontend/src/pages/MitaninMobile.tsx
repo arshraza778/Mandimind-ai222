@@ -1,13 +1,16 @@
 import { useState, useEffect, useMemo } from "react";
-import { Check, ArrowLeft, WifiOff, MessageSquare } from "lucide-react";
+import { Check, ArrowLeft, WifiOff, MessageSquare, MapPin, ChevronDown } from "lucide-react";
 import { useMeta } from "../hooks/useMeta";
 import { useI18n } from "../i18n/I18nContext";
 import { LanguageSelector } from "../components/LanguageSelector";
 import { VoiceTaskPlayer } from "../components/VoiceTaskPlayer";
+import type { SelectedLocationState } from "../components/LocationSelectorModal";
 
 interface MitaninMobileProps {
   onReturnToDistrict?: () => void;
   onLedgerUpdate?: () => void;
+  selectedLocation?: SelectedLocationState;
+  onChangeLocation?: () => void;
 }
 
 interface TaskItem {
@@ -27,7 +30,7 @@ interface TaskItem {
   location_name?: string;
 }
 
-export function MitaninMobile({ onReturnToDistrict, onLedgerUpdate }: MitaninMobileProps) {
+export function MitaninMobile({ onReturnToDistrict, onLedgerUpdate, selectedLocation, onChangeLocation }: MitaninMobileProps) {
   const { meta } = useMeta();
   const { t: tr, localizeTask } = useI18n();
   // Navigation / Views: "home" | "detail" | "confirmation" | "sms"
@@ -285,6 +288,27 @@ export function MitaninMobile({ onReturnToDistrict, onLedgerUpdate }: MitaninMob
                     <span>Offline ready</span>
                   </div>
                 </div>
+
+                {/* Active Location Selection Pill from Dataset */}
+                {onChangeLocation && (
+                  <button
+                    type="button"
+                    onClick={onChangeLocation}
+                    className="w-full flex items-center justify-between px-3 py-1.5 rounded-xl bg-white border border-[#27825C]/30 hover:border-[#27825C] text-xs text-ink transition-colors text-left shadow-2xs cursor-pointer"
+                    title="Change active location from dataset"
+                  >
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <MapPin className="w-3.5 h-3.5 text-[#186443] shrink-0" />
+                      <span className="font-bold text-[#186443] truncate text-[11px] sm:text-xs">
+                        {selectedLocation?.breadcrumb || "Bastar · Jagdalpur (LGD 3595)"}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-[#186443] bg-[#EBF5E9] px-2 py-0.5 rounded-full shrink-0 ml-1">
+                      <span>Change</span>
+                      <ChevronDown className="w-3 h-3" />
+                    </div>
+                  </button>
+                )}
 
                 {/* Compact Disease Filter Pills */}
                 <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar">

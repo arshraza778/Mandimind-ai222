@@ -11,7 +11,6 @@ import {
   XCircle,
 } from "lucide-react";
 import type { SelectedLocationState } from "../components/LocationSelectorModal";
-import { MultiDiseaseOverview } from "../components/MultiDiseaseOverview";
 
 interface SupervisorDashboardProps {
   activeView: "sup-dashboard" | "team-tasks";
@@ -30,7 +29,7 @@ export function SupervisorDashboard({
   onChangeLocation,
   onSwitchView,
   onDataUpdated,
-  onSelectDiseaseDetail,
+  onSelectDiseaseDetail: _onSelectDiseaseDetail,
 }: SupervisorDashboardProps) {
   const [dashData, setDashData] = useState<any | null>(null);
   const [teamTasks, setTeamTasks] = useState<any[]>([]);
@@ -606,8 +605,8 @@ export function SupervisorDashboard({
   // =========================================================================
   if (activeView === "team-tasks") {
     return (
-      <div className="p-4 sm:p-6 max-w-[1400px] mx-auto space-y-4 text-ink">
-        <div className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="supervisor-dashboard p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-6 text-ink">
+        <div className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full bg-purple-light text-purple text-xs font-bold">
@@ -617,7 +616,7 @@ export function SupervisorDashboard({
                 Jurisdiction: {allowedBlocks.join(", ")}
               </span>
             </div>
-            <h1 className="text-xl font-bold text-ink mt-1">
+            <h1 className="text-xl sm:text-2xl font-bold text-ink mt-1">
               Team Tasks Management ({teamTasks.length})
             </h1>
             <p className="text-xs text-muted">
@@ -625,11 +624,11 @@ export function SupervisorDashboard({
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5 shrink-0">
             <button
               type="button"
               onClick={() => setShowAssignModal(true)}
-              className="px-4 py-2 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold flex items-center gap-1.5 shadow-2xs"
+              className="px-4 py-2.5 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Assign New Task</span>
@@ -637,7 +636,7 @@ export function SupervisorDashboard({
             <button
               type="button"
               onClick={() => onSwitchView("sup-dashboard")}
-              className="px-3.5 py-2 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink"
+              className="px-3.5 py-2.5 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink transition-colors cursor-pointer"
             >
               Supervisor Overview
             </button>
@@ -645,15 +644,15 @@ export function SupervisorDashboard({
         </div>
 
         {/* Filter Bar */}
-        <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-2.5">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3">
           <div className="relative">
-            <Search className="w-3.5 h-3.5 text-muted absolute left-3 top-2.5" />
+            <Search className="w-4 h-4 text-muted absolute left-3 top-3" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search task or employee..."
-              className="w-full pl-8 pr-2.5 py-2 rounded-xl border border-borderline text-xs text-ink"
+              className="w-full h-10 pl-9 pr-3 rounded-xl border border-borderline text-xs font-medium text-ink focus:outline-none focus:ring-2 focus:ring-purple"
             />
           </div>
 
@@ -661,7 +660,7 @@ export function SupervisorDashboard({
             aria-label="Filter by Disease or Risk"
             value={diseaseFilter}
             onChange={(e) => setDiseaseFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+            className="h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
           >
             <option value="all">All 4 Health Risks</option>
             <option value="malaria">Malaria</option>
@@ -674,7 +673,7 @@ export function SupervisorDashboard({
             aria-label="Filter by Employee"
             value={employeeFilter}
             onChange={(e) => setEmployeeFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+            className="h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
           >
             <option value="all">All Employees</option>
             {employees.map((em) => (
@@ -688,7 +687,7 @@ export function SupervisorDashboard({
             aria-label="Filter by Location Block"
             value={blockFilter}
             onChange={(e) => setBlockFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+            className="h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
           >
             <option value="all">All Authorized Blocks</option>
             {allowedBlocks.map((bId) => (
@@ -702,7 +701,7 @@ export function SupervisorDashboard({
             aria-label="Filter by Status"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+            className="h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
           >
             <option value="all">All Statuses</option>
             <option value="pending">Pending</option>
@@ -717,7 +716,7 @@ export function SupervisorDashboard({
             aria-label="Filter by Priority"
             value={priorityFilter}
             onChange={(e) => setPriorityFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+            className="h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
           >
             <option value="all">All Priorities</option>
             <option value="Critical">Critical</option>
@@ -730,7 +729,7 @@ export function SupervisorDashboard({
             aria-label="Filter by Due Date"
             value={dueFilter}
             onChange={(e) => setDueFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+            className="h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
           >
             <option value="all">All Due Dates</option>
             <option value="overdue">Overdue Only</option>
@@ -739,7 +738,7 @@ export function SupervisorDashboard({
         </div>
 
         {/* Team Tasks Table */}
-        <div className="bg-white rounded-card border border-borderline shadow-2xs overflow-x-auto">
+        <div className="bg-white rounded-card-lg border border-borderline shadow-sm overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-borderline bg-canvas/60 text-[11px] font-bold uppercase text-muted">
@@ -806,16 +805,16 @@ export function SupervisorDashboard({
   // VIEW A: MAIN SUPERVISOR OVERVIEW DASHBOARD
   // =========================================================================
   return (
-    <div className="p-4 sm:p-6 max-w-[1400px] mx-auto space-y-4 text-ink">
+    <div className="supervisor-dashboard p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-6 text-ink">
       {/* 1. SUPERVISOR PROFILE & JURISDICTION HEADER */}
-      <section className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <section className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div className="flex items-start gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-purple text-white flex items-center justify-center font-bold shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-purple text-white flex items-center justify-center font-bold shrink-0 shadow-xs">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div className="space-y-1">
             <div className="flex items-center flex-wrap gap-2">
-              <h1 className="text-lg font-bold text-ink">{sup.name}</h1>
+              <h1 className="text-xl font-bold text-ink">{sup.name}</h1>
               <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-light text-purple">
                 {sup.designation || "Supervisor"}
               </span>
@@ -832,11 +831,11 @@ export function SupervisorDashboard({
           </div>
         </div>
 
-        <div className="flex items-center flex-wrap gap-2">
+        <div className="flex items-center flex-wrap gap-2.5 shrink-0">
           <button
             type="button"
             onClick={onChangeLocation}
-            className="px-3.5 py-2 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink flex items-center gap-1.5"
+            className="px-3.5 py-2.5 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink flex items-center gap-1.5 transition-colors cursor-pointer"
           >
             <MapPin className="w-3.5 h-3.5 text-purple" />
             <span>Change Location</span>
@@ -844,7 +843,7 @@ export function SupervisorDashboard({
           <button
             type="button"
             onClick={() => setShowAssignModal(true)}
-            className="px-4 py-2 rounded-xl bg-teal hover:bg-teal/90 text-white text-xs font-bold flex items-center gap-1.5 shadow-2xs"
+            className="px-4 py-2.5 rounded-xl bg-teal hover:bg-teal/90 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Assign Task</span>
@@ -852,7 +851,7 @@ export function SupervisorDashboard({
           <button
             type="button"
             onClick={() => onSwitchView("team-tasks")}
-            className="px-4 py-2 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold shadow-2xs"
+            className="px-4 py-2.5 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
           >
             Open Team Tasks ({taskSummary.total || 0})
           </button>
@@ -860,64 +859,52 @@ export function SupervisorDashboard({
       </section>
 
       {/* 2. SUPERVISOR KPI SUMMARY */}
-      <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+      <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Selected Location Risk</div>
-          <div className="text-xl font-extrabold text-coral mt-1">{risk.category || "High"}</div>
-          <div className="text-[11px] text-muted mt-0.5">{selectedLocation.block_name}</div>
+          <div className="text-xl font-extrabold text-coral mt-1.5">{risk.category || "High"}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">{selectedLocation.block_name}</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Employees Managed</div>
-          <div className="text-2xl font-bold text-ink mt-1">{employees.length}</div>
-          <div className="text-[11px] text-muted mt-0.5">Active Mitanin workers</div>
+          <div className="text-2xl font-extrabold text-ink mt-1.5 tabular-nums">{employees.length}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Active Mitanin workers</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Pending / In Progress</div>
-          <div className="text-2xl font-bold text-amber mt-1">
+          <div className="text-2xl font-extrabold text-amber mt-1.5 tabular-nums">
             {(taskSummary.pending || 0) + (taskSummary.in_progress || 0)}
           </div>
-          <div className="text-[11px] text-muted mt-0.5">Active field tasks</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Active field tasks</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Completed Tasks</div>
-          <div className="text-2xl font-bold text-forest mt-1">{taskSummary.completed || 0}</div>
-          <div className="text-[11px] text-muted mt-0.5">Closed in ledger</div>
+          <div className="text-2xl font-extrabold text-forest mt-1.5 tabular-nums">{taskSummary.completed || 0}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Closed in ledger</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Overdue / Escalated</div>
-          <div className="text-2xl font-bold text-coral mt-1">{taskSummary.overdue || 0}</div>
-          <div className="text-[11px] text-muted mt-0.5">Requires supervisor follow-up</div>
+          <div className="text-2xl font-extrabold text-coral mt-1.5 tabular-nums">{taskSummary.overdue || 0}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Requires follow-up</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Reports Awaiting Review</div>
-          <div className="text-2xl font-bold text-purple mt-1">
+          <div className="text-2xl font-extrabold text-purple mt-1.5 tabular-nums">
             {dashData?.reports_awaiting_review || 0}
           </div>
-          <div className="text-[11px] text-muted mt-0.5">Submitted by Mitanins</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Submitted by Mitanins</div>
         </div>
       </section>
 
-      {/* 2B. UNIFIED MULTI-DISEASE EARLY-WARNING OVERVIEW (4 HEALTH RISKS) */}
-      {dashData?.multi_disease && (
-        <MultiDiseaseOverview
-          multiDisease={dashData.multi_disease}
-          locationBreadcrumb={selectedLocation.breadcrumb}
-          portalMode="supervisor"
-          onSelectDiseaseDetail={(dType) => {
-            if (onSelectDiseaseDetail) onSelectDiseaseDetail(dType);
-          }}
-        />
-      )}
-
       {/* 3. EMPLOYEE-WISE TASK COMPLETION STATISTICS & HIGH-RISK ALERTS */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* Employees Under Supervisor Jurisdiction (col-span-8) */}
-        <div className="lg:col-span-8 bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-3">
+        <div className="lg:col-span-8 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-4 flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-borderline pb-3">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-purple" />
@@ -979,7 +966,7 @@ export function SupervisorDashboard({
         </div>
 
         {/* High-Risk Locations & Multi-Disease Active Alerts (col-span-4) */}
-        <div className="lg:col-span-4 bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-3">
+        <div className="lg:col-span-4 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-4 flex flex-col justify-between">
           <div className="flex items-center justify-between gap-2 border-b border-borderline pb-3">
             <div className="flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-coral" />
@@ -989,7 +976,7 @@ export function SupervisorDashboard({
               aria-label="Filter Alerts by Disease"
               value={alertDiseaseFilter}
               onChange={(e) => setAlertDiseaseFilter(e.target.value)}
-              className="px-2 py-1 rounded-lg border border-borderline text-[11px] font-bold text-ink bg-white"
+              className="px-2.5 py-1.5 rounded-lg border border-borderline text-[11px] font-bold text-ink bg-white focus:outline-none focus:ring-1 focus:ring-purple"
             >
               <option value="all">All Risks</option>
               <option value="malaria">Malaria</option>
@@ -1060,7 +1047,7 @@ export function SupervisorDashboard({
       </section>
 
       {/* 4. FIELD REPORTS SUBMITTED BY EMPLOYEES (REVIEW WORKFLOW) */}
-      <section className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-3">
+      <section className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-4">
         <div className="flex items-center justify-between border-b border-borderline pb-3">
           <div className="flex items-center gap-2">
             <FileCheck className="w-5 h-5 text-teal" />

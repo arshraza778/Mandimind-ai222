@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed":"#d8e3fb","inverse-surface":"#213145","on-secondary-container":"#586377","on-primary-fixed":"#00201d","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","error-container":"#ffdad6","tertiary-fixed":"#ffdada","on-primary":"#ffffff","on-error":"#ffffff","outline-variant":"#bcc9c6","primary-fixed-dim":"#6bd8cb","on-tertiary-fixed-variant":"#920028","on-surface-variant":"#3d4947","background":"#f8f9ff","secondary-fixed-dim":"#bcc7de","surface-dim":"#cbdbf5","on-error-container":"#93000a","surface":"#f8f9ff","on-primary-container":"#f4fffc","tertiary-container":"#e21e49","surface-container":"#e5eeff","on-tertiary-container":"#fffbff","secondary-container":"#d5e0f8","on-secondary-fixed":"#111c2d","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","on-tertiary":"#ffffff","error":"#ba1a1a","tertiary":"#ba0035","primary-fixed":"#89f5e7","on-primary-fixed-variant":"#005049","inverse-primary":"#6bd8cb","surface-variant":"#d3e4fe","on-background":"#0b1c30","tertiary-fixed-dim":"#ffb3b6","surface-container-high":"#dce9ff","on-surface":"#0b1c30","primary":"#00685f","outline":"#6d7a77","primary-container":"#008378","on-tertiary-fixed":"#40000c","secondary":"#545f73","surface-tint":"#006a61","surface-container-low":"#eff4ff","on-secondary-fixed-variant":"#3c475a","surface-container-lowest":"#ffffff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-sm":"0.5rem","space-xxs":"0.125rem","space-md":"1rem","space-xl":"2rem","margin-tablet":"1.5rem","space-xs":"0.25rem","margin":"2rem","space-lg":"1.5rem","gutter-tablet":"1rem","space-2xl":"3rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","gutter":"1.25rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"headline-xl-mobile":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"],"body-md":["Inter"],"metric-md":["Inter"],"headline-sm":["Inter"],"label-sm":["Inter"],"metric-xl":["Inter"]},fontSize:{"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"metric-md":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"metric-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="p-space-md"><div class="flex items-center gap-space-sm pb-space-md border-b border-outline-variant/20"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-inverse-on-surface leading-tight">मितानिन सहायक</span><span class="font-label-sm text-label-sm text-primary-fixed tracking-wider uppercase">Mitanin Sahayak</span></div></div><div class="mt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-inverse-on-surface/70 uppercase tracking-widest block">Govt. Public Health Surveillance</span></div><div class="mt-space-md bg-inverse-surface/80 p-space-xxs rounded-lg flex items-center justify-between text-center gap-space-xxs"><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Public</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Field</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm bg-primary text-on-primary font-bold shadow-sm">Supervisor</button></div><div class="mt-space-lg"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Portals</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="portal-landing" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-lg text-label-lg">Portal Landing</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="public-health" href="#"><span class="material-symbols-outlined text-[20px]">public</span><span class="font-label-lg text-label-lg">Public Health</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="field-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">Field Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="supervisor-operations" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="font-label-lg text-label-lg">Supervisor Operations</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Tasks & Fieldwork</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="my-tasks" href="#"><span class="material-symbols-outlined text-[20px]">assignment_ind</span><span class="font-label-lg text-label-lg">My Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="team-tasks" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-lg text-label-lg">Team Tasks</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs transition-colors bg-primary text-on-primary font-bold rounded-lg shadow-sm" data-path="assign-task" href="#"><span class="material-symbols-outlined text-[20px]">add_task</span><span class="font-label-lg text-label-lg">Assign Task</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="task-ledger" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-label-lg text-label-lg">Task Ledger</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="voice-tasks" href="#"><span class="material-symbols-outlined text-[20px]">mic</span><span class="font-label-lg text-label-lg">Voice Tasks</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Epidemiology & Surveillance</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="block-overview" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-lg text-label-lg">Block Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="alerts-and-responses" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="font-label-lg text-label-lg">Alerts & Responses</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="disease-surveillance" href="#"><span class="material-symbols-outlined text-[20px]">health_and_safety</span><span class="font-label-lg text-label-lg">Disease Surveillance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="forecasting-and-evidence" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-label-lg text-label-lg">Forecasting & Evidence</span></a></nav></div></div><div class="p-space-md border-t border-outline-variant/20"><nav class="flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="settings-and-data-status" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-lg text-label-lg">Settings & Data Status</span></a></nav></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="font-bold text-on-surface">Bastar District</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span>Tokapal Block</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-primary font-semibold">Village Netanar</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-secondary-container text-on-secondary-fixed"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Live Sync • Today 09:30 AM</span></div><div class="flex items-center bg-surface-container-high rounded-lg p-space-xxs font-label-sm text-label-sm"><button class="px-space-xs py-space-xxs rounded bg-surface text-primary font-bold shadow-xs">EN</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">हिन्दी</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">छत्तीसगढ़ी</button></div><button class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-error-container text-on-error-container hover:bg-error/20 transition-colors"><span class="material-symbols-outlined text-[18px] text-error">emergency</span><span class="font-label-sm text-label-sm font-bold">Emergency Alert</span></button><div class="flex items-center gap-space-xs bg-surface-container-low pl-space-xs pr-space-sm py-space-xxs rounded-full"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm font-bold text-on-surface leading-tight">Dr. Ananya Sen</span><span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] leading-tight">District Surveillance Officer</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Context Header Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-space-xxs">
+<span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm uppercase tracking-wider font-bold">Protocol Dispatch Level 1</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• ID: DSP-2024-1182</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Dispatch Field Health Task • New Intervention Assignment</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Frontline Epidemiological Outbreak Mitigation & Worker Workload Allocation</p>
+</div>
+<!-- Live Status / Mode Pill -->
+<div class="flex items-center gap-space-xs self-start md:self-auto bg-surface-container-high px-space-md py-space-xs rounded-full">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Priority Escalation Queue Active</span>
+</div>
+</div>
+<!-- Incident Auto-Fill Alert Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low shadow-sm p-space-md mb-space-lg">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pl-space-xs">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">crisis_alert</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-wider">Automated Context Trigger</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-xs rounded">Sync: NHM-Bastar-Cloud</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pre-filled from Alert #ALT-2024-884: Netanar Cluster Fever Outbreak Response</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">42 index cases reported febrile with chills within 36 hours. Immediate vector control protocol & mass diagnostics activated.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end md:self-center">
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-highest text-on-surface font-label-md text-label-md hover:bg-secondary-container transition-colors flex items-center gap-space-xxs" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>View Source Incident Dossier</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main 12-Column Responsive Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left 8 Columns: Progressive Assignment Form -->
+<form class="lg:col-span-8 flex flex-col gap-space-lg" id="dispatchTaskForm" onsubmit="event.preventDefault(); triggerDispatchSequence();">
+<!-- Section 1: Classification & Title -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-md text-label-md font-bold">1</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Task Classification & Title</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 1 of 5</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Category -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold" for="taskCategory">Epidemiological Category</label>
+<div class="relative">
+<select class="w-full h-10 px-space-sm bg-surface-container-low rounded-lg text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container-lowest" id="taskCategory">
+<option selected="">Vector-Borne Disease / Mass Blood Survey</option>
+<option>Maternal High-Risk Home Follow-up</option>
+<option>Diarrheal Dehydration / ORS-Zinc Drive</option>
+<option>Routine Immunization Drop-out Tracing</option>
+<option>Acute Respiratory Infection Rapid Screen</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Priority Level -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Triage Priority Level</label>
+<div class="grid grid-cols-4 gap-space-xs">
+<label class="cursor-pointer">
+<input checked="" class="sr-only peer" name="priority" type="radio" value="Critical"/>
+<div class="h-10 rounded-lg flex items-center justify-center font-label-sm text-label-sm font-bold bg-surface-container-low text-on-surface-variant peer-checked:bg-tertiary-container peer-checked:text-on-tertiary-container transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container mr-1 animate-pulse"></span>
+                  Critical
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="priority" type="radio" value="High"/>
+<div class="h-10 rounded-lg flex items-center justify-center font-label-sm text-label-sm font-bold bg-surface-container-low text-on-surface-variant peer-checked:bg-secondary-container peer-checked:text-on-secondary-fixed transition-all">
+                  High
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="priority" type="radio" value="Medium"/>
+<div class="h-10 rounded-lg flex items-center justify-center font-label-sm text-label-sm font-bold bg-surface-container-low text-on-surface-variant peer-checked:bg-surface-container-highest peer-checked:text-on-surface transition-all">
+                  Medium
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="priority" type="radio" value="Routine"/>
+<div class="h-10 rounded-lg flex items-center justify-center font-label-sm text-label-sm font-bold bg-surface-container-low text-on-surface-variant peer-checked:bg-surface-container-highest peer-checked:text-on-surface transition-all">
+                  Routine
+                </div>
+</label>
+</div>
+</div>
+<!-- Task Title Input -->
+<div class="md:col-span-2 flex flex-col gap-space-xxs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold" for="taskTitle">Intervention Directive Title</label>
+<input class="h-10 px-space-sm bg-surface-container-low rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest focus:shadow-xs" id="taskTitle" type="text" value="Conduct Mass Blood Survey & Rapid Diagnostic Testing (150 RDTs)"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">Title must clearly convey quantitative clinical target to frontline field supervisor tablet.</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Geographic Jurisdiction -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-md text-label-md font-bold">2</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Geographic Jurisdiction & Containment Grid</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 2 of 5</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md">
+<div class="flex flex-col p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">District</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Bastar</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">State: Chhattisgarh</span>
+</div>
+<div class="flex flex-col p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Administrative Block</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Tokapal Block</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">CHC Tokapal Sector 4</span>
+</div>
+<div class="flex flex-col p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sub-Center HQ</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Netanar</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Catchment Pop: 2,410</span>
+</div>
+</div>
+<!-- Target Paras & Spatial Micro-Map Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>Targeted Hamlets / Village Paras (High Transmission Risk)</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">2 Paras Demarcated</span>
+</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="p-space-sm bg-secondary-container/50 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">Patel Para</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">78 Households • 19 Suspected Febrile Cases</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-bold px-space-xs py-0.5 rounded">High Risk</span>
+</div>
+<div class="p-space-sm bg-secondary-container/50 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">School Para</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">64 Households • 23 Suspected Febrile Cases</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-bold px-space-xs py-0.5 rounded">High Risk</span>
+</div>
+</div>
+</div>
+<!-- Static Visual Map Integration -->
+<div class="mt-space-md rounded-xl overflow-hidden shadow-xs relative">
+<div class="w-full h-44 bg-cover bg-center" data-location="Netanar, Tokapal, Bastar, Chhattisgarh" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBa3ZJEFdQ22mL9LWS4PBVTDsgfLzoGLPXDVQAttTuqoavuUzGb6yc_pl9DJN1--D_LRLmtx_hwIJI45ftCJcZgk6W5ijyRqbCrfqsleCxu4gTxIhDzNaezzLjspxMvl39hhyASZR4hmayyQ6QMyqP78mic0oNsBUKeGNAn7D6aHB6QPoLk16XoKWTOLFCwZZpiKWMb36YtkubOfrWY4_ZGUUd0V7rXKnK6dc7Zx1U1XRa2t4zeIx59')"></div>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-space-xs rounded-lg flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">satellite_alt</span>
+<span class="font-label-sm text-label-sm font-semibold">GIS Cluster Perimeter: 1.4 km² cordon around Netanar Pond stream corridor</span>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-space-xs rounded font-bold">GPS Verified</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Assignee Dispatch & Workload Balance -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-md text-label-md font-bold">3</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Assignee Cadre & Real-Time Capacity</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 3 of 5</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Primary Assignee Profile Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Portrait photo of Jamuna Kashyap, an experienced Mitanin community health worker in a sky-blue border uniform in Bastar, smiling with clinical determination in natural rural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARCB91enVPdRzCMOXpgvkesk3_VWM4kh9rAAtvUOpDjjKs4NbpDdc0Sixr3SI7NXI9P-EFs8IIeSsRPDJMCYDl_Yy-tSQOBFHNBKzJJkCwWAXImqv-IrvOKpdpMZkq0lkzcdbzzZ6qUiMrCfhnoDKd3gU86dcALtBT2tGNIMmNKaPI4CFo0FkEFdKCCTz-CQmNy7htnk1EzBkBFVTW-kvp2bfoMsC0r78Jcvmga2qgPehzBKRG83MI"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-on-primary text-[10px]">
+<span class="material-symbols-outlined text-[10px]">check</span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Jamuna Kashyap</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold">#MT-104</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Lead Mitanin</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Assigned Cluster: Netanar Sector A • Device: Samsung Tab A9 (Online)</span>
+<div class="flex items-center gap-space-xs mt-space-xxs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Current active tasks: 3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(Capacity available • Daily load 65%)</span>
+</div>
+</div>
+</div>
+<!-- Capacity Gauge SVG Widget -->
+<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-xs rounded-xl shadow-xs self-stretch md:self-auto justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold">Load Meter</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Good</span>
+</div>
+<svg class="w-12 h-12" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="65, 100" stroke-linecap="round" stroke-width="3.5"></path>
+<text class="font-label-sm text-label-sm font-bold text-on-surface" fill="currentColor" text-anchor="middle" x="18" y="21">65%</text>
+</svg>
+</div>
+</div>
+<!-- Auxiliary Support Cadre Field Force -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Designated Auxiliary Field Workers (Auto-batched)</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-bold text-label-md">
+                    PK
+                  </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Padmini Korram (#AWW-209)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Anganwadi Worker • School Para</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-space-xs py-0.5 rounded font-bold">Ready</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-bold text-label-md">
+                    SB
+                  </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Sunita Baghel (#MT-108)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mitanin Sub-Sector • Patel Para</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-space-xs py-0.5 rounded font-bold">Ready</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Operational Directives & Instructions -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-md text-label-md font-bold">4</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Operational Directives & Field Protocols</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 4 of 5</span>
+</div>
+<!-- Protocol Checklist -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Mandatory Step Checklist (Worker must check off on device)</span>
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="mt-1 w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Mandatory RDT for all febrile patients</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Administer dual-antigen test (Pf/Pv) immediately to anyone recording body temperature ≥ 37.8°C or chills within 48h.</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="mt-1 w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Prepare thick & thin blood smears for CHC Tokapal laboratory verification</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Label each glass slide with Patient Barcode and Para ID. Package in dust-free transportation rack.</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="mt-1 w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Distribute Chloroquine / Primaquine / ACT as per verified weight chart</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Enforce directly observed first dose (DOT). Verify pregnancy exclusion prior to Primaquine issuance.</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="mt-1 w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Document household GPS coordinates and water reservoir stagnation sites</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tag handpump runoff and animal troughs with high larval density for Abate/Temephos larvicidal spray.</span>
+</div>
+</label>
+</div>
+<!-- Voice Memo Attachment Toggle -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">record_voice_over</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Supervisor Audio Briefing (Halbi / Chhattisgarhi Dialect)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Workers can listen offline in their native language for sensitive tribal communication nuances.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary font-label-md text-label-md font-semibold flex items-center gap-space-xxs transition-colors" id="recordVoiceBtn" onclick="toggleAudioPreview()" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+<span id="voiceBtnText">Record Voice Memo</span>
+</button>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-space-xs py-0.5 rounded font-bold">Voice-AI Auto-Subtitles Enabled</span>
+</div>
+</div>
+<!-- Simulated Recorded Audio Waveform Bar (Conditional preview) -->
+<div class="mt-space-sm p-space-sm rounded-lg bg-surface-container flex items-center justify-between" id="audioWaveformBox">
+<div class="flex items-center gap-space-sm">
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Memo_Netanar_DrAnanya_Halbi.m4a (00:48)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">"Jamuna, School Para ke paas chotey bachon ka temperature dhyan se check karna..."</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-1 h-3 bg-primary rounded-full animate-pulse"></span>
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<span class="w-1 h-4 bg-primary rounded-full"></span>
+<span class="w-1 h-8 bg-primary rounded-full animate-pulse"></span>
+<span class="w-1 h-3 bg-primary rounded-full"></span>
+<span class="w-1 h-5 bg-primary rounded-full"></span>
+</div>
+</div>
+</section>
+<!-- Section 5: Schedule & Supply Kit Allocation -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-md text-label-md font-bold">5</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Execution Timeline & Inventory Kit Dispatch</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 5 of 5</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md mb-space-md">
+<!-- Due Date & Target Window -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Target Completion Window</label>
+<div class="h-10 px-space-sm bg-surface-container-low rounded-lg flex items-center justify-between text-on-surface font-body-md text-body-md">
+<span class="font-bold flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[18px] text-tertiary">alarm</span>
+                Today by 17:00 IST (Immediate Dispatch)
+              </span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold">T-Minus 6h 30m</span>
+</div>
+</div>
+<!-- Transportation Logistics -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Field Transport Cadre</label>
+<div class="h-10 px-space-sm bg-surface-container-low rounded-lg flex items-center justify-between text-on-surface font-body-md text-body-md">
+<span class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[18px] text-primary">motorcycle</span>
+                CHC Tokapal Mobile Vaccine Courier (Two-Wheeler)
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">En Route</span>
+</div>
+</div>
+</div>
+<!-- Supply Allocation Badges & Quantities -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>Approved Medical Consumables from Block Storehouse</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sub-Center Issue Slip #SL-9941</span>
+</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<!-- Item 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-xxs">
+<span class="material-symbols-outlined text-[20px] text-primary">biotech</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-space-xs rounded font-bold">Batch #B-88</span>
+</div>
+<span class="font-metric-md text-metric-md text-on-surface font-bold">150 Units</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Bivalent RDT Test Kits</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pf/Pv Rapid Antigen</span>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-xxs">
+<span class="material-symbols-outlined text-[20px] text-primary">medication</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-space-xs rounded font-bold">Batch #A-42</span>
+</div>
+<span class="font-metric-md text-metric-md text-on-surface font-bold">40 Packs</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">ACT Blister Packs</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Artesunate + SP Therapy</span>
+</div>
+<!-- Item 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-xxs">
+<span class="material-symbols-outlined text-[20px] text-primary">healing</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-space-xs rounded font-bold">Batch #P-109</span>
+</div>
+<span class="font-metric-md text-metric-md text-on-surface font-bold">100 Strips</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Paracetamol 500mg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fever Management</span>
+</div>
+</div>
+</div>
+</section>
+</form>
+<!-- Right 4 Columns: Pre-Assignment Summary Card & Instant Dispatch -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg sticky top-20">
+<!-- Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">assignment_turned_in</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Dispatch Summary</h3>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-error-container/60 font-bold px-space-xs py-0.5 rounded uppercase">Urgent</span>
+</div>
+<!-- Metric Snapshot -->
+<div class="grid grid-cols-2 gap-space-xs p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Target Febrile Cases</span>
+<span class="font-metric-md text-metric-md text-on-surface font-bold">150 RDTs</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Field Workers</span>
+<span class="font-metric-md text-metric-md text-on-surface font-bold">3 Personnel</span>
+</div>
+</div>
+<!-- Target Demographics & Coverage Preview -->
+<div class="flex flex-col gap-space-xxs text-on-surface">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Designated Sector:</span>
+<span class="font-bold">Tokapal / Netanar</span>
+</div>
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Target Hamlets:</span>
+<span class="font-bold">Patel Para & School Para</span>
+</div>
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Team Lead:</span>
+<span class="font-bold">Jamuna Kashyap (#MT-104)</span>
+</div>
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Target Window:</span>
+<span class="font-bold text-tertiary">Today 17:00 IST</span>
+</div>
+</div>
+<!-- Pre-Flight Clinical Validation Checklist -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold tracking-wider">System Safety Verification</span>
+<div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+<span>Assignee offline cache sync verified</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+<span>RDT kit lot expiry checked (> 11 months)</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+<span>Emergency vehicle dispatch linked</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+<span>MOIC Dr. Ananya Sen credential signed</span>
+</div>
+</div>
+<!-- Primary Call to Action Button -->
+<div class="pt-space-xs flex flex-col gap-space-xs">
+<button class="w-full h-12 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-space-xs active:scale-[0.98]" onclick="triggerDispatchSequence()" type="button">
+<span class="material-symbols-outlined text-[20px]">send_to_mobile</span>
+<span>Dispatch Task to Field Mobile</span>
+</button>
+<div class="flex items-center justify-between text-on-surface-variant text-[11px] px-space-xxs">
+<span>Encrypted push via NDHM sync</span>
+<span class="flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Ready for dispatch</span>
+</div>
+</div>
+</div>
+<!-- Outbreak Contextual Auxiliary Card -->
+<div class="bg-surface-container rounded-xl p-space-md flex items-center gap-space-sm shadow-xs">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">CHC Tokapal Helpdesk</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct radio link: Ch-04 (Bastar Central) in case of GSM dead zone.</span>
+</div>
+</div>
+<!-- Quick Tips Card with Tribal Health Context -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span>
+<span>Field Operational Guidance</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          In Patel Para, community gathering occurs near the Ghotul courtyard after 15:30 IST. Dispatching early enables screening prior to agricultural return.
+        </p>
+</div>
+</aside>
+</div>
+<!-- Notification Banner Modal State (Hidden by default, triggered on dispatch) -->
+<div class="fixed inset-0 bg-inverse-surface/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md" id="dispatchSuccessModal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-space-lg shadow-xl flex flex-col items-center text-center animate-bounce-short">
+<div class="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[36px]">cell_tower</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest mb-space-xxs">Transmission Confirmed</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-bold mb-space-xs">Task Dispatched to #MT-104</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
+        Intervention directives, GPS cordon boundaries, and the voice memo have been sent to Jamuna Kashyap’s field tablet. Offline SMS fallback is queued.
+      </p>
+<div class="flex gap-space-sm w-full">
+<button class="flex-1 h-10 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-primary-container transition-colors" onclick="closeSuccessModal()" type="button">
+          Return to Task Ledger
+        </button>
+<button class="px-space-md h-10 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-highest transition-colors" onclick="closeSuccessModal()" type="button">
+          Track Live Execution
+        </button>
+</div>
+</div>
+</div>
+<script>
+    function toggleAudioPreview() {
+      const audioBox = document.getElementById('audioWaveformBox');
+      const voiceBtnText = document.getElementById('voiceBtnText');
+      if (audioBox) {
+        audioBox.classList.toggle('hidden');
+        if (voiceBtnText) {
+          voiceBtnText.textContent = audioBox.classList.contains('hidden') ? 'Record Voice Memo' : 'Re-record Memo (Halbi)';
+        }
+      }
+    }
+
+    function triggerDispatchSequence() {
+      const modal = document.getElementById('dispatchSuccessModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function closeSuccessModal() {
+      const modal = document.getElementById('dispatchSuccessModal');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+    }
+  </script>
+</div></main></div><div class="fixed bottom-6 right-6 z-50"><button class="flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-full shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_8px_10px_-6px_rgba(15,23,42,0.08)] hover:bg-inverse-surface/90 transition-all group"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary-fixed"></span></span><span class="material-symbols-outlined text-primary-fixed text-[20px]">smart_toy</span><span class="font-label-lg text-label-lg text-inverse-on-surface font-semibold">Sahayak AI • Ask Protocol & Disease Data</span></button></div></body></html>

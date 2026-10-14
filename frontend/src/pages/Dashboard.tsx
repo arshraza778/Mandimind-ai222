@@ -14,9 +14,6 @@ import { Sparkline } from "../components/Sparkline";
 import { AssignTaskModal } from "../components/AssignTaskModal";
 import { AlertDetailModal } from "../components/AlertDetailModal";
 import { MultiDiseaseOverview } from "../components/MultiDiseaseOverview";
-import { MalariaCaseForecaster } from "../components/MalariaCaseForecaster";
-import { WeatherDiseasePredictor } from "../components/WeatherDiseasePredictor";
-import { LgdBlockMapCard } from "../components/LgdBlockMapCard";
 import { useMeta } from "../hooks/useMeta";
 
 interface DashboardProps {
@@ -102,22 +99,22 @@ export function Dashboard({
   });
 
   return (
-    <div className="p-4 sm:p-5 space-y-3.5 max-w-[1400px] mx-auto text-ink">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl mx-auto text-ink">
       {/* TOP SAFEGUARD, DATA FRESHNESS & REPORTING-PERIOD FILTER STRIP */}
       <section
         aria-label="Safeguards and Reporting Controls"
-        className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs flex flex-col lg:flex-row lg:items-center justify-between gap-3"
+        className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4"
       >
         <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2 py-0.5 rounded-md bg-amber-light text-amber text-[11px] font-bold uppercase">
+            <span className="px-2.5 py-0.5 rounded-full bg-amber-light text-amber text-[11px] font-bold uppercase">
               Prototype — synthetic demo data
             </span>
-            <span className="px-2 py-0.5 rounded-md bg-forest-light text-forest text-[11px] font-semibold">
+            <span className="px-2.5 py-0.5 rounded-full bg-forest-light text-forest text-[11px] font-semibold">
               Freshness: Current reporting cycle
             </span>
-            <span className="px-2 py-0.5 rounded-md bg-purple-light text-purple text-[11px] font-semibold">
-              Completeness: 96% (missing cases preserved as null)
+            <span className="px-2.5 py-0.5 rounded-full bg-purple-light text-purple text-[11px] font-semibold">
+              Completeness: 96%
             </span>
           </div>
           <p className="text-xs text-muted">
@@ -136,7 +133,7 @@ export function Dashboard({
             id="reporting-period-select"
             value={reportingPeriod}
             onChange={(e) => setReportingPeriod(e.target.value as any)}
-            className="text-xs bg-canvas border border-borderline rounded-lg px-2.5 py-1.5 font-semibold text-ink focus:outline-hidden"
+            className="text-xs bg-canvas border border-borderline rounded-xl px-3 py-2 font-medium text-ink focus:outline-none focus:ring-2 focus:ring-purple"
           >
             <option value="all">Full Year (Jan–Dec)</option>
             <option value="monsoon">Monsoon Transmission Window (Jun–Oct)</option>
@@ -146,49 +143,49 @@ export function Dashboard({
       </section>
 
       {/* ROW 1: FOUR KPI CARDS */}
-      <section aria-label="KPI Metrics" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+      <section aria-label="KPI Metrics" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* KPI 1 */}
-        <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex flex-col justify-between">
           <div className="text-xs text-muted font-medium">Active alerts</div>
-          <div className="text-3xl font-bold text-ink mt-0.5">{activeAlerts}</div>
-          <div className="text-xs mt-1.5 flex items-center gap-1 font-medium">
-            <span className="text-coral font-semibold">{highAlerts} high</span>
+          <div className="text-3xl font-extrabold text-ink mt-1 tabular-nums">{activeAlerts}</div>
+          <div className="text-xs mt-2 flex items-center gap-1 font-medium">
+            <span className="text-coral font-bold">{highAlerts} high</span>
             <span className="text-muted">·</span>
-            <span className="text-amber font-semibold">{mediumAlerts} medium</span>
+            <span className="text-amber font-bold">{mediumAlerts} medium</span>
           </div>
         </div>
 
         {/* KPI 2 */}
-        <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex flex-col justify-between">
           <div className="text-xs text-muted font-medium">Tasks (Open / Overdue / Completed)</div>
-          <div className="text-3xl font-bold text-ink mt-0.5">{openTasks}</div>
-          <div className="text-xs mt-1.5 flex items-center gap-1.5 font-semibold">
-            <span className="text-amber">{waitingReply} pending</span>
+          <div className="text-3xl font-extrabold text-ink mt-1 tabular-nums">{openTasks}</div>
+          <div className="text-xs mt-2 flex items-center gap-1.5 font-medium">
+            <span className="text-amber font-bold">{waitingReply} pending</span>
             <span className="text-muted">·</span>
-            <span className="text-coral">{overdueTasks} overdue</span>
+            <span className="text-coral font-bold">{overdueTasks} overdue</span>
             <span className="text-muted">·</span>
-            <span className="text-forest">{completedTasks} completed</span>
+            <span className="text-forest font-bold">{completedTasks} done</span>
           </div>
         </div>
 
         {/* KPI 3 */}
-        <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex flex-col justify-between">
           <div className="text-xs text-muted font-medium">
             Replied within {meta.escalation_hours || 48} h
           </div>
-          <div className="text-3xl font-bold text-ink mt-0.5">{repliedPct}%</div>
-          <div className="text-xs mt-1.5 text-muted">
-            target 90% (proposed)
+          <div className="text-3xl font-extrabold text-ink mt-1 tabular-nums">{repliedPct}%</div>
+          <div className="text-xs mt-2 text-muted">
+            Target 90% (proposed)
           </div>
         </div>
 
         {/* KPI 4 */}
-        <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex flex-col justify-between">
           <div className="text-xs text-muted font-medium">
             {geoLabelCapitalized}s using weather model
           </div>
-          <div className="text-3xl font-bold text-ink mt-0.5">{weatherUnits} of {totalUnits}</div>
-          <div className="text-xs mt-1.5 text-muted">
+          <div className="text-3xl font-extrabold text-ink mt-1 tabular-nums">{weatherUnits} of {totalUnits}</div>
+          <div className="text-xs mt-2 text-muted">
             {baselineUnits} use baseline (skill gate)
           </div>
         </div>
@@ -207,9 +204,9 @@ export function Dashboard({
       )}
 
       {/* ROW 2: RISK OVERVIEW TILES & NEEDS ACTION */}
-      <section aria-label="Risk and Action" className="grid grid-cols-1 lg:grid-cols-12 gap-3.5">
+      <section aria-label="Risk and Action" className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* Risk Overview (col-span-8) */}
-        <div className="lg:col-span-8 bg-white rounded-card border border-borderline p-4 shadow-2xs flex flex-col justify-between">
+        <div className="lg:col-span-8 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col justify-between">
           <div className="flex items-center justify-between pb-3 border-b border-borderline/60">
             <div>
               <h2 className="text-base font-bold text-ink">
@@ -281,7 +278,7 @@ export function Dashboard({
         </div>
 
         {/* Needs Action List (col-span-4) */}
-        <div className="lg:col-span-4 bg-white rounded-card border border-borderline p-4 shadow-2xs flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-borderline/60">
               <h2 className="text-base font-bold text-ink">Needs action</h2>
@@ -339,9 +336,9 @@ export function Dashboard({
       </section>
 
       {/* ROW 3: FORECAST CHART & SKILL GATE */}
-      <section aria-label="Forecast Intelligence" className="grid grid-cols-1 lg:grid-cols-12 gap-3.5">
+      <section aria-label="Forecast Intelligence" className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* District Forecast Chart (col-span-8) */}
-        <div className="lg:col-span-8 bg-white rounded-card border border-borderline p-4 shadow-2xs">
+        <div className="lg:col-span-8 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-borderline/60 gap-1">
             <div>
               <h2 className="text-base font-bold text-ink">District forecast</h2>
@@ -442,7 +439,7 @@ export function Dashboard({
         </div>
 
         {/* Skill Gate Card (col-span-4) */}
-        <div className="lg:col-span-4 bg-white rounded-card border border-borderline p-4 shadow-2xs flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col justify-between">
           <div>
             <div className="pb-2 border-b border-borderline/60">
               <h2 className="text-base font-bold text-ink">Skill gate</h2>
@@ -495,19 +492,6 @@ export function Dashboard({
         </div>
       </section>
 
-      {/* ROW 3B: AUTHORITATIVE CHHATTISGARH LGD BLOCK DIRECTORY & GEOGRAPHY */}
-      <LgdBlockMapCard
-        selectedDistrictId={selectedLocation?.district_id}
-        selectedBlockId={selectedLocation?.block_id}
-      />
-
-      {/* ROW 3C: MULTI-DISEASE WEATHER & SYMPTOM PREDICTOR */}
-      <WeatherDiseasePredictor
-        locationBreadcrumb={selectedLocation?.breadcrumb}
-      />
-
-      {/* ROW 4: TRAINED WHO MALARIA ARCHIVE CASE & INCIDENCE ML FORECASTER */}
-      <MalariaCaseForecaster locationBreadcrumb={selectedLocation?.breadcrumb} />
 
       {/* Interactive Modals */}
       {assignAlert && (

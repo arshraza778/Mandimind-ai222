@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { Check, ArrowLeft, Send, AlertTriangle, Calendar, Clock } from "lucide-react";
+import { Check, ArrowLeft, Send, AlertTriangle, Calendar, Clock, ChevronRight } from "lucide-react";
 import { useMeta } from "../hooks/useMeta";
 
 interface AssignTaskProps {
@@ -146,7 +146,6 @@ export function AssignTask({
           setMitanins(data);
           setSelectedMitaninId(data[0].id);
         } else {
-          // Fallback defaults matching design if backend empty
           const fallbackUsers: MitaninUser[] = [
             { id: 1, name: "Mitanin Asha (sample)", role: "mitanin", unit_id: "BLK_A", open_tasks: 1, availability: "Available" },
             { id: 2, name: "Mitanin Rekha (sample)", role: "mitanin", unit_id: "BLK_A", open_tasks: 3, availability: "Busy this week" },
@@ -305,92 +304,101 @@ export function AssignTask({
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-6">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-6 text-ink">
       {/* 3-STEP STEPPER BAR */}
-      <div className="flex items-center justify-between pb-2 border-b border-borderline/60">
-        <div className="flex items-center gap-6">
+      <div className="bg-white rounded-card-lg border border-borderline p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3 sm:gap-6 flex-wrap">
           {/* Step 1: Alert */}
           <button
             onClick={() => setCurrentStep(1)}
-            className="flex items-center gap-2 group transition-colors"
+            className="flex items-center gap-2.5 group transition-all text-left"
           >
             <div
-              className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+              className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
                 currentStep === 1
-                  ? "bg-[#534AB7] text-white ring-4 ring-[#EEEDFE]"
+                  ? "bg-purple text-white ring-4 ring-purple-light shadow-xs"
                   : currentStep > 1
-                  ? "bg-[#27825C] text-white"
+                  ? "bg-forest text-white"
                   : "bg-canvas text-muted border border-borderline"
               }`}
             >
               {currentStep > 1 ? <Check className="w-4 h-4" /> : "1"}
             </div>
-            <span
-              className={`text-sm font-semibold ${
-                currentStep === 1 ? "text-ink" : "text-muted group-hover:text-ink"
-              }`}
-            >
-              Alert
-            </span>
+            <div>
+              <span className="text-[10px] font-semibold text-muted block uppercase tracking-wider">Step 1</span>
+              <span
+                className={`text-xs font-bold ${
+                  currentStep === 1 ? "text-purple" : "text-ink group-hover:text-purple"
+                }`}
+              >
+                Alert
+              </span>
+            </div>
           </button>
 
-          <div className="w-12 h-0.5 bg-borderline" />
+          <ChevronRight className="w-4 h-4 text-muted/60 hidden sm:block" />
 
           {/* Step 2: Task */}
           <button
             onClick={() => setCurrentStep(2)}
-            className="flex items-center gap-2 group transition-colors"
+            className="flex items-center gap-2.5 group transition-all text-left"
           >
             <div
-              className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+              className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
                 currentStep === 2
-                  ? "bg-[#534AB7] text-white ring-4 ring-[#EEEDFE]"
+                  ? "bg-purple text-white ring-4 ring-purple-light shadow-xs"
                   : currentStep > 2
-                  ? "bg-[#27825C] text-white"
+                  ? "bg-forest text-white"
                   : "bg-canvas text-muted border border-borderline"
               }`}
             >
               {currentStep > 2 ? <Check className="w-4 h-4" /> : "2"}
             </div>
-            <span
-              className={`text-sm font-semibold ${
-                currentStep === 2 ? "text-ink" : "text-muted group-hover:text-ink"
-              }`}
-            >
-              Task
-            </span>
+            <div>
+              <span className="text-[10px] font-semibold text-muted block uppercase tracking-wider">Step 2</span>
+              <span
+                className={`text-xs font-bold ${
+                  currentStep === 2 ? "text-purple" : "text-ink group-hover:text-purple"
+                }`}
+              >
+                Task Parameters
+              </span>
+            </div>
           </button>
 
-          <div className="w-12 h-0.5 bg-borderline" />
+          <ChevronRight className="w-4 h-4 text-muted/60 hidden sm:block" />
 
           {/* Step 3: Review */}
           <button
             onClick={() => setCurrentStep(3)}
-            className="flex items-center gap-2 group transition-colors"
+            className="flex items-center gap-2.5 group transition-all text-left"
           >
             <div
-              className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+              className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
                 currentStep === 3
-                  ? "bg-[#534AB7] text-white ring-4 ring-[#EEEDFE]"
+                  ? "bg-purple text-white ring-4 ring-purple-light shadow-xs"
                   : "bg-canvas text-muted border border-borderline"
               }`}
             >
               3
             </div>
-            <span
-              className={`text-sm font-semibold ${
-                currentStep === 3 ? "text-ink" : "text-muted group-hover:text-ink"
-              }`}
-            >
-              Review
-            </span>
+            <div>
+              <span className="text-[10px] font-semibold text-muted block uppercase tracking-wider">Step 3</span>
+              <span
+                className={`text-xs font-bold ${
+                  currentStep === 3 ? "text-purple" : "text-ink group-hover:text-purple"
+                }`}
+              >
+                Review & Dispatch
+              </span>
+            </div>
           </button>
         </div>
 
         {onNavigateBack && (
           <button
             onClick={onNavigateBack}
-            className="flex items-center gap-1.5 text-xs font-medium text-muted hover:text-ink transition-colors px-3 py-1.5 rounded-xl hover:bg-canvas"
+            className="flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-ink transition-colors px-3 py-1.5 rounded-xl hover:bg-canvas border border-transparent hover:border-borderline shrink-0"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to alerts
@@ -403,62 +411,63 @@ export function AssignTask({
         {/* ============================================================== */}
         {/* LEFT COLUMN: 3-STEP FORM BODY (col-span-7) */}
         {/* ============================================================== */}
-        <div className="lg:col-span-7 bg-white rounded-card-lg border border-borderline p-6 shadow-2xs space-y-5">
+        <div className="lg:col-span-7 bg-white rounded-card-lg border border-borderline p-6 shadow-xs space-y-6">
           {/* STEP 1 VIEW: ALERT SELECTOR & CONFIRMATION */}
           {currentStep === 1 && (
-            <div className="space-y-4">
-              <div>
+            <div className="space-y-5">
+              <div className="pb-3 border-b border-borderline/60">
                 <h2 className="text-base font-bold text-ink">Select originating alert</h2>
-                <p className="text-xs text-muted">
-                  Choose which alert to pre-fill the action task from.
+                <p className="text-xs text-muted mt-0.5">
+                  Choose which alert to pre-fill the action task parameters from.
                 </p>
               </div>
 
-              <div className="space-y-2.5">
+              <div className="space-y-3">
                 {alerts.map((a) => {
                   const isSelected = selectedAlert?.id === a.id;
                   const isHigh = a.risk === "High";
                   const isMed = a.risk === "Medium";
                   const chipColor = isHigh
-                    ? "bg-[#FCEBE8] text-[#C8472A]"
+                    ? "bg-coral-light text-coral"
                     : isMed
-                    ? "bg-[#FEF3D6] text-[#A8650A]"
-                    : "bg-[#EBF5E9] text-[#27825C]";
+                    ? "bg-amber-light text-amber"
+                    : "bg-forest-light text-forest";
 
                   return (
                     <div
                       key={a.id}
                       onClick={() => setSelectedAlert(a)}
-                      className={`p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
+                      className={`p-4 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
                         isSelected
-                          ? "border-[#534AB7] bg-[#EEEDFE]/30 shadow-2xs"
-                          : "border-borderline hover:border-[#534AB7]/40 bg-white"
+                          ? "border-purple bg-purple-light/20 shadow-xs ring-1 ring-purple"
+                          : "border-borderline hover:border-purple/40 bg-white"
                       }`}
                     >
-                      <div>
+                      <div className="space-y-1">
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-sm text-ink">
                             {a.unit_name || `${meta.geography_label ? meta.geography_label.charAt(0).toUpperCase() + meta.geography_label.slice(1) : "Unit"} ${a.unit_id}`}
                           </span>
-                          <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${chipColor}`}>
-                            {a.risk.toUpperCase()}
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase ${chipColor}`}>
+                            {a.risk}
                           </span>
                         </div>
-                        <div className="text-xs text-muted mt-0.5">
-                          Lead time: {a.forecast_period} · Method: {a.method_used.replace("_", " ")}
+                        <div className="text-xs text-muted">
+                          Lead time: <span className="font-medium text-ink">{a.forecast_period}</span> · Method:{" "}
+                          <span className="font-medium text-ink capitalize">{a.method_used.replace("_", " ")}</span>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
                         {isSelected && (
-                          <span className="text-xs font-bold text-[#534AB7]">Selected</span>
+                          <span className="text-xs font-bold text-purple hidden sm:inline">Selected</span>
                         )}
                         <input
                           type="radio"
                           name="selectedAlertRadio"
                           checked={isSelected}
                           onChange={() => setSelectedAlert(a)}
-                          className="accent-[#534AB7] w-4 h-4"
+                          className="accent-purple w-4 h-4 cursor-pointer"
                         />
                       </div>
                     </div>
@@ -466,13 +475,14 @@ export function AssignTask({
                 })}
               </div>
 
-              <div className="pt-3 flex justify-end">
+              <div className="pt-4 flex justify-end border-t border-borderline/60">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(2)}
-                  className="px-5 py-2 bg-[#534AB7] text-white text-xs font-semibold rounded-xl hover:bg-[#534AB7]/90 transition-all shadow-xs"
+                  className="px-5 py-2.5 bg-purple text-white text-xs font-semibold rounded-xl hover:bg-purple/90 transition-all shadow-xs flex items-center gap-2"
                 >
-                  Continue to Task form
+                  <span>Continue to Task form</span>
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -480,11 +490,11 @@ export function AssignTask({
 
           {/* STEP 2 VIEW: TASK FORM */}
           {currentStep === 2 && (
-            <div className="space-y-5">
+            <div className="space-y-6">
               {/* Header Note with Pre-fill indicator */}
-              <div>
+              <div className="pb-3 border-b border-borderline/60">
                 <h2 className="text-base font-bold text-ink">Create task from alert</h2>
-                <p className="text-xs text-muted">
+                <p className="text-xs text-muted mt-0.5">
                   Pre-filled from{" "}
                   <span className="font-semibold text-ink">
                     {selectedAlert?.unit_name ||
@@ -492,20 +502,20 @@ export function AssignTask({
                         ? `${meta.geography_label ? meta.geography_label.charAt(0).toUpperCase() + meta.geography_label.slice(1) : "Unit"} ${selectedAlert.unit_id}`
                         : `Sample ${meta.geography_label ? meta.geography_label.charAt(0).toUpperCase() + meta.geography_label.slice(1) : "Unit"} A`)}
                   </span>{" "}
-                  ({selectedAlert?.risk || "High"} risk). Confirm or adjust.
+                  ({selectedAlert?.risk || "High"} risk). Adjust parameters as required.
                 </p>
               </div>
 
               {formError && (
-                <div className="p-3 text-xs bg-[#FCEBE8] text-[#C8472A] border border-[#FCEBE8] rounded-xl flex items-center gap-2">
+                <div className="p-3.5 text-xs bg-coral-light text-coral border border-coral/30 rounded-xl flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4 shrink-0" />
-                  <span>{formError}</span>
+                  <span className="font-semibold">{formError}</span>
                 </div>
               )}
 
               {/* Task template selector buttons */}
               <div>
-                <label className="block text-xs font-bold text-ink mb-1.5">Task template</label>
+                <label className="block text-xs font-bold text-ink mb-2">Task Template</label>
                 <div className="flex flex-wrap gap-2">
                   {TASK_TEMPLATES.map((tmpl) => {
                     const isSelected = selectedTemplate === tmpl.id;
@@ -514,10 +524,10 @@ export function AssignTask({
                         key={tmpl.id}
                         type="button"
                         onClick={() => setSelectedTemplate(tmpl.id)}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
+                        className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                           isSelected
-                            ? "bg-[#534AB7] text-white shadow-xs font-semibold"
-                            : "bg-[#F3F2FA] text-ink hover:bg-[#EEEDFE] border border-borderline/60"
+                            ? "bg-purple text-white shadow-xs"
+                            : "bg-canvas text-ink hover:bg-purple-light/40 border border-borderline"
                         }`}
                       >
                         {tmpl.label}
@@ -527,9 +537,26 @@ export function AssignTask({
                 </div>
               </div>
 
+              {/* Task Title Input */}
+              <div>
+                <label className="block text-xs font-bold text-ink mb-1.5">Task Title</label>
+                <input
+                  type="text"
+                  value={taskTitle}
+                  onChange={(e) => setTaskTitle(e.target.value)}
+                  className="w-full px-3.5 py-2.5 text-xs font-semibold text-ink border border-borderline rounded-xl focus:outline-none focus:ring-2 focus:ring-purple bg-white shadow-xs"
+                  placeholder="Enter task title..."
+                />
+              </div>
+
               {/* Villages Chips */}
               <div>
-                <label className="block text-xs font-bold text-ink mb-1.5">Villages</label>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="text-xs font-bold text-ink">Target Villages</label>
+                  <span className="text-[11px] text-muted">
+                    {selectedVillages.length} selected
+                  </span>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {availableVillages.map((v) => {
                     const isSelected = selectedVillages.includes(v);
@@ -538,13 +565,13 @@ export function AssignTask({
                         key={v}
                         type="button"
                         onClick={() => toggleVillage(v)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 ${
+                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 ${
                           isSelected
-                            ? "bg-[#EEEDFE] text-[#534AB7] border border-[#534AB7]/40 font-semibold"
+                            ? "bg-purple-light text-purple border border-purple/40 font-semibold"
                             : "bg-white text-muted hover:text-ink border border-borderline"
                         }`}
                       >
-                        {isSelected ? <Check className="w-3.5 h-3.5 text-[#534AB7]" /> : "+"}
+                        {isSelected ? <Check className="w-3.5 h-3.5 text-purple" /> : <span className="text-muted">+</span>}
                         <span>{v}</span>
                       </button>
                     );
@@ -554,8 +581,8 @@ export function AssignTask({
 
               {/* Assign to (Mitanin picker with open tasks & availability) */}
               <div>
-                <label className="block text-xs font-bold text-ink mb-1.5">Assign to</label>
-                <div className="space-y-2">
+                <label className="block text-xs font-bold text-ink mb-2">Assign To Mitanin Frontline Worker</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {mitanins.map((mitanin) => {
                     const isSelected = selectedMitaninId === mitanin.id;
                     const isBusy = mitanin.availability?.toLowerCase().includes("busy");
@@ -565,25 +592,21 @@ export function AssignTask({
                       <div
                         key={mitanin.id}
                         onClick={() => setSelectedMitaninId(mitanin.id)}
-                        className={`p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
+                        className={`p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
                           isSelected
-                            ? "border-[#534AB7] bg-[#EEEDFE]/30 shadow-2xs ring-1 ring-[#534AB7]"
-                            : "border-borderline hover:border-[#534AB7]/40 bg-white"
+                            ? "border-purple bg-purple-light/20 shadow-xs ring-1 ring-purple"
+                            : "border-borderline hover:border-purple/40 bg-white"
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-[#186443] flex items-center justify-center text-white font-bold text-xs shrink-0">
-                            M
+                          <div className="w-9 h-9 rounded-full bg-forest text-white font-bold text-xs flex items-center justify-center shrink-0">
+                            {mitanin.name.replace("Mitanin ", "").charAt(0) || "M"}
                           </div>
                           <div>
                             <div className="text-xs font-bold text-ink">{mitanin.name}</div>
-                            <div className="text-[11px] text-muted">
+                            <div className="text-[11px] text-muted mt-0.5">
                               {openCount} open {openCount === 1 ? "task" : "tasks"} ·{" "}
-                              <span
-                                className={
-                                  isBusy ? "text-[#C8472A] font-semibold" : "text-[#27825C] font-semibold"
-                                }
-                              >
+                              <span className={isBusy ? "text-coral font-semibold" : "text-forest font-semibold"}>
                                 {mitanin.availability || "Available"}
                               </span>
                             </div>
@@ -591,7 +614,9 @@ export function AssignTask({
                         </div>
 
                         {isSelected && (
-                          <span className="text-xs font-bold text-[#534AB7] pr-2">Selected</span>
+                          <div className="w-5 h-5 rounded-full bg-purple text-white flex items-center justify-center">
+                            <Check className="w-3 h-3" />
+                          </div>
                         )}
                       </div>
                     );
@@ -603,24 +628,24 @@ export function AssignTask({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                 {/* Deadline */}
                 <div>
-                  <label className="block text-xs font-bold text-ink mb-1.5">Deadline</label>
+                  <label className="block text-xs font-bold text-ink mb-1.5">Action Deadline</label>
                   <div className="relative">
                     <input
                       type="date"
                       value={deadlineDate}
                       onChange={(e) => setDeadlineDate(e.target.value)}
-                      className="w-full pl-9 pr-3 py-2 text-xs font-semibold text-ink border border-borderline rounded-xl focus:outline-hidden focus:border-[#534AB7] focus:ring-1 focus:ring-[#534AB7] bg-white shadow-2xs"
+                      className="w-full pl-9 pr-3 py-2.5 text-xs font-semibold text-ink border border-borderline rounded-xl focus:outline-none focus:ring-2 focus:ring-purple bg-white shadow-xs"
                     />
-                    <Calendar className="w-4 h-4 text-muted absolute left-3 top-2.5" />
+                    <Calendar className="w-4 h-4 text-muted absolute left-3 top-3" />
                   </div>
                 </div>
 
                 {/* Acknowledgement window from config */}
                 <div>
-                  <label className="block text-xs font-bold text-ink mb-1.5">Reply window</label>
-                  <div className="flex items-center gap-2 px-3.5 py-2 text-xs border border-borderline rounded-xl bg-canvas/40 text-muted shadow-2xs">
-                    <Clock className="w-4 h-4 text-muted shrink-0" />
-                    <span className="font-medium">
+                  <label className="block text-xs font-bold text-ink mb-1.5">Reply Escalation Window</label>
+                  <div className="flex items-center gap-2 px-3.5 py-2.5 text-xs border border-borderline rounded-xl bg-canvas text-ink shadow-xs">
+                    <Clock className="w-4 h-4 text-amber shrink-0" />
+                    <span className="font-semibold text-ink">
                       {escalationHours} hours, then escalate to district
                     </span>
                   </div>
@@ -628,7 +653,7 @@ export function AssignTask({
               </div>
 
               {/* Bottom Action Buttons */}
-              <div className="pt-4 flex items-center justify-end gap-3 border-t border-borderline/60">
+              <div className="pt-4 flex items-center justify-between border-t border-borderline/60">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
@@ -639,9 +664,10 @@ export function AssignTask({
                 <button
                   type="button"
                   onClick={() => setCurrentStep(3)}
-                  className="px-5 py-2 text-xs font-semibold rounded-xl bg-[#186443] text-white hover:bg-[#186443]/90 transition-all shadow-xs"
+                  className="px-6 py-2.5 text-xs font-semibold rounded-xl bg-purple text-white hover:bg-purple/90 transition-all shadow-xs flex items-center gap-2"
                 >
-                  Review task
+                  <span>Review Task</span>
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -649,66 +675,66 @@ export function AssignTask({
 
           {/* STEP 3 VIEW: REVIEW STEP */}
           {currentStep === 3 && (
-            <div className="space-y-5">
-              <div>
+            <div className="space-y-6">
+              <div className="pb-3 border-b border-borderline/60">
                 <h2 className="text-base font-bold text-ink">Review & dispatch task</h2>
-                <p className="text-xs text-muted">
+                <p className="text-xs text-muted mt-0.5">
                   Verify the task parameters before dispatching to frontline worker.
                 </p>
               </div>
 
               {formError && (
-                <div className="p-3 text-xs bg-[#FCEBE8] text-[#C8472A] border border-[#FCEBE8] rounded-xl flex items-center gap-2">
+                <div className="p-3.5 text-xs bg-coral-light text-coral border border-coral/30 rounded-xl flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4 shrink-0" />
-                  <span>{formError}</span>
+                  <span className="font-semibold">{formError}</span>
                 </div>
               )}
 
               {/* Review Summary Card */}
-              <div className="p-4 rounded-xl border border-borderline bg-canvas/40 space-y-3">
-                <div className="flex items-start justify-between">
+              <div className="p-5 rounded-2xl border border-borderline bg-canvas/40 space-y-4">
+                <div className="flex items-start justify-between gap-3">
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-muted">Task Title</span>
-                    <p className="text-sm font-bold text-ink">{taskTitle}</p>
+                    <span className="text-[10px] uppercase font-bold text-muted tracking-wider block">Task Title</span>
+                    <p className="text-sm font-bold text-ink mt-0.5">{taskTitle}</p>
                   </div>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#FCEBE8] text-[#C8472A]">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-coral-light text-coral shrink-0">
                     {selectedAlert?.risk?.toUpperCase() || "HIGH"} RISK
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 text-xs pt-1 border-t border-borderline/50">
+                <div className="grid grid-cols-2 gap-4 text-xs pt-3 border-t border-borderline/60">
                   <div>
-                    <span className="text-[10px] text-muted block">Originating Alert</span>
-                    <span className="font-semibold text-ink">
+                    <span className="text-[10px] text-muted uppercase tracking-wider block">Originating Alert</span>
+                    <span className="font-bold text-ink mt-0.5 block">
                       {selectedAlert?.unit_name ||
                         `${meta.geography_label ? meta.geography_label.charAt(0).toUpperCase() + meta.geography_label.slice(1) : "Unit"} ${selectedAlert?.unit_id || "A"}`}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-muted block">Assigned Mitanin</span>
-                    <span className="font-semibold text-ink">{currentMitanin?.name}</span>
+                    <span className="text-[10px] text-muted uppercase tracking-wider block">Assigned Mitanin</span>
+                    <span className="font-bold text-ink mt-0.5 block">{currentMitanin?.name}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-muted block">Target Villages</span>
-                    <span className="font-semibold text-ink">{selectedVillages.join(", ")}</span>
+                    <span className="text-[10px] text-muted uppercase tracking-wider block">Target Villages</span>
+                    <span className="font-semibold text-ink mt-0.5 block">{selectedVillages.join(", ")}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-muted block">Deadline</span>
-                    <span className="font-semibold text-ink">{formattedDeadlineDisplay}</span>
+                    <span className="text-[10px] text-muted uppercase tracking-wider block">Action Deadline</span>
+                    <span className="font-semibold text-ink mt-0.5 block">{formattedDeadlineDisplay}</span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-borderline/50">
-                  <span className="text-[10px] text-muted block mb-1">Audit Policy</span>
+                <div className="pt-3 border-t border-borderline/60">
+                  <span className="text-[10px] text-muted uppercase tracking-wider block mb-1">Audit Policy</span>
                   <p className="text-xs text-muted">
                     Initial status will be set to <span className="font-semibold text-ink">sent</span>. If not replied within{" "}
-                    <span className="font-semibold text-ink">{escalationHours} hours</span>, task will automatically escalate.
+                    <span className="font-semibold text-ink">{escalationHours} hours</span>, task will automatically escalate to the district medical officer.
                   </p>
                 </div>
               </div>
 
               {/* Dispatch Action Buttons */}
-              <div className="pt-4 flex items-center justify-end gap-3 border-t border-borderline/60">
+              <div className="pt-4 flex items-center justify-between border-t border-borderline/60">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(2)}
@@ -720,7 +746,7 @@ export function AssignTask({
                   type="button"
                   disabled={submitting}
                   onClick={handleSubmitTask}
-                  className="px-6 py-2.5 text-xs font-semibold rounded-xl bg-[#186443] text-white hover:bg-[#186443]/90 transition-all shadow-xs flex items-center gap-2"
+                  className="px-6 py-2.5 text-xs font-semibold rounded-xl bg-forest text-white hover:bg-forest/90 transition-all shadow-xs flex items-center gap-2 disabled:opacity-50"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{submitting ? "Sending..." : "Send to Mitanin"}</span>
@@ -734,51 +760,55 @@ export function AssignTask({
         {/* RIGHT COLUMN: LIVE PHONE PREVIEW (col-span-5) */}
         {/* ============================================================== */}
         <div className="lg:col-span-5 flex flex-col items-center">
-          <div className="w-full mb-2">
-            <h3 className="text-sm font-bold text-ink">Message preview</h3>
-            <p className="text-xs text-muted">Exactly what the Mitanin receives</p>
+          <div className="w-full mb-3 text-center sm:text-left">
+            <h3 className="text-sm font-bold text-ink">Live Mobile Preview</h3>
+            <p className="text-xs text-muted">Exact message delivered to Mitanin Sahayak</p>
           </div>
 
           {/* Smartphone Frame Container */}
-          <div className="w-[320px] bg-[#1E1B2E] p-3 rounded-[40px] shadow-2xl border-4 border-[#2D2942]">
+          <div className="w-[320px] bg-[#1E1B2E] p-3 rounded-[40px] shadow-xl border-4 border-[#2D2942]">
             {/* Phone Screen Glass */}
-            <div className="w-full bg-[#EDECE6] rounded-[32px] overflow-hidden flex flex-col min-h-[500px] border border-black/10">
+            <div className="w-full bg-[#f8fafc] rounded-[32px] overflow-hidden flex flex-col min-h-[500px] border border-black/10">
               {/* Speaker notch */}
               <div className="h-5 bg-transparent flex justify-center items-center pt-1">
                 <div className="w-16 h-1.5 bg-[#2D2942]/40 rounded-full" />
               </div>
 
               {/* App / SMS Header */}
-              <div className="bg-[#186443] px-4 py-3 text-white">
-                <h4 className="text-xs font-bold tracking-tight">Health alert</h4>
+              <div className="bg-forest px-4 py-3 text-white flex items-center justify-between">
+                <div>
+                  <h4 className="text-xs font-bold tracking-tight">Mitanin Sahayak</h4>
+                  <p className="text-[10px] text-white/80">Health Alert & Field Task</p>
+                </div>
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               </div>
 
               {/* Message Bubble Body */}
               <div className="p-4 flex-1 flex flex-col justify-between">
                 <div className="space-y-3">
                   {/* SMS / IVR Text Card */}
-                  <div className="bg-white p-4 rounded-2xl shadow-xs border border-black/5 space-y-2">
+                  <div className="bg-white p-4 rounded-2xl shadow-xs border border-borderline space-y-2">
                     <p className="text-xs font-bold text-ink leading-snug">
                       {activeTemplateObj.previewAction}
                     </p>
-                    <p className="text-xs text-ink/80 leading-relaxed">
-                      Please visit 10 homes in {villagesSummaryText} and test fevers by {deadlineDayName}.
+                    <p className="text-xs text-muted leading-relaxed">
+                      Please visit 10 homes in <span className="font-semibold text-ink">{villagesSummaryText}</span> and test fevers by <span className="font-semibold text-ink">{deadlineDayName}</span>.
                     </p>
                   </div>
 
                   {/* Local language indicator badge */}
-                  <div className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-[#E4E3F7] text-[#534AB7]">
-                    Local language: planned
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-purple-light text-purple">
+                    <span>Language: Hindi / Chhattisgarhi</span>
                   </div>
                 </div>
 
                 {/* Simulated Frontline Action Buttons on Phone */}
                 <div className="space-y-2 pt-6">
-                  <div className="w-full py-2.5 px-3 bg-[#186443] text-white text-xs font-bold rounded-xl text-center shadow-xs cursor-default">
-                    1 Done
+                  <div className="w-full py-2.5 px-3 bg-forest text-white text-xs font-bold rounded-xl text-center shadow-xs cursor-default">
+                    1. Mark Completed (Done)
                   </div>
-                  <div className="w-full py-2.5 px-3 bg-[#A8650A] text-white text-xs font-bold rounded-xl text-center shadow-xs cursor-default">
-                    2 Need help
+                  <div className="w-full py-2.5 px-3 bg-amber text-white text-xs font-bold rounded-xl text-center shadow-xs cursor-default">
+                    2. Request Help / Supplies
                   </div>
                 </div>
               </div>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed":"#d8e3fb","inverse-surface":"#213145","on-secondary-container":"#586377","on-primary-fixed":"#00201d","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","error-container":"#ffdad6","tertiary-fixed":"#ffdada","on-primary":"#ffffff","on-error":"#ffffff","outline-variant":"#bcc9c6","primary-fixed-dim":"#6bd8cb","on-tertiary-fixed-variant":"#920028","on-surface-variant":"#3d4947","background":"#f8f9ff","secondary-fixed-dim":"#bcc7de","surface-dim":"#cbdbf5","on-error-container":"#93000a","surface":"#f8f9ff","on-primary-container":"#f4fffc","tertiary-container":"#e21e49","surface-container":"#e5eeff","on-tertiary-container":"#fffbff","secondary-container":"#d5e0f8","on-secondary-fixed":"#111c2d","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","on-tertiary":"#ffffff","error":"#ba1a1a","tertiary":"#ba0035","primary-fixed":"#89f5e7","on-primary-fixed-variant":"#005049","inverse-primary":"#6bd8cb","surface-variant":"#d3e4fe","on-background":"#0b1c30","tertiary-fixed-dim":"#ffb3b6","surface-container-high":"#dce9ff","on-surface":"#0b1c30","primary":"#00685f","outline":"#6d7a77","primary-container":"#008378","on-tertiary-fixed":"#40000c","secondary":"#545f73","surface-tint":"#006a61","surface-container-low":"#eff4ff","on-secondary-fixed-variant":"#3c475a","surface-container-lowest":"#ffffff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-sm":"0.5rem","space-xxs":"0.125rem","space-md":"1rem","space-xl":"2rem","margin-tablet":"1.5rem","space-xs":"0.25rem","margin":"2rem","space-lg":"1.5rem","gutter-tablet":"1rem","space-2xl":"3rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","gutter":"1.25rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"headline-xl-mobile":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"],"body-md":["Inter"],"metric-md":["Inter"],"headline-sm":["Inter"],"label-sm":["Inter"],"metric-xl":["Inter"]},fontSize:{"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"metric-md":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"metric-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="p-space-md"><div class="flex items-center gap-space-sm pb-space-md border-b border-outline-variant/20"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-inverse-on-surface leading-tight">मितानिन सहायक</span><span class="font-label-sm text-label-sm text-primary-fixed tracking-wider uppercase">Mitanin Sahayak</span></div></div><div class="mt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-inverse-on-surface/70 uppercase tracking-widest block">Govt. Public Health Surveillance</span></div><div class="mt-space-md bg-inverse-surface/80 p-space-xxs rounded-lg flex items-center justify-between text-center gap-space-xxs"><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Public</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Field</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm bg-primary text-on-primary font-bold shadow-sm">Supervisor</button></div><div class="mt-space-lg"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Portals</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="portal-landing" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-lg text-label-lg">Portal Landing</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="public-health" href="#"><span class="material-symbols-outlined text-[20px]">public</span><span class="font-label-lg text-label-lg">Public Health</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="field-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">Field Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="supervisor-operations" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="font-label-lg text-label-lg">Supervisor Operations</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Tasks & Fieldwork</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="my-tasks" href="#"><span class="material-symbols-outlined text-[20px]">assignment_ind</span><span class="font-label-lg text-label-lg">My Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="team-tasks" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-lg text-label-lg">Team Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="assign-task" href="#"><span class="material-symbols-outlined text-[20px]">add_task</span><span class="font-label-lg text-label-lg">Assign Task</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="task-ledger" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-label-lg text-label-lg">Task Ledger</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="voice-tasks" href="#"><span class="material-symbols-outlined text-[20px]">mic</span><span class="font-label-lg text-label-lg">Voice Tasks</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Epidemiology & Surveillance</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="block-overview" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-lg text-label-lg">Block Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="alerts-and-responses" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="font-label-lg text-label-lg">Alerts & Responses</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="disease-surveillance" href="#"><span class="material-symbols-outlined text-[20px]">health_and_safety</span><span class="font-label-lg text-label-lg">Disease Surveillance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="forecasting-and-evidence" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-label-lg text-label-lg">Forecasting & Evidence</span></a></nav></div></div><div class="p-space-md border-t border-outline-variant/20"><nav class="flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="settings-and-data-status" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-lg text-label-lg">Settings & Data Status</span></a></nav></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="font-bold text-on-surface">Bastar District</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span>Tokapal Block</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-primary font-semibold">Village Netanar</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-secondary-container text-on-secondary-fixed"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Live Sync • Today 09:30 AM</span></div><div class="flex items-center bg-surface-container-high rounded-lg p-space-xxs font-label-sm text-label-sm"><button class="px-space-xs py-space-xxs rounded bg-surface text-primary font-bold shadow-xs">EN</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">हिन्दी</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">छत्तीसगढ़ी</button></div><button class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-error-container text-on-error-container hover:bg-error/20 transition-colors"><span class="material-symbols-outlined text-[18px] text-error">emergency</span><span class="font-label-sm text-label-sm font-bold">Emergency Alert</span></button><div class="flex items-center gap-space-xs bg-surface-container-low pl-space-xs pr-space-sm py-space-xxs rounded-full"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm font-bold text-on-surface leading-tight">Dr. Ananya Sen</span><span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] leading-tight">District Surveillance Officer</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Operational Banner & Model Header -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-inverse-surface via-inverse-surface to-secondary p-space-lg text-inverse-on-surface shadow-md">
+<div class="relative z-10 flex flex-col gap-space-md lg:flex-row lg:items-center lg:justify-between">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 rounded-full bg-primary/20 px-space-xs py-space-xxs text-primary-fixed font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">query_stats</span>
+            Deterministic Inference Layer
+          </span>
+<span class="rounded-full bg-secondary-container/20 px-space-xs py-space-xxs text-secondary-fixed font-label-sm text-label-sm">
+            Epi-Cycle: Week 28 – 32 (2024-Q3)
+          </span>
+<span class="inline-flex items-center gap-1 text-surface-container-highest font-label-sm text-label-sm">
+<span class="h-1.5 w-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+            Synced 14 mins ago • AWS Telemetry & Mitanin RDT Feeds
+          </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-inverse-on-surface tracking-tight">
+          Epidemiological Predictive Model Evidence & Forecasting Transparency
+        </h1>
+<p class="font-body-md text-body-md text-inverse-on-surface/80">
+          Transparent multi-variate vector transmission projection for Tokapal Block. Synthesized across frontline Mitanin rapid diagnostic test (RDT) counts, satellite hydro-indices, and bioclimatic latency parameters.
+        </p>
+</div>
+<!-- Quick Operational Action Pill -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-sm bg-surface-container-highest/10 backdrop-blur-md p-space-sm rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase">Model Architecture</span>
+<span class="font-label-lg text-label-lg text-surface-container-lowest font-semibold">Spatio-Temporal Bayesian + Climate Lag ARIMA</span>
+</div>
+<button class="flex items-center gap-space-xxs rounded-lg bg-primary px-space-sm py-space-xs text-on-primary font-label-md text-label-md transition-all hover:bg-primary-container shadow-sm" id="downloadEvidenceBtn">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+          Export Audit Bundle
+        </button>
+</div>
+</div>
+<!-- Background Subtle Micro Graphic Wave (Inline Decorative SVG) -->
+<div class="absolute right-0 bottom-0 pointer-events-none opacity-10">
+<svg class="text-primary-fixed" fill="none" height="140" viewbox="0 0 420 140" width="420">
+<path d="M0 100 C100 40 180 140 280 80 C340 40 380 90 420 30 L420 140 L0 140 Z" fill="currentColor"></path>
+</svg>
+</div>
+</div>
+<!-- Key Metrics Ribbon -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md mt-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Current R(t) Vector Factor</span>
+<span class="material-symbols-outlined text-primary text-[20px]">coronavirus</span>
+</div>
+<div class="mt-space-xs">
+<span class="font-metric-xl text-metric-xl text-on-surface">1.42</span>
+<span class="ml-space-xs inline-flex items-center text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +0.28 vs W27
+        </span>
+</div>
+<span class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">Sporogony growth threshold exceeded (>1.10)</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Precipitation Lag Lead</span>
+<span class="material-symbols-outlined text-primary text-[20px]">water_drop</span>
+</div>
+<div class="mt-space-xs">
+<span class="font-metric-xl text-metric-xl text-on-surface">10 Days</span>
+<span class="ml-space-xs inline-flex items-center text-tertiary-container font-label-sm text-label-sm">
+          Index 0.88 Pooling
+        </span>
+</div>
+<span class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">184mm recorded 10d ago; vector emergence window</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Projected Surge Peak</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">event_upcoming</span>
+</div>
+<div class="mt-space-xs">
+<span class="font-metric-xl text-metric-xl text-tertiary">Week 30</span>
+<span class="ml-space-xs text-on-surface-variant font-label-sm text-label-sm">
+          Jul 26 - Aug 01
+        </span>
+</div>
+<span class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">Estimated 142 peak active confirmed transmissions</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Algorithm Calibration</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">tune</span>
+</div>
+<div class="mt-space-xs">
+<span class="font-metric-xl text-metric-xl text-on-surface">94.8%</span>
+<span class="ml-space-xs inline-flex items-center text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> R² Cross-Fit
+        </span>
+</div>
+<span class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">Bastar regional baseline (2018-2023 historical tests)</span>
+</div>
+</div>
+<!-- Main Trajectory Visualization & Deep-Dive Evidence Section -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-space-lg mt-space-lg">
+<!-- Left 2 Columns: Dual-Axis Observed vs Predicted Trajectory -->
+<div class="xl:col-span-2 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Primary Forecast Trajectory</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Observed RDT Cases vs. Bayesian Projected Trend</h2>
+</div>
+<!-- Legend Toggles -->
+<div class="flex items-center flex-wrap gap-space-sm bg-surface-container-low px-space-sm py-space-xs rounded-lg">
+<div class="flex items-center gap-1.5">
+<span class="h-2.5 w-6 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Observed Cases</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-0 w-6 border-b-2 border-dashed border-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">Model Forecast</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-3 w-4 rounded bg-primary-fixed-dim/30"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">95% Credible Interval</span>
+</div>
+</div>
+</div>
+<!-- High-Clarity SVG Visualization Canvas -->
+<div class="relative w-full mt-space-md bg-surface-container-low rounded-xl p-space-md overflow-hidden">
+<svg class="w-full h-72 lg:h-80" fill="none" preserveaspectratio="none" viewbox="0 0 800 320">
+<defs>
+<!-- Shaded 95% Credible Interval Area Gradient -->
+<lineargradient id="credibleBand" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00685f" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#00685f" stop-opacity="0.03"></stop>
+</lineargradient>
+<!-- Water Lag Bar Gradient -->
+<lineargradient id="rainGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#bcc7de" stop-opacity="0.5"></stop>
+<stop offset="100%" stop-color="#bcc7de" stop-opacity="0.1"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#bcc9c6" stroke-dasharray="3 3" stroke-opacity="0.3" x1="60" x2="760" y1="40" y2="40"></line>
+<line stroke="#bcc9c6" stroke-dasharray="3 3" stroke-opacity="0.3" x1="60" x2="760" y1="100" y2="100"></line>
+<line stroke="#bcc9c6" stroke-dasharray="3 3" stroke-opacity="0.3" x1="60" x2="760" y1="160" y2="160"></line>
+<line stroke="#bcc9c6" stroke-dasharray="3 3" stroke-opacity="0.3" x1="60" x2="760" y1="220" y2="220"></line>
+<line stroke="#6d7a77" stroke-opacity="0.4" x1="60" x2="760" y1="270" y2="270"></line>
+<!-- Axis Labels Y-Left (Cases) -->
+<text fill="#545f73" font-size="11" font-weight="600" text-anchor="end" x="50" y="44">160</text>
+<text fill="#545f73" font-size="11" font-weight="600" text-anchor="end" x="50" y="104">120</text>
+<text fill="#545f73" font-size="11" font-weight="600" text-anchor="end" x="50" y="164">80</text>
+<text fill="#545f73" font-size="11" font-weight="600" text-anchor="end" x="50" y="224">40</text>
+<text fill="#545f73" font-size="11" font-weight="600" text-anchor="end" x="50" y="274">0</text>
+<!-- Historical Environmental Rain Background Bars (Secondary Axis Indicator) -->
+<rect fill="url(#rainGradient)" height="90" rx="3" width="24" x="110" y="180"></rect>
+<rect fill="url(#rainGradient)" height="140" rx="3" width="24" x="210" y="130"></rect>
+<rect fill="url(#rainGradient)" height="200" rx="3" width="24" x="310" y="70"></rect>
+<rect fill="url(#rainGradient)" height="160" rx="3" width="24" x="410" y="110"></rect>
+<!-- Forecast Cutoff Vertical Boundary -->
+<line stroke="#00685f" stroke-dasharray="4 4" stroke-opacity="0.6" stroke-width="1.5" x1="430" x2="430" y1="30" y2="270"></line>
+<text fill="#00685f" font-size="10" font-weight="700" x="435" y="42">NOW (W28)</text>
+<!-- 95% Credible Interval Shaded Polygon (From W28 x=430 to W32 x=740) -->
+<polygon fill="url(#credibleBand)" points="
+            430,205
+            500,165
+            580,105
+            660,135
+            740,175
+            740,245
+            660,225
+            580,195
+            500,230
+            430,205
+          "></polygon>
+<!-- Upper & Lower Credible Interval Boundary Lines -->
+<path d="M 430 205 Q 500 165 580 105 T 740 175" fill="none" stroke="#6bd8cb" stroke-dasharray="2 2" stroke-width="1"></path>
+<path d="M 430 205 Q 500 230 580 195 T 740 245" fill="none" stroke="#6bd8cb" stroke-dasharray="2 2" stroke-width="1"></path>
+<!-- Solid Line: Confirmed Observed Cases (W24-W28) -->
+<path d="M 120 255 L 220 242 L 320 220 L 430 205" fill="none" stroke="#00685f" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Observed Data Nodes -->
+<circle cx="120" cy="255" fill="#00685f" r="5"></circle>
+<circle cx="220" cy="242" fill="#00685f" r="5"></circle>
+<circle cx="320" cy="220" fill="#00685f" r="5"></circle>
+<circle cx="430" cy="205" fill="#00685f" r="6" stroke="#ffffff" stroke-width="2"></circle>
+<!-- Dotted Line: Bayesian Forecast Trajectory (W28-W32) -->
+<path d="M 430 205 C 490 195 540 148 580 145 C 620 142 680 175 740 208" fill="none" stroke="#ba0035" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="3"></path>
+<!-- Forecast Peak Alert Node -->
+<circle cx="580" cy="145" fill="#ba0035" r="6" stroke="#ffffff" stroke-width="2"></circle>
+<circle class="animate-ping" cx="580" cy="145" fill="#ba0035" opacity="0.2" r="14"></circle>
+<circle cx="740" cy="208" fill="#ba0035" r="5"></circle>
+<!-- Axis Labels X (Epi Weeks) -->
+<text fill="#545f73" font-size="11" text-anchor="middle" x="120" y="290">W25 (Jun 21)</text>
+<text fill="#545f73" font-size="11" text-anchor="middle" x="220" y="290">W26 (Jun 28)</text>
+<text fill="#545f73" font-size="11" text-anchor="middle" x="320" y="290">W27 (Jul 05)</text>
+<text fill="#00685f" font-size="11" font-weight="700" text-anchor="middle" x="430" y="290">W28 (Current)</text>
+<text fill="#ba0035" font-size="11" text-anchor="middle" x="505" y="290">W29 (Jul 19)</text>
+<text fill="#ba0035" font-size="11" font-weight="700" text-anchor="middle" x="580" y="290">W30 (Peak)</text>
+<text fill="#ba0035" font-size="11" text-anchor="middle" x="660" y="290">W31 (Aug 02)</text>
+<text fill="#545f73" font-size="11" text-anchor="middle" x="740" y="290">W32 (Aug 09)</text>
+<!-- Callout Marker at Week 30 Peak -->
+<g transform="translate(540, 75)">
+<rect fill="#213145" height="42" opacity="0.95" rx="6" width="140"></rect>
+<text fill="#ffdada" font-size="10" font-weight="700" x="12" y="18">PROJECTED SURGE PEAK</text>
+<text fill="#ffffff" font-size="11" font-weight="600" x="12" y="32">142 Cases [CI: 98–184]</text>
+</g>
+</svg>
+<!-- Explicit Disclaimer Callout -->
+<div class="mt-space-sm flex items-start gap-space-xs bg-surface-container p-space-sm rounded-lg text-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="font-semibold text-on-surface">Epidemiological Governance Notice:</strong> Dotted curves represent mathematical projections optimized for preventive resource prepositioning and vector larvicide planning; they are not confirmed patient counts or diagnosis tallies.
+          </p>
+</div>
+</div>
+<!-- Forecast Diagnostic Micro-Breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mt-space-md pt-space-sm">
+<div class="p-space-sm bg-surface-container rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mean Absolute Error (MAE)</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">± 3.8 Cases</p>
+<span class="font-body-sm text-body-sm text-primary">Tested across last 6 cycles</span>
+</div>
+<div class="p-space-sm bg-surface-container rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lag Effect Window</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">10 to 14 Days</p>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hydro-vector maturation latency</span>
+</div>
+<div class="p-space-sm bg-surface-container rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bayesian Credible Span</span>
+<p class="font-headline-sm text-headline-sm text-tertiary font-bold mt-1">95% High Confidence</p>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Gaussian random field variance</span>
+</div>
+</div>
+</div>
+<!-- Right 1 Column: Climate & Environmental Drivers Panel -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Causal Explanations</span>
+<span class="material-symbols-outlined text-primary text-[20px]">psychology_alt</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-space-xxs">Why is the model projecting a surge?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xxs">
+          Environmental and anthropogenic signals exceeding seasonal historical medians in Bastar District.
+        </p>
+<!-- Driver Cards -->
+<div class="flex flex-col gap-space-md mt-space-md">
+<!-- Factor 1: Precipitation Lag -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">rainy</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Factor 1: Precipitation Lag</span>
+</div>
+<span class="px-space-xs py-space-xxs rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">CRITICAL</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+<strong>184mm</strong> rainfall recorded 10 days ago. Satellite soil moisture indicates a <strong>water pooling lag index of 0.88</strong> across low-lying paddy fringes, triggering adult vector emergence.
+            </p>
+<div class="w-full bg-surface-container-highest h-2 rounded-full mt-space-xs overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<!-- Factor 2: Vector Temperature Window -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[22px]">device_thermostat</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Factor 2: Ambient Sporogony Zone</span>
+</div>
+<span class="px-space-xs py-space-xxs rounded bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-bold">ACCELERATOR</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Mean ambient temperature steady between <strong>26°C – 29°C</strong> with 82% relative humidity. This represents the bioclimatic sweet-spot shortening the <em>Plasmodium</em> sporogonic incubation cycle to under 9 days.
+            </p>
+<div class="flex items-center justify-between mt-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>Optimum: 27.5°C</span>
+<span class="font-bold text-on-surface">Current: 28.2°C (Peak Efficiency)</span>
+</div>
+</div>
+<!-- Factor 3: Anthropogenic Migration -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">hiking</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Factor 3: Seasonal Forest Return</span>
+</div>
+<span class="px-space-xs py-space-xxs rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-bold">EXPOSURE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Annual return of honey-gatherers, mahua collectors, and timber workers from deep Abujhmad canopies back into settled habitations, re-introducing parasitemia to domestic mosquito reservoirs.
+            </p>
+</div>
+</div>
+</div>
+<!-- Environmental Ground Truth Photo Context -->
+<div class="relative mt-space-md rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-32 object-cover" data-alt="Field epidemiology documentation in Bastar Chhattisgarh showing water collection pools near forest perimeter with tribal habitation huts in background under diffuse overcast monsoon sky, clinical teal tones and documentary realism" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPS749BWd2sS6JYmJsCHDXw3NCoXPDIbcuKyg_Ih63xSB8zRJ_26WEJvCzGNREQ1hvLILZ0-4IRPtSz_2lLC6C1ohZWCzpC3D10xKTLFp-Szfz5El9EMl4psoQfkcPlqRf9_Uvkoh94pP-W2O0JmLzszaDK-h8kpu_OdxEYjnB6FNA9A_OfgDv2IVnDhqljj4sOmUqop-kFVSJvtISbTOVTZCL3xgi_tiSoCQ8NZUUx0H4kOnXDk28"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent flex items-end p-space-sm">
+<span class="text-inverse-on-surface font-label-sm text-label-sm">Field Sensor Station #04 • Netanar Forest Boundary</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Uncertainty & Sensitivity Matrix vs Preventative Action Directives -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mt-space-lg">
+<!-- Uncertainty Matrix (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Spatial Sensitivity</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Sub-Block Uncertainty & Data Rigor Matrix</h3>
+</div>
+<span class="material-symbols-outlined text-outline text-[24px]">troubleshoot</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xxs">
+          Model accuracy depends on daily Mitanin syndromic report transmission stability across deep-forest cellular dead-zones.
+        </p>
+<!-- Cluster Confidence Rows -->
+<div class="flex flex-col gap-space-sm mt-space-md">
+<!-- Cluster A: High Confidence -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-sm rounded-lg bg-surface-container-low gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="h-3 w-3 rounded-full bg-primary shrink-0"></span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Netanar Central & Bade Arapur</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dense reporting • 28 Mitanin RDT active feeds • 98.4% daily sync</p>
+</div>
+</div>
+<div class="flex sm:flex-col items-center sm:items-end justify-between">
+<span class="px-space-xs py-space-xxs rounded bg-primary/10 text-primary font-label-sm text-label-sm font-bold uppercase">High Confidence (94%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Variance ±4.2%</span>
+</div>
+</div>
+<!-- Cluster B: Moderate / Border Uncertainty -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-sm rounded-lg bg-surface-container-low gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="h-3 w-3 rounded-full bg-tertiary-container shrink-0"></span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Abujhmad Border Fringe & Kolar Habitations</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Intermittent mesh relay • 4 manual courier batches • 61.2% sync</p>
+</div>
+</div>
+<div class="flex sm:flex-col items-center sm:items-end justify-between">
+<span class="px-space-xs py-space-xxs rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold uppercase">Moderate Uncertainty (68%)</span>
+<span class="font-body-sm text-body-sm text-tertiary mt-0.5">Variance ±18.6%</span>
+</div>
+</div>
+<!-- Cluster C: Low Density Peripheral -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-sm rounded-lg bg-surface-container-low gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="h-3 w-3 rounded-full bg-secondary shrink-0"></span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Tokapal Southern River Corridor</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Passive sub-center dispensary records • Bi-weekly aggregate entry</p>
+</div>
+</div>
+<div class="flex sm:flex-col items-center sm:items-end justify-between">
+<span class="px-space-xs py-space-xxs rounded bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-bold uppercase">Calibrated Drift (79%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Variance ±9.1%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Satellite Sync Metadata Footnote -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-space-xs rounded-lg">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">satellite_alt</span>
+          Sentinel-2 Surface Reflectance Calibrated (Cycle 143B)
+        </span>
+<button class="text-primary font-bold hover:underline">Inspect Spatial Variogram</button>
+</div>
+</div>
+<!-- Targeted Preventative Interventions (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-wider">Prescriptive Action Matrix</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Surge Mitigations</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[24px]">health_and_safety</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xxs">
+          Triggered automated directives based on projected Week 30 vector apex.
+        </p>
+<!-- Prescriptive Directive Cards -->
+<div class="flex flex-col gap-space-md mt-space-md">
+<!-- Intervention 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Preposition 500 LLIN Nets</span>
+</div>
+<span class="px-space-xs py-space-xxs bg-error-container text-on-error-container font-label-sm text-label-sm font-bold rounded">TARGET: W29</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Dispatch long-lasting insecticidal nets to Netanar Sector PHC stockroom prior to projected transmission elevation.
+            </p>
+<div class="flex items-center justify-between mt-space-xxs pt-space-xxs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Warehouse: Tokapal Central</span>
+<button class="bg-primary text-on-primary px-space-sm py-space-xxs rounded font-label-sm text-label-sm font-semibold hover:bg-primary-container shadow-sm">
+                Dispatch Order
+              </button>
+</div>
+</div>
+<!-- Intervention 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">sanitizer</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Phase 2 IRS Indoor Spraying</span>
+</div>
+<span class="px-space-xs py-space-xxs bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-bold rounded">HIGH LAG CORRIDOR</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Target synthetic pyrethroid residual indoor spraying across 12 high-lag forest boundary hamlets with confirmed water retention.
+            </p>
+<div class="flex items-center justify-between mt-space-xxs pt-space-xxs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Coverage: 410 Habitations</span>
+<button class="bg-surface-container-high text-on-surface px-space-sm py-space-xxs rounded font-label-sm text-label-sm font-semibold hover:bg-surface-container shadow-sm">
+                View Roster
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Acknowledgment Bar -->
+<div class="mt-space-md p-space-sm bg-surface-container rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">gavel</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Protocol CMHO-701 Authorized</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Auto-escalation Active</span>
+</div>
+</div>
+</div>
+<!-- Interactive Slide-Over Sahayak AI Assistant Drawer (Persistent Clinical Transparency) -->
+<div class="fixed right-6 bottom-20 z-50 w-96 max-w-[calc(100vw-3rem)] rounded-xl bg-surface-container-lowest shadow-xl flex flex-col overflow-hidden transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-none" id="aiDrawer">
+<!-- Drawer Header -->
+<div class="bg-inverse-surface p-space-sm text-inverse-on-surface flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">smart_toy</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-inverse-on-surface leading-tight">Mitanin Sahayak AI</span>
+<span class="font-label-sm text-label-sm text-primary-fixed text-[10px]">Model Explanations & Protocol Query</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xxs">
+<button class="px-space-xs py-space-xxs rounded bg-inverse-surface/80 text-primary-fixed font-label-sm text-label-sm font-bold" id="langToggleBtn">
+          हिन्दी / EN
+        </button>
+<button class="p-1 text-inverse-on-surface/70 hover:text-inverse-on-surface" id="closeDrawerBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Drawer Content Stream -->
+<div class="p-space-sm max-h-80 overflow-y-auto flex flex-col gap-space-sm bg-surface-container-low">
+<!-- AI Insight Bubble 1 -->
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">psychology</span> Model Confidence Breakdown
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface">
+          The projected Week 30 surge in Netanar has a 94% fit probability due to synchrony between the 10-day rainfall pulse (184mm) and seasonal labor migration from Abujhmad forests.
+        </p>
+</div>
+<!-- Suggested Instant Queries -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold">Suggested Diagnostic Prompts:</span>
+<div class="flex flex-wrap gap-1">
+<button class="prompt-chip text-left bg-surface-container-lowest hover:bg-surface-container text-on-surface px-2 py-1 rounded text-[11px] font-label-sm shadow-xs transition-colors">
+            "What happens if Phase 2 IRS is delayed 5 days?"
+          </button>
+<button class="prompt-chip text-left bg-surface-container-lowest hover:bg-surface-container text-on-surface px-2 py-1 rounded text-[11px] font-label-sm shadow-xs transition-colors">
+            "Show raw RDT positives reported by Mitanin Phoolo"
+          </button>
+<button class="prompt-chip text-left bg-surface-container-lowest hover:bg-surface-container text-on-surface px-2 py-1 rounded text-[11px] font-label-sm shadow-xs transition-colors">
+            "Compare rainfall lag to 2022 epidemic cycle"
+          </button>
+</div>
+</div>
+</div>
+<!-- Voice & Prompt Input Area -->
+<div class="p-space-sm bg-surface-container-lowest flex items-center gap-space-xs">
+<button class="p-2 rounded-full bg-secondary-container text-primary hover:bg-secondary-fixed transition-colors" title="Voice Input (Gondi / Halbi / Chhattisgarhi)">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+<input class="w-full text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm bg-surface-container-low rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ask in English or हिन्दी..." type="text"/>
+<button class="p-2 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+<!-- Interactive JavaScript Handling for Drawer & Toast Micro-interactions -->
+<script>
+    (function initEvidenceScreen() {
+      const drawer = document.getElementById('aiDrawer');
+      const closeBtn = document.getElementById('closeDrawerBtn');
+      const exportBtn = document.getElementById('downloadEvidenceBtn');
+
+      // Hook global shell floating assistant button if present
+      const globalAssistantBtn = document.querySelector('button:has(.material-symbols-outlined:contains("smart_toy")), .fixed.bottom-6.right-6 button');
+
+      function openDrawer() {
+        if (!drawer) return;
+        drawer.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+        drawer.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+
+      function closeDrawer() {
+        if (!drawer) return;
+        drawer.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        drawer.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (globalAssistantBtn) {
+        globalAssistantBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isHidden = drawer.classList.contains('pointer-events-none');
+          if (isHidden) openDrawer();
+          else closeDrawer();
+        });
+      }
+
+      // Prompt chip click handler
+      document.querySelectorAll('.prompt-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const input = drawer.querySelector('input[type="text"]');
+          if (input) {
+            input.value = btn.innerText.replace(/"/g, '');
+            input.focus();
+          }
+        });
+      });
+
+      // Simple audit bundle export notification
+      if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+          const originalText = exportBtn.innerHTML;
+          exportBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">sync</span> Compiling SHA-256 Audit...';
+          setTimeout(() => {
+            exportBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span> Bundle Downloaded';
+            setTimeout(() => {
+              exportBtn.innerHTML = originalText;
+            }, 2500);
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</div></main></div><div class="fixed bottom-6 right-6 z-50"><button class="flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-full shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_8px_10px_-6px_rgba(15,23,42,0.08)] hover:bg-inverse-surface/90 transition-all group"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary-fixed"></span></span><span class="material-symbols-outlined text-primary-fixed text-[20px]">smart_toy</span><span class="font-label-lg text-label-lg text-inverse-on-surface font-semibold">Sahayak AI • Ask Protocol & Disease Data</span></button></div></body></html>

@@ -17,7 +17,6 @@ import {
   FileText,
   Bell,
   Search,
-  Filter,
   Send,
   Paperclip,
   Thermometer,
@@ -27,7 +26,6 @@ import {
   Volume2,
 } from "lucide-react";
 import type { SelectedLocationState } from "../components/LocationSelectorModal";
-import { MultiDiseaseOverview } from "../components/MultiDiseaseOverview";
 import { VoiceTaskPlayer } from "../components/VoiceTaskPlayer";
 import { VoiceInputButton } from "../components/VoiceInputButton";
 import { useI18n } from "../i18n/I18nContext";
@@ -49,7 +47,7 @@ export function EmployeeDashboard({
   onChangeLocation,
   onSwitchView,
   onDataUpdated,
-  onSelectDiseaseDetail,
+  onSelectDiseaseDetail: _onSelectDiseaseDetail,
 }: EmployeeDashboardProps) {
   const { t: tr, localizeTask } = useI18n();
   const [dashData, setDashData] = useState<any | null>(null);
@@ -308,9 +306,9 @@ export function EmployeeDashboard({
   // =========================================================================
   if (activeView === "my-tasks") {
     return (
-      <div className="p-4 sm:p-6 max-w-[1400px] mx-auto space-y-4 text-ink">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-6 text-ink">
         {/* Header */}
-        <div className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full bg-teal-light text-teal text-xs font-bold">
@@ -320,7 +318,7 @@ export function EmployeeDashboard({
                 {selectedLocation.breadcrumb}
               </span>
             </div>
-            <h1 className="text-xl font-bold text-ink mt-1">
+            <h1 className="text-xl sm:text-2xl font-bold text-ink mt-1">
               My Assigned Tasks ({myTasks.length})
             </h1>
             <p className="text-xs text-muted">
@@ -331,14 +329,14 @@ export function EmployeeDashboard({
           <button
             type="button"
             onClick={() => onSwitchView("emp-dashboard")}
-            className="px-4 py-2 rounded-xl border border-borderline hover:bg-canvas text-xs font-bold text-ink transition-colors"
+            className="px-4 py-2.5 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink transition-colors cursor-pointer shrink-0"
           >
             Back to Employee Overview
           </button>
         </div>
 
         {/* Filter Bar */}
-        <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {/* Search */}
           <div className="relative">
             <Search className="w-4 h-4 text-muted absolute left-3 top-3" />
@@ -347,7 +345,7 @@ export function EmployeeDashboard({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search task title or instructions..."
-              className="w-full pl-9 pr-3 py-2 rounded-xl border border-borderline text-xs text-ink focus:outline-none focus:ring-2 focus:ring-purple"
+              className="w-full h-10 pl-9 pr-3 rounded-xl border border-borderline text-xs font-medium text-ink focus:outline-none focus:ring-2 focus:ring-purple"
             />
           </div>
 
@@ -357,7 +355,7 @@ export function EmployeeDashboard({
               aria-label="Filter by Disease or Risk"
               value={diseaseFilter}
               onChange={(e) => setDiseaseFilter(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+              className="w-full h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
             >
               <option value="all">All 4 Health Risks</option>
               <option value="malaria">Malaria</option>
@@ -368,13 +366,12 @@ export function EmployeeDashboard({
           </div>
 
           {/* Status Filter */}
-          <div className="flex items-center gap-2">
-            <Filter className="w-3.5 h-3.5 text-muted shrink-0" />
+          <div>
             <select
               aria-label="Filter by Status"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+              className="w-full h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
             >
               <option value="all">All Statuses</option>
               <option value="pending">Pending (Sent)</option>
@@ -393,7 +390,7 @@ export function EmployeeDashboard({
               aria-label="Filter by Priority"
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+              className="w-full h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
             >
               <option value="all">All Priorities</option>
               <option value="Critical">Critical Priority</option>
@@ -409,7 +406,7 @@ export function EmployeeDashboard({
               aria-label="Filter by Due Date"
               value={dueFilter}
               onChange={(e) => setDueFilter(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl border border-borderline text-xs font-semibold text-ink bg-white"
+              className="w-full h-10 px-3 rounded-xl border border-borderline text-xs font-medium text-ink bg-white focus:outline-none focus:ring-2 focus:ring-purple"
             >
               <option value="all">All Due Dates</option>
               <option value="overdue">Overdue Only</option>
@@ -644,16 +641,16 @@ export function EmployeeDashboard({
   // VIEW A: MAIN FIELD EMPLOYEE DASHBOARD
   // =========================================================================
   return (
-    <div className="p-4 sm:p-6 max-w-[1400px] mx-auto space-y-4 text-ink">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-6 text-ink">
       {/* 1. EMPLOYEE PROFILE & ASSIGNED JURISDICTION CARD */}
-      <section className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <section className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div className="flex items-start gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-teal text-white flex items-center justify-center font-bold text-base shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-teal text-white flex items-center justify-center font-bold text-base shrink-0 shadow-xs">
             <User className="w-6 h-6" />
           </div>
           <div className="space-y-1">
             <div className="flex items-center flex-wrap gap-2">
-              <h1 className="text-lg font-bold text-ink">{emp.name}</h1>
+              <h1 className="text-xl font-bold text-ink">{emp.name}</h1>
               <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-light text-teal">
                 {emp.role_label || "Field Employee / Mitanin"}
               </span>
@@ -672,11 +669,11 @@ export function EmployeeDashboard({
           </div>
         </div>
 
-        <div className="flex items-center flex-wrap gap-2.5">
+        <div className="flex items-center flex-wrap gap-2.5 shrink-0">
           <button
             type="button"
             onClick={() => onSwitchView("voice-tasks")}
-            className="px-3.5 py-2 rounded-xl bg-teal-800 hover:bg-teal-900 text-white text-xs font-bold flex items-center gap-1.5 shadow-2xs cursor-pointer"
+            className="px-3.5 py-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs cursor-pointer transition-colors"
           >
             <Volume2 className="w-3.5 h-3.5" />
             <span>{tr("employee.open_voice_tasks")}</span>
@@ -684,7 +681,7 @@ export function EmployeeDashboard({
           <button
             type="button"
             onClick={onChangeLocation}
-            className="px-3.5 py-2 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink flex items-center gap-1.5 cursor-pointer"
+            className="px-3.5 py-2.5 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink flex items-center gap-1.5 cursor-pointer transition-colors"
           >
             <MapPin className="w-3.5 h-3.5 text-purple" />
             <span>{tr("app.change_location")}</span>
@@ -692,7 +689,7 @@ export function EmployeeDashboard({
           <button
             type="button"
             onClick={() => onSwitchView("my-tasks")}
-            className="px-4 py-2 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold shadow-2xs cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold shadow-xs cursor-pointer transition-colors"
           >
             {tr("employee.my_tasks_title")} ({counts.total || 0})
           </button>
@@ -700,196 +697,188 @@ export function EmployeeDashboard({
       </section>
 
       {/* 2. TASK STATUS KPI ROW + LOCAL MALARIA RISK */}
-      <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+      <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Local Malaria Risk</div>
-          <div className="text-xl font-extrabold text-coral mt-1">{risk.category || "High"}</div>
-          <div className="text-[11px] text-muted mt-0.5">{risk.forecast_period}</div>
+          <div className="text-xl font-extrabold text-coral mt-1.5">{risk.category || "High"}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">{risk.forecast_period}</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Pending Tasks</div>
-          <div className="text-2xl font-bold text-amber mt-1">{counts.pending ?? 0}</div>
-          <div className="text-[11px] text-muted mt-0.5">Awaiting acknowledgement</div>
+          <div className="text-2xl font-extrabold text-amber mt-1.5 tabular-nums">{counts.pending ?? 0}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Awaiting acknowledgement</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">In Progress</div>
-          <div className="text-2xl font-bold text-purple mt-1">{counts.in_progress ?? 0}</div>
-          <div className="text-[11px] text-muted mt-0.5">Active field execution</div>
+          <div className="text-2xl font-extrabold text-purple mt-1.5 tabular-nums">{counts.in_progress ?? 0}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Active execution</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Completed</div>
-          <div className="text-2xl font-bold text-forest mt-1">{counts.completed ?? 0}</div>
-          <div className="text-[11px] text-muted mt-0.5">Verified in ledger</div>
+          <div className="text-2xl font-extrabold text-forest mt-1.5 tabular-nums">{counts.completed ?? 0}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Verified in ledger</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Overdue / Escalated</div>
-          <div className="text-2xl font-bold text-coral mt-1">{counts.overdue ?? 0}</div>
-          <div className="text-[11px] text-muted mt-0.5">Past deadline</div>
+          <div className="text-2xl font-extrabold text-coral mt-1.5 tabular-nums">{counts.overdue ?? 0}</div>
+          <div className="text-[11px] text-muted mt-1 truncate">Past deadline</div>
         </div>
 
-        <div className="bg-white rounded-card border border-borderline p-3.5 shadow-2xs">
+        <div className="bg-white rounded-card-lg border border-borderline p-4 shadow-sm flex flex-col justify-between">
           <div className="text-[11px] text-muted font-semibold">Latest Climate</div>
-          <div className="text-sm font-bold text-ink mt-1 flex items-center gap-2">
-            <span className="flex items-center gap-0.5">
+          <div className="text-sm font-bold text-ink mt-1.5 flex items-center gap-2">
+            <span className="flex items-center gap-1 tabular-nums">
               <Thermometer className="w-3.5 h-3.5 text-amber" />
               {climate.temperature_c}°C
             </span>
-            <span className="flex items-center gap-0.5">
+            <span className="flex items-center gap-1 tabular-nums">
               <CloudRain className="w-3.5 h-3.5 text-purple" />
               {climate.rainfall_mm}mm
             </span>
           </div>
-          <div className="text-[10px] text-muted mt-1">As of {climate.latest_date} (Sim)</div>
+          <div className="text-[10px] text-muted mt-1 truncate">As of {climate.latest_date}</div>
         </div>
       </section>
 
-      {/* 2B. UNIFIED MULTI-DISEASE EARLY-WARNING OVERVIEW (4 HEALTH RISKS) */}
-      {dashData?.multi_disease && (
-        <MultiDiseaseOverview
-          multiDisease={dashData.multi_disease}
-          locationBreadcrumb={selectedLocation.breadcrumb}
-          portalMode="field_employee"
-          onSelectDiseaseDetail={(dType) => {
-            if (onSelectDiseaseDetail) onSelectDiseaseDetail(dType);
-          }}
-        />
-      )}
-
       {/* 3. ASSIGNED TASKS & NOTIFICATIONS */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* Assigned Tasks List (col-span-8) */}
-        <div className="lg:col-span-8 bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-3">
-          <div className="flex items-center justify-between border-b border-borderline pb-3">
-            <div>
-              <h2 className="text-base font-bold text-ink">{tr("employee.my_tasks_title")}</h2>
-              <p className="text-xs text-muted">
-                Acknowledge, start, listen via voice TTS, and complete your assigned field tasks across all 4 health risks
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => onSwitchView("my-tasks")}
-              className="text-xs font-bold text-purple hover:underline cursor-pointer"
-            >
-              View All & Filter →
-            </button>
-          </div>
-
-          <div className="space-y-2.5">
-            {tasks.map((t: any) => (
-              <div
-                key={t.id}
-                className="p-3.5 rounded-xl border border-borderline bg-canvas/40 space-y-2"
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center flex-wrap gap-2">
-                    <span className="font-mono text-[11px] font-bold text-purple">#{t.id}</span>
-                    {getDiseaseBadge(t.disease_type, t.disease_label)}
-                    <span className="text-xs sm:text-sm font-bold text-ink">
-                      {localizeTask(t).title}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    {getPriorityBadge(t.priority)}
-                    {getStatusBadge(t)}
-                  </div>
-                </div>
-
+        <div className="lg:col-span-8 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-4 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between border-b border-borderline pb-3">
+              <div>
+                <h2 className="text-base font-bold text-ink">{tr("employee.my_tasks_title")}</h2>
                 <p className="text-xs text-muted">
-                  {localizeTask(t).instructions || t.instructions || t.description}
+                  Acknowledge, start, listen via voice TTS, and complete your assigned field tasks across all 4 health risks
                 </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => onSwitchView("my-tasks")}
+                className="text-xs font-bold text-purple hover:underline cursor-pointer shrink-0"
+              >
+                View All & Filter →
+              </button>
+            </div>
 
-                {/* Voice Task Player */}
-                <VoiceTaskPlayer task={t} />
+            <div className="space-y-3">
+              {tasks.map((t: any) => (
+                <div
+                  key={t.id}
+                  className="p-4 rounded-xl border border-borderline bg-canvas/40 space-y-2.5"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center flex-wrap gap-2">
+                      <span className="font-mono text-[11px] font-bold text-purple">#{t.id}</span>
+                      {getDiseaseBadge(t.disease_type, t.disease_label)}
+                      <span className="text-xs sm:text-sm font-bold text-ink">
+                        {localizeTask(t).title}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {getPriorityBadge(t.priority)}
+                      {getStatusBadge(t)}
+                    </div>
+                  </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 text-[11px] text-muted">
-                  <span>
-                    Due: <strong>{t.deadline ? new Date(t.deadline).toLocaleString() : "-"}</strong>
-                  </span>
+                  <p className="text-xs text-muted leading-relaxed">
+                    {localizeTask(t).instructions || t.instructions || t.description}
+                  </p>
 
-                  <div className="flex items-center gap-1.5">
-                    {t.status === "sent" && (
-                      <button
-                        type="button"
-                        onClick={() => handleQuickTaskAction(t.id, "acknowledge", "Acknowledged task")}
-                        className="px-2.5 py-1 rounded-lg bg-teal text-white font-bold cursor-pointer"
-                      >
-                        {tr("employee.acknowledge_btn")}
-                      </button>
-                    )}
-                    {(t.status === "sent" || t.status === "acknowledged") && (
-                      <button
-                        type="button"
-                        onClick={() => handleQuickTaskAction(t.id, "start", "Started field work")}
-                        className="px-2.5 py-1 rounded-lg bg-purple text-white font-bold cursor-pointer"
-                      >
-                        {tr("employee.start_btn")}
-                      </button>
-                    )}
-                    {t.status !== "done" && t.status !== "completed" && (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleQuickTaskAction(
-                            t.id,
-                            "complete",
-                            "Completed household fever screening and larval inspection."
-                          )
-                        }
-                        className="px-2.5 py-1 rounded-lg bg-forest text-white font-bold cursor-pointer"
-                      >
-                        {tr("employee.complete_btn")}
-                      </button>
-                    )}
+                  {/* Voice Task Player */}
+                  <VoiceTaskPlayer task={t} />
+
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 text-[11px] text-muted">
+                    <span>
+                      Due: <strong>{t.deadline ? new Date(t.deadline).toLocaleString() : "-"}</strong>
+                    </span>
+
+                    <div className="flex items-center gap-2">
+                      {t.status === "sent" && (
+                        <button
+                          type="button"
+                          onClick={() => handleQuickTaskAction(t.id, "acknowledge", "Acknowledged task")}
+                          className="px-3 py-1 rounded-lg bg-teal hover:bg-teal/90 text-white font-bold cursor-pointer transition-colors"
+                        >
+                          {tr("employee.acknowledge_btn")}
+                        </button>
+                      )}
+                      {(t.status === "sent" || t.status === "acknowledged") && (
+                        <button
+                          type="button"
+                          onClick={() => handleQuickTaskAction(t.id, "start", "Started field work")}
+                          className="px-3 py-1 rounded-lg bg-purple hover:bg-purple/90 text-white font-bold cursor-pointer transition-colors"
+                        >
+                          {tr("employee.start_btn")}
+                        </button>
+                      )}
+                      {t.status !== "done" && t.status !== "completed" && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleQuickTaskAction(
+                              t.id,
+                              "complete",
+                              "Completed household fever screening and larval inspection."
+                            )
+                          }
+                          className="px-3 py-1 rounded-lg bg-forest hover:bg-forest/90 text-white font-bold cursor-pointer transition-colors"
+                        >
+                          {tr("employee.complete_btn")}
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Notifications & Local Alert Panel (col-span-4) */}
-        <div className="lg:col-span-4 bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-3">
-          <div className="flex items-center justify-between border-b border-borderline pb-3">
-            <div className="flex items-center gap-2">
-              <Bell className="w-4 h-4 text-purple" />
-              <h2 className="text-base font-bold text-ink">Alerts & Notifications</h2>
-            </div>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-light text-purple">
-              {notifications.length}
-            </span>
-          </div>
-
-          <div className="space-y-2.5 max-h-[340px] overflow-y-auto pr-1">
-            {notifications.map((n: any) => (
-              <div
-                key={n.id}
-                className="p-3 rounded-xl border border-borderline bg-canvas/50 space-y-1"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase text-purple">
-                    {n.category.replace("_", " ")}
-                  </span>
-                  <span className="text-[10px] text-muted">
-                    {n.created_at ? new Date(n.created_at).toLocaleDateString() : ""}
-                  </span>
-                </div>
-                <div className="text-xs font-bold text-ink">{n.title}</div>
-                <p className="text-[11px] text-muted leading-relaxed">{n.message}</p>
+        <div className="lg:col-span-4 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-4 flex flex-col justify-between">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between border-b border-borderline pb-3">
+              <div className="flex items-center gap-2">
+                <Bell className="w-4 h-4 text-purple" />
+                <h2 className="text-base font-bold text-ink">Alerts & Notifications</h2>
               </div>
-            ))}
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-light text-purple">
+                {notifications.length}
+              </span>
+            </div>
+
+            <div className="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
+              {notifications.map((n: any) => (
+                <div
+                  key={n.id}
+                  className="p-3.5 rounded-xl border border-borderline bg-canvas/50 space-y-1.5"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase text-purple">
+                      {n.category.replace("_", " ")}
+                    </span>
+                    <span className="text-[10px] text-muted">
+                      {n.created_at ? new Date(n.created_at).toLocaleDateString() : ""}
+                    </span>
+                  </div>
+                  <div className="text-xs font-bold text-ink">{n.title}</div>
+                  <p className="text-[11px] text-muted leading-relaxed">{n.message}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 4. FIELD REPORT SUBMISSION FORM & LOCAL CLIMATE/MALARIA TRENDS */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* Field Report Submission Form (col-span-6) */}
-        <div className="lg:col-span-6 bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-4">
+        <div className="lg:col-span-6 bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-4">
           <div className="border-b border-borderline pb-3">
             <div className="flex items-center gap-2">
               <FileText className="w-4 h-4 text-teal" />
@@ -1065,9 +1054,9 @@ export function EmployeeDashboard({
         </div>
 
         {/* Submitted Reports & Local Trend Chart (col-span-6) */}
-        <div className="lg:col-span-6 space-y-4">
+        <div className="lg:col-span-6 space-y-5 flex flex-col justify-between">
           {/* Submitted Reports Status */}
-          <div className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-3">
+          <div className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-3.5 flex-1">
             <h2 className="text-base font-bold text-ink border-b border-borderline pb-2.5">
               My Submitted Field Reports ({reports.length})
             </h2>
@@ -1113,7 +1102,7 @@ export function EmployeeDashboard({
           </div>
 
           {/* Local Malaria & Rainfall Trend */}
-          <div className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs">
+          <div className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm">
             <h2 className="text-sm font-bold text-ink pb-2">
               Local Malaria & Rainfall Trend ({selectedLocation.block_name})
             </h2>

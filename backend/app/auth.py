@@ -190,6 +190,24 @@ def verify_location_jurisdiction(
     user_dist = user.district_id or "DIST_SAMPLE"
     allowed_blocks = set(get_authorized_block_ids(user, db))
 
+    # Official Chhattisgarh LGD locations from the authoritative dataset
+    # (docs/chhattisgarh_lgd_blocks_dataset/) are authorized for prototype evaluation
+    # across frontline workers and supervisors.
+    is_lgd_location = bool(
+        (canon_dist and not canon_dist.is_demo)
+        or (canon_blk and not canon_blk.is_demo)
+        or (check_dist_id and str(check_dist_id).startswith("LGD_"))
+        or (check_blk_id and str(check_blk_id).startswith("LGD_"))
+    )
+    if is_lgd_location:
+        # Valid official LGD dataset location - verify that the block belongs to the district if both provided
+        if canon_dist and canon_blk and canon_blk.parent_id != canon_dist.unit_id:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Block '{canon_blk.unit_name}' ({canon_blk.unit_id}) does not belong to district '{canon_dist.unit_name}' ({canon_dist.unit_id}).",
+            )
+        return
+
     if check_dist_id and check_dist_id != user_dist:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,

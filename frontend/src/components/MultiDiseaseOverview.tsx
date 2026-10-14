@@ -103,7 +103,7 @@ export function MultiDiseaseOverview({
   ];
 
   return (
-    <section className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs space-y-4">
+    <section className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-5">
       {/* Header & Filter Bar */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-borderline pb-3.5">
         <div>
@@ -168,11 +168,18 @@ export function MultiDiseaseOverview({
         </div>
       </div>
 
-      {/* Forecast vs Confirmed Diagnosis Notice */}
+      {/* Forecast vs Confirmed Diagnosis Notice Banner */}
       {multiDisease.forecast_vs_diagnosis_notice && (
-        <div className="p-3 rounded-xl bg-canvas border border-borderline flex items-start gap-2.5 text-xs text-ink/85">
+        <div className="py-2.5 px-3.5 rounded-xl bg-purple-light/40 border border-purple/20 flex items-start gap-2.5 text-xs text-ink/90 leading-relaxed shadow-2xs">
           <ShieldAlert className="w-4 h-4 text-purple shrink-0 mt-0.5" />
-          <span>{multiDisease.forecast_vs_diagnosis_notice}</span>
+          <div className="flex-1">
+            <span className="font-bold text-purple uppercase tracking-wider text-[11px] mr-1.5">
+              Important Distinction:
+            </span>
+            <span>
+              {multiDisease.forecast_vs_diagnosis_notice.replace(/^IMPORTANT DISTINCTION:\s*/i, "")}
+            </span>
+          </div>
         </div>
       )}
 
@@ -267,7 +274,7 @@ export function MultiDiseaseOverview({
           filteredCards.length === 1
             ? "lg:grid-cols-1"
             : "md:grid-cols-2 xl:grid-cols-4"
-        } gap-4`}
+        } gap-4.5`}
       >
         {filteredCards.map((card) => {
           const style = getRiskStyle(
@@ -286,20 +293,28 @@ export function MultiDiseaseOverview({
           return (
             <div
               key={card.disease_type}
-              className={`rounded-card border-2 ${style.border} ${style.bg} p-4 flex flex-col justify-between space-y-3.5 transition-all hover:shadow-sm`}
+              className={`rounded-card-lg border-2 ${style.border} ${style.bg} p-4.5 flex flex-col justify-between space-y-3.5 transition-all hover:shadow-sm`}
             >
-              {/* Top Header */}
-              <div className="space-y-2">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-xl bg-white border border-borderline flex items-center justify-center shrink-0">
+              {/* Card Header & Content Stack */}
+              <div className="space-y-3">
+                {/* 1. Header: Icon, Titles, Risk Badge */}
+                <div className="flex items-start justify-between gap-2.5">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-9 h-9 rounded-xl bg-white border border-borderline flex items-center justify-center shrink-0 shadow-2xs">
                       {getDiseaseIcon(card.disease_type)}
                     </div>
-                    <div>
-                      <h3 className="text-sm font-extrabold text-ink leading-tight">
+                    <div className="min-w-0 min-h-[42px] flex flex-col justify-center">
+                      <h3 className="text-sm font-extrabold text-ink leading-tight line-clamp-2">
                         {localizeDisease(card.disease_type)}
                       </h3>
-                      <div className="text-[10px] font-semibold text-muted">
+                      <div
+                        className="text-[10px] font-semibold text-muted leading-tight truncate mt-0.5"
+                        title={
+                          card.is_infectious
+                            ? "Infectious Climate-Sensitive"
+                            : "Non-Infectious Meteorological"
+                        }
+                      >
                         {card.is_infectious
                           ? "Infectious Climate-Sensitive"
                           : "Non-Infectious Meteorological"}
@@ -308,7 +323,7 @@ export function MultiDiseaseOverview({
                   </div>
 
                   <span
-                    className={`px-2.5 py-1 rounded-full text-[11px] font-bold shrink-0 ${style.badge}`}
+                    className={`px-2.5 py-1 rounded-full text-[11px] font-bold shrink-0 self-start shadow-2xs ${style.badge}`}
                   >
                     {card.prediction_available
                       ? localizeRisk(card.risk_category)
@@ -316,40 +331,60 @@ export function MultiDiseaseOverview({
                   </span>
                 </div>
 
-                {/* Prediction Nature & Horizon Badge */}
-                <div className="flex items-center flex-wrap gap-1.5 text-[11px]">
-                  <span className="px-2 py-0.5 rounded-md bg-white/80 border border-borderline text-ink font-semibold">
-                    {t("risk.lead_time")}: {card.supported_horizon}
-                  </span>
-                  {card.uncertainty?.calculable ? (
-                    <span className="px-2 py-0.5 rounded-md bg-white/80 border border-borderline text-muted">
-                      {t("risk.confidence")}: {card.uncertainty.confidence_pct}
+                {/* 2. Lead Time & Model Confidence Metadata Box */}
+                <div className="grid grid-cols-2 gap-1.5 text-[11px]">
+                  <div className="px-2.5 py-1.5 rounded-lg bg-white/80 border border-borderline/70 flex flex-col justify-center">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-muted">
+                      {t("risk.lead_time")}
                     </span>
-                  ) : (
-                    <span className="px-2 py-0.5 rounded-md bg-white/80 border border-borderline text-muted">
-                      {card.uncertainty?.confidence_pct || "Rule-Based"}
+                    <span
+                      className="font-semibold text-ink text-xs truncate"
+                      title={card.supported_horizon}
+                    >
+                      {card.supported_horizon}
                     </span>
-                  )}
+                  </div>
+                  <div className="px-2.5 py-1.5 rounded-lg bg-white/80 border border-borderline/70 flex flex-col justify-center">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-muted">
+                      {card.uncertainty?.calculable
+                        ? t("risk.confidence")
+                        : "Methodology"}
+                    </span>
+                    <span
+                      className="font-semibold text-ink text-xs truncate"
+                      title={
+                        card.uncertainty?.calculable
+                          ? `${card.uncertainty.confidence_pct} Confidence`
+                          : card.uncertainty?.confidence_pct || "Rule-Based"
+                      }
+                    >
+                      {card.uncertainty?.calculable
+                        ? `${card.uncertainty.confidence_pct} Conf.`
+                        : card.uncertainty?.confidence_pct || "Rule-Based"}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Latest Observation / Forecast Summary */}
-                <div className="p-2.5 rounded-xl bg-white/90 border border-borderline space-y-1">
-                  <div className="text-[10px] font-bold uppercase text-muted">
-                    {t("risk.forecast_vs_threshold")}
+                {/* 3. Forecast vs Threshold Panel */}
+                <div className="p-3 rounded-xl bg-white/95 border border-borderline/80 space-y-1.5 shadow-2xs min-h-[98px] flex flex-col justify-between">
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                      {t("risk.forecast_vs_threshold")}
+                    </div>
+                    <div className="text-xs font-bold text-ink leading-snug mt-1">
+                      {card.risk_estimate?.summary_text}
+                    </div>
                   </div>
-                  <div className="text-xs font-bold text-ink">
-                    {card.risk_estimate?.summary_text}
-                  </div>
-                  <div className="text-[11px] text-muted">
+                  <div className="text-[11px] text-muted leading-tight border-t border-borderline/50 pt-1 mt-1">
                     {card.climate_indicators?.primary_driver_summary}
                   </div>
                 </div>
 
-                {/* Missing Data or Domain Honesty Warning if applicable */}
+                {/* 4. Missing Data or Domain Honesty Warning (Diarrhoea & Heat) */}
                 {(!card.prediction_available ||
                   card.disease_type === "diarrhoea" ||
                   card.disease_type === "heat") && (
-                  <div className="p-2 rounded-lg bg-[#FEF3D6]/90 border border-[#F0D99B] text-[11px] text-[#6B4204] flex items-start gap-1.5">
+                  <div className="p-2.5 rounded-xl bg-[#FEF3D6] border border-[#F0D99B] text-[11px] leading-relaxed text-[#6B4204] flex items-start gap-2 shadow-2xs">
                     <AlertTriangle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#A8650A]" />
                     <span>
                       {!card.prediction_available
@@ -362,39 +397,59 @@ export function MultiDiseaseOverview({
                   </div>
                 )}
 
-                {/* Historical Trend Mini-Bar */}
+                {/* 5. Recent 6-Week Trend Section */}
                 {recentPoints.length > 0 && (
-                  <div className="px-2.5 py-2 rounded-xl bg-white/75 border border-borderline flex items-center justify-between text-[11px]">
-                    <span className="text-muted font-medium">
-                      Recent 6-wk trend:
-                    </span>
-                    <span className="font-mono font-bold text-ink">
-                      {recentPoints
-                        .map((p: any) =>
+                  <div className="p-2.5 rounded-xl bg-white/80 border border-borderline/80 space-y-1.5 shadow-2xs">
+                    <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-muted">
+                      <span>Recent 6-Wk Trend</span>
+                      <span className="text-[9px] font-medium text-muted/70">
+                        W-5 → Latest
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between gap-1 overflow-x-auto py-0.5">
+                      {recentPoints.map((p: any, idx: number) => {
+                        const isLatest = idx === recentPoints.length - 1;
+                        const val =
                           p.value !== null && p.value !== undefined
                             ? p.value
-                            : "–"
-                        )
-                        .join(" → ")}
-                    </span>
+                            : "–";
+                        return (
+                          <div key={idx} className="flex items-center gap-1">
+                            <span
+                              className={`px-1.5 py-0.5 rounded text-[11px] font-mono tabular-nums font-bold ${
+                                isLatest
+                                  ? "bg-purple-light text-purple border border-purple/30 font-extrabold"
+                                  : "bg-canvas text-ink"
+                              }`}
+                              title={`Week ${idx + 1}: ${val}`}
+                            >
+                              {val}
+                            </span>
+                            {idx < recentPoints.length - 1 && (
+                              <span className="text-muted/40 text-[9px]">→</span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
 
-                {/* Recommended Actions for this Risk */}
-                <div className="space-y-1 pt-1">
-                  <div className="text-[11px] font-bold text-ink flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-teal" />
+                {/* 6. Recommended Citizen Actions */}
+                <div className="space-y-1.5 pt-0.5">
+                  <div className="text-[11px] font-bold text-ink flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-teal shrink-0" />
                     <span>
                       {portalMode === "public"
                         ? "Recommended Citizen Actions:"
                         : "Recommended Response Actions:"}
                     </span>
                   </div>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1.5">
                     {actionsList.slice(0, 2).map((act: string, i: number) => (
                       <li
                         key={i}
-                        className="text-[11px] text-ink/90 leading-snug pl-2 border-l-2 border-teal/50"
+                        className="text-[11px] text-ink/90 leading-relaxed pl-2.5 border-l-2 border-teal/60 bg-white/50 rounded-r-lg py-1 pr-2"
                       >
                         {act}
                       </li>
@@ -403,11 +458,11 @@ export function MultiDiseaseOverview({
                 </div>
               </div>
 
-              {/* Footer: Timestamp + View Detailed Analysis Button */}
-              <div className="pt-2.5 border-t border-black/10 space-y-2">
+              {/* 7. Footer: Timestamp + View Detailed Analysis Button */}
+              <div className="mt-auto pt-3 border-t border-borderline/80 space-y-2">
                 <div className="flex items-center justify-between text-[10px] text-muted">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
+                  <span className="flex items-center gap-1 font-medium">
+                    <Clock className="w-3 h-3 text-muted/70 shrink-0" />
                     Updated:{" "}
                     {card.last_updated
                       ? new Date(card.last_updated).toLocaleDateString(
@@ -419,7 +474,10 @@ export function MultiDiseaseOverview({
                         )
                       : "Latest run"}
                   </span>
-                  <span className="truncate max-w-[140px]" title={card.model_version}>
+                  <span
+                    className="truncate max-w-[125px] font-mono text-[10px] text-muted bg-white/70 px-1.5 py-0.5 rounded border border-borderline/70"
+                    title={card.model_version}
+                  >
                     {card.model_version}
                   </span>
                 </div>
@@ -427,10 +485,10 @@ export function MultiDiseaseOverview({
                 <button
                   type="button"
                   onClick={() => onSelectDiseaseDetail(card.disease_type)}
-                  className="w-full py-2 px-3 rounded-xl bg-white hover:bg-ink hover:text-white text-ink border border-borderline text-xs font-bold transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
+                  className="w-full h-9 rounded-xl bg-white hover:bg-ink hover:text-white text-ink border border-borderline text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-2xs group cursor-pointer"
                 >
                   <span>View Detailed Analysis</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </div>
             </div>

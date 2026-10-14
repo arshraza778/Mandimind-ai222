@@ -631,7 +631,70 @@ def _generate_grounded_local_response(
             f"- **Task Assignment Guidance:** Use the Supervisor Dashboard or Assign Task view to select the disease category, target village, Mitanin worker, priority, and deadline."
         )
 
-    # 5. Disease-specific or Location Risk queries (Malaria, Dengue, Diarrhoea, Heat, or general village risk)
+    # 5. Greetings, Intro, and Help queries
+    greeting_keywords = (
+        "hi", "hello", "hey", "greetings", "namaste", "help",
+        "नमस्ते", "नमस्कार", "प्रणाम", "जोहार", "जय जोहार", "मदद", "सहायता", "का हाल"
+    )
+    is_greeting = (
+        any(w in msg_low for w in greeting_keywords)
+        and not any(
+            d in msg_low for d in ("malaria", "dengue", "diarrhoea", "heat", "task", "report", "मलेरिया", "डेंगू", "दस्त", "लू", "कार्य", "काम", "बूता")
+        )
+    )
+    if is_greeting:
+        if lang == "hi":
+            return (
+                f"नमस्ते! मैं मितानिन सहायक हूँ। **{loc_label} ({block_id})** के लिए आवश्यक स्वास्थ्य व फील्ड जानकारी में आपकी क्या सहायता कर सकता हूँ?\n\n"
+                f"आप किसी विशेष बीमारी (मलेरिया, डेंगू, दस्त, लू), नजदीकी स्वास्थ्य केंद्र या अपने कार्यों के बारे में पूछ सकते हैं।"
+            )
+        if lang == "hne":
+            return (
+                f"जय जोहार संगवारी! मैं मितानिन सहायक आंव। **{loc_label} ({block_id})** बर मैं आपके का मदद कर सकथंव?\n\n"
+                f"आप गाँव मं बीमारी के खतरा (मलेरिया, डेंगू, डायरिया, घाम-लू), अस्पताल के नंबर या अपन बूता के बारे मं पूछ सकथव।"
+            )
+        return (
+            f"Hello! I am Mitanin Sahayak. How can I assist you today for **{loc_label} ({block_id})**?\n\n"
+            f"You can ask about specific disease risks (Malaria, Dengue, Diarrhoea, Heat), local health facilities, or your assigned tasks."
+        )
+
+    # 6. Health Facility & Emergency Helplines
+    is_facility_query = any(
+        w in msg_low
+        for w in (
+            "hospital", "health centre", "health facility", "phc", "chc", "doctor",
+            "clinic", "ambulance", "contact", "phone", "helpline",
+            "अस्पताल", "स्वास्थ्य केंद्र", "डॉक्टर", "फोन", "नंबर", "एम्बुलेंस", "दवाखाना"
+        )
+    )
+    if is_facility_query and not any(
+        d in msg_low for d in ("malaria", "dengue", "diarrhoea", "heat", "मलेरिया", "डेंगू", "दस्त", "लू")
+    ):
+        if lang == "hi":
+            return (
+                f"**{loc_label} ({block_id}) — स्वास्थ्य केंद्र एवं सहायता संपर्क:**\n"
+                f"• **नजदीकी स्वास्थ्य केंद्र:** {fac_name}\n"
+                f"• **हेल्पलाइन / संपर्क:** {fac_phone}\n"
+                f"• **आपातकालीन एम्बुलेंस:** 108 | **स्वास्थ्य परामर्श:** 104\n\n"
+                f"*(किसी भी गंभीर लक्षण पर तुरंत नजदीकी मितानिन या स्वास्थ्य केंद्र से संपर्क करें।)*"
+            )
+        if lang == "hne":
+            return (
+                f"**{loc_label} ({block_id}) — अस्पताल अउ फोन नंबर:**\n"
+                f"• **तीर के अस्पताल:** {fac_name}\n"
+                f"• **फोन नंबर:** {fac_phone}\n"
+                f"• **एम्बुलेंस:** 108 डायल करव | **स्वास्थ्य सलाह:** 104 मं फोन करव\n\n"
+                f"*(कोनो बीमारी या जर-बुखार मं अपन पारा के मितानिन दीदी या अस्पताल मं देखावव।)*"
+            )
+        return (
+            f"**{loc_label} ({block_id}) — Health Facility & Helplines:**\n"
+            f"• **Designated Facility:** {fac_name}\n"
+            f"• **Facility Contact:** {fac_phone}\n"
+            f"• **Emergency Ambulance:** Dial 108 | **Health Helpline:** Dial 104\n\n"
+            f"*(Please consult your village Mitanin or primary health facility for medical evaluation.)*"
+        )
+
+    # 7. Disease-specific or Location Risk queries
     mal = md.get("malaria", {})
     den = md.get("dengue", {})
     dia = md.get("diarrhoea", {})
@@ -663,146 +726,156 @@ def _generate_grounded_local_response(
         if lang == "hi":
             return (
                 f"**{loc_label} ({block_id}) — डेटा उपलब्धता सूचना:**\n"
-                f"- इस स्थान के लिए **{focused_disease.upper()}** का पूर्वानुमान उपलब्ध नहीं है क्योंकि ऐतिहासिक साप्ताहिक निगरानी डेटा अपर्याप्त है (52 सप्ताह की आवश्यकता के मुकाबले केवल 18 सप्ताह उपलब्ध)।\n"
-                f"- **उपलब्ध जोखिम:** मलेरिया: {mal_risk} | हीट (गर्मी) सूचकांक: {heat_risk}\n"
-                f"- **नजदीकी स्वास्थ्य केंद्र:** {fac_name} (संपर्क: {fac_phone})।"
+                f"• **{focused_disease.upper()}:** इस ब्लॉक के लिए ऐतिहासिक निगरानी डेटा अपर्याप्त है।\n"
+                f"• **उपलब्ध जोखिम:** मलेरिया: {mal_risk} | लू/गर्मी: {heat_risk}\n"
+                f"• **नजदीकी स्वास्थ्य केंद्र:** {fac_name} (संपर्क: {fac_phone})"
             )
         if lang == "hne":
             return (
                 f"**{loc_label} ({block_id}) — डेटा जानकारी:**\n"
-                f"- ए जगह बर अभी **{focused_disease.upper()}** के अनुमान उपलब्ध नइ हे काबर कि जुन्ना हफ्तावारी रिकॉर्ड पूरा नइ हे (52 हफ्ता चाही फेर 18 हफ्ता के ही डेटा हे)।\n"
-                f"- **जेकर डेटा हे:** मलेरिया: {mal_risk} | घाम-लू (Heat) खतरा: {heat_risk}\n"
-                f"- **तीर के सरकारी अस्पताल:** {fac_name} (फोन: {fac_phone})।"
+                f"• **{focused_disease.upper()}:** ए जगह बर अभी डेटा पूरा नइ हे।\n"
+                f"• **उपलब्ध जानकारी:** मलेरिया: {mal_risk} | घाम-लू: {heat_risk}\n"
+                f"• **तीर के अस्पताल:** {fac_name} (फोन: {fac_phone})"
             )
         return (
             f"**{loc_label} ({block_id}) — Data Availability Notice:**\n"
-            f"- **{focused_disease.title()}** forecast is unavailable for {block_id}: {reason}\n"
-            f"- **Available Risk Estimates:** Malaria: {mal_risk} | Heat Risk: {heat_risk}\n"
-            f"- **Local Health Facility:** {fac_name} ({fac_phone})."
+            f"• **{focused_disease.title()} Forecast:** Unavailable ({reason})\n"
+            f"• **Available Estimates:** Malaria: {mal_risk} | Heat Risk: {heat_risk}\n"
+            f"• **Health Facility:** {fac_name} ({fac_phone})"
         )
 
+    # A. Targeted Malaria Response (Clean, only required information)
+    if focused_disease == "malaria":
+        if lang == "hi":
+            return (
+                f"**{loc_label} ({block_id}) — मलेरिया स्थिति एवं बचाव:**\n"
+                f"• **वर्तमान जोखिम स्तर:** {mal_risk}\n"
+                f"• **प्रमुख लक्षण:** ठंड व कंपकंपी के साथ तेज बुखार, सिरदर्द और पसीना आना।\n"
+                f"• **बचाव उपाय:** रात में कीटनाशक मच्छरदानी (LLIN) में सोएं और घर के आसपास पानी जमा न होने दें।\n"
+                f"• **सलाह:** बुखार आने पर 24 घंटे में मितानिन या **{fac_name}** ({fac_phone}) से मुफ्त RDT जांच कराएं।"
+            )
+        if lang == "hne":
+            return (
+                f"**{loc_label} ({block_id}) — मलेरिया के हाल अउ बचाव:**\n"
+                f"• **अभी के खतरा:** {mal_risk}\n"
+                f"• **मुख्य चिन्हा:** कंपकंपी धरके तेज जर-बुखार, माथा पीरा अउ पसीना छूटना।\n"
+                f"• **बचाव:** रात कन दवई वाला मच्छरदानी (LLIN) लगाके सुतव अउ पानी झन जामन दव।\n"
+                f"• **सलाह:** जर आवय त 24 घंटा के भितर मितानिन दीदी या **{fac_name}** ({fac_phone}) तीर मुफत आरडीटी (RDT) जांच करावव।"
+            )
+        return (
+            f"**{loc_label} ({block_id}) — Malaria Overview:**\n"
+            f"• **Current Risk Level:** {mal_risk}\n"
+            f"• **Key Symptoms:** Fever with chills/shivering, severe headache, and sweating.\n"
+            f"• **Prevention:** Sleep under LLIN insecticide-treated nets nightly and clear stagnant water.\n"
+            f"• **Action:** Seek a free Rapid Diagnostic Test (RDT) from your village Mitanin or **{fac_name}** ({fac_phone}) within 24 hours of fever."
+        )
+
+    # B. Targeted Dengue Response (Clean, only required information)
     if focused_disease == "dengue":
-        den_clim = den.get("climate_indicators", {})
-        den_est = den.get("risk_estimate", {})
-        suit = den_clim.get("breeding_suitability_index", den.get("breeding_suitability_index", 58))
-        fc = den_est.get("forecast_peak", den.get("forecast_cases_weekly", 16))
-        thresh = den_est.get("alert_threshold", 25)
         if lang == "hi":
             return (
-                f"**{loc_label} ({block_id}) — डेंगू जोखिम एवं बचाव (सिमुलेटेड पूर्वानुमान डेटा):**\n"
-                f"- **वर्तमान डेंगू जोखिम स्तर:** {den_risk} (अनुमानित साप्ताहिक मामले: {fc} बनाम सीमा: {thresh}, एडीज प्रजनन अनुकूलता: {suit}/100)\n"
-                f"- **बचाव के उपाय:** कूलर, टायर, गमले और खुले ड्रम का पानी सप्ताह में एक बार खाली करें ('ड्राई-डे' मनाएं); दिन में भी मच्छरों से बचाव करें।\n"
-                f"- **चेतावनी के लक्षण:** तेज बुखार के साथ आंखों के पीछे दर्द, जोड़ों में दर्द, पेट में तेज दर्द या मसूड़ों से खून आना। दर्द निवारक दवा (एस्पिरिन/इबुप्रोफेन) बिना डॉक्टर की सलाह के न लें।\n"
-                f"- **चिकित्सा परामर्श:** लक्षण दिखने पर तुरंत **{fac_name}** ({fac_phone}) पर जांच कराएं। *(यह मॉडल पूर्वानुमान है, चिकित्सीय निदान नहीं।)*"
+                f"**{loc_label} ({block_id}) — डेंगू स्थिति एवं बचाव:**\n"
+                f"• **वर्तमान जोखिम स्तर:** {den_risk}\n"
+                f"• **प्रमुख लक्षण:** तेज बुखार, आंखों के पीछे दर्द, जोड़ों/मांसपेशियों में दर्द और उल्टी।\n"
+                f"• **बचाव उपाय:** कूलर, टायर, गमले व खुले बर्तनों का पानी सप्ताह में एक बार खाली करें; दिन में मच्छरों से बचें।\n"
+                f"• **सलाह:** लक्षण दिखने पर तुरंत **{fac_name}** ({fac_phone}) में जांच कराएं। बिना डॉक्टर के दर्द की दवा (एस्पिरिन/इबुप्रोफेन) न लें।"
             )
         if lang == "hne":
             return (
-                f"**{loc_label} ({block_id}) — डेंगू के खतरा अउ बचाव (सिमुलेटेड मॉडल अनुमान):**\n"
-                f"- **अभी डेंगू के खतरा:** {den_risk} (हफ्ता मं अनुमानित केस: {fc} | सीमा: {thresh}, एडीज मच्छर पनपे के संभावना: {suit}/100)\n"
-                f"- **बचाव के उपाय:** घर के कूलर, टायर, कोटना अउ उघरा ड्रम के जमा पानी ला हफ्ता मं एक पइत जरूर खाली करव; दिन बेरा घलो मच्छर ले बचव।\n"
-                f"- **खतरा के चिन्हा:** अब्बड़ तेज जर संग आंखी के पाछू पीरा, हाथ-गोड़ के जोड़ मं दरद, पेट मं तेज पीरा या दांत-मसूड़ा ले खून आना। अपने मन ले दरद के गोली झन खावव।\n"
-                f"- **अस्पताल के सलाह:** अइसन चिन्हा दिखय त तुरते **{fac_name}** ({fac_phone}) मं देखावव। *(एहा मौसम मॉडल के अनुमान आय, डॉक्टरी जांच नो हे।)*"
+                f"**{loc_label} ({block_id}) — डेंगू के हाल अउ बचाव:**\n"
+                f"• **अभी के खतरा:** {den_risk}\n"
+                f"• **मुख्य चिन्हा:** तेज जर, आंखी के पाछू पीरा, हाथ-गोड़ के जोड़ मं दरद अउ उल्टी।\n"
+                f"• **बचाव:** कूलर, टायर अउ गमला के जमा पानी ला हफ्ता मं एक पइत खाली करव; दिन बेरा मच्छर ले बचव।\n"
+                f"• **सलाह:** अइसन चिन्हा दिखय त तुरते **{fac_name}** ({fac_phone}) मं जांच करावव। अपने मन ले गोली झन खावव।"
             )
         return (
-            f"**{loc_label} ({block_id}) — Dengue Risk & Prevention (Simulated Model Forecast):**\n"
-            f"- **Current Dengue Risk Level:** {den_risk} (Forecast weekly cases: {fc} vs. threshold: {thresh}, Aedes breeding suitability: {suit}/100)\n"
-            f"- **Prevention Steps:** Empty stagnant water from coolers, tyres, flowerpots, and uncovered drums weekly; use daytime mosquito protection.\n"
-            f"- **Warning Signs:** High fever with severe headache/retro-orbital pain, joint pain, persistent vomiting, abdominal pain, or mucosal bleeding. Avoid aspirin/NSAIDs.\n"
-            f"- **Medical Evaluation:** Seek NS1/IgM testing at **{fac_name}** ({fac_phone}). *(Model forecast only, not a clinical diagnosis.)*"
+            f"**{loc_label} ({block_id}) — Dengue Overview:**\n"
+            f"• **Current Risk Level:** {den_risk}\n"
+            f"• **Key Symptoms:** Sudden high fever, pain behind eyes, severe joint ache, rash, or vomiting.\n"
+            f"• **Prevention:** Empty stagnant water from coolers, tyres, and open containers weekly; use daytime mosquito protection.\n"
+            f"• **Action:** Seek NS1/IgM testing at **{fac_name}** ({fac_phone}). Avoid self-medicating with aspirin or NSAIDs."
         )
 
+    # C. Targeted Diarrhoeal Disease Response (Clean, only required information)
     if focused_disease == "diarrhoea":
-        dia_est = dia.get("risk_estimate", {})
-        fc = dia_est.get("forecast_peak", dia.get("forecast_cases_weekly", 34))
-        thresh = dia_est.get("alert_threshold", 55)
         if lang == "hi":
             return (
-                f"**{loc_label} ({block_id}) — अतिसार (दस्त/Diarrhoea) जोखिम एवं सुरक्षित पेयजल सलाह:**\n"
-                f"- **वर्तमान जोखिम स्तर:** {dia_risk} (अनुमानित साप्ताहिक ADD मामले: {fc} बनाम सीमा: {thresh})\n"
-                f"- **वैज्ञानिक स्पष्टता:** यह जोखिम मौसमी वर्षा बहाव और ऐतिहासिक मामलों पर आधारित है — केवल वर्षा से पेयजल प्रदूषण की पुष्टि का दावा नहीं किया जाता।\n"
-                f"- **बचाव एवं देखभाल:** पीने का पानी उबालकर या क्लोरीन गोली से शुद्ध करके पिएं; दस्त शुरू होते ही ओआरएस (ORS) घोल और जिंक (Zinc) की गोलियां दें; भोजन ढककर रखें व साबुन से हाथ धोएं।\n"
-                f"- **कब अस्पताल जाएं:** यदि बार-बार पानी जैसे दस्त हों, अत्यधिक प्यास लगे, आंखें धंस जाएं या मरीज सुस्त हो जाए, तो तुरंत **{fac_name}** ({fac_phone}) ले जाएं।"
+                f"**{loc_label} ({block_id}) — दस्त (अतिसार) एवं पेयजल सुरक्षा:**\n"
+                f"• **वर्तमान जोखिम स्तर:** {dia_risk}\n"
+                f"• **प्रमुख लक्षण:** बार-बार पानी जैसे पतले दस्त, उल्टी, तेज प्यास और कमजोरी।\n"
+                f"• **प्राथमिक देखभाल:** दस्त शुरू होते ही तुरंत ओआरएस (ORS) घोल व जिंक दें; केवल उबला या शुद्ध पानी पिएं।\n"
+                f"• **अस्पताल कब जाएं:** यदि दस्त न रुके, आंखें धंस जाएं या मरीज सुस्त पड़े, तो तुरंत **{fac_name}** ({fac_phone}) ले जाएं।"
             )
         if lang == "hne":
             return (
-                f"**{loc_label} ({block_id}) — टट्टी-उल्टी (दस्त/Diarrhoea) के खतरा अउ सफ्फा पानी के समझाइश:**\n"
-                f"- **अभी के खतरा:** {dia_risk} (हफ्ता मं अनुमानित केस: {fc} | सीमा: {thresh})\n"
-                f"- **जरूरी बात:** ए अनुमान बरसात के पानी बहाव अउ जुन्ना रिकॉर्ड ऊपर आधारित हे — सिरिफ पानी गिरे ले कुआं या बोरिंग के पानी खराब होगे हे अइसन पक्का दावा नइ करे जाय।\n"
-                f"- **बचाव के उपाय:** पीये के पानी ला उबाल के या क्लोरीन गोली डालके पियव; पतला टट्टी सुरू होय त तुरते ओआरएस (ORS) घोल अउ जिंक गोली दव; खाय के पहिली साबुन ले हाथ धोवव।\n"
-                f"- **अस्पताल कब जाबो:** यदि देह सुस्त पर जाय, आंखी धंस जाय या उल्टी नइ रुकत हे, त तुरते **{fac_name}** ({fac_phone}) ले जावव।"
+                f"**{loc_label} ({block_id}) — टट्टी-उल्टी (डायरिया) अउ सफ्फा पानी:**\n"
+                f"• **अभी के खतरा:** {dia_risk}\n"
+                f"• **मुख्य चिन्हा:** बार-बार पतला टट्टी, उल्टी, सुस्ती अउ जादा प्यास लगना।\n"
+                f"• **तुरते करे के काम:** ओआरएस (ORS) घोल अउ जिंक गोली दव; पानी ला उबाल के पियव।\n"
+                f"• **अस्पताल कब जाबो:** यदि देह सुस्त पर जाय या टट्टी नइ रुकय त तुरते **{fac_name}** ({fac_phone}) ले जावव।"
             )
         return (
-            f"**{loc_label} ({block_id}) — Diarrhoeal Disease Risk & Safe-Water Guidance:**\n"
-            f"- **Current Risk Level:** {dia_risk} (Forecast weekly ADD cases: {fc} vs. threshold: {thresh})\n"
-            f"- **Data Honesty Note:** This estimate reflects seasonal rainfall runoff and historical ADD surveillance; it does NOT infer confirmed drinking-water contamination from rainfall alone.\n"
-            f"- **Prevention & Early Care:** Boil or chlorinate drinking water, start ORS solution and Zinc supplementation immediately during watery stools, and practice handwashing with soap.\n"
-            f"- **When to Seek Medical Care:** Visit **{fac_name}** ({fac_phone}) immediately for signs of dehydration (sunken eyes, lethargy, inability to drink, or blood in stool)."
+            f"**{loc_label} ({block_id}) — Diarrhoeal Disease & Safe Water:**\n"
+            f"• **Current Risk Level:** {dia_risk}\n"
+            f"• **Key Symptoms:** Frequent watery stools, vomiting, dehydration, and weakness.\n"
+            f"• **Prevention & Care:** Drink boiled or treated water; administer ORS solution and Zinc immediately upon symptom onset.\n"
+            f"• **When to Seek Care:** Visit **{fac_name}** ({fac_phone}) immediately for dehydration signs (sunken eyes, lethargy, or inability to drink)."
         )
 
+    # D. Targeted Heat Risk Response (Clean, only required information)
     if focused_disease == "heat":
         heat_clim = heat.get("climate_indicators", {})
         tmax = heat_clim.get("temp_max_c", heat.get("tmax_c", 36.8))
-        hi_c = heat_clim.get("heat_index_c", heat.get("apparent_heat_index_c", 38.4))
-        band = heat_cat
         if lang == "hi":
             return (
-                f"**{loc_label} ({block_id}) — गर्मी एवं लू (Heat Risk) सुरक्षा सलाह:**\n"
-                f"- **वर्तमान ताप जोखिम स्तर:** {heat_risk} ({band} — अधिकतम तापमान: {tmax}°C, हीट इंडेक्स: {hi_c}°C)\n"
-                f"- **नोट:** यह एक गैर-संक्रामक मौसम-आधारित ताप सूचकांक (Meteorological Heat Index) है।\n"
-                f"- **बचाव के उपाय:** दोपहर 12:00 से शाम 4:00 बजे के बीच तेज धूप में भारी शारीरिक श्रम से बचें; प्यास न लगने पर भी बार-बार पानी, छाछ या ओआरएस पिएं; हल्के सूती कपड़े पहनें।\n"
-                f"- **लू लगने के गंभीर लक्षण:** तेज बुखार के साथ पसीना आना बंद होना, चक्कर, भ्रम या बेहोशी — तुरंत व्यक्ति को छांव में लिटाकर गीले कपड़े से शरीर ठंडा करें और **{fac_name}** ({fac_phone}) पहुंचाएं।"
+                f"**{loc_label} ({block_id}) — लू एवं गर्मी का खतरा:**\n"
+                f"• **वर्तमान जोखिम स्तर:** {heat_risk} (अधिकतम तापमान: ~{tmax}°C)\n"
+                f"• **सावधानी:** दोपहर 12 से 4 बजे के बीच तेज धूप में काम से बचें; बार-बार पानी, छाछ या ओआरएस पिएं।\n"
+                f"• **गंभीर लक्षण:** पसीना आना बंद होना, चक्कर या बेहोशी होने पर तुरंत मरीज को छांव में रखें और **{fac_name}** ({fac_phone}) पहुंचाएं।"
             )
         if lang == "hne":
             return (
-                f"**{loc_label} ({block_id}) — घाम अउ लू (Heat Risk) ले बचाव के उपाय:**\n"
-                f"- **अभी घाम के खतरा:** {heat_risk} ({band} — जादा ले जादा तापमान: {tmax}°C, महसूस होवइया गरमी: {hi_c}°C)\n"
-                f"- **ध्यान रखव:** एहा छुआछूत के बीमारी नो हे, मौसम के तापमान (Meteorological Heat Index) ऊपर आधारित चेतउनी आय।\n"
-                f"- **बचाव के उपाय:** मंझनिया 12:00 ले संझा 4:00 बजे तक कड़क घाम मं मिहनत के बूता झन करव; थोरे-थोरे बेरा मं पानी, मही, पेज या ओआरएस (ORS) पीयत रहव; सियान अउ छोटे लइका मन ला छांव मं रखव।\n"
-                f"- **खतरा के चिन्हा:** देह अब्बड़ तपत हे, पसीना सुखाय गे हे अउ चक्कर या बेहोशी आवत हे त तुरते छांव मं लिटाके गीला कपड़ा ले पोछव अउ **{fac_name}** ({fac_phone}) ले जावव।"
+                f"**{loc_label} ({block_id}) — घाम अउ लू (Heat Risk) ले बचाव:**\n"
+                f"• **अभी गरमी के स्तर:** {heat_risk} (जादा तापमान: ~{tmax}°C)\n"
+                f"• **सावधानी:** मंझनिया 12 ले 4 बजे तक कड़क घाम मं मिहनत के बूता झन करव; पानी, मही या पेज पीयत रहव।\n"
+                f"• **खतरा के चिन्हा:** पसीना सुख जाना, चक्कर या बेहोशी दिखय त छांव मं लिटाके पोछव अउ **{fac_name}** ({fac_phone}) ले जावव।"
             )
         return (
-            f"**{loc_label} ({block_id}) — Heat-Safety Measures (Meteorological Heat Index):**\n"
-            f"- **Current Heat Risk Level:** {heat_risk} ({band} — Tmax: {tmax}°C, Apparent Heat Index: {hi_c}°C)\n"
-            f"- **Method Note:** Rule-based non-infectious meteorological thermal stress assessment.\n"
-            f"- **Safety Actions:** Avoid strenuous outdoor work between 12:00 PM and 4:00 PM; hydrate frequently with water or ORS; check daily on elderly residents, infants, and pregnant women.\n"
-            f"- **Emergency Signs:** Hot dry skin, confusion, dizziness, or fainting require immediate active cooling and transport to **{fac_name}** ({fac_phone})."
+            f"**{loc_label} ({block_id}) — Heat Risk Measures:**\n"
+            f"• **Current Heat Risk Level:** {heat_risk} (Max Temp: ~{tmax}°C)\n"
+            f"• **Safety Actions:** Avoid strenuous outdoor work between 12:00 PM and 4:00 PM; hydrate frequently with water or ORS.\n"
+            f"• **Emergency Signs:** Hot dry skin, confusion, or dizziness require active cooling and immediate transport to **{fac_name}** ({fac_phone})."
         )
 
-    # Default comprehensive multi-disease + malaria summary for the selected village/block
-    mal_est = mal.get("risk_estimate", {})
-    mal_clim = mal.get("climate_indicators", {})
-    mal_cases = mal_est.get("forecast_peak", mal.get("forecast_cases_weekly", 56))
-    mal_latest = mal_est.get("latest_observed", 24)
-    mal_thresh = mal_est.get("alert_threshold", context.get("overall_risk", {}).get("alert_threshold", 38))
-    lead_time = mal.get("supported_horizon") or context.get("overall_risk", {}).get("forecast_period") or "2–4 weeks (target)"
-    rain_4wk = mal_clim.get("rainfall_4wk_mm", context.get("climate_drivers", {}).get("rainfall_4wk_mm", "N/A"))
-    temp_c = mal_clim.get("temperature_c", context.get("climate_drivers", {}).get("temperature_c", "N/A"))
-
+    # E. General Multi-Disease Summary (When asked for general village risk or overall summary)
     if lang == "hi":
         return (
-            f"**{loc_label} ({block_id}) — स्वास्थ्य जोखिम एवं सुरक्षा सारांश (सिमुलेटेड प्रोटोटाइप डेटा):**\n"
-            f"- **मलेरिया (Malaria):** **{mal_risk}** (अनुमानित पीक: {mal_cases} मामले/सप्ताह बनाम अलर्ट सीमा: {mal_thresh}, पिछला सप्ताह: {mal_latest} मामले, लीड टाइम: {lead_time})\n"
-            f"- **अन्य रोग जोखिम:** डेंगू: **{den_risk}** | अतिसार (Diarrhoea): **{dia_risk}** | गर्मी/लू (Heat): **{heat_risk}**\n"
-            f"- **मौसमी संकेतक:** 4-सप्ताह संचयी वर्षा: {rain_4wk} मिमी · औसत तापमान: {temp_c}°C\n"
-            f"- **मलेरिया बचाव एवं लक्षण:** रात में कीटनाशक उपचारित मच्छरदानी (LLIN) के नीचे सोएं और घर के आसपास पानी न जमने दें। ठंड लगकर बुखार आने पर 24 घंटे के भीतर मितानिन या **{fac_name}** ({fac_phone}) से मुफ्त आरडीटी (RDT) जांच कराएं।\n"
-            f"- *(अस्वीकरण: यह ब्लॉक-स्तरीय मौसम पूर्वानुमान डेटा है, व्यक्तिगत चिकित्सीय निदान नहीं।)*"
+            f"**{loc_label} ({block_id}) — स्वास्थ्य जोखिम सारांश:**\n"
+            f"• **मलेरिया (Malaria):** {mal_risk}\n"
+            f"• **डेंगू (Dengue):** {den_risk}\n"
+            f"• **दस्त (Diarrhoea):** {dia_risk}\n"
+            f"• **गर्मी/लू (Heat):** {heat_risk}\n\n"
+            f"• **नजदीकी स्वास्थ्य केंद्र:** {fac_name} (संपर्क: {fac_phone})\n"
+            f"*(बुखार या किसी भी लक्षण पर स्थानीय मितानिन या स्वास्थ्य केंद्र से संपर्क करें।)*"
         )
     if lang == "hne":
         return (
-            f"**{loc_label} ({block_id}) — गाँव के सेहत खतरा अउ बचाव जानकारी (सिमुलेटेड प्रोटोटाइप डेटा):**\n"
-            f"- **मलेरिया (Malaria):** **{mal_risk}** (हफ्ता मं अनुमानित केस: {mal_cases} | अलर्ट सीमा: {mal_thresh} | पाछू हफ्ता: {mal_latest} केस | आघू के समय: {lead_time})\n"
-            f"- **दूसर बीमारी के खतरा:** डेंगू: **{den_risk}** | टट्टी-उल्टी (Diarrhoea): **{dia_risk}** | घाम-लू (Heat): **{heat_risk}**\n"
-            f"- **मौसम के हाल:** 4-हफ्ता के जम्मो बरसात: {rain_4wk} मिमी · तापमान: {temp_c}°C\n"
-            f"- **मलेरिया ले बचाव अउ चिन्हा:** रात कन दवई वाला मच्छरदानी (LLIN) लगाके सुतव अउ घर-दुआर तीर पानी झन जामन दव। कंपकंपी धरके जर-बुखार आवय त 24 घंटा के भितर अपन पारा के मितानीन दीदी या **{fac_name}** ({fac_phone}) मं मुफत आरडीटी (RDT) जांच करावव।\n"
-            f"- *(सूचना: एहा मौसम मॉडल के पूर्वानुमान प्रदर्शन डेटा आय, कोनो डॉक्टरी इलाज के परची नो हे।)*"
+            f"**{loc_label} ({block_id}) — गाँव के बीमारी खतरा हिसाब:**\n"
+            f"• **मलेरिया (Malaria):** {mal_risk}\n"
+            f"• **डेंगू (Dengue):** {den_risk}\n"
+            f"• **टट्टी-उल्टी (Diarrhoea):** {dia_risk}\n"
+            f"• **घाम-लू (Heat):** {heat_risk}\n\n"
+            f"• **तीर के अस्पताल:** {fac_name} (फोन: {fac_phone})\n"
+            f"*(कोनो बीमारी या जर-बुखार मं अपन पारा के मितानिन दीदी या अस्पताल मं देखावव।)*"
         )
     return (
-        f"**{loc_label} ({block_id}) — Multi-Disease Risk Summary (Simulated Prototype Data):**\n"
-        f"- **Malaria Risk:** **{mal_risk}** (Forecast peak: {mal_cases} cases/wk vs. alert threshold: {mal_thresh} cases/wk, latest observed: {mal_latest} cases/wk, lead time: {lead_time})\n"
-        f"- **Other Disease Risks:** **Dengue:** {den_risk} | **Diarrhoeal Disease:** {dia_risk} | **Heat Risk:** {heat_risk}\n"
-        f"- **Climate Drivers:** 4-week cumulative rainfall: {rain_4wk} mm · Mean temperature: {temp_c}°C\n"
-        f"- **Malaria Prevention & Warning Signs:** Sleep under LLIN insecticide-treated mosquito nets nightly and drain stagnant water. Seek a free Rapid Diagnostic Test (RDT) from your village Mitanin or **{fac_name}** ({fac_phone}) within 24 hours of fever or chills.\n"
-        f"- *(Disclaimer: Block-level weather-driven early-warning forecast data for public-health preparedness, not a clinical diagnosis.)*"
+        f"**{loc_label} ({block_id}) — Multi-Disease Risk Summary:**\n"
+        f"• **Malaria Risk:** {mal_risk}\n"
+        f"• **Dengue Risk:** {den_risk}\n"
+        f"• **Diarrhoeal Disease:** {dia_risk}\n"
+        f"• **Heat Risk:** {heat_risk}\n\n"
+        f"• **Local Health Facility:** {fac_name} ({fac_phone})\n"
+        f"*(For symptoms or free testing, consult your village Mitanin or primary health facility.)*"
     )
 
 
@@ -818,16 +891,16 @@ def _build_llm_system_prompt(lang: str, context: Dict[str, Any]) -> str:
     }
     return (
         "You are Mitanin Sahayak, the official multilingual public-health and field-workflow assistant for "
-        "Mitanin Signal (Climate-Sensitive Multi-Disease Early-Warning System for Chhattisgarh).\n"
+        "Mitanin Signal (Chhattisgarh).\n"
         f"LANGUAGE REQUIREMENT: {lang_instructions.get(lang, lang_instructions['en'])}\n"
-        "STRICT GROUNDING & SAFETY RULES:\n"
-        "1. Use ONLY the verified application data provided in GROUNDED_BACKEND_DATA below for location risk levels, "
-        "tasks, alerts, and reports. Never invent risk levels or case counts.\n"
-        "2. Distinguish simulated demonstration forecasts from clinical diagnosis. Never diagnose or prescribe medication; "
-        "always advise consulting a Mitanin or nearest PHC/CHC for symptoms.\n"
-        "3. Never use the words 'validated', 'deployed', or 'proven'.\n"
-        "4. For diarrhoeal disease, never claim drinking-water contamination is confirmed from rainfall alone.\n"
-        "5. Never claim to have changed a task status or submitted a report unless confirmed.\n\n"
+        "CRITICAL CONCISENESS & RELEVANCE RULES (MANDATORY):\n"
+        "1. GIVE ONLY REQUIRED AND NECESSARY INFORMATION. Strictly answer what the user asked for. Never volunteer unwanted data or dump entire database dumps.\n"
+        "2. GREETINGS: If the user says hello, hi, namaste, or asks general greeting/help, give a short, polite 1-2 sentence greeting and ask what they need. Do NOT dump risk statistics unprompted.\n"
+        "3. SPECIFIC DISEASE: If the user asks about a single disease (e.g., Malaria), answer ONLY for that disease (current risk level, key symptoms, primary prevention, testing advice). Do NOT mention other diseases, climate drivers, or unrequested numbers.\n"
+        "4. NO UNWANTED TECHNICAL JARGON: Do NOT output raw climate numbers (rainfall mm, temperatures), model parameters, threshold formulas, or breeding suitability indices unless specifically requested.\n"
+        "5. HOSPITALS / FACILITIES: If asked for facility or contact info, provide only the hospital/facility name, phone number, and emergency helplines.\n"
+        "6. SAFETY & HONESTY: Use only verified facts from GROUNDED_BACKEND_DATA. Never diagnose or prescribe medication; always advise consulting a Mitanin or PHC/CHC. Never use the words 'validated', 'deployed', or 'proven'. For diarrhoea, never claim drinking-water contamination is confirmed from rainfall alone.\n"
+        "7. KEEP IT CRISP: Maximum 3-4 short bullet points so field workers and citizens can read or listen easily.\n\n"
         f"GROUNDED_BACKEND_DATA:\n{json.dumps(context, ensure_ascii=False, default=str)}"
     )
 

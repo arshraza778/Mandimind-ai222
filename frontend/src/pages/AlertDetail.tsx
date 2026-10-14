@@ -127,9 +127,9 @@ export function AlertDetail({
   const skillGateBadge = isWeatherModel ? "Skill gate: Pass" : "Skill gate: Fail (baseline fallback)";
 
   return (
-    <div className="p-4 sm:p-5 space-y-3.5 max-w-[1400px] mx-auto text-ink">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-7xl mx-auto text-ink">
       {/* CARD 1: TOP ALERT SUMMARY & ACTION HEADER */}
-      <section aria-label="Alert Header" className="bg-white rounded-card border border-borderline p-5 shadow-2xs">
+      <section aria-label="Alert Header" className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
             {/* Breadcrumb & Switcher */}

@@ -151,46 +151,46 @@ export const VoiceTasksPage: React.FC<VoiceTasksPageProps> = ({
   });
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6 space-y-6" data-testid="voice-tasks-page">
+    <div className="max-w-5xl mx-auto px-4 py-6 sm:py-8 space-y-6 text-ink" data-testid="voice-tasks-page">
       {/* High-Contrast Outdoor Header */}
-      <div className="rounded-2xl bg-slate-900 text-white p-6 shadow-md border-2 border-teal-500">
+      <div className="rounded-2xl bg-ink text-white p-6 sm:p-7 shadow-xs border border-borderline">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="space-y-1.5 max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/20 border border-teal-400 text-teal-200 text-xs font-bold uppercase tracking-wider">
-              <Volume2 className="w-4 h-4" />
+          <div className="space-y-2 max-w-2xl">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-purple-light text-xs font-bold uppercase tracking-wider">
+              <Volume2 className="w-4 h-4 text-purple-light" />
               Mitanin Field Audio System · EN / हिन्दी / छत्तीसगढ़ी
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
               {t("voice.page_title")}
             </h1>
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
+            <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
               {t("voice.page_subtitle")}
             </p>
           </div>
-          <div className="bg-white rounded-xl p-2 text-slate-900">
+          <div className="bg-white rounded-xl p-1.5 text-ink shadow-xs">
             <LanguageSelector />
           </div>
         </div>
 
         {/* Explicit Completion Safeguard Notice */}
-        <div className="mt-4 rounded-xl bg-amber-500/20 border border-amber-400/60 px-4 py-2.5 text-xs sm:text-sm text-amber-100 flex items-center gap-2">
-          <ShieldAlert className="w-5 h-5 text-amber-300 shrink-0" />
+        <div className="mt-5 rounded-xl bg-amber-light/20 border border-amber/40 px-4 py-2.5 text-xs sm:text-sm text-amber-light flex items-center gap-2.5">
+          <ShieldAlert className="w-4 h-4 text-amber shrink-0" />
           <span>{t("voice.explicit_completion_notice")}</span>
         </div>
       </div>
 
       {/* Search, Voice Filter & Disease Tabs */}
-      <div className="rounded-2xl bg-white border-2 border-slate-200 p-4 shadow-xs space-y-3">
+      <div className="rounded-card-lg bg-white border border-borderline p-4 sm:p-5 shadow-xs space-y-3.5">
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative flex-1 min-w-[220px]">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+            <Search className="w-4 h-4 text-muted absolute left-3.5 top-3.5" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t("employee.search_tasks_placeholder")}
               aria-label={t("employee.search_tasks_placeholder")}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl border-2 border-slate-300 text-sm font-medium focus:border-teal-700 focus:outline-none"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-borderline text-xs font-medium focus:outline-none focus:ring-2 focus:ring-purple bg-canvas/30"
             />
           </div>
           <VoiceInputButton
@@ -205,10 +205,10 @@ export const VoiceTasksPage: React.FC<VoiceTasksPageProps> = ({
               key={d}
               type="button"
               onClick={() => setDiseaseFilter(d)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 diseaseFilter === d
-                  ? "bg-teal-800 text-white"
-                  : "bg-slate-100 hover:bg-slate-200 text-slate-800"
+                  ? "bg-purple text-white shadow-xs"
+                  : "bg-canvas hover:bg-purple-light/40 border border-borderline text-ink"
               }`}
             >
               {d === "all" ? t("employee.filter_all") : localizeDisease(d)}
@@ -218,101 +218,101 @@ export const VoiceTasksPage: React.FC<VoiceTasksPageProps> = ({
       </div>
 
       {actionFeedback && (
-        <div className="rounded-xl bg-emerald-50 border-2 border-emerald-400 px-4 py-3 text-sm font-bold text-emerald-900 flex items-center gap-2">
-          <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" />
+        <div className="rounded-xl bg-forest-light border border-forest/30 px-4 py-3 text-xs sm:text-sm font-bold text-forest flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-forest shrink-0" />
           <span>{actionFeedback}</span>
         </div>
       )}
 
       {/* High-Contrast Field Task Cards */}
       {loading ? (
-        <div className="rounded-2xl bg-white border-2 border-slate-200 p-8 text-center text-slate-600 font-semibold">
+        <div className="rounded-card-lg bg-white border border-borderline p-8 text-center text-muted font-semibold text-xs">
           Loading Mitanin voice tasks...
         </div>
       ) : (
-        <div className="space-y-5">
+        <div className="space-y-4">
           {filteredTasks.map((task) => {
             const loc = localizeTask(task);
             const isDone = (task.status || "").toLowerCase() === "done";
             return (
               <div
                 key={task.id}
-                className="rounded-2xl bg-white border-2 border-slate-300 shadow-sm p-5 sm:p-6 space-y-4"
+                className="rounded-card-lg bg-white border border-borderline shadow-xs p-5 sm:p-6 space-y-4"
                 data-testid={`voice-task-card-${task.id}`}
               >
                 {/* Top Metadata Badges */}
-                <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-borderline/60">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-3 py-1 rounded-lg bg-teal-900 text-white text-xs sm:text-sm font-extrabold uppercase">
+                    <span className="px-3 py-1 rounded-full bg-teal text-white text-[10px] font-bold uppercase tracking-wider">
                       {loc.diseaseLabel}
                     </span>
                     <span
-                      className={`px-3 py-1 rounded-lg text-xs sm:text-sm font-extrabold ${
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase ${
                         task.priority === "High" || task.priority === "Critical"
-                          ? "bg-rose-100 text-rose-900 border border-rose-300"
-                          : "bg-amber-100 text-amber-900 border border-amber-300"
+                          ? "bg-coral-light text-coral"
+                          : "bg-amber-light text-amber"
                       }`}
                     >
                       {t("voice.priority_label")}: {localizePriority(task.priority)}
                     </span>
                   </div>
                   <span
-                    className={`px-3 py-1 rounded-lg text-xs sm:text-sm font-bold ${
+                    className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase ${
                       isDone
-                        ? "bg-emerald-100 text-emerald-900 border border-emerald-300"
-                        : "bg-slate-100 text-slate-800 border border-slate-300"
+                        ? "bg-forest-light text-forest"
+                        : "bg-canvas text-muted border border-borderline"
                     }`}
                   >
                     {localizeStatus(task.status)}
                   </span>
                 </div>
 
-                {/* Large High-Contrast Task Title & Instructions */}
-                <div className="space-y-2">
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-slate-950 leading-snug">
+                {/* Task Title & Instructions */}
+                <div className="space-y-1.5">
+                  <h2 className="text-lg sm:text-xl font-bold text-ink leading-snug">
                     {loc.title}
                   </h2>
-                  <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted font-normal leading-relaxed">
                     {loc.instructions}
                   </p>
                 </div>
 
                 {/* Location, Deadline & Safety Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 rounded-xl p-3.5 border border-slate-200 text-sm">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-5 h-5 text-teal-700 shrink-0 mt-0.5" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-canvas/60 rounded-xl p-3.5 border border-borderline text-xs">
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="w-4 h-4 text-teal shrink-0 mt-0.5" />
                     <div>
-                      <div className="text-xs font-bold text-slate-500 uppercase">
+                      <div className="text-[10px] font-bold text-muted uppercase tracking-wider">
                         {t("voice.location_label")}
                       </div>
-                      <div className="font-bold text-slate-900">{loc.locationLabel}</div>
+                      <div className="font-bold text-ink mt-0.5">{loc.locationLabel}</div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <Clock className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5">
+                    <Clock className="w-4 h-4 text-amber shrink-0 mt-0.5" />
                     <div>
-                      <div className="text-xs font-bold text-slate-500 uppercase">
+                      <div className="text-[10px] font-bold text-muted uppercase tracking-wider">
                         {t("voice.deadline_label")}
                       </div>
-                      <div className="font-bold text-slate-900">{loc.deadlineFormatted}</div>
+                      <div className="font-bold text-ink mt-0.5">{loc.deadlineFormatted}</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Safety Callout */}
-                <div className="rounded-xl bg-amber-50 border-2 border-amber-200 p-3.5 text-sm text-amber-950 flex items-start gap-2.5">
-                  <ShieldAlert className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+                <div className="rounded-xl bg-amber-light/40 border border-amber/30 p-3.5 text-xs text-ink flex items-start gap-2.5">
+                  <ShieldAlert className="w-4 h-4 text-amber shrink-0 mt-0.5" />
                   <div>
-                    <strong className="font-bold">{t("voice.safety_label")}: </strong>
+                    <strong className="font-bold text-amber">{t("voice.safety_label")}: </strong>
                     <span>{loc.safety}</span>
                   </div>
                 </div>
 
-                {/* Prominent Voice Player with Speed & Language Controls */}
+                {/* Voice Player */}
                 <VoiceTaskPlayer task={task} defaultExpanded={true} largeOutdoorMode={true} />
 
                 {/* Dictate Completion Notes + Explicit Action Buttons */}
-                <div className="pt-3 border-t border-slate-200 space-y-3">
+                <div className="pt-3 border-t border-borderline/60 space-y-3">
                   <div className="flex flex-wrap items-center gap-2">
                     <input
                       type="text"
@@ -325,7 +325,7 @@ export const VoiceTasksPage: React.FC<VoiceTasksPageProps> = ({
                       }
                       placeholder={t("employee.observations_label")}
                       aria-label={t("employee.observations_label")}
-                      className="flex-1 min-w-[200px] px-3.5 py-2.5 rounded-xl border-2 border-slate-300 text-sm font-medium"
+                      className="flex-1 min-w-[200px] px-3.5 py-2.5 rounded-xl border border-borderline text-xs font-medium focus:outline-none focus:ring-2 focus:ring-purple bg-white"
                     />
                     <VoiceInputButton
                       size="md"
@@ -338,23 +338,23 @@ export const VoiceTasksPage: React.FC<VoiceTasksPageProps> = ({
                     />
                   </div>
 
-                  {/* Large Explicit Task Workflow Buttons */}
+                  {/* Explicit Task Workflow Buttons */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                     <button
                       type="button"
                       onClick={() => handleExplicitTaskAction(task.id, "acknowledge")}
-                      className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-sm font-bold cursor-pointer"
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-canvas border border-borderline text-ink hover:bg-white text-xs font-bold transition-all shadow-xs cursor-pointer"
                     >
-                      <Sparkles className="w-4 h-4" />
+                      <Sparkles className="w-3.5 h-3.5 text-purple" />
                       <span>{t("employee.acknowledge_btn")}</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => handleExplicitTaskAction(task.id, "start")}
-                      className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-sm font-bold cursor-pointer"
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-purple text-white hover:bg-purple/90 text-xs font-bold transition-all shadow-xs cursor-pointer"
                     >
-                      <PlayCircle className="w-4 h-4" />
+                      <PlayCircle className="w-3.5 h-3.5" />
                       <span>{t("employee.start_btn")}</span>
                     </button>
 
@@ -362,18 +362,18 @@ export const VoiceTasksPage: React.FC<VoiceTasksPageProps> = ({
                       type="button"
                       onClick={() => handleExplicitTaskAction(task.id, "complete")}
                       data-testid={`explicit-complete-task-${task.id}`}
-                      className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-bold cursor-pointer"
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-forest text-white hover:bg-forest/90 text-xs font-bold transition-all shadow-xs cursor-pointer"
                     >
-                      <CheckCircle2 className="w-4 h-4" />
+                      <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>{t("employee.complete_btn")}</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => handleExplicitTaskAction(task.id, "need_help")}
-                      className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-sm font-bold cursor-pointer"
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-amber text-white hover:bg-amber/90 text-xs font-bold transition-all shadow-xs cursor-pointer"
                     >
-                      <HelpCircle className="w-4 h-4" />
+                      <HelpCircle className="w-3.5 h-3.5" />
                       <span>{t("employee.need_help_btn")}</span>
                     </button>
                   </div>

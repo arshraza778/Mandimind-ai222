@@ -53,9 +53,7 @@ export function LocationSelectorModal({
   const [confirming, setConfirming] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const enforceJurisdiction = portalType === "employee" && !!authToken;
-
-  // 1. Load Districts & initial hierarchy
+  // 1. Load Districts & initial hierarchy (All 33 Chhattisgarh districts and blocks from dataset)
   useEffect(() => {
     setLoading(true);
     setError(null);
@@ -65,7 +63,7 @@ export function LocationSelectorModal({
     }
 
     fetch(
-      `http://127.0.0.1:8000/locations/hierarchy?enforce_jurisdiction=${enforceJurisdiction}`,
+      `http://127.0.0.1:8000/locations/hierarchy?include_demo=true`,
       { headers }
     )
       .then((res) => res.json())
@@ -107,7 +105,7 @@ export function LocationSelectorModal({
         setError("Unable to load location dataset from backend server.");
       })
       .finally(() => setLoading(false));
-  }, [authToken, enforceJurisdiction]);
+  }, [authToken]);
 
   // 2. When District changes, dynamically fetch filtered blocks
   const handleDistrictChange = (newDistId: string) => {
@@ -119,7 +117,7 @@ export function LocationSelectorModal({
     fetch(
       `http://127.0.0.1:8000/locations/hierarchy?district_id=${encodeURIComponent(
         newDistId
-      )}&enforce_jurisdiction=${enforceJurisdiction}`,
+      )}&include_demo=true`,
       { headers }
     )
       .then((res) => res.json())
@@ -146,7 +144,7 @@ export function LocationSelectorModal({
     fetch(
       `http://127.0.0.1:8000/locations/hierarchy?district_id=${encodeURIComponent(
         selectedDistrictId
-      )}&block_id=${encodeURIComponent(newBlkId)}&enforce_jurisdiction=${enforceJurisdiction}`,
+      )}&block_id=${encodeURIComponent(newBlkId)}&include_demo=true`,
       { headers }
     )
       .then((res) => res.json())
@@ -245,7 +243,7 @@ export function LocationSelectorModal({
             <div className="text-muted">
               {t(
                 "location_modal.subtitle",
-                "Your dropdowns are enforced by the backend to your assigned jurisdiction. Unauthorized blocks or districts are restricted."
+                "Select your operational location from the official Chhattisgarh dataset (33 districts, 146 development blocks)."
               )}
             </div>
           </div>

@@ -80,7 +80,7 @@ export function LgdBlockMapCard({
   });
 
   return (
-    <div className="bg-white rounded-card border border-borderline p-5 shadow-2xs space-y-4">
+    <div className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-4">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-borderline pb-3">
         <div className="flex items-center gap-3">

@@ -6,6 +6,7 @@ Climate-informed malaria early-warning and frontline action-tracking prototype.
 from contextlib import asynccontextmanager
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
 import sys
 from typing import Dict, Any, List, Optional
@@ -112,11 +113,46 @@ async def lifespan(app: FastAPI):
     yield
 
 
+def should_enable_docs() -> bool:
+    """
+    Evaluates whether interactive API documentation (/docs, /redoc, /openapi.json)
+    should be enabled.
+
+    Security & Fail-safe Rules:
+    1. Production / staging environments:
+       - Strictly DISABLED by default.
+       - Disabled unless an explicit, intentional ENABLE_DOCS='true' override is provided.
+    2. Recognized development / test environments ('development', 'dev', 'local', 'test'):
+       - ENABLED by default for developer productivity.
+       - Disabled if ENABLE_DOCS='false' (or '0', 'no', 'disabled').
+    3. Missing, empty, or unrecognized environment name:
+       - Fail-safe secure default: DISABLED unless ENABLE_DOCS='true'.
+    """
+    env = os.getenv("ENVIRONMENT", os.getenv("APP_ENV", os.getenv("ENV", ""))).strip().lower()
+    docs_override = os.getenv("ENABLE_DOCS", "").strip().lower()
+
+    # In production or staging environments: disabled unless explicitly enabled
+    if env in ("production", "prod", "staging", "live"):
+        return docs_override in ("true", "1", "yes", "enabled")
+
+    # In recognized development or test environments: enabled unless explicitly disabled
+    if env in ("development", "dev", "local", "test"):
+        return docs_override not in ("false", "0", "no", "disabled")
+
+    # Fail-safe default for missing, empty, or unrecognized environment configuration
+    return docs_override in ("true", "1", "yes", "enabled")
+
+
+DOCS_ENABLED: bool = should_enable_docs()
+
 app = FastAPI(
     title="Mitanin Signal Prototype API",
     description="Multi-disease climate-sensitive early-warning and frontline action-tracking prototype for Chhattisgarh (Simulated Data).",
     version="0.4.0",
     lifespan=lifespan,
+    docs_url="/docs" if DOCS_ENABLED else None,
+    redoc_url="/redoc" if DOCS_ENABLED else None,
+    openapi_url="/openapi.json" if DOCS_ENABLED else None,
 )
 
 # Initialize database tables and bootstrap sample data immediately
@@ -224,6 +260,7 @@ def login_employee(req: LoginRequest, db: Session = Depends(get_db)) -> Dict[str
     return {
         "status": "success",
         "token": token,
+        "access_token": token,
         "user": user.to_dict(),
         "portal_role": user.get_portal_role(),  # 'field_employee' or 'supervisor'
         "assigned_location": loc_ctx,
@@ -342,14 +379,16 @@ def get_location_hierarchy(
     blocks.sort(key=lambda b: (b.unit_name.lower(), b.block_lgd_code or 0))
 
     if enforce_jurisdiction and user:
-        user_dist = user.district_id or DEFAULT_LGD_DISTRICT_ID
-        allowed_blocks = set(get_authorized_block_ids(user, db))
-        districts = [d for d in districts if d.unit_id == user_dist]
-        blocks = [b for b in blocks if b.unit_id in allowed_blocks]
-        if user.role == "mitanin" and user.village_id:
-            villages = [v for v in villages if v.unit_id == user.village_id]
-        else:
-            villages = [v for v in villages if v.parent_id in allowed_blocks]
+        # If explicitly querying the legacy demo district DIST_SAMPLE, scope to authorized demo blocks
+        if resolved_dist and resolved_dist.is_demo:
+            allowed_blocks = set(get_authorized_block_ids(user, db))
+            blocks = [b for b in blocks if b.unit_id in allowed_blocks]
+            if user.role == "mitanin" and user.village_id:
+                villages = [v for v in villages if v.unit_id == user.village_id]
+            else:
+                villages = [v for v in villages if v.parent_id in allowed_blocks]
+        # Otherwise, keep all official Chhattisgarh LGD districts and blocks available
+        # so Mitanins and Supervisors can select locations from the dataset.
 
     if resolved_dist:
         blocks = [b for b in blocks if b.parent_id == resolved_dist.unit_id]
@@ -599,9 +638,9 @@ def get_employee_dashboard(
     """
     verify_location_jurisdiction(user, db, district_id=district_id, block_id=block_id, village_id=village_id)
 
-    eff_district = district_id or user.district_id or "DIST_SAMPLE"
-    eff_block = block_id or user.block_id or user.unit_id or "BLK_A"
-    eff_village = village_id or user.village_id
+    eff_district = district_id or user.district_id or DEFAULT_LGD_DISTRICT_ID
+    eff_block = block_id or user.block_id or user.unit_id or DEFAULT_LGD_BLOCK_ID
+    eff_village = village_id if village_id is not None else (user.village_id if eff_block == user.block_id else None)
 
     cfg = load_config()
     now = get_simulated_now(db)
@@ -908,8 +947,8 @@ def get_supervisor_dashboard(
     verify_location_jurisdiction(user, db, district_id=district_id, block_id=block_id, village_id=village_id)
 
     allowed_blocks = get_authorized_block_ids(user, db)
-    eff_district = district_id or user.district_id or "DIST_SAMPLE"
-    eff_block = block_id if (block_id and block_id in allowed_blocks) else (user.block_id or allowed_blocks[0])
+    eff_district = district_id or user.district_id or DEFAULT_LGD_DISTRICT_ID
+    eff_block = block_id or user.block_id or (allowed_blocks[0] if allowed_blocks else DEFAULT_LGD_BLOCK_ID)
     eff_village = village_id
 
     cfg = load_config()
@@ -923,9 +962,10 @@ def get_supervisor_dashboard(
         village_id=eff_village,
     )
 
-    # Active alerts within supervisor's authorized blocks
+    # Active alerts within supervisor's scope / selected block
     latest_run = db.query(PipelineRun).order_by(PipelineRun.created_at.desc(), PipelineRun.run_id.desc()).first()
-    alert_q = db.query(Alert).filter(Alert.unit_id.in_(allowed_blocks))
+    alert_scope = list(set(allowed_blocks + ([eff_block] if eff_block else [])))
+    alert_q = db.query(Alert).filter(Alert.unit_id.in_(alert_scope))
     if latest_run:
         jurisdiction_alerts = alert_q.filter(Alert.run_id == latest_run.run_id).all()
     else:

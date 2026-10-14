@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed":"#d8e3fb","inverse-surface":"#213145","on-secondary-container":"#586377","on-primary-fixed":"#00201d","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","error-container":"#ffdad6","tertiary-fixed":"#ffdada","on-primary":"#ffffff","on-error":"#ffffff","outline-variant":"#bcc9c6","primary-fixed-dim":"#6bd8cb","on-tertiary-fixed-variant":"#920028","on-surface-variant":"#3d4947","background":"#f8f9ff","secondary-fixed-dim":"#bcc7de","surface-dim":"#cbdbf5","on-error-container":"#93000a","surface":"#f8f9ff","on-primary-container":"#f4fffc","tertiary-container":"#e21e49","surface-container":"#e5eeff","on-tertiary-container":"#fffbff","secondary-container":"#d5e0f8","on-secondary-fixed":"#111c2d","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","on-tertiary":"#ffffff","error":"#ba1a1a","tertiary":"#ba0035","primary-fixed":"#89f5e7","on-primary-fixed-variant":"#005049","inverse-primary":"#6bd8cb","surface-variant":"#d3e4fe","on-background":"#0b1c30","tertiary-fixed-dim":"#ffb3b6","surface-container-high":"#dce9ff","on-surface":"#0b1c30","primary":"#00685f","outline":"#6d7a77","primary-container":"#008378","on-tertiary-fixed":"#40000c","secondary":"#545f73","surface-tint":"#006a61","surface-container-low":"#eff4ff","on-secondary-fixed-variant":"#3c475a","surface-container-lowest":"#ffffff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-sm":"0.5rem","space-xxs":"0.125rem","space-md":"1rem","space-xl":"2rem","margin-tablet":"1.5rem","space-xs":"0.25rem","margin":"2rem","space-lg":"1.5rem","gutter-tablet":"1rem","space-2xl":"3rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","gutter":"1.25rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"headline-xl-mobile":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"],"body-md":["Inter"],"metric-md":["Inter"],"headline-sm":["Inter"],"label-sm":["Inter"],"metric-xl":["Inter"]},fontSize:{"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"metric-md":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"metric-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="p-space-md"><div class="flex items-center gap-space-sm pb-space-md border-b border-outline-variant/20"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-inverse-on-surface leading-tight">मितानिन सहायक</span><span class="font-label-sm text-label-sm text-primary-fixed tracking-wider uppercase">Mitanin Sahayak</span></div></div><div class="mt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-inverse-on-surface/70 uppercase tracking-widest block">Govt. Public Health Surveillance</span></div><div class="mt-space-md bg-inverse-surface/80 p-space-xxs rounded-lg flex items-center justify-between text-center gap-space-xxs"><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Public</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Field</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm bg-primary text-on-primary font-bold shadow-sm">Supervisor</button></div><div class="mt-space-lg"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Portals</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="portal-landing" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-lg text-label-lg">Portal Landing</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="public-health" href="#"><span class="material-symbols-outlined text-[20px]">public</span><span class="font-label-lg text-label-lg">Public Health</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="field-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">Field Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="supervisor-operations" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="font-label-lg text-label-lg">Supervisor Operations</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Tasks & Fieldwork</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="my-tasks" href="#"><span class="material-symbols-outlined text-[20px]">assignment_ind</span><span class="font-label-lg text-label-lg">My Tasks</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs transition-colors bg-primary text-on-primary font-bold rounded-lg shadow-sm" data-path="team-tasks" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-lg text-label-lg">Team Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="assign-task" href="#"><span class="material-symbols-outlined text-[20px]">add_task</span><span class="font-label-lg text-label-lg">Assign Task</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="task-ledger" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-label-lg text-label-lg">Task Ledger</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="voice-tasks" href="#"><span class="material-symbols-outlined text-[20px]">mic</span><span class="font-label-lg text-label-lg">Voice Tasks</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Epidemiology & Surveillance</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="block-overview" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-lg text-label-lg">Block Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="alerts-and-responses" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="font-label-lg text-label-lg">Alerts & Responses</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="disease-surveillance" href="#"><span class="material-symbols-outlined text-[20px]">health_and_safety</span><span class="font-label-lg text-label-lg">Disease Surveillance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="forecasting-and-evidence" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-label-lg text-label-lg">Forecasting & Evidence</span></a></nav></div></div><div class="p-space-md border-t border-outline-variant/20"><nav class="flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="settings-and-data-status" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-lg text-label-lg">Settings & Data Status</span></a></nav></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="font-bold text-on-surface">Bastar District</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span>Tokapal Block</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-primary font-semibold">Village Netanar</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-secondary-container text-on-secondary-fixed"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Live Sync • Today 09:30 AM</span></div><div class="flex items-center bg-surface-container-high rounded-lg p-space-xxs font-label-sm text-label-sm"><button class="px-space-xs py-space-xxs rounded bg-surface text-primary font-bold shadow-xs">EN</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">हिन्दी</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">छत्तीसगढ़ी</button></div><button class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-error-container text-on-error-container hover:bg-error/20 transition-colors"><span class="material-symbols-outlined text-[18px] text-error">emergency</span><span class="font-label-sm text-label-sm font-bold">Emergency Alert</span></button><div class="flex items-center gap-space-xs bg-surface-container-low pl-space-xs pr-space-sm py-space-xxs rounded-full"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm font-bold text-on-surface leading-tight">Dr. Ananya Sen</span><span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] leading-tight">District Surveillance Officer</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Operational Header with Direct Actions -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-space-xxs">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Frontline Cadre Management</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Block Tokapal HQ</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Team Tasks & Frontline Dispatch</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time surveillance workload distribution, sector balance & Mitanin task tracking</p>
+</div>
+<!-- Quick Action Bar -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors shadow-sm" id="btn-export-cadre">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span class="font-label-lg text-label-lg">Export Cadre Report</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all shadow-sm" id="btn-rebalance">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+<span class="font-label-lg text-label-lg font-semibold">Rebalance Tasks Automatically</span>
+</button>
+</div>
+</div>
+<!-- Real-Time Metrics Ribbon -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-md">
+<!-- Active Cadre -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold">Active Cadre</span>
+<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl text-on-surface">38</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 40 on duty</span>
+</div>
+<div class="mt-space-xs flex items-center gap-space-xxs text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm">95% field presence</span>
+</div>
+</div>
+<!-- Assigned Tasks -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold">Assigned Tasks</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">assignment</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl text-on-surface">142</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">total</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-label-sm text-label-sm">
+        3.7 avg per worker
+      </div>
+</div>
+<!-- In Progress -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold">In Progress</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">pending_actions</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl text-on-surface">64</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">active</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-label-sm text-label-sm">
+        45% of daily queue
+      </div>
+</div>
+<!-- Completed Today -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold">Completed Today</span>
+<span class="material-symbols-outlined text-primary text-[20px]">task_alt</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl text-primary font-bold">48</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">verified</span>
+</div>
+<div class="mt-space-xs flex items-center gap-space-xxs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+14 vs yesterday</span>
+</div>
+</div>
+<!-- Bottlenecks / Overdue -->
+<div class="bg-error-container p-space-md rounded-xl shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
+<div class="flex items-center justify-between text-on-error-container">
+<span class="font-label-sm text-label-sm uppercase font-bold">Bottlenecks</span>
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-xl text-metric-xl text-error font-bold">6</span>
+<span class="font-body-sm text-body-sm text-on-error-container">overdue</span>
+</div>
+<div class="mt-space-xs flex items-center gap-space-xxs text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-semibold">Requires rebalance</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric Analytical Strip: Workload Heatmap & Smart Bottleneck Alert -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Workload Distribution Bar / Heatmap (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">pie_chart</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Sub-Center Workload Heatmap</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Capacity Threshold: 80%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Real-time cumulative allocation index across frontline sectors in Tokapal Block</p>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Sector: Netanar -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">Netanar Sub-Center</span>
+<span class="px-space-xs py-space-xxs bg-surface-container rounded font-label-sm text-label-sm text-on-surface-variant">14 Workers</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">85%</span>
+<span class="text-tertiary font-label-sm text-label-sm uppercase font-bold">Near Capacity</span>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 overflow-hidden flex">
+<div class="bg-primary h-full transition-all duration-500 rounded-l-full" style="width: 70%"></div>
+<div class="bg-tertiary-container h-full transition-all duration-500" style="width: 15%"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>52 Active Cases</span>
+<span>Target: ≤ 48</span>
+</div>
+</div>
+<!-- Sector: Karanpur -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">Karanpur Sub-Center</span>
+<span class="px-space-xs py-space-xxs bg-surface-container rounded font-label-sm text-label-sm text-on-surface-variant">11 Workers</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">62%</span>
+<span class="text-primary font-label-sm text-label-sm uppercase font-bold">Optimal</span>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 overflow-hidden flex">
+<div class="bg-primary h-full transition-all duration-500 rounded-full" style="width: 62%"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>31 Active Cases</span>
+<span>Absorption Room: +12 tasks</span>
+</div>
+</div>
+<!-- Sector: Chindbahar (Overloaded) -->
+<div class="flex flex-col gap-space-xxs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">Chindbahar Sector (inc. Bade Arapur)</span>
+<span class="px-space-xs py-space-xxs bg-error-container rounded font-label-sm text-label-sm text-on-error-container font-semibold">13 Workers</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-error">94%</span>
+<span class="text-error font-label-sm text-label-sm uppercase font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span> Overload
+              </span>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 overflow-hidden flex">
+<div class="bg-primary h-full transition-all duration-500" style="width: 60%"></div>
+<div class="bg-tertiary-container h-full transition-all duration-500" style="width: 20%"></div>
+<div class="bg-error h-full transition-all duration-500 rounded-r-full" style="width: 14%"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-error font-semibold">59 Active Cases</span>
+<span class="text-error font-semibold">Deficit: 8 Workers Overburdened</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottleneck Recommendation & Rapid Rebalancing Card (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="p-1 rounded-md bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">Sahayak Dispatch Recommendation</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-space-xxs">Overburden Alert: Bade Arapur Cluster</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Frontline queue in Bade Arapur has peaked at 94% saturation. High concentration of maternal checkups & seasonal fever verifications.
+        </p>
+<!-- Context Callout -->
+<div class="mt-space-sm p-space-md rounded-lg bg-surface-container-lowest shadow-xs flex flex-col gap-space-xs">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] shrink-0">alt_route</span>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="font-semibold text-on-surface">Suggested Mitigation Protocol:</span>
+<span class="text-on-surface-variant">Reassign <strong class="text-on-surface">3 Fever Surveillance Visits</strong> from Smt. Sunita Baghel (#MT-208) to adjacent Karanpur worker Ramesh Markam (#MPW-042).</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-space-xs text-on-surface-variant">
+<span>Distance delta: ~1.8 km</span>
+<span class="text-primary font-bold">Capacity balance: -18% Chindbahar</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container transition-colors">
+          Dismiss
+        </button>
+<button class="px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-xs hover:bg-primary-container transition-colors flex items-center gap-space-xxs" id="btn-apply-rebalance">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Apply Dispatch Transfer</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Search, Filter & Quick Toggles -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-1 items-center gap-space-sm">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-space-xs rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline-variant focus:outline-none focus:bg-surface-container-lowest shadow-inner font-body-md text-body-md" id="cadre-search" placeholder="Search by worker name, Mitanin ID, or Sub-Center..." type="text"/>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface font-label-sm text-label-sm flex items-center gap-1 hover:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span>All Sub-Centers</span>
+</button>
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface font-label-sm text-label-sm flex items-center gap-1 hover:bg-surface-container">
+<span>Status: Any</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> Optimal (28)</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span> Available (6)</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-error"></span> Overloaded (4)</span>
+</div>
+</div>
+<!-- Comprehensive Team Roster & Task Assignment Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-space-sm px-space-md">Field Worker Cadre</th>
+<th class="py-space-sm px-space-md">Sub-Center & Paras</th>
+<th class="py-space-sm px-space-md">Active Tasks</th>
+<th class="py-space-sm px-space-md">Completion (7d)</th>
+<th class="py-space-sm px-space-md">Live Sync</th>
+<th class="py-space-sm px-space-md">Workload Status</th>
+<th class="py-space-sm px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface" id="cadre-table-body">
+<!-- Row 1: Jamuna Kashyap -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-xs">
+<img class="w-full h-full object-cover" data-alt="Frontline healthcare worker Jamuna Kashyap, an Indian woman in a teal uniform smiling warmly outdoors in rural Bastar district during morning daylight, authentic documentary portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJwF0djSrtYFyynQMkzrHfmPzVM3lhjeIn2TnLfiQP81U3hEkH5_q7UiNbnjrnPwoMZbuyArrEVYHgdkpaiOTT1ElyzS3bZOCkA0PrOTC3reopRZ705hcqbsYSyzDf4suC32TuDZwnbQVhE7r-Lha7qTyS8kL2sm4wiQOTE6qbCp_usGbfH30EuTOIFjiBuqcX-yfmxUN2JPUwhlZx58gw4VpVWQvSpgQ6ttRPj1Y67dhBL6XNJ9F3"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Jamuna Kashyap</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-mono text-primary font-bold">#MT-104</span>
+<span>•</span>
+<span>Senior Mitanin</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Netanar Sector 1</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">School Para & Mandir Tola</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">6 Total</span>
+<span class="px-space-xs py-space-xxs rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold">2 Urgent</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">4 Routine Home Visits</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-16 bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 94%"></div>
+</div>
+<span class="font-semibold font-mono text-on-surface">94%</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Top Quartile</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Synced 12m ago</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant block">Device: Lava Iris (2G)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xxs rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                Optimal
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm font-semibold transition-colors">
+                  Inspect
+                </button>
+<button class="px-space-sm py-space-xs rounded bg-primary text-on-primary hover:bg-primary-container font-label-sm text-label-sm font-semibold transition-colors">
+                  Assign More
+                </button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Sunita Baghel (Overloaded) -->
+<tr class="bg-error-container/30 hover:bg-error-container/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-xs">
+<img class="w-full h-full object-cover" data-alt="Portrait of frontline healthcare provider Sunita Baghel in Bastar Chhattisgarh wearing a cotton saree and stethoscope, focused expression, authentic Indian field clinic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF_ut_E1C8vjrsrBahi0t8kqia0t8dUSJhK99kBgL17r7WEvuJSmUiXARfgsDVlRHd0M8IYV30jjC0BjUtt2tHq7K_asCpmUERfDl2fqhXAUmkKhRHfTPM8O1YWxyWqlX7aNzoCF3UNoDV2-uZygIsyqBqQCdQJHm8qrOBIIY5y-tbwr1LEu1HnpjXrWeE_yWNtfX34KoWVLBuMBlcPd70ul0zw8_YYEhzx0Wj7cV-xpRCNY8nE094"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Sunita Baghel</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-mono text-primary font-bold">#MT-208</span>
+<span>•</span>
+<span>Mitanin Lead</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Bade Arapur</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Kolar & Ghat Pada</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-bold text-error">9 Total</span>
+<span class="px-space-xs py-space-xxs rounded bg-error text-on-error font-label-sm text-label-sm font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">priority_high</span> 4 Urgent
+                </span>
+</div>
+<span class="font-body-sm text-body-sm text-error font-semibold block">5 Routine Surveillance</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-16 bg-surface-container rounded-full h-2">
+<div class="bg-tertiary-container h-2 rounded-full" style="width: 82%"></div>
+</div>
+<span class="font-semibold font-mono text-on-surface">82%</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Slowing down</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Synced 1h ago</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant block">Device: JioPhone Next</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xxs rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold shadow-xs">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                Overloaded
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-md py-space-xs rounded bg-error text-on-error hover:bg-tertiary font-label-sm text-label-sm font-bold transition-all shadow-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shuffle</span>
+<span>Rebalance</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Ramesh Markam (Available) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-xs">
+<img class="w-full h-full object-cover" data-alt="Ramesh Markam, a male Multipurpose Health Worker MPW in Bastar Chhattisgarh wearing official khaki health vest, determined expression, outdoor village sub-center background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_qcd1mtGmrx-IDUp2mvyHcK86S4C5xikJxQNg8Kj-pD9e7Yr9w9Y6REXileyoPN8o8Lhp3PI-SYM8lNveW1p4_tpaRfEYWYSgxGxFcDIfNA2DJZddKod0hQ--xf3IeodtEge4aizP9QtEvCq1HvQ10OtlwgvtWVEdDRRrO8LvL7v1IgtqJuBQaVIChhCjE_O7_qOu61hdg8akFGvcWuKpNCRjDOP4pFAD59KAl1yCZSX9hA6eU7fW"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Ramesh Markam</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-mono text-primary font-bold">#MPW-042</span>
+<span>•</span>
+<span>Male Multi-Purpose Worker</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Chitrakote Ridge</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Gadhia & Dongri Hamlet</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">4 Tasks</span>
+<span class="px-space-xs py-space-xxs rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">0 Urgent</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary font-semibold block">Under capacity</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-16 bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 100%"></div>
+</div>
+<span class="font-bold font-mono text-primary">100%</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Zero Backlog</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>Synced 5m ago</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant block">GPS Active • On Transit</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xxs rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">hourglass_empty</span>
+                Available
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-md py-space-xs rounded bg-primary text-on-primary hover:bg-primary-container font-label-sm text-label-sm font-bold transition-colors flex items-center gap-1 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Dispatch</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Smt. Phoolmati (Optimal) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-xs">
+<img class="w-full h-full object-cover" data-alt="Smt Phoolmati, mature female frontline community health worker in rural Bastar, confident smile, authentic Indian tribal village clinic environment, natural ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw6Y316YyWTFiG1mxbpuRYINKaOkD0JDSmr2h0hwRAsezDl_E6EXwl7FEOKH4pwESSxEaZkQo9Be4NRBiMfDZlfjAr0GXAiEkp04DqPMABEY3RQnIZZ_Kuje3tPCogC_XDKq2-unzGd5Z__9F2dVRQS0cWpNn5Y1__t2Yg49LauWUf-kW1aDAEPpSF9xWCAdK3Yi_QHqlSmsVje1ctYK_BRgsdd6e7Noqw14Sw9icOVYwl0KvB85WF"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Smt. Phoolmati</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-mono text-primary font-bold">#MT-312</span>
+<span>•</span>
+<span>Mitanin</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Karanpur Sub-Center</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Patel Para & Haat Bazar</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-semibold text-on-surface">5 Tasks</span>
+<span class="px-space-xs py-space-xxs rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold">1 Urgent</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">4 ANC Monitoring</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-16 bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 88%"></div>
+</div>
+<span class="font-semibold font-mono text-on-surface">88%</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stable Cadence</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Synced 22m ago</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant block">Device: Samsung M04</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xxs rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                Optimal
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm font-semibold transition-colors">
+                  Inspect
+                </button>
+<button class="px-space-sm py-space-xs rounded bg-surface-container-low text-on-surface hover:bg-surface-container font-label-sm text-label-sm transition-colors">
+                  Assign
+                </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination / Footer -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm text-body-sm font-body-sm text-on-surface-variant">
+<span>Showing <strong class="text-on-surface">4</strong> of <strong class="text-on-surface">38</strong> active field cadre workers</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-space-xxs rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high disabled:opacity-50" disabled="">
+          Previous
+        </button>
+<span class="px-space-xs font-semibold text-primary">1</span>
+<button class="px-space-sm py-space-xxs rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high">
+          2
+        </button>
+<button class="px-space-sm py-space-xxs rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high">
+          3
+        </button>
+<button class="px-space-sm py-space-xxs rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high">
+          Next
+        </button>
+</div>
+</div>
+</div>
+<!-- Rebalance Simulation Modal (Initially hidden) -->
+<div class="fixed inset-0 bg-inverse-surface/60 backdrop-blur-sm z-50 flex items-center justify-center p-space-md hidden" id="rebalance-modal">
+<div class="bg-surface-container-lowest max-w-xl w-full rounded-2xl shadow-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[24px]">auto_fix_high</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Automatic Cadre Rebalancing</h3>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" id="btn-close-modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        The algorithm detected severe caseload clustering in Bade Arapur. Reallocating tasks ensures zero delayed high-risk maternal visits and reduces Mitanin fatigue.
+      </p>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface font-semibold">1. Sunita Baghel (#MT-208)</span>
+<span class="text-tertiary font-bold">9 → 6 Tasks (-3 Fever)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface font-semibold">2. Ramesh Markam (#MPW-042)</span>
+<span class="text-primary font-bold">4 → 7 Tasks (+3 Transferred)</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant pt-space-xs border-t border-surface-container">
+          Estimated turnaround improvement: <strong class="text-primary">4.2 hours faster</strong> resolution
+        </div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" id="btn-cancel-modal">
+          Cancel
+        </button>
+<button class="px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-sm hover:bg-primary-container transition-colors" id="btn-confirm-rebalance">
+          Execute Rebalancing Now
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Behaviors -->
+<script>
+  (function initTeamTasksUI() {
+    const rebalanceBtn = document.getElementById('btn-rebalance');
+    const applyQuickBtn = document.getElementById('btn-apply-rebalance');
+    const modal = document.getElementById('rebalance-modal');
+    const closeModal = document.getElementById('btn-close-modal');
+    const cancelModal = document.getElementById('btn-cancel-modal');
+    const confirmModal = document.getElementById('btn-confirm-rebalance');
+    const exportBtn = document.getElementById('btn-export-cadre');
+    const searchInput = document.getElementById('cadre-search');
+    const tableBody = document.getElementById('cadre-table-body');
+
+    function openModal() {
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function hideModal() {
+      if (modal) modal.classList.add('hidden');
+    }
+
+    if (rebalanceBtn) rebalanceBtn.addEventListener('click', openModal);
+    if (applyQuickBtn) applyQuickBtn.addEventListener('click', openModal);
+    if (closeModal) closeModal.addEventListener('click', hideModal);
+    if (cancelModal) cancelModal.addEventListener('click', hideModal);
+
+    if (confirmModal) {
+      confirmModal.addEventListener('click', function() {
+        hideModal();
+        const alertPill = document.createElement('div');
+        alertPill.className = 'fixed top-20 right-8 bg-primary text-on-primary px-space-md py-space-sm rounded-xl shadow-lg z-50 flex items-center gap-space-xs font-label-md text-label-md transition-all animate-bounce';
+        alertPill.innerHTML = '<span class="material-symbols-outlined text-[18px]">verified</span> 3 tasks successfully reallocated to Ramesh Markam (#MPW-042)';
+        document.body.appendChild(alertPill);
+        setTimeout(() => alertPill.remove(), 4500);
+      });
+    }
+
+    if (exportBtn) {
+      exportBtn.addEventListener('click', function() {
+        const toast = document.createElement('div');
+        toast.className = 'fixed top-20 right-8 bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl shadow-lg z-50 flex items-center gap-space-xs font-label-md text-label-md';
+        toast.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary-fixed">downloading</span> Generating Tokapal Cadre CSV ledger...';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      });
+    }
+
+    if (searchInput && tableBody) {
+      searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+        const rows = tableBody.querySelectorAll('tr');
+        rows.forEach(row => {
+          const text = row.innerText.toLowerCase();
+          row.style.display = text.includes(query) ? '' : 'none';
+        });
+      });
+    }
+  })();
+</script></main></div><div class="fixed bottom-6 right-6 z-50"><button class="flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-full shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_8px_10px_-6px_rgba(15,23,42,0.08)] hover:bg-inverse-surface/90 transition-all group"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary-fixed"></span></span><span class="material-symbols-outlined text-primary-fixed text-[20px]">smart_toy</span><span class="font-label-lg text-label-lg text-inverse-on-surface font-semibold">Sahayak AI • Ask Protocol & Disease Data</span></button></div></body></html>

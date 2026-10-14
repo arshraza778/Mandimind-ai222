@@ -11,11 +11,12 @@ import {
   PhoneCall,
   Info,
   RefreshCw,
+  ShieldAlert,
+  Stethoscope,
 } from "lucide-react";
 import type { SelectedLocationState } from "../components/LocationSelectorModal";
 import { MultiDiseaseOverview } from "../components/MultiDiseaseOverview";
 import { WeatherDiseasePredictor } from "../components/WeatherDiseasePredictor";
-import { MalariaCaseForecaster } from "../components/MalariaCaseForecaster";
 import { LgdBlockMapCard } from "../components/LgdBlockMapCard";
 
 interface PublicDashboardProps {
@@ -123,9 +124,9 @@ export function PublicDashboard({
   const activeStyle = getRiskStyle(riskCategory);
 
   return (
-    <div className="p-4 sm:p-6 max-w-[1400px] mx-auto space-y-4 text-ink">
+    <div className="p-4 sm:p-6 lg:p-8 pb-24 sm:pb-28 max-w-7xl mx-auto space-y-6 text-ink">
       {/* 1. PROMINENT LOCATION HEADER & CONTROLS */}
-      <section className="bg-white rounded-card border border-borderline p-4 sm:p-5 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <section className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center flex-wrap gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-light text-teal text-xs font-bold">
@@ -138,11 +139,11 @@ export function PublicDashboard({
               </span>
             )}
           </div>
-          <h1 className="text-lg sm:text-xl font-bold text-ink">
+          <h1 className="text-xl sm:text-2xl font-bold text-ink">
             {locInfo.location_breadcrumb || selectedLocation.breadcrumb}
           </h1>
           {locInfo.granularity_disclosure && (
-            <p className="text-xs text-muted flex items-center gap-1.5">
+            <p className="text-xs text-muted flex items-center gap-1.5 pt-0.5">
               <Info className="w-3.5 h-3.5 text-purple shrink-0" />
               <span>{locInfo.granularity_disclosure}</span>
             </p>
@@ -153,7 +154,7 @@ export function PublicDashboard({
           <button
             type="button"
             onClick={fetchRiskData}
-            className="px-3 py-2 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink flex items-center gap-1.5 transition-colors"
+            className="px-3.5 py-2.5 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink flex items-center gap-1.5 transition-colors cursor-pointer"
           >
             <RefreshCw className="w-3.5 h-3.5 text-muted" />
             <span>Refresh</span>
@@ -161,7 +162,7 @@ export function PublicDashboard({
           <button
             type="button"
             onClick={onChangeLocation}
-            className="px-4 py-2 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold shadow-2xs transition-colors flex items-center gap-1.5"
+            className="px-4 py-2.5 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs font-bold shadow-xs transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <MapPin className="w-3.5 h-3.5" />
             <span>Change Location</span>
@@ -170,7 +171,7 @@ export function PublicDashboard({
       </section>
 
       {/* 2. SIMULATED / HISTORICAL DATA HONESTY DISCLOSURE */}
-      <section className="p-3.5 rounded-xl bg-[#FEF3D6] border border-[#F0D99B] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#6B4204]">
+      <section className="p-4 rounded-xl bg-[#FEF3D6] border border-[#F0D99B] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs text-[#6B4204]">
         <div className="flex items-start sm:items-center gap-2">
           <Clock className="w-4 h-4 shrink-0 mt-0.5 sm:mt-0 text-[#A8650A]" />
           <span>
@@ -190,16 +191,62 @@ export function PublicDashboard({
         </div>
       </section>
 
-      {/* 2B. FORECAST VS CONFIRMED OUTBREAK DISTINCTION */}
-      {data?.forecast_vs_outbreak_distinction && (
-        <section className="p-3.5 rounded-xl bg-purple-light/55 border border-purple/25 flex items-start gap-2.5 text-xs text-ink">
-          <Info className="w-4 h-4 text-purple shrink-0 mt-0.5" />
-          <div>
-            <strong>Early-Warning Forecast vs. Confirmed Outbreak:</strong>{" "}
-            {data.forecast_vs_outbreak_distinction}
+      {/* 2B. IMPORTANT DISTINCTION: FORECAST VS CLINICAL DIAGNOSIS */}
+      <section className="rounded-card-lg border-2 border-purple/30 bg-gradient-to-br from-purple-light/80 via-white to-purple-light/40 p-4 sm:p-5 shadow-sm text-ink space-y-3.5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2 border-b border-purple/15">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-extrabold tracking-wider uppercase bg-purple text-white shadow-xs">
+              <ShieldAlert className="w-3.5 h-3.5" />
+              IMPORTANT DISTINCTION
+            </span>
+            <span className="text-xs font-bold text-purple tracking-tight">
+              Community Risk Forecast vs. Clinical Disease Diagnosis
+            </span>
           </div>
-        </section>
-      )}
+          <span className="text-[11px] font-semibold text-muted bg-white/90 px-2 py-0.5 rounded border border-borderline self-start sm:self-auto">
+            Public Health Notice
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="p-3.5 rounded-xl bg-white/95 border border-purple/15 flex items-start gap-3 shadow-xs">
+            <div className="w-8 h-8 rounded-lg bg-teal-light text-teal flex items-center justify-center shrink-0 mt-0.5">
+              <Activity className="w-4 h-4" />
+            </div>
+            <div className="text-xs leading-relaxed">
+              <div className="font-bold text-ink text-[13px]">Community-Level Hazard Forecast</div>
+              <p className="text-muted mt-1">
+                A risk forecast or environmental heat index estimates <strong className="text-ink font-semibold">community-level hazard</strong> derived from climate and historical surveillance trends.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-white/95 border border-coral/25 flex items-start gap-3 shadow-xs">
+            <div className="w-8 h-8 rounded-lg bg-coral-light text-coral flex items-center justify-center shrink-0 mt-0.5">
+              <AlertTriangle className="w-4 h-4" />
+            </div>
+            <div className="text-xs leading-relaxed">
+              <div className="font-bold text-coral text-[13px]">Not a Clinical Diagnosis</div>
+              <p className="text-muted mt-1">
+                This is <strong className="text-coral font-bold">NOT a confirmed clinical disease diagnosis</strong> or water-potability test. It does not certify individual health status.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-3 rounded-xl bg-purple-light/70 border border-purple/25 flex items-start sm:items-center gap-2.5 text-xs text-ink">
+          <Stethoscope className="w-4 h-4 text-purple shrink-0 mt-0.5 sm:mt-0" />
+          <div className="leading-relaxed flex-1">
+            <strong className="text-purple font-bold">Action Directive:</strong>{" "}
+            Individuals with symptoms must seek diagnostic testing at a health facility or contact their local Mitanin / ASHA community health worker.
+            {data?.forecast_vs_outbreak_distinction && (
+              <span className="block sm:inline sm:ml-2 text-muted italic">
+                — {data.forecast_vs_outbreak_distinction}
+              </span>
+            )}
+          </div>
+        </div>
+      </section>
 
       {/* 2C. UNIFIED MULTI-DISEASE EARLY-WARNING OVERVIEW (4 CARDS) */}
       {data?.multi_disease && (
@@ -215,8 +262,8 @@ export function PublicDashboard({
 
       {/* 3. PROMINENT HIGH / VERY HIGH RISK ALERT BANNER (Dynamic) */}
       {rec.show_prominent_alert && (
-        <section className="p-4 sm:p-5 rounded-card bg-coral-light border-2 border-coral text-ink flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
-          <div className="flex items-start gap-3">
+        <section className="p-5 sm:p-6 rounded-card-lg bg-coral-light border-2 border-coral text-ink flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+          <div className="flex items-start gap-3.5">
             <div className="w-10 h-10 rounded-xl bg-coral text-white flex items-center justify-center shrink-0">
               <AlertTriangle className="w-5 h-5" />
             </div>
@@ -237,10 +284,10 @@ export function PublicDashboard({
       )}
 
       {/* 4. CURRENT ESTIMATED RISK & LATEST CLIMATE INDICATORS */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* Estimated Risk Card (col-span-5) */}
-        <div className={`lg:col-span-5 rounded-card border-2 ${activeStyle.border} ${activeStyle.bg} p-5 flex flex-col justify-between`}>
-          <div className="space-y-3">
+        <div className={`lg:col-span-5 rounded-card-lg border-2 ${activeStyle.border} ${activeStyle.bg} p-6 flex flex-col justify-between shadow-sm`}>
+          <div className="space-y-3.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-ink/80">
                 Current Estimated Malaria Risk
@@ -264,9 +311,9 @@ export function PublicDashboard({
                   return (
                     <div
                       key={cat}
-                      className={`py-1.5 px-2 rounded-lg text-center text-[11px] font-bold border transition-all ${
+                      className={`py-2 px-1 text-center text-[11px] font-bold rounded-lg border transition-all ${
                         isCurrent
-                          ? "bg-ink text-white border-ink shadow-xs scale-102"
+                          ? "bg-ink text-white border-ink shadow-xs"
                           : "bg-white/70 text-muted border-borderline"
                       }`}
                     >
@@ -278,9 +325,9 @@ export function PublicDashboard({
             </div>
           </div>
 
-          <div className="pt-4 mt-4 border-t border-black/10 flex items-center justify-between text-xs text-ink/80">
+          <div className="pt-4 mt-5 border-t border-black/10 flex items-center justify-between text-xs text-ink/80">
             <span>
-              Forecast Horizon: <strong>{risk.forecast_period}</strong>
+              Forecast: <strong>{risk.forecast_period}</strong>
             </span>
             <span>
               Method: <strong>{risk.method_label}</strong>
@@ -289,69 +336,69 @@ export function PublicDashboard({
         </div>
 
         {/* Climate & Surveillance KPIs (col-span-7) */}
-        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Temperature */}
-          <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-amber-light text-amber flex items-center justify-center shrink-0">
+          <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex items-start gap-4">
+            <div className="w-11 h-11 rounded-2xl bg-amber-light text-amber flex items-center justify-center shrink-0">
               <Thermometer className="w-5 h-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="text-xs text-muted font-medium">Latest Temperature</div>
-              <div className="text-2xl font-bold text-ink mt-0.5">
+              <div className="text-2xl font-extrabold text-ink mt-0.5 tabular-nums">
                 {climate.temperature_c}°C
               </div>
-              <div className="text-[11px] text-muted mt-1">
-                4-week mean: <strong>{climate.temp_4wk_avg_c}°C</strong> · As of {climate.latest_date}
+              <div className="text-[11px] text-muted mt-1 truncate">
+                4-week mean: <strong>{climate.temp_4wk_avg_c}°C</strong>
               </div>
             </div>
           </div>
 
           {/* Rainfall */}
-          <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-purple-light text-purple flex items-center justify-center shrink-0">
+          <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex items-start gap-4">
+            <div className="w-11 h-11 rounded-2xl bg-purple-light text-purple flex items-center justify-center shrink-0">
               <CloudRain className="w-5 h-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="text-xs text-muted font-medium">Latest Rainfall</div>
-              <div className="text-2xl font-bold text-ink mt-0.5">
+              <div className="text-2xl font-extrabold text-ink mt-0.5 tabular-nums">
                 {climate.rainfall_mm} mm
               </div>
-              <div className="text-[11px] text-muted mt-1">
+              <div className="text-[11px] text-muted mt-1 truncate">
                 4-week cumulative: <strong>{climate.rainfall_4wk_mm} mm</strong>
               </div>
             </div>
           </div>
 
           {/* Vector Suitability / Humidity Indicator */}
-          <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-teal-light text-teal flex items-center justify-center shrink-0">
+          <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex items-start gap-4">
+            <div className="w-11 h-11 rounded-2xl bg-teal-light text-teal flex items-center justify-center shrink-0">
               <Activity className="w-5 h-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="text-xs text-muted font-medium">Climate Vector Index</div>
               <div className="text-base font-bold text-ink mt-1">
                 {climate.humidity_note}
               </div>
-              <div className="text-[11px] text-muted mt-1">
-                Lagged 2–3 week rainfall & temperature driver
+              <div className="text-[11px] text-muted mt-1 truncate">
+                Lagged 2–3 week climate driver
               </div>
             </div>
           </div>
 
           {/* Recent Cases (Simulated Surveillance) */}
-          <div className="bg-white rounded-card border border-borderline p-4 shadow-2xs flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-coral-light text-coral flex items-center justify-center shrink-0">
+          <div className="bg-white rounded-card-lg border border-borderline p-5 shadow-sm flex items-start gap-4">
+            <div className="w-11 h-11 rounded-2xl bg-coral-light text-coral flex items-center justify-center shrink-0">
               <AlertTriangle className="w-5 h-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="text-xs text-muted font-medium">
-                Block Surveillance Cases (Simulated)
+                Surveillance Cases (Simulated)
               </div>
-              <div className="text-2xl font-bold text-ink mt-0.5">
+              <div className="text-2xl font-extrabold text-ink mt-0.5 tabular-nums">
                 {climate.latest_cases} <span className="text-xs font-normal text-muted">latest week</span>
               </div>
-              <div className="text-[11px] text-muted mt-1">
-                Last 4 weeks total: <strong>{climate.cases_4wk_total} cases</strong>
+              <div className="text-[11px] text-muted mt-1 truncate">
+                Last 4 weeks: <strong>{climate.cases_4wk_total} cases</strong>
               </div>
             </div>
           </div>
@@ -359,45 +406,47 @@ export function PublicDashboard({
       </section>
 
       {/* 5. RECOMMENDED ACTIONS & VERIFIED LOCAL HEALTH FACILITY */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* Recommended Actions for Citizens (col-span-7) */}
-        <div className="lg:col-span-7 bg-white rounded-card border border-borderline p-5 shadow-2xs space-y-4">
-          <div className="flex items-center justify-between border-b border-borderline pb-3">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-teal" />
-              <h2 className="text-base font-bold text-ink">
-                Recommended Preventive Actions ({riskCategory} Risk)
-              </h2>
+        <div className="lg:col-span-7 bg-white rounded-card-lg border border-borderline p-6 shadow-sm space-y-4 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between border-b border-borderline pb-3">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-teal" />
+                <h2 className="text-base font-bold text-ink">
+                  Recommended Preventive Actions ({riskCategory} Risk)
+                </h2>
+              </div>
+              <span className="text-xs font-semibold text-muted">
+                Citizen & Household Guidance
+              </span>
             </div>
-            <span className="text-xs font-semibold text-muted">
-              Citizen & Household Guidance
-            </span>
+
+            <ul className="space-y-2.5">
+              {(rec.citizen_actions || []).map((action: string, idx: number) => (
+                <li
+                  key={idx}
+                  className="p-3.5 rounded-xl bg-canvas/70 border border-borderline flex items-start gap-3 text-xs sm:text-sm text-ink"
+                >
+                  <span className="w-6 h-6 rounded-full bg-teal text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    {idx + 1}
+                  </span>
+                  <span className="leading-relaxed">{action}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <ul className="space-y-2.5">
-            {(rec.citizen_actions || []).map((action: string, idx: number) => (
-              <li
-                key={idx}
-                className="p-3 rounded-xl bg-canvas/70 border border-borderline flex items-start gap-3 text-xs sm:text-sm text-ink"
-              >
-                <span className="w-6 h-6 rounded-full bg-teal text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                  {idx + 1}
-                </span>
-                <span className="leading-relaxed">{action}</span>
-              </li>
-            ))}
-          </ul>
-
           {rec.public_health_guidance && (
-            <div className="p-3.5 rounded-xl bg-teal-light/60 border border-teal/20 text-xs text-ink leading-relaxed">
+            <div className="p-3.5 rounded-xl bg-teal-light/60 border border-teal/20 text-xs text-ink leading-relaxed mt-2">
               <strong>Public Health Guidance:</strong> {rec.public_health_guidance}
             </div>
           )}
         </div>
 
         {/* Local Health Facility & Helpline Card (col-span-5) */}
-        <div className="lg:col-span-5 bg-white rounded-card border border-borderline p-5 shadow-2xs flex flex-col justify-between space-y-4">
-          <div className="space-y-3">
+        <div className="lg:col-span-5 bg-white rounded-card-lg border border-borderline p-6 shadow-sm flex flex-col justify-between space-y-4">
+          <div className="space-y-3.5">
             <div className="flex items-center gap-2 border-b border-borderline pb-3">
               <Building2 className="w-5 h-5 text-purple" />
               <h2 className="text-base font-bold text-ink">
@@ -407,7 +456,7 @@ export function PublicDashboard({
 
             {facility ? (
               <div className="space-y-3">
-                <div className="p-3.5 rounded-xl bg-purple-light/50 border border-purple/20">
+                <div className="p-4 rounded-xl bg-purple-light/50 border border-purple/20">
                   <div className="text-[11px] font-bold uppercase text-purple">
                     {facility.type || "Block Health Facility"}
                   </div>
@@ -415,7 +464,7 @@ export function PublicDashboard({
                     {facility.name}
                   </div>
                   {facility.phone && (
-                    <div className="text-xs font-semibold text-ink mt-1.5 flex items-center gap-1.5">
+                    <div className="text-xs font-semibold text-ink mt-2 flex items-center gap-1.5">
                       <PhoneCall className="w-3.5 h-3.5 text-purple" />
                       <span>Helpline / Contact: {facility.phone}</span>
                     </div>
@@ -447,7 +496,7 @@ export function PublicDashboard({
             )}
           </div>
 
-          <div className="p-3 rounded-xl bg-canvas border border-borderline text-xs text-muted">
+          <div className="p-3.5 rounded-xl bg-canvas border border-borderline text-xs text-muted leading-relaxed">
             <strong>When to seek immediate care:</strong> Fever with chills, sweating, headache, or body ache. Free Rapid Diagnostic Testing (RDT) is available through your village Mitanin and all government PHCs/CHCs.
           </div>
         </div>
@@ -463,11 +512,6 @@ export function PublicDashboard({
       <WeatherDiseasePredictor
         defaultTemperatureC={climate.temperature_c || 29.5}
         defaultHumidityPct={74}
-        locationBreadcrumb={locInfo.location_breadcrumb || selectedLocation.breadcrumb}
-      />
-
-      {/* 7. TRAINED WHO MALARIA ARCHIVE CASE & INCIDENCE ML FORECASTER */}
-      <MalariaCaseForecaster
         locationBreadcrumb={locInfo.location_breadcrumb || selectedLocation.breadcrumb}
       />
     </div>

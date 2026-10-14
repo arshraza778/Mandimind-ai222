@@ -34,42 +34,42 @@ const DEMO_ACCOUNTS = [
     password: "password123",
     label: "Mitanin Asha [SAMPLE]",
     roleBadge: "Field Employee / Mitanin",
-    scope: "Sample Block A · Sector 4 Hamlet",
+    scope: "Bastar · Jagdalpur (LGD 3595) / Sector 4 Hamlet",
   },
   {
     username: "anita",
     password: "password123",
     label: "Mitanin Anita [SAMPLE]",
     roleBadge: "Field Employee / Mitanin",
-    scope: "Sample Block A · Keslur Hamlet",
+    scope: "Bastar · Bastar Block (LGD 3593) / Keslur Hamlet",
   },
   {
     username: "sunita",
     password: "password123",
     label: "Mitanin Sunita [SAMPLE]",
     roleBadge: "Field Employee / Mitanin",
-    scope: "Sample Block B · Kanger Hamlet",
+    scope: "Bastar · Darbha (LGD 3594) / Kanger Hamlet",
   },
   {
     username: "verma",
     password: "password123",
     label: "Supervisor K. Verma [SAMPLE]",
     roleBadge: "Block Supervisor",
-    scope: "Sample Block A (All Hamlets)",
+    scope: "Bastar · Jagdalpur Block (LGD 3595)",
   },
   {
     username: "patel",
     password: "password123",
     label: "Supervisor P. Patel [SAMPLE]",
     roleBadge: "Block Supervisor",
-    scope: "Sample Block B (All Hamlets)",
+    scope: "Bastar · Tokapal Block (LGD 3603)",
   },
   {
     username: "sharma",
     password: "password123",
     label: "Officer R. Sharma [SAMPLE]",
     roleBadge: "District Supervisor",
-    scope: "Sample District (Blocks A–F)",
+    scope: "Bastar District (LGD 374 — All Blocks)",
   },
 ];
 
@@ -123,19 +123,19 @@ export function PortalLanding({
   return (
     <div className="min-h-[calc(100vh-36px)] bg-canvas text-ink flex flex-col justify-between">
       {/* Top Brand Header */}
-      <header className="bg-[#1C1846] text-white px-6 py-4 border-b border-[#2C2760] flex flex-wrap items-center justify-between gap-3">
+      <header className="bg-[#1C1846] text-white px-6 h-16 border-b border-[#2C2760] flex items-center justify-between gap-3 shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-purple flex items-center justify-center shadow-sm">
             <Radio className="w-5 h-5 text-white" />
           </div>
           <div>
-            <div className="font-bold text-base tracking-tight flex items-center gap-2">
+            <div className="font-bold text-sm sm:text-base tracking-tight flex items-center gap-2">
               <span>{t("app.title")}</span>
               <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-[#383177] text-[#EEEDFE]">
                 Chhattisgarh Prototype
               </span>
             </div>
-            <p className="text-xs text-[#B6B2D8]">
+            <p className="text-xs text-[#B6B2D8] hidden sm:block">
               {t("app.subtitle")}
             </p>
           </div>
@@ -165,13 +165,13 @@ export function PortalLanding({
         {/* VIEW 1: MAIN LANDING PAGE WITH TWO PORTALS */}
         {/* ============================================================ */}
         {view === "landing" && (
-          <div className="max-w-5xl w-full space-y-8">
+          <div className="max-w-5xl w-full space-y-8 my-auto">
             <div className="text-center max-w-2xl mx-auto space-y-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-light text-purple text-xs font-bold">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 {t("landing.badge")}
               </span>
-              <h1 className="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-ink tracking-tight">
                 {t("landing.hero_title")}
               </h1>
               <p className="text-sm text-muted">
@@ -179,9 +179,9 @@ export function PortalLanding({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               {/* PORTAL A: PUBLIC PORTAL */}
-              <div className="bg-white rounded-card-lg border-2 border-borderline hover:border-teal/60 p-6 sm:p-7 shadow-sm flex flex-col justify-between transition-all">
+              <div className="bg-white rounded-card-lg border-2 border-borderline hover:border-teal/60 p-6 sm:p-8 shadow-sm flex flex-col justify-between transition-all">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-2xl bg-teal-light text-teal flex items-center justify-center">
@@ -201,27 +201,27 @@ export function PortalLanding({
                     </p>
                   </div>
 
-                  <ul className="space-y-2 text-xs text-ink/90 pt-1">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-teal shrink-0" />
+                  <ul className="space-y-2.5 text-xs text-ink/90 pt-1">
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-teal shrink-0 mt-0.5" />
                       <span>No account required — immediate public health access</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-teal shrink-0" />
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-teal shrink-0 mt-0.5" />
                       <span>4 climate-sensitive risk cards (Malaria, Dengue, Diarrhoea, Heat)</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-teal shrink-0" />
-                      <span>Latest temperature, rainfall, heat index, forecast & local health facilities</span>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-teal shrink-0 mt-0.5" />
+                      <span>Temperature, rainfall, heat index, forecast & local health facilities</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-borderline flex flex-col sm:flex-row gap-2.5">
+                <div className="pt-6 mt-6 border-t border-borderline space-y-2">
                   <button
                     type="button"
                     onClick={() => onEnterPublicPortal()}
-                    className="flex-1 py-3 px-4 rounded-xl bg-teal hover:bg-teal/90 text-white text-xs sm:text-sm font-bold shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3.5 px-4 rounded-xl bg-teal hover:bg-teal/90 text-white text-sm font-bold shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>{t("landing.enter_public_btn")}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -229,15 +229,15 @@ export function PortalLanding({
                   <button
                     type="button"
                     onClick={() => setView("public-login")}
-                    className="py-3 px-4 rounded-xl border border-borderline hover:bg-canvas text-ink text-xs font-semibold transition-colors"
+                    className="w-full py-2 px-3 text-center text-xs font-semibold text-muted hover:text-ink transition-colors cursor-pointer"
                   >
-                    Public Sign-In Page
+                    Citizen Sign-In (Optional Name) →
                   </button>
                 </div>
               </div>
 
               {/* PORTAL B: EMPLOYEE PORTAL */}
-              <div className="bg-white rounded-card-lg border-2 border-borderline hover:border-purple/60 p-6 sm:p-7 shadow-sm flex flex-col justify-between transition-all">
+              <div className="bg-white rounded-card-lg border-2 border-borderline hover:border-purple/60 p-6 sm:p-8 shadow-sm flex flex-col justify-between transition-all">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-2xl bg-purple-light text-purple flex items-center justify-center">
@@ -257,36 +257,39 @@ export function PortalLanding({
                     </p>
                   </div>
 
-                  <ul className="space-y-2 text-xs text-ink/90 pt-1">
-                    <li className="flex items-center gap-2">
-                      <UserCheck className="w-4 h-4 text-purple shrink-0" />
+                  <ul className="space-y-2.5 text-xs text-ink/90 pt-1">
+                    <li className="flex items-start gap-2.5">
+                      <UserCheck className="w-4 h-4 text-purple shrink-0 mt-0.5" />
                       <span>
-                        <strong>Field Employee / Mitanin:</strong> My Tasks, status updates & field report submission
+                        <strong>Field Employee / Mitanin:</strong> My Tasks, status updates & field reporting
                       </span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <UserCheck className="w-4 h-4 text-purple shrink-0" />
+                    <li className="flex items-start gap-2.5">
+                      <UserCheck className="w-4 h-4 text-purple shrink-0 mt-0.5" />
                       <span>
-                        <strong>Supervisor:</strong> Jurisdiction overview, Team Tasks, dispatch & report review
+                        <strong>Supervisor:</strong> Jurisdiction overview, Team Tasks dispatch & audit
                       </span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <Lock className="w-4 h-4 text-purple shrink-0" />
+                    <li className="flex items-start gap-2.5">
+                      <Lock className="w-4 h-4 text-purple shrink-0 mt-0.5" />
                       <span>Strict backend role & jurisdiction access control</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-borderline">
+                <div className="pt-6 mt-6 border-t border-borderline space-y-2">
                   <button
                     type="button"
                     onClick={() => setView("employee-login")}
-                    className="w-full py-3 px-4 rounded-xl bg-purple hover:bg-purple/90 text-white text-xs sm:text-sm font-bold shadow-xs transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-4 rounded-xl bg-purple hover:bg-purple/90 text-white text-sm font-bold shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Lock className="w-4 h-4" />
                     <span>Open Employee Login Portal</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
+                  <div className="py-2 text-center text-xs text-muted">
+                    Pre-seeded demo credentials provided
+                  </div>
                 </div>
               </div>
             </div>
@@ -334,7 +337,7 @@ export function PortalLanding({
               <button
                 type="button"
                 onClick={() => onEnterPublicPortal(citizenName.trim() || "Public Citizen")}
-                className="w-full py-3 px-4 rounded-xl bg-teal hover:bg-teal/90 text-white text-sm font-bold shadow-xs transition-all flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 rounded-xl bg-teal hover:bg-teal/90 text-white text-sm font-bold shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Select Location & View Public Risk Dashboard</span>
                 <ArrowRight className="w-4 h-4" />
@@ -347,11 +350,11 @@ export function PortalLanding({
         {/* VIEW 3: EMPLOYEE PORTAL LOGIN PAGE */}
         {/* ============================================================ */}
         {view === "employee-login" && (
-          <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-12 gap-6 items-start my-auto">
             {/* Login Form Card (col-span-7) */}
-            <div className="lg:col-span-7 bg-white rounded-card-lg border border-borderline shadow-lg p-6 sm:p-8 space-y-5">
+            <div className="lg:col-span-7 bg-white rounded-card-lg border border-borderline shadow-md p-6 sm:p-8 space-y-5">
               <div className="flex items-center gap-3 border-b border-borderline pb-4">
-                <div className="w-11 h-11 rounded-2xl bg-purple-light text-purple flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-purple-light text-purple flex items-center justify-center shrink-0">
                   <KeyRound className="w-5 h-5" />
                 </div>
                 <div>
@@ -362,7 +365,7 @@ export function PortalLanding({
                     Sign In to Mitanin Signal
                   </h2>
                   <p className="text-xs text-muted">
-                    Your assigned role (Field Employee / Mitanin or Supervisor) and jurisdiction are automatically detected after login.
+                    Your assigned role (Field Employee or Supervisor) and jurisdiction are automatically detected.
                   </p>
                 </div>
               </div>
@@ -376,7 +379,7 @@ export function PortalLanding({
 
               <form onSubmit={handleEmployeeLogin} className="space-y-4">
                 <div>
-                  <label htmlFor="emp-username" className="block text-xs font-bold text-ink mb-1">
+                  <label htmlFor="emp-username" className="block text-xs font-bold text-ink mb-1.5">
                     Employee Username
                   </label>
                   <input
@@ -391,7 +394,7 @@ export function PortalLanding({
                 </div>
 
                 <div>
-                  <label htmlFor="emp-password" className="block text-xs font-bold text-ink mb-1">
+                  <label htmlFor="emp-password" className="block text-xs font-bold text-ink mb-1.5">
                     Password
                   </label>
                   <input
@@ -405,14 +408,14 @@ export function PortalLanding({
                   />
                 </div>
 
-                <div className="p-3 rounded-xl bg-canvas border border-borderline text-[11px] text-muted">
-                  <strong>Security Notice:</strong> Role selection on login is disabled. Roles and geographic jurisdictions are strictly assigned by an authorized administrator in the backend database.
+                <div className="p-3 rounded-xl bg-canvas border border-borderline text-[11px] text-muted leading-relaxed">
+                  <strong>Security Policy:</strong> Geographic jurisdictions and role levels are strictly verified server-side.
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 px-4 rounded-xl bg-purple hover:bg-purple/90 text-white text-sm font-bold shadow-sm transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full py-3.5 px-4 rounded-xl bg-purple hover:bg-purple/90 text-white text-sm font-bold shadow-sm transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                 >
                   <Lock className="w-4 h-4" />
                   <span>{loading ? "Verifying Credentials..." : "Sign In & Detect Assigned Role"}</span>
@@ -421,19 +424,28 @@ export function PortalLanding({
             </div>
 
             {/* Prototype Demo Accounts Helper Card (col-span-5) */}
-            <div className="lg:col-span-5 bg-white rounded-card-lg border border-borderline shadow-sm p-5 space-y-3.5">
-              <div>
-                <h3 className="text-sm font-bold text-ink">
-                  Authorized Prototype Accounts
-                </h3>
-                <p className="text-[11px] text-muted mt-0.5">
-                  Click any seeded employee account below to auto-fill credentials (all passwords: <code className="font-mono bg-canvas px-1 py-0.5 rounded text-ink">password123</code>):
-                </p>
+            <div className="lg:col-span-5 bg-white rounded-card-lg border border-borderline shadow-md p-6 sm:p-7 space-y-4">
+              <div className="flex items-center gap-3 border-b border-borderline pb-4">
+                <div className="w-11 h-11 rounded-2xl bg-teal-light text-teal flex items-center justify-center shrink-0">
+                  <UserCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal bg-teal-light px-2 py-0.5 rounded-full">
+                    Demo Credentials
+                  </span>
+                  <h3 className="text-base font-bold text-ink mt-0.5">
+                    Authorized Accounts
+                  </h3>
+                  <p className="text-[11px] text-muted">
+                    Click any account to auto-fill (password: <code className="font-mono bg-canvas px-1 py-0.5 rounded text-ink">password123</code>)
+                  </p>
+                </div>
               </div>
 
               <div className="space-y-2">
                 {DEMO_ACCOUNTS.map((acc) => {
                   const isSup = acc.roleBadge.includes("Supervisor");
+                  const isSelected = username === acc.username;
                   return (
                     <button
                       key={acc.username}
@@ -443,15 +455,19 @@ export function PortalLanding({
                         setPassword(acc.password);
                         setError(null);
                       }}
-                      className="w-full text-left p-2.5 rounded-xl border border-borderline hover:border-purple/50 hover:bg-canvas/60 transition-all flex items-center justify-between gap-2"
+                      className={`w-full text-left p-3 rounded-xl border transition-all flex items-center justify-between gap-2 cursor-pointer ${
+                        isSelected
+                          ? "border-purple bg-purple-light/40 ring-1 ring-purple"
+                          : "border-borderline hover:border-purple/50 hover:bg-canvas/60"
+                      }`}
                     >
                       <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <span className="text-xs font-bold text-ink truncate">
                             {acc.label}
                           </span>
                           <span
-                            className={`px-2 py-0.2 rounded-full text-[10px] font-bold ${
+                            className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                               isSup
                                 ? "bg-purple-light text-purple"
                                 : "bg-teal-light text-teal"
@@ -460,7 +476,7 @@ export function PortalLanding({
                             {acc.roleBadge}
                           </span>
                         </div>
-                        <div className="text-[11px] text-muted truncate mt-0.5">
+                        <div className="text-[11px] text-muted truncate mt-1">
                           username: <span className="font-mono font-semibold text-ink">{acc.username}</span> · {acc.scope}
                         </div>
                       </div>

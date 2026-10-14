@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed":"#d8e3fb","inverse-surface":"#213145","on-secondary-container":"#586377","on-primary-fixed":"#00201d","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","error-container":"#ffdad6","tertiary-fixed":"#ffdada","on-primary":"#ffffff","on-error":"#ffffff","outline-variant":"#bcc9c6","primary-fixed-dim":"#6bd8cb","on-tertiary-fixed-variant":"#920028","on-surface-variant":"#3d4947","background":"#f8f9ff","secondary-fixed-dim":"#bcc7de","surface-dim":"#cbdbf5","on-error-container":"#93000a","surface":"#f8f9ff","on-primary-container":"#f4fffc","tertiary-container":"#e21e49","surface-container":"#e5eeff","on-tertiary-container":"#fffbff","secondary-container":"#d5e0f8","on-secondary-fixed":"#111c2d","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","on-tertiary":"#ffffff","error":"#ba1a1a","tertiary":"#ba0035","primary-fixed":"#89f5e7","on-primary-fixed-variant":"#005049","inverse-primary":"#6bd8cb","surface-variant":"#d3e4fe","on-background":"#0b1c30","tertiary-fixed-dim":"#ffb3b6","surface-container-high":"#dce9ff","on-surface":"#0b1c30","primary":"#00685f","outline":"#6d7a77","primary-container":"#008378","on-tertiary-fixed":"#40000c","secondary":"#545f73","surface-tint":"#006a61","surface-container-low":"#eff4ff","on-secondary-fixed-variant":"#3c475a","surface-container-lowest":"#ffffff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-sm":"0.5rem","space-xxs":"0.125rem","space-md":"1rem","space-xl":"2rem","margin-tablet":"1.5rem","space-xs":"0.25rem","margin":"2rem","space-lg":"1.5rem","gutter-tablet":"1rem","space-2xl":"3rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","gutter":"1.25rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"headline-xl-mobile":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"],"body-md":["Inter"],"metric-md":["Inter"],"headline-sm":["Inter"],"label-sm":["Inter"],"metric-xl":["Inter"]},fontSize:{"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"metric-md":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"metric-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-inverse-surface text-inverse-on-surface z-50 flex flex-col justify-between overflow-y-auto shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="p-space-md"><div class="flex items-center gap-space-sm pb-space-md border-b border-outline-variant/20"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-inverse-on-surface leading-tight">मितानिन सहायक</span><span class="font-label-sm text-label-sm text-primary-fixed tracking-wider uppercase">Mitanin Sahayak</span></div></div><div class="mt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-inverse-on-surface/70 uppercase tracking-widest block">Govt. Public Health Surveillance</span></div><div class="mt-space-md bg-inverse-surface/80 p-space-xxs rounded-lg flex items-center justify-between text-center gap-space-xxs"><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Public</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors">Field</button><button class="flex-1 py-space-xs px-space-xs rounded font-label-sm text-label-sm bg-primary text-on-primary font-bold shadow-sm">Supervisor</button></div><div class="mt-space-lg"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Portals</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="portal-landing" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-lg text-label-lg">Portal Landing</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="public-health" href="#"><span class="material-symbols-outlined text-[20px]">public</span><span class="font-label-lg text-label-lg">Public Health</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="field-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">Field Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="supervisor-operations" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="font-label-lg text-label-lg">Supervisor Operations</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Tasks & Fieldwork</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="my-tasks" href="#"><span class="material-symbols-outlined text-[20px]">assignment_ind</span><span class="font-label-lg text-label-lg">My Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="team-tasks" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-lg text-label-lg">Team Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="assign-task" href="#"><span class="material-symbols-outlined text-[20px]">add_task</span><span class="font-label-lg text-label-lg">Assign Task</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs transition-colors bg-primary text-on-primary font-bold rounded-lg shadow-sm" data-path="task-ledger" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-label-lg text-label-lg">Task Ledger</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="voice-tasks" href="#"><span class="material-symbols-outlined text-[20px]">mic</span><span class="font-label-lg text-label-lg">Voice Tasks</span></a></nav></div><div class="mt-space-md"><span class="font-label-sm text-label-sm text-inverse-on-surface/50 uppercase tracking-wider px-space-xs">Epidemiology & Surveillance</span><nav class="mt-space-xs flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="block-overview" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-lg text-label-lg">Block Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="alerts-and-responses" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="font-label-lg text-label-lg">Alerts & Responses</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="disease-surveillance" href="#"><span class="material-symbols-outlined text-[20px]">health_and_safety</span><span class="font-label-lg text-label-lg">Disease Surveillance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="forecasting-and-evidence" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-label-lg text-label-lg">Forecasting & Evidence</span></a></nav></div></div><div class="p-space-md border-t border-outline-variant/20"><nav class="flex flex-col gap-space-xxs" data-active-classes="bg-primary text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-inverse-on-surface/80 hover:bg-surface-container-highest/20 hover:text-inverse-on-surface transition-colors" data-path="settings-and-data-status" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-lg text-label-lg">Settings & Data Status</span></a></nav></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm"><img alt="Mitanin Sahayak Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wd9x6S7HZxxUEtDs5AtKpI8HRjRj-x7Js5pPoxoK_9deQ0OJukrGx9TO6wWrM_6wZ8w9aOW1bonaKTBOnDvfnVjL46np3ibDIa-EsStgxai6s-nao2mNnLPYJ6-s-j0DdUWjjG02nyVYJ6KJcS7ZBispqTFjWUKDz7C4k0AXt6BAli2R_9xaJOvtheXGyyLPbFH0-SOk10wdQ736gPOKSHI1Lcin_C9RdtNOtGCPDpGq2JkSF4fYVLXw"/><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="font-bold text-on-surface">Bastar District</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span>Tokapal Block</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-primary font-semibold">Village Netanar</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-secondary-container text-on-secondary-fixed"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Live Sync • Today 09:30 AM</span></div><div class="flex items-center bg-surface-container-high rounded-lg p-space-xxs font-label-sm text-label-sm"><button class="px-space-xs py-space-xxs rounded bg-surface text-primary font-bold shadow-xs">EN</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">हिन्दी</button><button class="px-space-xs py-space-xxs rounded text-on-surface-variant hover:text-on-surface">छत्तीसगढ़ी</button></div><button class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-error-container text-on-error-container hover:bg-error/20 transition-colors"><span class="material-symbols-outlined text-[18px] text-error">emergency</span><span class="font-label-sm text-label-sm font-bold">Emergency Alert</span></button><div class="flex items-center gap-space-xs bg-surface-container-low pl-space-xs pr-space-sm py-space-xxs rounded-full"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm font-bold text-on-surface leading-tight">Dr. Ananya Sen</span><span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] leading-tight">District Surveillance Officer</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- TOP CONTEXT & STATUTORY NOTICE -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-sm">
+<div class="flex flex-col gap-space-xxs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider">Statutory Register</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">• CG-DHS Bastar District Public Health Cell</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">District Task Ledger & Compliance Register</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Cryptographically signed audit logs of frontline Mitanin epidemiological surveys, emergency containment activities, and institutional maternal referrals across Tokapal & Bastar sub-centers.
+      </p>
+</div>
+<!-- Quick Action / Export -->
+<div class="flex flex-wrap items-center gap-space-sm self-start lg:self-center">
+<button class="flex items-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-space-sm rounded-lg shadow-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary">sim_card_download</span>
+<span class="font-label-md text-label-md font-semibold">CSV Data Dump</span>
+</button>
+<button class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-space-sm rounded-lg shadow-sm hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-md text-label-md font-semibold">Export Signed Audit (DM / CMO)</span>
+</button>
+</div>
+</div>
+<!-- AUDIT SUMMARY METRICS -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Metric 1: Total Recorded Tasks -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Recorded Tasks</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">fact_check</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-sm">
+<span class="font-metric-xl text-metric-xl text-on-surface leading-none">1,842</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Q3 Bastar Block</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Includes 48 active village hamlets</span>
+</div>
+</div>
+<!-- Metric 2: Verified & Closed -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Verified & Closed</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-sm">
+<span class="font-metric-xl text-metric-xl text-primary leading-none">1,620</span>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-bold">88.0%</span>
+</div>
+<div class="mt-space-sm w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<!-- Metric 3: Pending Verification -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pending Verification</span>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">pending_actions</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-sm">
+<span class="font-metric-xl text-metric-xl text-on-surface leading-none">184</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Awaiting MO Review</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Avg turnaround: 4.8 hrs</span>
+</div>
+</div>
+<!-- Metric 4: Overdue Audit -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-container uppercase tracking-wider font-bold">Overdue Audit</span>
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-sm">
+<span class="font-metric-xl text-metric-xl text-tertiary-container leading-none">38</span>
+<span class="px-space-xs py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">>48 hrs lapse</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs text-tertiary font-body-sm text-body-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+<span>Requires Sector Supervisor Flag</span>
+</div>
+</div>
+</div>
+<!-- COMPREHENSIVE FILTER & SEARCH BAR -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<!-- Primary Search & Date Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center">
+<!-- Omni Search Input -->
+<div class="md:col-span-5 relative">
+<span class="material-symbols-outlined text-outline text-[20px] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-low transition-all" placeholder="Search by Task ID (TSK-...), Assignee Name, Village, or Patient..." type="text"/>
+</div>
+<!-- Quick Date Ranges -->
+<div class="md:col-span-4 flex items-center bg-surface-container-low rounded-lg p-1 gap-1">
+<button class="flex-1 py-1.5 px-space-xs rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface">Last 24 Hrs</button>
+<button class="flex-1 py-1.5 px-space-xs rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-xs">Last 7 Days</button>
+<button class="flex-1 py-1.5 px-space-xs rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface">Month</button>
+<button class="flex items-center justify-center px-space-sm py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span>Custom</span>
+</button>
+</div>
+<!-- Live Filters Reset / Count -->
+<div class="md:col-span-3 flex items-center justify-end gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Filters: <strong class="text-on-surface">3</strong></span>
+<button class="font-label-sm text-label-sm text-primary hover:underline font-semibold">Clear All</button>
+</div>
+</div>
+<!-- Secondary Multi-select Filter Pills -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<!-- Block / Sub-Center Filter -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-1.5 gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sector:</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Tokapal Block (All Hamlets)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant cursor-pointer">arrow_drop_down</span>
+</div>
+<!-- Category Filter -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-1.5 gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">category</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Category:</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">All Interventions</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant cursor-pointer">arrow_drop_down</span>
+</div>
+<!-- Priority Filter -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-1.5 gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">flag</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Priority:</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Urgent & High</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant cursor-pointer">arrow_drop_down</span>
+</div>
+<!-- Verification Type Filter -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-1.5 gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Proof Method:</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">GPS + Photo Upload</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant cursor-pointer">arrow_drop_down</span>
+</div>
+<!-- Audit Status Filter -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-1.5 gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">checklist</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Status:</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Any Status</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant cursor-pointer">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- COMPREHENSIVE LEDGER TABLE -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header Bar -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Cryptographic Task Register</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Live Sync: Bastar Node #12</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Column Visibility</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>Force Resync</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Responsive Table Wrapper -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left min-w-[1100px]">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant uppercase font-label-sm text-label-sm tracking-wider">
+<th class="py-space-sm px-space-md">Task Identifier</th>
+<th class="py-space-sm px-space-md">Timestamp</th>
+<th class="py-space-sm px-space-md">Intervention Type</th>
+<th class="py-space-sm px-space-md">Location / Sub-Center</th>
+<th class="py-space-sm px-space-md">Assigned Staff</th>
+<th class="py-space-sm px-space-md">Due Horizon</th>
+<th class="py-space-sm px-space-md">Execution State</th>
+<th class="py-space-sm px-space-md">Verification Proof</th>
+<th class="py-space-sm px-space-md text-right">Audit Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-md text-body-md text-on-surface">
+<!-- ROW 1: TSK-4091 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<!-- Task ID -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-mono">TSK-4091</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer hover:text-primary" title="Copy Task Hash">content_copy</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">PRIORITY: HIGH</span>
+</td>
+<!-- Created Date -->
+<td class="py-space-md px-space-md">
+<span class="font-body-md text-body-md text-on-surface font-medium block">14 Oct</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">08:30 IST</span>
+</td>
+<!-- Category -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-tertiary-container"></div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Mass Blood Survey</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Malaria Active Surveillance</span>
+</td>
+<!-- Location -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Village Netanar</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tokapal Sub-Center II</span>
+</td>
+<!-- Assigned Staff -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-bold">
+                  JK
+                </div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Jamuna Kashyap</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mitanin #402</span>
+</div>
+</div>
+</td>
+<!-- Due Date -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Today 17:00</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Remaining: 3h 15m</span>
+</td>
+<!-- Execution Status -->
+<td class="py-space-md px-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md font-bold text-primary">In Progress</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">68 / 150 Slides Drawn</span>
+<div class="w-28 bg-surface-container-highest rounded-full h-1 overflow-hidden">
+<div class="bg-primary h-full" style="width: 45%;"></div>
+</div>
+</div>
+</td>
+<!-- Verification Proof -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary-container text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[16px]">satellite_alt</span>
+<span class="font-label-sm text-label-sm font-bold">GPS Verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Acc: ±4.2m • Lat 19.04°</span>
+</td>
+<!-- Audit Action -->
+<td class="py-space-md px-space-md text-right">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-all font-label-md text-label-md font-bold shadow-xs">
+                Inspect Log
+              </button>
+</td>
+</tr>
+<!-- ROW 2: TSK-4089 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<!-- Task ID -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-mono">TSK-4089</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer hover:text-primary" title="Copy Task Hash">content_copy</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">PRIORITY: NORMAL</span>
+</td>
+<!-- Created Date -->
+<td class="py-space-md px-space-md">
+<span class="font-body-md text-body-md text-on-surface font-medium block">13 Oct</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14:15 IST</span>
+</td>
+<!-- Category -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">IRS Insecticide Spray</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Vector Control Operations</span>
+</td>
+<!-- Location -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">pin_drop</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Chitrakote</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Gadhia Para Sector</span>
+</td>
+<!-- Assigned Staff -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-label-sm text-label-sm font-bold">
+                  RM
+                </div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Ramesh Mandavi</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">IRS Field Lead</span>
+</div>
+</div>
+</td>
+<!-- Due Date -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>14 Oct 12:00</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Window Open</span>
+</td>
+<!-- Execution Status -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span class="font-label-sm text-label-sm font-bold">Dispatched</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">3 Team Squads Mobilized</span>
+</td>
+<!-- Verification Proof -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">cell_tower</span>
+<span class="font-label-sm text-label-sm font-semibold">In Field</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Live Telemetry Active</span>
+</td>
+<!-- Audit Action -->
+<td class="py-space-md px-space-md text-right">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md font-bold shadow-xs">
+                Track
+              </button>
+</td>
+</tr>
+<!-- ROW 3: TSK-4084 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<!-- Task ID -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-mono">TSK-4084</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer hover:text-primary" title="Copy Task Hash">content_copy</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-bold">CRITICAL • MATERNAL</span>
+</td>
+<!-- Created Date -->
+<td class="py-space-md px-space-md">
+<span class="font-body-md text-body-md text-on-surface font-medium block">13 Oct</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:00 IST</span>
+</td>
+<!-- Category -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">High-Risk Maternal Triage</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Severe Anemia Referral (Hb < 7.0)</span>
+</td>
+<!-- Location -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Karanpur</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">House #42, Patel Para</span>
+</td>
+<!-- Assigned Staff -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-label-sm text-label-sm font-bold">
+                  RB
+                </div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">ANM Radha Baghel</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">PHC Staff Nurse</span>
+</div>
+</div>
+</td>
+<!-- Due Date -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+<span>13 Oct 16:00</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Completed On-Time</span>
+</td>
+<!-- Execution Status -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span class="font-label-sm text-label-sm font-bold">Completed</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Escalated to Jagdalpur DH</span>
+</td>
+<!-- Verification Proof -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">add_a_photo</span>
+<span class="font-label-sm text-label-sm font-bold">Photo & Vitals</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">BP: 94/62 • Hb: 6.8 g/dL</span>
+</td>
+<!-- Audit Action -->
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1 px-space-sm py-1.5 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified by MO</span>
+</div>
+</td>
+</tr>
+<!-- ROW 4: TSK-4078 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<!-- Task ID -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-mono">TSK-4078</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer hover:text-primary" title="Copy Task Hash">content_copy</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">WATER SANITATION</span>
+</td>
+<!-- Created Date -->
+<td class="py-space-md px-space-md">
+<span class="font-body-md text-body-md text-on-surface font-medium block">12 Oct</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">11:30 IST</span>
+</td>
+<!-- Category -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pond Chlorination</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cholera & Diarrheal Risk Mitigation</span>
+</td>
+<!-- Location -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">pin_drop</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Bade Arapur</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Community Water Body #3</span>
+</td>
+<!-- Assigned Staff -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-bold">
+                  SB
+                </div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Sunita Baghel</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mitanin #388</span>
+</div>
+</div>
+</td>
+<!-- Due Date -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>12 Oct 18:00</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dispatched On-Time</span>
+</td>
+<!-- Execution Status -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[14px]">done</span>
+<span class="font-label-sm text-label-sm font-bold">Completed</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Bleaching Powder 25kg</span>
+</td>
+<!-- Verification Proof -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary-fixed text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[16px]">science</span>
+<span class="font-label-sm text-label-sm font-bold">Test Strip Proof</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Free Chlorine: 0.5 ppm</span>
+</td>
+<!-- Audit Action -->
+<td class="py-space-md px-space-md text-right">
+<button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all font-label-md text-label-md font-bold shadow-xs">
+                Audit Now
+              </button>
+</td>
+</tr>
+<!-- ROW 5: TSK-4062 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors bg-error-container/10">
+<!-- Task ID -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-tertiary font-mono">TSK-4062</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer hover:text-tertiary" title="Copy Task Hash">content_copy</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">FLAGGED OVERDUE</span>
+</td>
+<!-- Created Date -->
+<td class="py-space-md px-space-md">
+<span class="font-body-md text-body-md text-on-surface font-medium block">11 Oct</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">16:00 IST</span>
+</td>
+<!-- Category -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">LLIN Bednet Verification</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Coverage Audit: 80 Households</span>
+</td>
+<!-- Location -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">pin_drop</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">School Para</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tokapal Interior Hamlet</span>
+</td>
+<!-- Assigned Staff -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-fixed font-label-sm text-label-sm font-bold">
+                  PM
+                </div>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Phoolmati Maurya</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mitanin #419</span>
+</div>
+</div>
+</td>
+<!-- Due Date -->
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs text-tertiary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[16px]">timer_off</span>
+<span>12 Oct 12:00</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">+48h Overdue</span>
+</td>
+<!-- Execution Status -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span class="font-label-sm text-label-sm font-bold">Delayed</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Heavy Rain & Flooded Nallah</span>
+</td>
+<!-- Verification Proof -->
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">sync_problem</span>
+<span class="font-label-sm text-label-sm font-bold">No Proof Yet</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Zero Uplink Recorded</span>
+</td>
+<!-- Audit Action -->
+<td class="py-space-md px-space-md text-right">
+<button class="px-space-md py-1.5 rounded-lg bg-tertiary-container text-on-tertiary-container hover:bg-tertiary hover:text-on-tertiary transition-all font-label-md text-label-md font-bold shadow-xs">
+                Reassign / Escalate
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- PAGINATION & EXPORT BAR -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<!-- Records counter -->
+<div class="flex items-center gap-space-sm">
+<span class="font-body-md text-body-md text-on-surface-variant">
+          Showing <strong class="text-on-surface">1 - 25</strong> of <strong class="text-on-surface">1,842</strong> records
+        </span>
+<div class="h-4 w-px bg-outline-variant/30 hidden sm:block"></div>
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rows per page:</span>
+<select class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm rounded px-2 py-1 focus:outline-none">
+<option>25</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+<!-- Pagination Nav Controls -->
+<div class="flex items-center gap-space-xs self-center">
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-xs disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">first_page</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-xs disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-md text-label-md font-bold">1</span>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">2</button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">74</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-xs">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-xs">
+<span class="material-symbols-outlined text-[18px]">last_page</span>
+</button>
+</div>
+<!-- Legal Audit Watermark -->
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span class="font-label-sm text-label-sm">Tamper-Proof Ledger SHA-256 Enabled</span>
+</div>
+</div>
+</div>
+<!-- OPERATIONAL EVIDENCE & CHAIN-OF-CUSTODY SIDEBAR / DRAWER SUMMARY -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Box 1: Recent Verification Submissions -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Recent Field Artifacts</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Live Stream</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Frontline photo uploads and water quality strips awaiting Medical Officer sign-off.</p>
+<div class="mt-space-md flex flex-col gap-space-sm">
+<!-- Artifact 1 -->
+<div class="flex items-center gap-space-sm bg-surface-container-low p-space-xs rounded-lg">
+<img class="w-12 h-12 rounded object-cover shadow-xs" data-alt="Close up photograph of a rapid malaria diagnostic test kit strip with faint control lines taken by an Indian female health worker in a rural village clinic setting in Bastar India, warm natural daylight with clean surgical tray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAUn0aUv1UWYvaQTBiZUsElqzs1-pFZDCttipayCyHLao0RrLHPD78IQhG_jodoNlwNfS16a_-Is7bcLMpUEtGeHSUJtF6lWTS2p8_6S70JxjBWV63RDJ6y_rM5w_PRWjBb1MblyL3JNI8IQB-To4CyJl7-ZycNShGoH9BmysIKjLpyAkAiR5BjsqD9UrjM05lXcsL2eDnls0nfOHygIMzYq2qOHh_wh6d4ARvU3Gu9btiS1uaGlvh"/>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">RDT Test Strip (Pf+) • Netanar</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Uploaded by Jamuna K. • 12 mins ago</span>
+</div>
+<button class="p-1 rounded bg-surface-container-lowest text-primary hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<!-- Artifact 2 -->
+<div class="flex items-center gap-space-sm bg-surface-container-low p-space-xs rounded-lg">
+<img class="w-12 h-12 rounded object-cover shadow-xs" data-alt="Digital photo of a chlorinated village water well with blue markings and safety chlorination notice in a tribal settlement in Chhattisgarh India, sunny day outdoors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7CSOEGKvYlLxE6Z0tKjc33LGb9VY5GwcUsUwW6ydzAX2bmGNP6ofGrcETIa0molKCcJ8pk-EByjn0JhbngaNAeogBda2eHYKYGQzUveWbx_y17mEa62aToy-q-CHsemXxv2Xk4bMmSqNGRw_OSZR25kSY-PuyB_XBbX2aI-M33fNmFswxb96jthJc4cX0_rmgzXhRHtnifunMcdjqhWaAnoiKqq-cBeFPH6ON-FW4the03Xokle_X"/>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">Well Chlorination Proof • Arapur</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Uploaded by Sunita B. • 44 mins ago</span>
+</div>
+<button class="p-1 rounded bg-surface-container-lowest text-primary hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-low rounded-lg text-primary font-label-md text-label-md font-bold hover:bg-surface-container-high transition-colors">
+        Open Verification Queue (184 Pending)
+      </button>
+</div>
+<!-- Box 2: Field Geofence Compliance Heatmap -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Spatial Adherence</span>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">96.4% on GPS</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Mitanin task location verification matches against village cadastral boundaries.</p>
+<div class="mt-space-md w-full h-36 rounded-lg overflow-hidden relative shadow-xs" data-location="Bastar, Chhattisgarh" style="">
+<div class="absolute inset-0 bg-surface-container-highest flex items-center justify-center">
+<div class="flex flex-col items-center text-center p-space-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">map</span>
+<span class="font-label-md text-label-md font-bold text-on-surface mt-1">Tokapal & Netanar Cluster</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1,804 GPS points verified within 50m target perimeter</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Glitched Coordinates: <strong>38</strong></span>
+<button class="text-primary font-bold hover:underline">Download GPS Log</button>
+</div>
+</div>
+<!-- Box 3: District Magistrate Sign-off Protocol -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Statutory Compliance</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Weekly district health review submission format per National Health Mission guidelines.</p>
+<div class="mt-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-body-sm font-body-sm py-1">
+<span class="text-on-surface-variant">Reporting Cycle:</span>
+<span class="font-bold text-on-surface">CW-41 (08 Oct - 14 Oct 2024)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm py-1">
+<span class="text-on-surface-variant">Pending Doctor Endorsements:</span>
+<span class="font-bold text-primary">12 Cases</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm py-1">
+<span class="text-on-surface-variant">Incentive Claims Linked:</span>
+<span class="font-bold text-on-surface">₹ 1,42,800 Approved</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<button class="w-full py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">draw</span>
+<span>Sign Weekly DM Ledger</span>
+</button>
+<span class="text-[10px] text-center text-on-surface-variant font-label-sm">Requires DSO Digital Certificate Token (Aadhaar eSign)</span>
+</div>
+</div>
+</div>
+<!-- FLOATING ASSISTANT INTERACTION MODAL HOOK (SAHAYAK AI QUICK DOCK) -->
+<div class="hidden fixed bottom-24 right-6 w-96 bg-surface-container-lowest rounded-xl shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_8px_10px_-6px_rgba(15,23,42,0.08)] z-50 p-space-md flex-col gap-space-sm animate-in fade-in slide-in-from-bottom-2 duration-200" id="quick-dock">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Sahayak Ledger AI</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('quick-dock').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+      Ask queries regarding audit exceptions, overdue Mitanin tasks, or anomalous survey timings.
+    </p>
+<div class="bg-surface-container-low p-space-sm rounded-lg font-mono text-body-sm text-on-surface">
+      "Which village has the highest delayed tasks this week?"
+    </div>
+<div class="flex items-center gap-space-xs">
+<input class="flex-1 bg-surface-container-low px-space-sm py-1.5 rounded-lg text-body-sm font-body-sm focus:outline-none" placeholder="Type prompt in English or Hindi..." type="text"/>
+<button class="p-1.5 bg-primary text-on-primary rounded-lg">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interaction for demo: Toggle ledger assistant modal if requested
+  const sahayakBtn = document.querySelector('button:has(.material-symbols-outlined:contains("smart_toy"))');
+  if (sahayakBtn) {
+    sahayakBtn.addEventListener('click', () => {
+      const dock = document.getElementById('quick-dock');
+      if (dock) dock.classList.toggle('hidden');
+    });
+  }
+</script></main></div><div class="fixed bottom-6 right-6 z-50"><button class="flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-full shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_8px_10px_-6px_rgba(15,23,42,0.08)] hover:bg-inverse-surface/90 transition-all group"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary-fixed"></span></span><span class="material-symbols-outlined text-primary-fixed text-[20px]">smart_toy</span><span class="font-label-lg text-label-lg text-inverse-on-surface font-semibold">Sahayak AI • Ask Protocol & Disease Data</span></button></div></body></html>

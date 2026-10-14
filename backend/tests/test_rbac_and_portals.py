@@ -317,3 +317,63 @@ def test_supervisor_dashboard_team_tasks_and_report_review():
     assert rev_resp.status_code == 200
     assert rev_resp.json()["review_status"] == "approved"
     assert "Verma" in rev_resp.json()["reviewer_name"]
+
+
+def test_mitanin_and_supervisor_dataset_location_selection():
+    """
+    Verifies that Mitanins and Supervisors can select and access locations
+    from the official Chhattisgarh LGD dataset (33 districts, 146 blocks):
+    - Bastar (LGD_DIST_374) -> Jagdalpur (LGD_BLK_3595)
+    - Bastar (LGD_DIST_374) -> Tokapal (LGD_BLK_3603)
+    """
+    asha_login = _login("asha")
+    asha_headers = {"Authorization": f"Bearer {asha_login['token']}"}
+
+    # 1. Location hierarchy returns official dataset locations for Mitanin
+    h_resp = client.get("/locations/hierarchy?include_demo=true", headers=asha_headers)
+    assert h_resp.status_code == 200
+    h_data = h_resp.json()
+    district_ids = {d["unit_id"] for d in h_data["districts"]}
+    assert "LGD_DIST_374" in district_ids
+    assert "LGD_DIST_387" in district_ids  # Raipur
+
+    # 2. Mitanin confirms official dataset location (Bastar -> Jagdalpur)
+    confirm_resp = client.post(
+        "/locations/confirm?district_id=LGD_DIST_374&block_id=LGD_BLK_3595",
+        headers=asha_headers,
+    )
+    assert confirm_resp.status_code == 200
+    conf_json = confirm_resp.json()
+    assert conf_json["location"]["district"]["unit_name"] == "Bastar"
+    assert conf_json["location"]["block"]["unit_name"] == "Jagdalpur"
+
+    # 3. Mitanin accesses employee dashboard for selected dataset location
+    emp_resp = client.get(
+        "/employee/dashboard?district_id=LGD_DIST_374&block_id=LGD_BLK_3595",
+        headers=asha_headers,
+    )
+    assert emp_resp.status_code == 200
+    emp_json = emp_resp.json()
+    assert emp_json["location"]["block"]["unit_name"] == "Jagdalpur"
+    assert emp_json["location"]["is_lgd_official"] is True
+
+    # 4. Supervisor confirms official dataset location (Bastar -> Tokapal)
+    verma_login = _login("verma")
+    verma_headers = {"Authorization": f"Bearer {verma_login['token']}"}
+
+    sup_confirm = client.post(
+        "/locations/confirm?district_id=LGD_DIST_374&block_id=LGD_BLK_3603",
+        headers=verma_headers,
+    )
+    assert sup_confirm.status_code == 200
+    assert sup_confirm.json()["location"]["block"]["unit_name"] == "Tokapal"
+
+    # 5. Supervisor accesses supervisor dashboard for selected dataset location
+    sup_resp = client.get(
+        "/supervisor/dashboard?district_id=LGD_DIST_374&block_id=LGD_BLK_3603",
+        headers=verma_headers,
+    )
+    assert sup_resp.status_code == 200
+    sup_json = sup_resp.json()
+    assert sup_json["location"]["block"]["unit_name"] == "Tokapal"
+    assert sup_json["location"]["is_lgd_official"] is True

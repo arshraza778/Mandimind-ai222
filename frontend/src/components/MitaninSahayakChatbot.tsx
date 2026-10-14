@@ -102,46 +102,25 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
 
     try {
       const headers: Record<string, string> = { "Content-Type": "application/json" };
-      if (authToken) {
-        headers["Authorization"] = `Bearer ${authToken}`;
-      }
+      if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
 
-      const historyPayload = messages
-        .filter((m) => !m.error)
-        .slice(-6)
-        .map((m) => ({ role: m.role, content: m.content }));
-
-      const res = await fetch(`${API_BASE}/chatbot/message`, {
+      const res = await fetch(`${API_BASE}/chatbot/ask`, {
         method: "POST",
         headers,
         body: JSON.stringify({
-          message: trimmed || "Confirm action",
+          question: confirmedActionPayload ? "" : trimmed,
           language: botLanguage,
-          district_id: selectedLocation?.district_id || "DIST_SAMPLE",
-          block_id: selectedLocation?.block_id || "BLK_A",
-          village_id: selectedLocation?.village_id || null,
-          disease_type: focusedDisease || null,
-          history: historyPayload,
+          portal_mode: portalMode || "public",
+          district_id: selectedLocation?.district_id,
+          block_id: selectedLocation?.block_id,
+          village_id: selectedLocation?.village_id,
+          focused_disease: focusedDisease,
           confirmed_action: confirmedActionPayload || null,
         }),
       });
 
       if (!res.ok) {
-        const errData = await res.json().catch(() => ({}));
-        const detail = errData.detail || `Request failed with status ${res.status}`;
-        setLastFailedMessage(trimmed);
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: `err_${Date.now()}`,
-            role: "assistant",
-            content: detail,
-            language: botLanguage,
-            error: true,
-          },
-        ]);
-        setLoading(false);
-        return;
+        throw new Error("Chatbot API response error");
       }
 
       const data = await res.json();
@@ -236,11 +215,11 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
           onClick={() => setIsOpen(true)}
           aria-label={t("chatbot.open_btn")}
           data-testid="mitanin-sahayak-launcher"
-          className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 rounded-full bg-teal-800 hover:bg-teal-900 text-white font-bold shadow-xl border-2 border-teal-300 cursor-pointer transition-transform hover:scale-105"
+          className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 rounded-full bg-purple hover:bg-purple/90 text-white font-bold shadow-lg border border-white/20 cursor-pointer transition-transform hover:scale-105"
         >
-          <MessageSquareHeart className="w-5 h-5 text-teal-200" />
-          <span className="text-sm">{t("chatbot.name")}</span>
-          <span className="px-2 py-0.5 rounded-full bg-teal-600 text-[11px] font-extrabold">
+          <MessageSquareHeart className="w-5 h-5 text-purple-light" />
+          <span className="text-xs sm:text-sm">{t("chatbot.name")}</span>
+          <span className="px-2 py-0.5 rounded-full bg-white/20 text-[10px] font-extrabold">
             EN · हिं · छग
           </span>
         </button>
@@ -249,7 +228,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
       {/* Dockable / Expandable Chatbot Window */}
       {isOpen && (
         <div
-          className={`fixed z-50 bg-white border-2 border-teal-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all ${
+          className={`fixed z-50 bg-white border border-borderline rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all text-ink ${
             isExpanded
               ? "bottom-4 right-4 left-4 top-16 sm:left-auto sm:w-[640px] sm:h-[82vh]"
               : "bottom-4 right-4 w-[94vw] sm:w-[430px] h-[600px] max-h-[85vh]"
@@ -259,16 +238,16 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
           data-testid="mitanin-sahayak-window"
         >
           {/* Header */}
-          <div className="bg-teal-900 text-white px-4 py-3 flex items-center justify-between gap-2">
+          <div className="bg-ink text-white px-4 py-3.5 flex items-center justify-between gap-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-teal-700/80 border border-teal-400/40">
-                <MessageSquareHeart className="w-5 h-5 text-teal-200" />
+              <div className="p-2 rounded-xl bg-purple text-white shadow-xs">
+                <MessageSquareHeart className="w-4 h-4 text-white" />
               </div>
               <div>
-                <h2 className="text-sm sm:text-base font-extrabold leading-tight">
+                <h2 className="text-sm sm:text-base font-bold leading-tight">
                   {t("chatbot.name")}
                 </h2>
-                <p className="text-[11px] text-teal-200">{t("chatbot.subtitle")}</p>
+                <p className="text-[11px] text-white/70">{t("chatbot.subtitle")}</p>
               </div>
             </div>
 
@@ -277,7 +256,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                 type="button"
                 onClick={() => setIsExpanded((v) => !v)}
                 aria-label="Toggle chatbot size"
-                className="p-1.5 rounded-lg hover:bg-teal-800 text-teal-100 cursor-pointer"
+                className="p-1.5 rounded-lg hover:bg-white/10 text-white/80 hover:text-white cursor-pointer transition-colors"
               >
                 {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
               </button>
@@ -289,20 +268,20 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                 }}
                 aria-label="Close Mitanin Sahayak"
                 data-testid="mitanin-sahayak-close"
-                className="p-1.5 rounded-lg hover:bg-teal-800 text-teal-100 cursor-pointer"
+                className="p-1.5 rounded-lg hover:bg-white/10 text-white/80 hover:text-white cursor-pointer transition-colors"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
           </div>
 
           {/* Independent Chatbot Language Switcher & Provider Status Bar */}
-          <div className="bg-slate-50 border-b border-slate-200 px-3 py-2 space-y-1.5">
+          <div className="bg-canvas border-b border-borderline px-3 py-2 space-y-1.5">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="text-xs font-bold text-slate-700">
+              <span className="text-[11px] font-bold text-muted uppercase tracking-wider">
                 {t("chatbot.lang_selector_label")}:
               </span>
-              <div className="inline-flex items-center gap-1 bg-white border border-slate-300 rounded-lg p-0.5">
+              <div className="inline-flex items-center gap-1 bg-white border border-borderline rounded-lg p-0.5 shadow-xs">
                 {SUPPORTED_LANGUAGES.map((l) => (
                   <button
                     key={l.code}
@@ -310,10 +289,10 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                     onClick={() => setBotLanguage(l.code)}
                     aria-pressed={botLanguage === l.code}
                     data-testid={`chatbot-lang-${l.code}`}
-                    className={`px-2 py-0.5 rounded text-xs font-bold cursor-pointer ${
+                    className={`px-2.5 py-0.5 rounded text-xs font-bold transition-all cursor-pointer ${
                       botLanguage === l.code
-                        ? "bg-teal-700 text-white"
-                        : "text-slate-700 hover:bg-slate-100"
+                        ? "bg-purple text-white shadow-xs"
+                        : "text-ink hover:bg-canvas"
                     }`}
                   >
                     {l.nativeName}
@@ -324,22 +303,22 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
 
             {/* Configuration & Grounding Status Notice */}
             <div
-              className="flex items-start gap-1.5 text-[11px] text-slate-600 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5"
+              className="flex items-start gap-1.5 text-[11px] text-muted bg-white border border-borderline rounded-lg px-2.5 py-1.5"
               data-testid="chatbot-config-banner"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-teal-700 shrink-0 mt-0.5" />
+              <ShieldCheck className="w-3.5 h-3.5 text-forest shrink-0 mt-0.5" />
               <span>{statusNotice}</span>
             </div>
           </div>
 
           {/* Conversation Messages Area */}
-          <div className="flex-1 overflow-y-auto p-3.5 space-y-3 bg-slate-50/50">
+          <div className="flex-1 overflow-y-auto p-3.5 space-y-3 bg-canvas/40">
             {/* Suggested Questions when empty */}
             {messages.length === 0 && (
-              <div className="space-y-2.5">
-                <div className="rounded-xl bg-teal-50 border border-teal-200 p-3 text-xs sm:text-sm text-teal-950">
-                  <div className="font-bold flex items-center gap-1.5 mb-1">
-                    <Sparkles className="w-4 h-4 text-teal-700" />
+              <div className="space-y-3">
+                <div className="rounded-xl bg-purple-light/50 border border-purple/20 p-3.5 text-xs sm:text-sm text-ink space-y-1">
+                  <div className="font-bold flex items-center gap-1.5 text-purple mb-1">
+                    <Sparkles className="w-4 h-4" />
                     <span>
                       {botLanguage === "hi"
                         ? "नमस्ते! मैं मितानिन सहायक हूँ।"
@@ -348,7 +327,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                         : "Hello! I am Mitanin Sahayak."}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-700">
+                  <p className="text-xs text-muted leading-relaxed">
                     {botLanguage === "hi"
                       ? "आप मुझसे अपने गाँव के मलेरिया, डेंगू, दस्त या लू जोखिम, बचाव के उपाय और आवंटित फील्ड कार्यों के बारे में पूछ सकते हैं।"
                       : botLanguage === "hne"
@@ -364,7 +343,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                       type="button"
                       onClick={() => sendMessage(q)}
                       data-testid={`chatbot-suggested-q-${idx}`}
-                      className="w-full text-left px-3 py-2 rounded-xl bg-white hover:bg-teal-50 border border-slate-200 hover:border-teal-300 text-xs font-semibold text-slate-800 transition-colors cursor-pointer"
+                      className="w-full text-left px-3.5 py-2 rounded-xl bg-white hover:bg-purple-light/20 border border-borderline hover:border-purple/40 text-xs font-semibold text-ink transition-colors shadow-xs cursor-pointer"
                     >
                       {q}
                     </button>
@@ -383,18 +362,18 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                 <div
                   className={`max-w-[90%] rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm whitespace-pre-line leading-relaxed ${
                     turn.role === "user"
-                      ? "bg-teal-800 text-white rounded-br-xs"
+                      ? "bg-purple text-white rounded-br-xs shadow-xs"
                       : turn.error
-                      ? "bg-rose-50 border border-rose-300 text-rose-900"
-                      : "bg-white border border-slate-200 text-slate-900 shadow-2xs rounded-bl-xs"
+                      ? "bg-coral-light border border-coral/30 text-coral"
+                      : "bg-white border border-borderline text-ink shadow-xs rounded-bl-xs"
                   }`}
                 >
                   {turn.content}
 
                   {/* Assistant Footer: Read Aloud + Grounding Badge */}
                   {turn.role === "assistant" && !turn.error && (
-                    <div className="mt-2 pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-[10px] font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded">
+                    <div className="mt-2 pt-2 border-t border-borderline/60 flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-[10px] font-bold text-purple bg-purple-light px-2 py-0.5 rounded-full">
                         {t("chatbot.grounded_badge")}
                       </span>
                       <button
@@ -403,7 +382,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                           speakTextInLanguage(turn.content, turn.language, 1.0, {})
                         }
                         aria-label="Read reply aloud"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-teal-700 hover:text-teal-900 cursor-pointer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-purple hover:text-purple/80 cursor-pointer"
                       >
                         <Volume2 className="w-3.5 h-3.5" />
                         <span>{t("voice.play")}</span>
@@ -414,7 +393,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                   {/* Explicit Confirmation Gate UI for Consequential Actions */}
                   {turn.requiresConfirmation && turn.pendingAction && (
                     <div
-                      className="mt-2.5 p-2.5 rounded-xl bg-amber-50 border border-amber-300 space-y-2"
+                      className="mt-2.5 p-3 rounded-xl bg-amber-light/40 border border-amber/30 space-y-2"
                       data-testid="chatbot-confirmation-box"
                     >
                       <div className="flex items-center gap-2">
@@ -422,7 +401,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                           type="button"
                           onClick={() => handleConfirmPendingAction(turn)}
                           data-testid="chatbot-confirm-action-btn"
-                          className="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold cursor-pointer"
+                          className="px-3.5 py-1.5 rounded-lg bg-forest hover:bg-forest/90 text-white text-xs font-bold cursor-pointer transition-colors shadow-xs"
                         >
                           <CheckCircle2 className="w-3.5 h-3.5 inline mr-1" />
                           {t("chatbot.confirm_action_btn")}
@@ -437,7 +416,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                       <button
                         type="button"
                         onClick={() => sendMessage(lastFailedMessage)}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-700 text-white text-xs font-bold cursor-pointer"
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-coral text-white text-xs font-bold cursor-pointer hover:bg-coral/90 transition-colors shadow-xs"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                         <span>{t("chatbot.retry")}</span>
@@ -449,8 +428,8 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
             ))}
 
             {loading && (
-              <div className="text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-200 rounded-xl px-3 py-2 inline-block">
-                Mitanin Sahayak is retrieving grounded records...
+              <div className="text-xs font-semibold text-purple bg-purple-light border border-purple/30 rounded-xl px-3 py-2 inline-block">
+                Mitanin Sahayak is retrieving verified records...
               </div>
             )}
             <div ref={messagesEndRef} />
@@ -462,7 +441,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
               e.preventDefault();
               sendMessage(input);
             }}
-            className="p-3 bg-white border-t border-slate-200 space-y-2"
+            className="p-3 bg-white border-t border-borderline space-y-2"
           >
             <div className="flex items-center gap-2">
               <input
@@ -472,16 +451,16 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                 placeholder={t("chatbot.placeholder")}
                 aria-label={t("chatbot.placeholder")}
                 data-testid="chatbot-input"
-                className="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:border-teal-700 focus:outline-none"
+                className="flex-1 px-3.5 py-2 rounded-xl border border-borderline text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-purple bg-canvas/30"
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
                 aria-label={t("chatbot.send")}
                 data-testid="chatbot-send-btn"
-                className="px-3.5 py-2 rounded-xl bg-teal-800 hover:bg-teal-900 disabled:opacity-50 text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-purple hover:bg-purple/90 disabled:opacity-50 text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 cursor-pointer transition-all shadow-xs"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-3.5 h-3.5" />
                 <span>{t("chatbot.send")}</span>
               </button>
             </div>
@@ -496,7 +475,7 @@ export const MitaninSahayakChatbot: React.FC<MitaninSahayakChatbotProps> = ({
                 <button
                   type="button"
                   onClick={() => setMessages([])}
-                  className="text-[11px] font-semibold text-slate-500 hover:text-slate-800 cursor-pointer"
+                  className="text-[11px] font-semibold text-muted hover:text-ink cursor-pointer"
                 >
                   {t("chatbot.clear")}
                 </button>

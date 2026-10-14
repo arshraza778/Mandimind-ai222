@@ -346,6 +346,8 @@ function AppInner() {
         <MitaninMobile
           onReturnToDistrict={() => switchTab("dashboard")}
           onLedgerUpdate={refreshSummaryCounts}
+          selectedLocation={selectedLocation}
+          onChangeLocation={() => setShowLocationModal(true)}
         />
         <MitaninSahayakChatbot
           authToken={authToken}
@@ -577,6 +579,8 @@ function AppInner() {
                 switchTab(portalMode === "field_employee" ? "emp-dashboard" : "dashboard")
               }
               onLedgerUpdate={refreshSummaryCounts}
+              selectedLocation={selectedLocation}
+              onChangeLocation={() => setShowLocationModal(true)}
             />
           )}
 

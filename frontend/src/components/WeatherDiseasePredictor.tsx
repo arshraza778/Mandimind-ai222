@@ -6,11 +6,13 @@ import {
   HeartPulse,
   Info,
   RefreshCw,
+  Search,
   ShieldAlert,
   Sparkles,
   Stethoscope,
   Thermometer,
   Wind,
+  X,
 } from "lucide-react";
 import { useI18n } from "../i18n/I18nContext";
 
@@ -375,7 +377,7 @@ export function WeatherDiseasePredictor({
   return (
     <section
       data-testid="weather-disease-predictor"
-      className="bg-white rounded-card border border-borderline p-4 sm:p-6 shadow-2xs space-y-5"
+      className="bg-white rounded-card-lg border border-borderline p-5 sm:p-6 shadow-sm space-y-5"
     >
       {/* Header & Model Status Pill */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-borderline pb-4">
@@ -424,7 +426,7 @@ export function WeatherDiseasePredictor({
       </div>
 
       {/* Non-Diagnostic Medical Safety Notice */}
-      <div className="p-3 rounded-xl bg-[#FEF3D6] border border-[#F0D99B] flex items-start gap-2.5 text-xs text-[#6B4204]">
+      <div className="p-3 rounded-xl bg-[#FEF3D6] border border-[#F0D99B] flex items-start gap-2.5 text-xs text-[#6B4204] leading-relaxed">
         <ShieldAlert className="w-4 h-4 shrink-0 mt-0.5 text-[#A8650A]" />
         <div>
           <strong>{copy.disclaimerBanner}</strong>{" "}
@@ -437,23 +439,23 @@ export function WeatherDiseasePredictor({
       </div>
 
       {/* Main Grid: Left = Inputs Form, Right = Live Model Output */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-        {/* LEFT COLUMN: INPUT FORM (col-span-7) */}
-        <form onSubmit={handleRunPrediction} className="lg:col-span-7 space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* LEFT COLUMN: INPUT FORM (col-span-6) */}
+        <form onSubmit={handleRunPrediction} className="lg:col-span-6 space-y-4">
           {/* 1. Demographics & Ambient Weather Inputs */}
           <div className="p-4 rounded-xl bg-canvas/70 border border-borderline space-y-3">
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-bold uppercase tracking-wider text-ink flex items-center gap-1.5">
                 <Thermometer className="w-3.5 h-3.5 text-purple" />
-                <span>1. Demographics & Local Weather Features</span>
+                <span>1. Demographics &amp; Local Weather Features</span>
               </h3>
-              <span className="text-[11px] text-muted">5 Continuous / Encoded Predictors</span>
+              <span className="text-[11px] text-muted">5 Continuous Predictors</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
               <div>
                 <label htmlFor="ml-age" className="block text-[11px] font-bold text-ink mb-1">
-                  Age (Years)
+                  Age (Yrs)
                 </label>
                 <input
                   id="ml-age"
@@ -463,22 +465,22 @@ export function WeatherDiseasePredictor({
                   step={1}
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink"
+                  className="w-full h-8 px-2.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink focus:outline-none focus:ring-1 focus:ring-purple"
                 />
               </div>
 
               <div>
                 <label htmlFor="ml-gender" className="block text-[11px] font-bold text-ink mb-1">
-                  Gender (Dataset Code)
+                  Gender
                 </label>
                 <select
                   id="ml-gender"
                   value={gender}
                   onChange={(e) => setGender(Number(e.target.value))}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink"
+                  className="w-full h-8 px-2 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink focus:outline-none focus:ring-1 focus:ring-purple"
                 >
-                  <option value={0}>0 — Female</option>
-                  <option value={1}>1 — Male</option>
+                  <option value={0}>0 — F</option>
+                  <option value={1}>1 — M</option>
                 </select>
               </div>
 
@@ -494,13 +496,13 @@ export function WeatherDiseasePredictor({
                   max={60}
                   value={temperatureC}
                   onChange={(e) => setTemperatureC(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink"
+                  className="w-full h-8 px-2.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink focus:outline-none focus:ring-1 focus:ring-purple"
                 />
               </div>
 
               <div>
                 <label htmlFor="ml-humidity" className="block text-[11px] font-bold text-ink mb-1">
-                  Humidity (0–1)
+                  Humidity
                 </label>
                 <input
                   id="ml-humidity"
@@ -510,7 +512,7 @@ export function WeatherDiseasePredictor({
                   max={100}
                   value={humidityFraction}
                   onChange={(e) => setHumidityFraction(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink"
+                  className="w-full h-8 px-2.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink focus:outline-none focus:ring-1 focus:ring-purple"
                 />
               </div>
 
@@ -526,7 +528,7 @@ export function WeatherDiseasePredictor({
                   max={200}
                   value={windSpeedKmh}
                   onChange={(e) => setWindSpeedKmh(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink"
+                  className="w-full h-8 px-2.5 rounded-lg bg-white border border-borderline text-xs font-semibold text-ink focus:outline-none focus:ring-1 focus:ring-purple"
                 />
               </div>
             </div>
@@ -537,9 +539,9 @@ export function WeatherDiseasePredictor({
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-bold uppercase tracking-wider text-ink flex items-center gap-1.5">
                 <HeartPulse className="w-3.5 h-3.5 text-teal" />
-                <span>2. Medical History & Risk Factors</span>
+                <span>2. Medical History &amp; Risk Factors</span>
               </h3>
-              <span className="text-[11px] font-semibold text-teal">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal/10 text-teal">
                 {activeHistoryCount} selected
               </span>
             </div>
@@ -552,9 +554,9 @@ export function WeatherDiseasePredictor({
                     key={item.key}
                     type="button"
                     onClick={() => toggleHistory(item.key)}
-                    className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
+                    className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
                       active
-                        ? "bg-teal text-white border-teal shadow-2xs"
+                        ? "bg-teal text-white border-teal shadow-2xs font-semibold"
                         : "bg-white text-ink border-borderline hover:bg-teal-light/40"
                     }`}
                   >
@@ -567,21 +569,40 @@ export function WeatherDiseasePredictor({
 
           {/* 3. Binary Symptom Checklists (37 Features) */}
           <div className="p-4 rounded-xl bg-canvas/70 border border-borderline space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-ink flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-coral" />
-                <span>3. Reported Clinical Symptoms ({activeSymptomCount} active)</span>
-              </h3>
-              <input
-                type="text"
-                value={symptomSearch}
-                onChange={(e) => setSymptomSearch(e.target.value)}
-                placeholder="Filter symptoms (e.g., fever, chest, eye)..."
-                className="px-2.5 py-1 rounded-lg bg-white border border-borderline text-xs text-ink w-full sm:w-56"
-              />
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-ink flex items-center gap-1.5">
+                  <Activity className="w-3.5 h-3.5 text-coral shrink-0" />
+                  <span>3. Reported Clinical Symptoms</span>
+                </h3>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-light text-purple">
+                  {activeSymptomCount} active
+                </span>
+              </div>
+
+              {/* Search with icon & clear button */}
+              <div className="relative w-full sm:w-56">
+                <Search className="w-3.5 h-3.5 text-muted absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <input
+                  type="text"
+                  value={symptomSearch}
+                  onChange={(e) => setSymptomSearch(e.target.value)}
+                  placeholder="Filter symptoms (e.g., fever, chest)..."
+                  className="w-full pl-8 pr-7 py-1 rounded-lg bg-white border border-borderline text-xs text-ink focus:outline-none focus:ring-1 focus:ring-purple placeholder:text-muted/60"
+                />
+                {symptomSearch && (
+                  <button
+                    type="button"
+                    onClick={() => setSymptomSearch("")}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-muted hover:text-ink cursor-pointer p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
             </div>
 
-            <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
+            <div className="space-y-3.5 max-h-80 overflow-y-auto pr-1.5">
               {SYMPTOM_GROUPS.map((grp) => {
                 const visibleItems = grp.items.filter(
                   (it) =>
@@ -592,7 +613,10 @@ export function WeatherDiseasePredictor({
                 if (visibleItems.length === 0) return null;
                 return (
                   <div key={grp.groupTitle} className="space-y-1.5">
-                    <div className="text-[11px] font-bold text-muted">{grp.groupTitle}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-muted flex items-center gap-2 pt-0.5">
+                      <span>{grp.groupTitle}</span>
+                      <span className="h-px bg-borderline/60 flex-1" />
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
                       {visibleItems.map((sym) => {
                         const active = !!selectedSymptoms[sym.key];
@@ -601,11 +625,11 @@ export function WeatherDiseasePredictor({
                             key={sym.key}
                             type="button"
                             onClick={() => toggleSymptom(sym.key)}
-                            className={`px-2.5 py-1 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1 ${
+                            className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-all cursor-pointer flex items-center gap-1.5 leading-tight ${
                               active
                                 ? sym.isEmergencyFlag
-                                  ? "bg-coral text-white border-coral shadow-2xs"
-                                  : "bg-purple text-white border-purple shadow-2xs"
+                                  ? "bg-coral text-white border-coral shadow-2xs font-semibold"
+                                  : "bg-purple text-white border-purple shadow-2xs font-semibold"
                                 : sym.isEmergencyFlag
                                 ? "bg-white text-coral border-coral/40 hover:bg-coral-light/40"
                                 : "bg-white text-ink border-borderline hover:bg-purple-light/40"
@@ -630,13 +654,13 @@ export function WeatherDiseasePredictor({
             </div>
           )}
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-2.5">
+          {/* Action Buttons: Unified height, consistent corner radii, clear primary vs secondary */}
+          <div className="flex items-center gap-3 pt-1">
             <button
               type="submit"
               disabled={predicting || !modelStatus?.model_loaded}
               data-testid="run-ml-predict-btn"
-              className="flex-1 py-2.5 px-4 rounded-xl bg-purple hover:bg-purple/90 disabled:opacity-50 text-white text-xs sm:text-sm font-bold shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              className="flex-1 h-10 px-4 rounded-xl bg-purple hover:bg-purple/90 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs sm:text-sm font-bold shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {predicting ? (
                 <>
@@ -654,24 +678,25 @@ export function WeatherDiseasePredictor({
             <button
               type="button"
               onClick={handleReset}
-              className="py-2.5 px-3.5 rounded-xl border border-borderline hover:bg-canvas text-xs font-semibold text-ink transition-colors cursor-pointer"
+              className="h-10 px-4 rounded-xl border border-borderline hover:border-ink/20 hover:bg-canvas active:scale-[0.99] text-xs font-semibold text-ink transition-all flex items-center justify-center cursor-pointer shadow-2xs"
             >
               {copy.resetBtn}
             </button>
           </div>
         </form>
 
-        {/* RIGHT COLUMN: PREDICTION RESULTS & EXPLAINABILITY (col-span-5) */}
-        <div className="lg:col-span-5 space-y-3.5">
+        {/* RIGHT COLUMN: PREDICTION RESULTS & EXPLAINABILITY (col-span-6) */}
+        <div className="lg:col-span-6 space-y-4">
           {!predictionResult ? (
-            <div className="p-6 rounded-card bg-canvas/60 border border-dashed border-borderline text-center space-y-2">
-              <Stethoscope className="w-7 h-7 text-purple mx-auto" />
-              <div className="text-sm font-bold text-ink">
-                Select Weather & Symptom Inputs to Run Prediction
+            <div className="p-8 rounded-card bg-canvas/60 border border-dashed border-borderline text-center space-y-2.5">
+              <div className="w-12 h-12 rounded-2xl bg-purple-light text-purple flex items-center justify-center mx-auto">
+                <Stethoscope className="w-6 h-6" />
               </div>
-              <p className="text-xs text-muted">
-                The trained pipeline evaluates all 50 features and returns multiclass probability scores,
-                matched indicators, and medical safety guidance.
+              <div className="text-sm font-bold text-ink">
+                Select Weather &amp; Symptom Inputs to Run Prediction
+              </div>
+              <p className="text-xs text-muted max-w-sm mx-auto leading-relaxed">
+                The trained pipeline evaluates all 50 continuous, meteorological, and symptom features to return calibrated probability scores and non-diagnostic guidance.
               </p>
             </div>
           ) : (
@@ -700,15 +725,15 @@ export function WeatherDiseasePredictor({
               )}
 
               {/* Primary Prediction Card */}
-              <div className="p-4 sm:p-5 rounded-xl bg-purple-light/45 border-2 border-purple/35 space-y-3">
-                <div className="flex items-start justify-between gap-2">
+              <div className="p-4 sm:p-5 rounded-xl bg-purple-light/45 border-2 border-purple/35 space-y-3.5 shadow-2xs">
+                <div className="flex items-start justify-between gap-3">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-purple block">
                       Top Predicted Condition (Experimental Model Output)
                     </span>
                     <h3
                       data-testid="predicted-disease-label"
-                      className="text-2xl font-extrabold text-ink mt-0.5"
+                      className="text-2xl font-extrabold text-ink tracking-tight mt-0.5"
                     >
                       {predictionResult.predicted_disease}
                     </h3>
@@ -716,11 +741,11 @@ export function WeatherDiseasePredictor({
                       {predictionResult.disease_category}
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="px-3 py-1 rounded-full bg-purple text-white text-xs font-extrabold">
+                  <div className="text-right shrink-0">
+                    <div className="px-3 py-1 rounded-full bg-purple text-white text-xs font-extrabold shadow-2xs">
                       {predictionResult.model_score_pct}% Score
                     </div>
-                    <div className="text-[10px] font-bold text-ink/75 mt-1">
+                    <div className="text-[10px] font-semibold text-ink/75 mt-1">
                       {predictionResult.confidence_band}
                     </div>
                   </div>
@@ -731,22 +756,23 @@ export function WeatherDiseasePredictor({
                 </p>
 
                 {/* Top-5 Class Probability Distribution */}
-                <div className="space-y-1.5 pt-1">
-                  <div className="text-[11px] font-bold text-ink">
-                    Top Candidate Class Scores (Calibrated Model Distribution):
+                <div className="space-y-2 pt-1 border-t border-purple/15">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-ink">
+                    <span>Top Candidate Class Scores (Calibrated Model Distribution):</span>
+                    <span className="text-[10px] font-semibold text-muted">Score %</span>
                   </div>
                   {(predictionResult.top_predictions || []).map((item: any) => (
-                    <div key={item.disease} className="space-y-0.5">
+                    <div key={item.disease} className="space-y-1">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-ink">{item.disease}</span>
-                        <span className="font-mono font-bold text-purple">
+                        <span className="font-semibold text-ink truncate mr-2">{item.disease}</span>
+                        <span className="font-mono font-bold text-purple tabular-nums">
                           {item.percentage}%
                         </span>
                       </div>
-                      <div className="w-full h-2 rounded-full bg-white overflow-hidden border border-borderline">
+                      <div className="w-full h-2 rounded-full bg-white overflow-hidden border border-borderline/80">
                         <div
-                          className="h-full bg-purple rounded-full transition-all"
-                          style={{ width: `${Math.max(item.percentage, 2)}%` }}
+                          className="h-full bg-purple rounded-full transition-all duration-300"
+                          style={{ width: `${item.percentage > 0 ? Math.max(item.percentage, 2) : 0}%` }}
                         />
                       </div>
                     </div>
@@ -755,49 +781,52 @@ export function WeatherDiseasePredictor({
               </div>
 
               {/* Inputs Explanation & Matched Training Indicators */}
-              <div className="p-4 rounded-xl bg-canvas/80 border border-borderline space-y-2.5 text-xs">
-                <div className="font-bold text-ink flex items-center gap-1.5">
-                  <Info className="w-4 h-4 text-purple" />
+              <div className="p-4 rounded-xl bg-canvas/70 border border-borderline space-y-3 text-xs">
+                <div className="font-bold text-ink flex items-center gap-1.5 text-xs">
+                  <Info className="w-4 h-4 text-purple shrink-0" />
                   <span>Explanation of Inputs Used</span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-[11px]">
-                  <div className="p-2 rounded-lg bg-white border border-borderline">
-                    <span className="text-muted block">Demographics</span>
-                    <strong className="text-ink">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <div className="p-2.5 rounded-lg bg-white border border-borderline/80 shadow-2xs flex flex-col justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted">Demographics</span>
+                    <div className="text-xs font-bold text-ink mt-1">
                       Age {predictionResult.explanation?.inputs_used?.age} · Gender{" "}
                       {predictionResult.explanation?.inputs_used?.gender_code === 1 ? "1 (M)" : "0 (F)"}
-                    </strong>
+                    </div>
                   </div>
-                  <div className="p-2 rounded-lg bg-white border border-borderline">
-                    <span className="text-muted block">Temp & Humidity</span>
-                    <strong className="text-ink">
+                  <div className="p-2.5 rounded-lg bg-white border border-borderline/80 shadow-2xs flex flex-col justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted">Temp &amp; Humidity</span>
+                    <div className="text-xs font-bold text-ink mt-1">
                       {predictionResult.explanation?.inputs_used?.temperature_c}°C ·{" "}
                       {predictionResult.explanation?.inputs_used?.humidity_pct}%
-                    </strong>
+                    </div>
                   </div>
-                  <div className="p-2 rounded-lg bg-white border border-borderline">
-                    <span className="text-muted block">Wind & Flags</span>
-                    <strong className="text-ink flex items-center gap-1">
-                      <Wind className="w-3 h-3 text-teal" />
-                      {predictionResult.explanation?.inputs_used?.wind_speed_kmh} km/h (
-                      {predictionResult.explanation?.inputs_used?.total_active_flags} flags)
-                    </strong>
+                  <div className="p-2.5 rounded-lg bg-white border border-borderline/80 shadow-2xs flex flex-col justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted">Wind &amp; Flags</span>
+                    <div className="text-xs font-bold text-ink mt-1 flex items-center gap-1">
+                      <Wind className="w-3.5 h-3.5 text-teal shrink-0" />
+                      <span>
+                        {predictionResult.explanation?.inputs_used?.wind_speed_kmh} km/h (
+                        {predictionResult.explanation?.inputs_used?.total_active_flags} flags)
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 {predictionResult.explanation?.matched_training_indicators?.length > 0 && (
-                  <div>
-                    <div className="text-[11px] font-semibold text-muted mb-1">
-                      Key Active Features Matching {predictionResult.predicted_disease} Training Profile:
+                  <div className="pt-1.5 border-t border-borderline/60 space-y-1.5">
+                    <div className="text-[11px] font-semibold text-muted">
+                      Key Active Features Matching <strong className="text-ink">{predictionResult.predicted_disease}</strong> Training Profile:
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {predictionResult.explanation.matched_training_indicators.map((m: any) => (
                         <span
                           key={m.feature}
-                          className="px-2 py-0.5 rounded-md bg-white border border-borderline text-[11px] font-semibold text-ink"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-borderline text-[11px] font-medium text-ink shadow-2xs"
                         >
-                          {m.feature.replace(/_/g, " ")} ({m.class_prevalence_pct}% in class)
+                          <span>{m.feature.replace(/_/g, " ")}</span>
+                          <span className="text-muted font-normal">({m.class_prevalence_pct}% in class)</span>
                         </span>
                       ))}
                     </div>
@@ -806,17 +835,19 @@ export function WeatherDiseasePredictor({
               </div>
 
               {/* Actionable Non-Diagnostic Next Steps */}
-              <div className="p-4 rounded-xl bg-teal-light/50 border border-teal/30 space-y-2 text-xs">
-                <div className="font-bold text-ink flex items-center gap-1.5">
+              <div className="p-4 rounded-xl bg-teal-light/50 border border-teal/30 space-y-2.5 text-xs">
+                <div className="font-bold text-ink flex items-center gap-1.5 text-xs">
                   <CheckCircle2 className="w-4 h-4 text-teal shrink-0" />
                   <span>Recommended Next Steps (Non-Diagnostic Guidance)</span>
                 </div>
-                <ul className="space-y-1.5">
+                <ul className="space-y-2">
                   {(predictionResult.recommended_next_steps || []).map(
                     (step: string, i: number) => (
-                      <li key={i} className="flex items-start gap-2 text-ink/90 leading-relaxed">
-                        <span className="font-bold text-teal">{i + 1}.</span>
-                        <span>{step}</span>
+                      <li key={i} className="flex items-start gap-2.5 text-ink/90 leading-relaxed text-xs">
+                        <span className="w-5 h-5 rounded-full bg-teal text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                          {i + 1}
+                        </span>
+                        <span className="flex-1">{step}</span>
                       </li>
                     )
                   )}
@@ -824,20 +855,34 @@ export function WeatherDiseasePredictor({
               </div>
 
               {/* Medical Disclaimer & Limitations Footer */}
-              <div className="p-3 rounded-xl bg-canvas border border-borderline text-[11px] text-muted space-y-1">
+              <div className="p-3.5 rounded-xl bg-canvas/80 border border-borderline text-[11px] text-muted space-y-1.5 leading-relaxed">
                 <div>
-                  <strong>Disclaimer:</strong> {predictionResult.medical_disclaimer}
+                  <strong className="text-ink font-semibold">Disclaimer:</strong> {predictionResult.medical_disclaimer}
                 </div>
-                <div>
-                  <strong>Model Info:</strong> {predictionResult.model_metadata?.model_name} (
-                  {predictionResult.model_metadata?.model_version}) · Untouched Test Accuracy:{" "}
-                  {predictionResult.model_metadata?.test_accuracy
-                    ? `${(predictionResult.model_metadata.test_accuracy * 100).toFixed(1)}%`
-                    : "N/A"}{" "}
-                  · Test Macro-F1:{" "}
-                  {predictionResult.model_metadata?.test_macro_f1
-                    ? `${(predictionResult.model_metadata.test_macro_f1 * 100).toFixed(1)}%`
-                    : "N/A"}
+                <div className="pt-1.5 border-t border-borderline/60 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px]">
+                  <span>
+                    <strong className="text-ink font-semibold">Model Info:</strong>{" "}
+                    {predictionResult.model_metadata?.model_name} (
+                    {predictionResult.model_metadata?.model_version})
+                  </span>
+                  <span>·</span>
+                  <span>
+                    Untouched Test Accuracy:{" "}
+                    <strong className="text-ink font-medium">
+                      {predictionResult.model_metadata?.test_accuracy
+                        ? `${(predictionResult.model_metadata.test_accuracy * 100).toFixed(1)}%`
+                        : "N/A"}
+                    </strong>
+                  </span>
+                  <span>·</span>
+                  <span>
+                    Test Macro-F1:{" "}
+                    <strong className="text-ink font-medium">
+                      {predictionResult.model_metadata?.test_macro_f1
+                        ? `${(predictionResult.model_metadata.test_macro_f1 * 100).toFixed(1)}%`
+                        : "N/A"}
+                    </strong>
+                  </span>
                 </div>
               </div>
             </>
